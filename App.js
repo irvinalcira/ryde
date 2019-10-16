@@ -7,23 +7,17 @@
  */
 
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import { View } from 'react-native';
 
 import styles from './styles/AppStyles';
+import Main from './comp/Main';
 
 function App(){
   return (
 
-      <SafeAreaView>
-           <Text>Ryde</Text>
-      </SafeAreaView>
+      <View>
+        <Main />
+      </View>
 
   )
 };
