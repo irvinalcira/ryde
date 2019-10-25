@@ -8,14 +8,13 @@
 
 import React from 'react';
 import { View } from 'react-native';
-
 import styles from './styles/AppStyles';
 import Main from './comp/Main';
 
 function App(){
   return (
 
-      <View>
+      <View style={styles.app}>
         <Main />
       </View>
 

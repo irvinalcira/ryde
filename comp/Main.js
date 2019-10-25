@@ -1,12 +1,13 @@
-
 import React from 'react';
 import { View, Text } from 'react-native';
+import BusSchedules from './buschedules';
+import styles from '../styles/mainstyles';
 
 function Main(){
-  return (
+  return(
 
-      <View>
-           <Text>Ryde</Text>
+      <View style={styles.main}>
+        <BusSchedules />
       </View>
   )
 };
