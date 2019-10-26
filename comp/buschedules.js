@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TextInput, Button, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TextInput,TouchableOpacity, Image } from 'react-native';
 import styles from '../styles/buschedulesstyles';
 
 function BusSchedules(){

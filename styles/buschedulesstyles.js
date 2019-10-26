@@ -8,17 +8,18 @@ var styles=StyleSheet.create({
     },
     buschedfont:{
     fontSize:40,
-    fontWeight:"bold",
-    marginTop: -20
+    marginTop: -20,
+    fontFamily:"Assistant-Bold"
     },
     findbusfont:{
         fontSize:25,
         paddingTop:10,
-        fontWeight:'bold'
+        fontFamily:"Assistant-Bold"
     },
     searchbusfont:{
         paddingTop:5,
-        fontSize:16
+        fontSize:16,
+        fontFamily:"Assistant-Regular"
     },
     secondview:{
         justifyContent:"flex-start",
@@ -37,23 +38,24 @@ var styles=StyleSheet.create({
     firstbuttontxt:{
         textAlign:"center",
         color:"white",
-        fontWeight:"bold",
+        fontFamily:"Assistant-SemiBold",
         fontSize:18
 
     },
     viewbusstyle:{
         fontSize:25,
         paddingTop:10,
-        fontWeight:'bold'
+        fontFamily:"Assistant-Bold"
     },
     viewbusfont:{
         fontSize:21,
         paddingTop:30,
-        fontWeight:'bold'
+        fontFamily:"Assistant-Bold"
     },
     typeinfont:{
-        fontSize:11,
-        marginTop:10
+        marginTop:10,
+        fontSize:13,
+        fontFamily:"Assistant-Regular"
     },
 
     thirdview:{
@@ -68,7 +70,7 @@ var styles=StyleSheet.create({
     secondbuttontxt:{
         textAlign:"center",
         color:"white",
-        fontWeight:"bold",
+        fontFamily:"Assistant-SemiBold",
         fontSize:18
     },
     secondbutton:{
@@ -92,6 +94,11 @@ var styles=StyleSheet.create({
         height: 25,
         width: 25,
     },
+
+    some:{
+        fontFamily:"Assistant-Bold"
+    }
+    
 })
 
 export default styles;
