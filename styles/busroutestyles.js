@@ -7,6 +7,7 @@ import {
     removeOrientationListener as rol
   } from 'react-native-responsive-screen';
 
+  // Bus Routes
 var styles=StyleSheet.create({
     busroutestyles:{
 

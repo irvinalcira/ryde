@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TextInput,TouchableOpacity, Image } from 'react-native'
-import Tabbar from './tabbar';
-import styles from '../styles/buschedulesstyles';
+import TabBar from './TabBar';
+import styles from '../styles/BusSchedulesStyles';
 
 function BusSchedules(){
   return(
@@ -35,7 +35,7 @@ function BusSchedules(){
                <Text style={styles.secondbuttontxt}>Find Bus</Text>
            </TouchableOpacity>
            </View>
-             <Tabbar />
+             <TabBar />
       </View>
   )
 };

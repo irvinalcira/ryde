@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TextInput, Button, TouchableOpacity, Image,ScrollView, SafeAreaView} from 'react-native';
-import Tabbar from './tabbar';
-import styles from '../styles/busroutestyles';
+import TabBar from './TabBar';
+import styles from '../styles/BusRouteStyles';
 
 export default function BusRoute(){
   return(
@@ -42,7 +42,7 @@ export default function BusRoute(){
               <Text style={styles.busview1}>Test</Text>
               <Text style={styles.busview2}>Test</Text>
             </ScrollView>
-            <Tabbar />
+            <TabBar />
         </View>
   )
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import {TouchableOpacity,Image,Text, SafeAreaView} from 'react-native';
 import styles from '../styles/tabbarstyles';
 
-export default function Tabbar(){
+export default function TabBar(){
     return(
         <SafeAreaView style={styles.bottom}>
 <TouchableOpacity style={styles.touchstyle}>

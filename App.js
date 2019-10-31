@@ -9,7 +9,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import styles from './styles/AppStyles';
-import Main from './comp/Main';
+import Main from './comps/Main';
 
 function App(){
   return (

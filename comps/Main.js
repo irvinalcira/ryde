@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import BusSchedules from './buschedules';
-import BusRoute from './busroute';
+import BusSchedules from './BusSchedules';
+import BusRoute from './BusRoute';
 import styles from '../styles/mainstyles';
 
 function Main(){
