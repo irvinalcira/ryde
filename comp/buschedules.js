@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, TextInput,TouchableOpacity, Image } from 'react-native';
+import { View, Text, TextInput,TouchableOpacity, Image } from 'react-native'
+import Tabbar from './tabbar';
 import styles from '../styles/buschedulesstyles';
 
 function BusSchedules(){
@@ -15,7 +16,7 @@ function BusSchedules(){
            />
             <Image
           style={styles.ImageStyle}
-          source={require('../assets/search.png')}
+          source={require('../assets/icons/search.png')}
           />
              <TouchableOpacity style={styles.firstbutton}>
                <Text style={styles.firstbuttontxt}>View All Bus Routes</Text>
@@ -28,18 +29,13 @@ function BusSchedules(){
            />
                <Image
           style={styles.ImageStyle}
-          source={require('../assets/search.png')}
+          source={require('../assets/icons/search.png')}
           />
            <TouchableOpacity style={styles.secondbutton}>
                <Text style={styles.secondbuttontxt}>Find Bus</Text>
            </TouchableOpacity>
            </View>
-           <View style={styles.imgstyles}>
-           <Image
-          style={styles.barstyles}
-          source={require('../assets/navbar.png')}
-        />
-        </View>
+             <Tabbar />
       </View>
   )
 };

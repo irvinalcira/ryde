@@ -94,11 +94,6 @@ var styles=StyleSheet.create({
         height: 25,
         width: 25,
     },
-
-    some:{
-        fontFamily:"Assistant-Bold"
-    }
-    
 })
 
 export default styles;
