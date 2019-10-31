@@ -63,14 +63,16 @@ var styles=StyleSheet.create({
         height: hp('10%'),
         backgroundColor:"#EEEEEE",
         textAlign:"center",
-        paddingTop: "6%"
+        paddingTop: "6%",
+        fontFamily:"Assistant-Regular"
     },
     busview2:{
         width: wp('100%'),
         height: hp('10%'),
         backgroundColor:"#DBDBDB",
         textAlign:"center",
-        paddingTop: "6%"
+        paddingTop: "6%",
+        fontFamily:"Assistant-Regular"
     }
 });
 

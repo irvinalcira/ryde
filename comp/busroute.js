@@ -25,11 +25,11 @@ export default function BusRoute(){
                       source={require('../assets/icons/whitebus.png')}
                     />
                       <Text style={{color:"white",margin:10}}>116 Edmonds Station</Text>
-                      <Text style={{color:"white"}}>EAST</Text>
+                      <Text style={{color:"white", fontFamily:"Assistant-Regular"}}>EAST</Text>
                   </View>
                       <View style={styles.botstyles}>
-                        <Text style={{color:"white"}}>Stop Name</Text>
-                        <Text style={{color:"white"}}>Stop Number</Text>
+                        <Text style={{color:"white",fontFamily:"Assistant-Regular"}}>Stop Name</Text>
+                        <Text style={{color:"white",fontFamily:"Assistant-Regular"}}>Stop Number</Text>
                       </View>
               
    
