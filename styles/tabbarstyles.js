@@ -7,8 +7,9 @@ import {
     removeOrientationListener as rol
   } from 'react-native-responsive-screen';
 
-var styles=StyleSheet.create({
-bottom:{
+var TabBarStyles = StyleSheet.create({
+
+Bottom:{
     flexDirection:"row",
     justifyContent:"space-evenly",
     width:wp('120%'),
@@ -18,20 +19,20 @@ bottom:{
     position:'absolute',
     backgroundColor:"white",
 },
-botimg:{
+BotImg:{
     width:30,
     height:30,
     
 },
-touchstyle:{
+TouchStyle:{
     justifyContent:"space-evenly",
     alignItems:"stretch"
 
 },
-home:{
+Home:{
     width:wp('100'),
     fontSize:10,
     textAlign:"center"
 }});
 
-export default styles;
+export default TabBarStyles;

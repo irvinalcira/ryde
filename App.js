@@ -8,13 +8,13 @@
 
 import React from 'react';
 import { View } from 'react-native';
-import styles from './styles/AppStyles';
-import Main from './comp/Main';
+import AppStyles from './styles/AppStyles';
+import Main from './pages/Main';
 
 function App(){
   return (
 
-      <View style={styles.app}>
+      <View style={AppStyles.app}>
         <Main />
       </View>
 

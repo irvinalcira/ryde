@@ -7,50 +7,50 @@ import {
     removeOrientationListener as rol
   } from 'react-native-responsive-screen';
 
-var styles=StyleSheet.create({
-    busroutestyles:{
+var BusRouteStyles=StyleSheet.create({
+    container:{
 
     },
-    topview:{
+    TopView:{
         flex:0.5,
         backgroundColor:"#3971B3",
         padding:10,
         paddingTop: 40,
     },
-    busroutefont:{
+    BusRouteFont:{
         color:"white",
         fontFamily:"Assistant-SemiBold",
         fontSize:22,
         width:"100%",
     },
 
-    busrouteview:{
+    BusRouteView:{
         flex:1,
         justifyContent:"center"
     },
 
-    busrouteview2:{
+    BusRouteViewAlt:{
         flex:1.7,
     },
-    backarrow:{
+    BackArrow:{
         height:15,
         width:15,
     },
-    imgstyles:{
+    ImgStyles:{
         flexDirection:"row",
         width:"100%",
     },
-    botstyles:{
+    BotStyles:{
         flexDirection:"row",
         justifyContent:"space-between",
     },
-    midstyles:{
+    MidStyles:{
         width:"100%",
         justifyContent:"center",
         alignItems:"center",
         height:"80%"
     },
-    whitebus:{
+    WhiteBus:{
         height:60,
         width:60,
         margin:10 
@@ -58,14 +58,14 @@ var styles=StyleSheet.create({
     ScrollView:{
         flex:1,   
     },
-    busview1:{
+    BusView:{
         width: wp('100%'),
         height: hp('10%'),
         backgroundColor:"#EEEEEE",
         textAlign:"center",
         paddingTop: "6%"
     },
-    busview2:{
+    BusViewAlt:{
         width: wp('100%'),
         height: hp('10%'),
         backgroundColor:"#DBDBDB",
@@ -74,4 +74,4 @@ var styles=StyleSheet.create({
     }
 });
 
-export default styles;
+export default BusRouteStyles;
