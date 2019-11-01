@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 
-var AppStyles = StyleSheet.create({
-app:{
+var ContactsStyles = StyleSheet.create({
+Contacts:{
     flex:1,
     justifyContent:"center",
     alignItems:"center",
@@ -9,4 +9,4 @@ app:{
 }
 })
 
-export default AppStyles;
+export default ContactsStyles;

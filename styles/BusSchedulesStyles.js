@@ -1,27 +1,27 @@
 import {StyleSheet} from 'react-native';
 
-var styles=StyleSheet.create({
-    busstyles:{
+var BusSchedulesStyles =StyleSheet.create({
+    BusStyles:{
         flex:1,
         padding:10,
         paddingTop: 40
     },
-    buschedfont:{
+    BusSchedFont:{
     fontSize:40,
     marginTop: -20,
     fontFamily:"Assistant-Bold"
     },
-    findbusfont:{
+    FindBusFont:{
         fontSize:25,
         paddingTop:10,
         fontFamily:"Assistant-Bold"
     },
-    searchbusfont:{
+    SearchBusFont:{
         paddingTop:5,
         fontSize:16,
         fontFamily:"Assistant-Regular"
     },
-    secondview:{
+    SecondView:{
         justifyContent:"flex-start",
         alignItems:"center",
         marginTop:15,
@@ -30,35 +30,35 @@ var styles=StyleSheet.create({
         borderColor:"#D6D6D6",
         borderWidth:1,
     },
-    firstbutton:{
+    FirstButton:{
         marginTop: 30,
         padding:15,
         backgroundColor:"#4FA1CB",
     },
-    firstbuttontxt:{
+    FirstButtonTxt:{
         textAlign:"center",
         color:"white",
         fontFamily:"Assistant-SemiBold",
         fontSize:18
 
     },
-    viewbusstyle:{
+    ViewBusStyle:{
         fontSize:25,
         paddingTop:10,
         fontFamily:"Assistant-Bold"
     },
-    viewbusfont:{
+    ViewBusFont:{
         fontSize:21,
         paddingTop:30,
         fontFamily:"Assistant-Bold"
     },
-    typeinfont:{
+    TypeInFont:{
         marginTop:10,
         fontSize:13,
         fontFamily:"Assistant-Regular"
     },
 
-    thirdview:{
+    ThirdView:{
         justifyContent:"flex-start",
         alignItems:"center",
         marginTop:9,
@@ -67,22 +67,22 @@ var styles=StyleSheet.create({
         borderColor:"#D6D6D6",
         borderWidth:1
     },
-    secondbuttontxt:{
+    SecondButtonTxt:{
         textAlign:"center",
         color:"white",
         fontFamily:"Assistant-SemiBold",
         fontSize:18
     },
-    secondbutton:{
+    SecondButton:{
         marginTop: 30,
         padding:15,
         backgroundColor:"#3971B3",
     },
-    barstyles:{
+    BarStyles:{
         width:"110%",
         height:70,
     },
-    imgstyles:{
+    ImgStyles:{
             alignItems: 'center',
             justifyContent: 'center',
             height: 50,
@@ -96,4 +96,4 @@ var styles=StyleSheet.create({
     },
 })
 
-export default styles;
+export default BusSchedulesStyles;
