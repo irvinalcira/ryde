@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 import BusSchedules from './BusSchedules';
 import BusRoute from './BusRoute';
 import Contacts from './Contacts';
+import BusLastRoute from './BusLastRoute';
 
 
 import MainStyles from '../styles/MainStyles';
@@ -14,7 +15,8 @@ function Main(){
 
         {/* <BusSchedules /> */}
         {/* <Contacts /> */}
-        <BusRoute />
+        {/* <BusRoute /> */}
+        <BusLastRoute />
 
       </View>
   )
