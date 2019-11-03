@@ -2,7 +2,9 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import BusSchedules from './BusSchedules';
 import BusRoute from './BusRoute';
+import EmptyContacts from './EmptyContacts';
 import Contacts from './Contacts';
+import AddContacts from './AddContacts';
 import BusLastRoute from './BusLastRoute';
 
 
@@ -13,10 +15,14 @@ function Main(){
 
       <View style={MainStyles.main}>
 
-        {/* <BusSchedules /> */}
+      {/* <BusSchedules />   */}
+        {/* <EmptyContacts /> */}
         {/* <Contacts /> */}
+        <AddContacts />
         {/* <BusRoute /> */}
-        <BusLastRoute />
+        {/* <BusSchedules />=]\a */}
+        {/* <BusRoute /> */}
+        {/* <BusLastRoute /> */}
 
       </View>
   )
