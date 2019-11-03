@@ -7,5 +7,4 @@ var MainStyles = StyleSheet.create({
         alignItems:"center",
     }
 })
-
 export default MainStyles;

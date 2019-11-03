@@ -11,13 +11,31 @@ var ContactsStyles = StyleSheet.create({
 Contacts: {
     flex:1,
     padding: 15,
-    paddingTop: 40,
+    paddingTop: 20,
     width: wp('100%')
 },
+TitleCont: {
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "center",
+  alignItems: "center"
+},
 Title: {
+  flex: 10,
   fontSize: 34,
-  marginTop: -20,
   fontFamily: "Assistant-Bold"
+},
+TitleImg: {
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "center",
+  flex: 1
+},
+Settings: {
+  width: 8,
+  height: 25,
+  marginTop: -20,
+  resizeMode : 'stretch'
 },
 FirstContainer: {
   marginTop: 40,
@@ -25,7 +43,8 @@ FirstContainer: {
   flexDirection: "row",
 },
 Container: {
-  // marginTop: 10,
+  paddingTop: 5,
+  paddingBottom: 5,
   display: "flex",
   flexDirection: "row",
 },
@@ -48,7 +67,6 @@ ImageCont: {
 Image: {
   // backgroundColor: "purple",
   flex: 1,
-  // marginRight: 30,
   resizeMode : 'stretch',
   width: 25
 }

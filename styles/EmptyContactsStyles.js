@@ -11,12 +11,11 @@ var EContactsStyles = StyleSheet.create({
 Contacts: {
     flex:1,
     padding: 15,
-    paddingTop: 40,
+    paddingTop: 20,
     width: wp('100%')
 },
 Title: {
 fontSize: 34,
-marginTop: -20,
 fontFamily: "Assistant-Bold"
 },
 Heading: {
