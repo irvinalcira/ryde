@@ -30,7 +30,9 @@ Description: {
 },
 ImportBut: {
     marginTop: 50,
-    padding:15,
+    height:50,
+    textAlign:'center',
+    justifyContent:'center',
     backgroundColor:"#4FA1CB",
     borderRadius: 3
 },
@@ -42,7 +44,9 @@ ImportButText: {
 },
 ManualBut: {
     marginTop: 10,
-    padding:15,
+    height:50,
+    textAlign:'center',
+    justifyContent:'center',
     backgroundColor:"#3971B3",
     borderRadius: 3
 }

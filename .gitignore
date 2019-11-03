@@ -38,7 +38,7 @@ android/
 ios/
 package-lock.json
 jspm_packages/
-**/.DS_Store
+.DS_Store
 
 
 # TypeScript v1 declaration files
