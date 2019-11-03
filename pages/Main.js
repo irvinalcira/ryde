@@ -6,6 +6,8 @@ import EmptyContacts from './EmptyContacts';
 import Contacts from './Contacts';
 import AddContacts from './AddContacts';
 import BusLastRoute from './BusLastRoute';
+import Taxis from './Taxis';
+import SelectedTaxi from './SelectedTaxi';
 
 
 import MainStyles from '../styles/MainStyles';
@@ -15,14 +17,17 @@ function Main(){
 
       <View style={MainStyles.main}>
 
-      {/* <BusSchedules />   */}
-        {/* <EmptyContacts /> */}
-        {/* <Contacts /> */}
-        <AddContacts />
-        {/* <BusRoute /> */}
-        {/* <BusSchedules />=]\a */}
+        {/* <BusSchedules />   */}
         {/* <BusRoute /> */}
         {/* <BusLastRoute /> */}
+
+        {/* <EmptyContacts /> */}
+        {/* <Contacts /> */}
+        {/* <AddContacts /> */}
+
+
+        <Taxis />
+        {/* <SelectedTaxi /> */}
 
       </View>
   )
