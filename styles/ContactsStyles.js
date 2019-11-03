@@ -7,18 +7,18 @@ import {
   } from 'react-native-responsive-screen';
 
 
-var ContactsStyles = StyleSheet.create({
+var styles = StyleSheet.create({
 Contacts: {
     flex:1,
     padding: 15,
-    paddingTop: 20,
+    marginTop: 20,
     width: wp('100%')
 },
 TitleCont: {
   display: "flex",
   flexDirection: "row",
   justifyContent: "center",
-  alignItems: "center"
+  alignItems: "center",
 },
 Title: {
   flex: 10,
@@ -27,14 +27,15 @@ Title: {
 },
 TitleImg: {
   display: "flex",
+  flex: 1,
   flexDirection: "row",
   justifyContent: "center",
-  flex: 1
+  alignItems: "center",
+  height: "100%"
 },
 Settings: {
-  width: 8,
+  width: 6,
   height: 25,
-  marginTop: -20,
   resizeMode : 'stretch'
 },
 FirstContainer: {
@@ -43,34 +44,30 @@ FirstContainer: {
   flexDirection: "row",
 },
 Container: {
-  paddingTop: 5,
-  paddingBottom: 5,
+  marginTop: 5,
+  marginBottom: 5,
   display: "flex",
   flexDirection: "row",
 },
 Name: {
   flex: 3,
   fontSize: 18,
-  padding: 15,
+  margin: 15,
   fontFamily: "Assistant-Regular"
 },
 ImageCont: {
   display: "flex",
+  flex: 1,
   flexDirection: "row",
   justifyContent: "center",
   alignItems: "center",
-  flex: 1,
-  // backgroundColor: "pink",
-  width: wp('100%'),
-  padding: 15
+  margin: 15
 },
 Image: {
-  // backgroundColor: "purple",
   flex: 1,
-  resizeMode : 'stretch',
   width: 25
 }
 
 })
 
-export default ContactsStyles;
+export default styles;

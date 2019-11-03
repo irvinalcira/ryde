@@ -7,26 +7,26 @@ import {
   } from 'react-native-responsive-screen';
 
 
-var EContactsStyles = StyleSheet.create({
+var styles = StyleSheet.create({
 Contacts: {
     flex:1,
     padding: 15,
-    paddingTop: 20,
+    marginTop: 20,
     width: wp('100%')
 },
 Title: {
-fontSize: 34,
-fontFamily: "Assistant-Bold"
+    fontSize: 34,
+    fontFamily: "Assistant-Bold"
 },
 Heading: {
-    fontSize:20,
-    paddingTop:40,
-    fontFamily:"Assistant-Bold"
+    fontSize: 20,
+    paddingTop: 40,
+    fontFamily: "Assistant-Bold"
 },
 Description: {
-    paddingTop:5,
-    fontSize:16,
-    fontFamily:"Assistant-Regular"
+    marginTop: 5,
+    fontSize: 16,
+    fontFamily: "Assistant-Regular"
 },
 ImportBut: {
     marginTop: 50,
@@ -48,4 +48,4 @@ ManualBut: {
 }
 })
 
-export default EContactsStyles;
+export default styles;

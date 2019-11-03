@@ -16,9 +16,9 @@ function Main(){
       <View style={MainStyles.main}>
 
       {/* <BusSchedules />   */}
-        {/* <EmptyContacts /> */}
+        <EmptyContacts />
         {/* <Contacts /> */}
-        <AddContacts />
+        {/* <AddContacts /> */}
         {/* <BusRoute /> */}
         {/* <BusSchedules />=]\a */}
         {/* <BusRoute /> */}
