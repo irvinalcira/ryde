@@ -9,10 +9,9 @@ import {
 var BusLastStyles=StyleSheet.create({
     Main:{
         flex:1,
-        width:wp('100%')
     },
     TopView:{
-        flex:1,
+        flex:0.8,
         backgroundColor:"#3971B3",
         padding:20,
         paddingTop: 40,
@@ -22,7 +21,8 @@ var BusLastStyles=StyleSheet.create({
         fontFamily:"Assistant-SemiBold",
         fontSize:22,
         width:"100%",
-        textAlign:"center"
+        textAlign:"center",
+        marginLeft:-13
     },
 
     BusRouteView:{
@@ -39,14 +39,6 @@ var BusLastStyles=StyleSheet.create({
     },
     ImgStyles:{
     flexDirection:"row",
-    },
-    ImgStyles1:{
-        justifyContent:"center",
-        alignItems:"center"
-    },
-    ImgStyles2:{
-     flexDirection:"row",
-     backgroundColor:"black"
     },
 
     BotStyles:{
@@ -80,6 +72,7 @@ TimeCont:{
     paddingLeft:20,
     paddingRight:20,
     paddingTop:10,
+    borderRadius:6,
     width:wp('90%'),
 },
 TimeWrap:{
@@ -95,7 +88,26 @@ TimeText2:{
     fontSize:20,
     margin:3,
     fontFamily:"Assistant-SemiBold"
+},
+BusText:{
+    color:"white",
+    margin:10,
+    fontFamily:"Assistant-SemiBold"
+},
+DirText:{
+    color:"white",
+    fontFamily:"Assistant-SemiBold"
+},
+StopName:{
+    color:"white",
+    fontFamily:"Assistant-SemiBold"
+},
+
+StopNumber:{
+    color:"white",
+    fontFamily:"Assistant-SemiBold"
 }
+
 });
 
 export default BusLastStyles;
