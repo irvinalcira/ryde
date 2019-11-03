@@ -12,9 +12,9 @@ function Main(){
 
       <View style={MainStyles.main}>
 
-        {/* <BusSchedules /> */}
-        {/* <Contacts /> */}
-        <BusRoute />
+      {/* <BusSchedules />   */}
+        <Contacts />
+        {/* <BusRoute /> */}
 
       </View>
   )
