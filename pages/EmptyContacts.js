@@ -1,20 +1,26 @@
 import React from 'react';
-import { View, Text, Button, SafeAreaView } from 'react-native';
+import { View, Text, Button, SafeAreaView, TouchableOpacity } from 'react-native';
 import TabBar from '../comps/TabBar';
-import ContactsStyles from '../styles/ContactsStyles';
+import EContactsStyles from '../styles/EmptyContactsStyles';
 
-function Contacts(){
+function EmptyContacts(){
   return (
-    <SafeAreaView style={ContactsStyles.Contacts}>
-      <View style={ContactsStyles.Contacts}>
-        <Text style={ContactsStyles.Title}>Contacts</Text>
+    <SafeAreaView style={EContactsStyles.Contacts}>
+      <View style={EContactsStyles.Contacts}>
+        <Text style={EContactsStyles.Title}>Contacts</Text>
 
-        <Text style={ContactsStyles.Heading}>You have no Contacts on Ryde</Text>
-        <Text style={ContactsStyles.Description}>
+        <Text style={EContactsStyles.Heading}>You have no Contacts on Ryde</Text>
+        <Text style={EContactsStyles.Description}>
         Start by adding your important contacts for quick phone or messaging access. You can edit, add, or remove contacts anytime.
         </Text>
         
+        <TouchableOpacity  style={EContactsStyles.ImportBut}>
+       <Text style={EContactsStyles.ImportButText}>Import Contacts from Phone</Text>
+        </TouchableOpacity>
 
+        <TouchableOpacity  style={EContactsStyles.ManualBut}>
+       <Text style={EContactsStyles.ImportButText}>Manually Add Contacts</Text>
+        </TouchableOpacity>
 
       <TabBar />
       </View>
@@ -22,4 +28,4 @@ function Contacts(){
   )
 };
 
-export default Contacts;
+export default EmptyContacts;

@@ -7,15 +7,15 @@ import {
   } from 'react-native-responsive-screen';
 
 
-var ContactsStyles = StyleSheet.create({
+var EContactsStyles = StyleSheet.create({
 Contacts: {
     flex:1,
-    padding: 10,
+    padding: 15,
     paddingTop: 40,
     width: wp('100%')
 },
 Title: {
-fontSize: 40,
+fontSize: 34,
 marginTop: -20,
 fontFamily: "Assistant-Bold"
 },
@@ -28,7 +28,25 @@ Description: {
     paddingTop:5,
     fontSize:16,
     fontFamily:"Assistant-Regular"
+},
+ImportBut: {
+    marginTop: 50,
+    padding:15,
+    backgroundColor:"#4FA1CB",
+    borderRadius: 3
+},
+ImportButText: {
+    textAlign:"center",
+    color:"white",
+    fontFamily:"Assistant-SemiBold",
+    fontSize:17
+},
+ManualBut: {
+    marginTop: 10,
+    padding:15,
+    backgroundColor:"#3971B3",
+    borderRadius: 3
 }
 })
 
-export default ContactsStyles;
+export default EContactsStyles;
