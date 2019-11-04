@@ -11,26 +11,28 @@ var EContactsStyles = StyleSheet.create({
 Contacts: {
     flex:1,
     padding: 15,
-    paddingTop: 20,
+    marginTop: 20,
     width: wp('100%')
 },
 Title: {
-fontSize: 34,
-fontFamily: "Assistant-Bold"
+    fontSize: 34,
+    fontFamily: "Assistant-Bold"
 },
 Heading: {
-    fontSize:20,
-    paddingTop:40,
-    fontFamily:"Assistant-Bold"
+    fontSize: 20,
+    paddingTop: 40,
+    fontFamily: "Assistant-Bold"
 },
 Description: {
-    paddingTop:5,
-    fontSize:16,
-    fontFamily:"Assistant-Regular"
+    marginTop: 5,
+    fontSize: 16,
+    fontFamily: "Assistant-Regular"
 },
 ImportBut: {
     marginTop: 50,
-    padding:15,
+    height:50,
+    textAlign:'center',
+    justifyContent:'center',
     backgroundColor:"#4FA1CB",
     borderRadius: 3
 },
@@ -42,7 +44,9 @@ ImportButText: {
 },
 ManualBut: {
     marginTop: 10,
-    padding:15,
+    height:50,
+    textAlign:'center',
+    justifyContent:'center',
     backgroundColor:"#3971B3",
     borderRadius: 3
 }

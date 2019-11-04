@@ -1,46 +1,46 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, Image, TextInput } from 'react-native';
 import TabBar from '../comps/TabBar';
-import AddContactsStyles from '../styles/AddContactsStyles';
+import AContactsStyles from '../styles/AddContactsStyles';
 
 function AddContacts() {
 
   return (
 
-    <SafeAreaView style={AddContactsStyles.Contacts}>
-      <View style={AddContactsStyles.Contacts}>
+    <SafeAreaView style={AContactsStyles.Contacts}>
+      <View style={AContactsStyles.Contacts}>
 
         {/* Top Bar */}
-        <View style={AddContactsStyles.TopBar}>
+        <View style={AContactsStyles.TopBar}>
         <TouchableOpacity>
-        <Text style={AddContactsStyles.Link}>Cancel</Text>
+        <Text style={AContactsStyles.Link}>Cancel</Text>
         </TouchableOpacity>
-        <Text style={AddContactsStyles.Title}>New Contact</Text>
+        <Text style={AContactsStyles.Title}>New Contact</Text>
         <TouchableOpacity>
-        <Text style={AddContactsStyles.Link}>Create</Text>
+        <Text style={AContactsStyles.Link}>Create</Text>
         </TouchableOpacity>
         </View>
 
 
 
         {/*Text Inputs */}
-        <Text style={AddContactsStyles.Heading}>Manually Add Contact</Text>
+        <Text style={AContactsStyles.Heading}>Manually Add Contact</Text>
 
-        <Text style={AddContactsStyles.InpLabel}>First Name</Text>
+        <Text style={AContactsStyles.InpLabel}>First Name</Text>
         <TextInput
-        style={AddContactsStyles.Inp}
+        style={AContactsStyles.Inp}
         placeholder="ie: Celine"
         />
 
-        <Text style={AddContactsStyles.InpLabel}>Last Name</Text>
+        <Text style={AContactsStyles.InpLabel}>Last Name</Text>
         <TextInput
-        style={AddContactsStyles.Inp}
+        style={AContactsStyles.Inp}
         placeholder="ie: Rogers"
         />
 
-        <Text style={AddContactsStyles.InpLabel}>Phone Number</Text>
+        <Text style={AContactsStyles.InpLabel}>Phone Number</Text>
         <TextInput
-        style={AddContactsStyles.Inp}
+        style={AContactsStyles.Inp}
         keyboardType={'numeric'}
         placeholder="(xxx) xxx-xxxx"
         />

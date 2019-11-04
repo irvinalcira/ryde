@@ -23,10 +23,9 @@ function Main(){
 
         {/* <EmptyContacts /> */}
         {/* <Contacts /> */}
-        {/* <AddContacts /> */}
+        <AddContacts />
 
-
-        <Taxis />
+        {/* <Taxis /> */}
         {/* <SelectedTaxi /> */}
 
       </View>
