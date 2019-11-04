@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Button, SafeAreaView, StatusBar, TouchableOpacity, TextInput, Image } from 'react-native';
-import TabBar from '../comps/TabBar';
-import SelectedTaxiStyles from '../styles/SelectedTaxiStyles';
+import TabBar from '../../comps/TabBar';
+import SelectedTaxiStyles from '../../styles/taxis/SelectedTaxiStyles';
 
 function SelectedTaxi(){
 
@@ -20,14 +20,14 @@ function SelectedTaxi(){
     <View style={SelectedTaxiStyles.BackButton}>
         <Image
             style={SelectedTaxiStyles.BackIcon}
-            source={require('../assets/icons/back2.png')}
+            source={require('../../assets/icons/back2.png')}
         />
 </View>
  
     <View style={SelectedTaxiStyles.TaxiImageContainer}>
         <Image
                 style={SelectedTaxiStyles.TaxiImg}
-                source={require('../imgs/taxis/vancouver-taxi.jpg')}
+                source={require('../../imgs/taxis/vancouver-taxi.jpg')}
             />
     </View>
 
@@ -44,7 +44,7 @@ function SelectedTaxi(){
     <View style={SelectedTaxiStyles.TaxiFavorite}>
         <Image
             style={SelectedTaxiStyles.FavoriteIcon}
-            source={require('../assets/icons/favorite2.png')}
+            source={require('../../assets/icons/favorite2.png')}
         />
     </View>
 

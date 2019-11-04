@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Button, SafeAreaView, ScrollView,TouchableOpacity, TextInput, Image } from 'react-native';
-import TabBar from '../comps/TabBar';
-import TaxisStyles from '../styles/TaxisStyles';
+import TabBar from '../../comps/TabBar';
+import TaxisStyles from '../../styles/taxis/TaxisStyles';
 
 function Taxis(){
   return (
@@ -41,7 +41,7 @@ function Taxis(){
                 <View style={TaxisStyles.IconCont}>
                         <Image
                         style={TaxisStyles.TaxiImg}
-                        source={require('../assets/icons/blacktaxi.png')}
+                        source={require('../../assets/icons/blacktaxi.png')}
                         />
                 </View>
 
@@ -56,7 +56,7 @@ function Taxis(){
                 <View style={TaxisStyles.IconCont}>
                         <Image
                         style={TaxisStyles.ArrowImg}
-                        source={require('../assets/icons/arrow.png')}
+                        source={require('../../assets/icons/arrow.png')}
                         />
                 </View>
         </TouchableOpacity>
@@ -67,7 +67,7 @@ function Taxis(){
                 <View style={TaxisStyles.IconCont}>
                         <Image
                         style={TaxisStyles.TaxiImg}
-                        source={require('../assets/icons/bluetaxi.png')}
+                        source={require('../../assets/icons/bluetaxi.png')}
                         />
                 </View>
 
@@ -82,7 +82,7 @@ function Taxis(){
                 <View style={TaxisStyles.IconCont}>
                         <Image
                         style={TaxisStyles.ArrowImg}
-                        source={require('../assets/icons/bluearrow.png')}
+                        source={require('../../assets/icons/bluearrow.png')}
                         />
                 </View>
         </TouchableOpacity>
@@ -93,7 +93,7 @@ function Taxis(){
                 <View style={TaxisStyles.IconCont}>
                         <Image
                         style={TaxisStyles.TaxiImg}
-                        source={require('../assets/icons/blacktaxi.png')}
+                        source={require('../../assets/icons/blacktaxi.png')}
                         />
                 </View>
 
@@ -108,7 +108,7 @@ function Taxis(){
                 <View style={TaxisStyles.IconCont}>
                         <Image
                         style={TaxisStyles.ArrowImg}
-                        source={require('../assets/icons/arrow.png')}
+                        source={require('../../assets/icons/arrow.png')}
                         />
                 </View>
         </TouchableOpacity>
@@ -119,7 +119,7 @@ function Taxis(){
                 <View style={TaxisStyles.IconCont}>
                         <Image
                         style={TaxisStyles.TaxiImg}
-                        source={require('../assets/icons/bluetaxi.png')}
+                        source={require('../../assets/icons/bluetaxi.png')}
                         />
                 </View>
 
@@ -134,7 +134,7 @@ function Taxis(){
                 <View style={TaxisStyles.IconCont}>
                         <Image
                         style={TaxisStyles.ArrowImg}
-                        source={require('../assets/icons/bluearrow.png')}
+                        source={require('../../assets/icons/bluearrow.png')}
                         />
                 </View>
         </TouchableOpacity>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Button, SafeAreaView, TouchableOpacity } from 'react-native';
-import TabBar from '../comps/TabBar';
-import EContactsStyles from '../styles/EmptyContactsStyles';
+import TabBar from '../../comps/TabBar';
+import EContactsStyles from '../../styles/contacts/EmptyContactsStyles';
 
 function EmptyContacts(){
   return (

@@ -1,10 +1,10 @@
 import React from 'react';
 import {View,Text, Image,SafeAreaView} from 'react-native';
-import BusLastStyles from '../styles/BusLastRouteStyles';
-import TabBar from '../comps/TabBar';
-import ScheduleTouchable from '../comps/ScheduleTouch';
-import DarkBlueTouchable from '../comps/DarkBlueTouch';
-import DividerLine from '../comps/Divider';
+import BusLastStyles from '../../styles/bus/BusLastRouteStyles';
+import TabBar from '../../comps/TabBar';
+import ScheduleTouchable from '../../comps/ScheduleTouch';
+import DarkBlueTouchable from '../../comps/DarkBlueTouch';
+import DividerLine from '../../comps/Divider';
 
 export default function BusLastRoute(){
     return(
@@ -14,7 +14,7 @@ export default function BusLastRoute(){
           <View style={BusLastStyles.ImgStyles}>
               <Image
               style={BusLastStyles.BackArrow}
-              source={require('../assets/icons/whitearrow.png')}
+              source={require('../../assets/icons/whitearrow.png')}
               />
                <Text style={BusLastStyles.BusRouteFont}>60212</Text>
             </View>
@@ -23,7 +23,7 @@ export default function BusLastRoute(){
             <View style={BusLastStyles.MidStyles}>
               <Image
                 style={BusLastStyles.WhiteBus}
-                source={require('../assets/icons/whitebus.png')}
+                source={require('../../assets/icons/whitebus.png')}
               />
               <Text style={BusLastStyles.BusText}>Metrotown Station @ Bay 12</Text>
               <Text style={BusLastStyles.DirText}>EAST</Text>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, Image, TextInput } from 'react-native';
-import TabBar from '../comps/TabBar';
-import AContactsStyles from '../styles/AddContactsStyles';
+import TabBar from '../../comps/TabBar';
+import AContactsStyles from '../../styles/contacts/AddContactsStyles';
 
 function AddContacts() {
 

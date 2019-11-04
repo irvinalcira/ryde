@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, Image } from 'react-native';
-import TabBar from '../comps/TabBar';
-import ContactsStyles from '../styles/ContactsStyles';
-import Divider from '../comps/Divider';
+import TabBar from '../../comps/TabBar';
+import ContactsStyles from '../../styles/contacts/ContactsStyles';
+import Divider from '../../comps/Divider';
 
 
 function Contacts() {
@@ -19,7 +19,7 @@ function Contacts() {
         <TouchableOpacity>
         <Image 
         style={ContactsStyles.Settings}
-         source={require('../assets/icons/settings.png')}
+         source={require('../../assets/icons/settings.png')}
          />
          </TouchableOpacity>
          </View>
@@ -37,14 +37,14 @@ function Contacts() {
           <TouchableOpacity>
           <Image 
           style={[ContactsStyles.Image, {marginRight: 30}]}
-          source={require('../assets/icons/message.png')}
+          source={require('../../assets/icons/message.png')}
           />
           </TouchableOpacity>
 
           <TouchableOpacity>
           <Image 
           style={ContactsStyles.Image}
-          source={require('../assets/icons/phone.png')}
+          source={require('../../assets/icons/phone.png')}
           />
           </TouchableOpacity>
           
@@ -67,14 +67,14 @@ function Contacts() {
           <TouchableOpacity>
           <Image 
           style={[ContactsStyles.Image, {marginRight: 30}]}
-          source={require('../assets/icons/message.png')}
+          source={require('../../assets/icons/message.png')}
           />
           </TouchableOpacity>
 
           <TouchableOpacity>
           <Image 
           style={ContactsStyles.Image}
-          source={require('../assets/icons/phone.png')}
+          source={require('../../assets/icons/phone.png')}
           />
           </TouchableOpacity>
           
@@ -97,14 +97,14 @@ function Contacts() {
           <TouchableOpacity>
           <Image 
           style={[ContactsStyles.Image, {marginRight: 30}]}
-          source={require('../assets/icons/message.png')}
+          source={require('../../assets/icons/message.png')}
           />
           </TouchableOpacity>
 
           <TouchableOpacity>
           <Image 
           style={ContactsStyles.Image}
-          source={require('../assets/icons/phone.png')}
+          source={require('../../assets/icons/phone.png')}
           />
           </TouchableOpacity>
           
@@ -127,14 +127,14 @@ function Contacts() {
           <TouchableOpacity>
           <Image 
           style={[ContactsStyles.Image, {marginRight: 30}]}
-          source={require('../assets/icons/message.png')}
+          source={require('../../assets/icons/message.png')}
           />
           </TouchableOpacity>
 
           <TouchableOpacity>
           <Image 
           style={ContactsStyles.Image}
-          source={require('../assets/icons/phone.png')}
+          source={require('../../assets/icons/phone.png')}
           />
           </TouchableOpacity>
           

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TextInput, Button, TouchableOpacity, Image,ScrollView, SafeAreaView} from 'react-native';
-import TabBar from '../comps/TabBar';
-import BusRouteStyles from '../styles/BusRouteStyles';
+import TabBar from '../../comps/TabBar';
+import BusRouteStyles from '../../styles/bus/BusRouteStyles';
 
 export default function BusRoute(){
   return(
@@ -11,7 +11,7 @@ export default function BusRoute(){
               <View style={BusRouteStyles.BusRouteView}>
                 <Image
                 style={BusRouteStyles.BackArrow}
-                source={require('../assets/icons/whitearrow.png')}
+                source={require('../../assets/icons/whitearrow.png')}
                 />
                 </View>
                 < View style={BusRouteStyles.BusRouteViewAlt}>
@@ -22,7 +22,7 @@ export default function BusRoute(){
                   <View style={BusRouteStyles.MidStyles}>
                     <Image
                       style={BusRouteStyles.WhiteBus}
-                      source={require('../assets/icons/whitebus.png')}
+                      source={require('../../assets/icons/whitebus.png')}
                     />
                       <Text style={{color:"white",margin:10}}>116 Edmonds Station</Text>
                       <Text style={{color:"white"}}>EAST</Text>
