@@ -7,7 +7,7 @@ import {
   } from 'react-native-responsive-screen';
 
 
-var styles = StyleSheet.create({
+var EContactsStyles = StyleSheet.create({
 Contacts: {
     flex:1,
     padding: 15,
@@ -52,4 +52,4 @@ ManualBut: {
 }
 })
 
-export default styles;
+export default EContactsStyles;

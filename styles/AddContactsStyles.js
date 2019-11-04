@@ -7,7 +7,7 @@ import {
   } from 'react-native-responsive-screen';
 
 
-var styles = StyleSheet.create({
+var AContactsStyles = StyleSheet.create({
 Contacts: {
     flex:1,
     padding: 15,
@@ -54,4 +54,4 @@ Inp: {
 
 })
 
-export default styles;
+export default AContactsStyles;

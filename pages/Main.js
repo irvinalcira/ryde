@@ -19,14 +19,11 @@ function Main(){
 
         {/* <BusSchedules />   */}
         {/* <BusRoute /> */}
-        {/* <BusSchedules />=]\a */}
-        {/* <BusSchedules />   */}
-        {/* <BusRoute /> */}
         {/* <BusLastRoute /> */}
 
-        <EmptyContacts />
+        {/* <EmptyContacts /> */}
         {/* <Contacts /> */}
-        {/* <AddContacts /> */}
+        <AddContacts />
 
         {/* <Taxis /> */}
         {/* <SelectedTaxi /> */}

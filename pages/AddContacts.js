@@ -1,46 +1,46 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, Image, TextInput } from 'react-native';
 import TabBar from '../comps/TabBar';
-import styles from '../styles/AddContactsStyles';
+import AContactsStyles from '../styles/AddContactsStyles';
 
 function AddContacts() {
 
   return (
 
-    <SafeAreaView style={styles.Contacts}>
-      <View style={styles.Contacts}>
+    <SafeAreaView style={AContactsStyles.Contacts}>
+      <View style={AContactsStyles.Contacts}>
 
         {/* Top Bar */}
-        <View style={styles.TopBar}>
+        <View style={AContactsStyles.TopBar}>
         <TouchableOpacity>
-        <Text style={styles.Link}>Cancel</Text>
+        <Text style={AContactsStyles.Link}>Cancel</Text>
         </TouchableOpacity>
-        <Text style={styles.Title}>New Contact</Text>
+        <Text style={AContactsStyles.Title}>New Contact</Text>
         <TouchableOpacity>
-        <Text style={styles.Link}>Create</Text>
+        <Text style={AContactsStyles.Link}>Create</Text>
         </TouchableOpacity>
         </View>
 
 
 
         {/*Text Inputs */}
-        <Text style={styles.Heading}>Manually Add Contact</Text>
+        <Text style={AContactsStyles.Heading}>Manually Add Contact</Text>
 
-        <Text style={styles.InpLabel}>First Name</Text>
+        <Text style={AContactsStyles.InpLabel}>First Name</Text>
         <TextInput
-        style={styles.Inp}
+        style={AContactsStyles.Inp}
         placeholder="ie: Celine"
         />
 
-        <Text style={styles.InpLabel}>Last Name</Text>
+        <Text style={AContactsStyles.InpLabel}>Last Name</Text>
         <TextInput
-        style={styles.Inp}
+        style={AContactsStyles.Inp}
         placeholder="ie: Rogers"
         />
 
-        <Text style={styles.InpLabel}>Phone Number</Text>
+        <Text style={AContactsStyles.InpLabel}>Phone Number</Text>
         <TextInput
-        style={styles.Inp}
+        style={AContactsStyles.Inp}
         keyboardType={'numeric'}
         placeholder="(xxx) xxx-xxxx"
         />

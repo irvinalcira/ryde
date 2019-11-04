@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, Image } from 'react-native';
 import TabBar from '../comps/TabBar';
-import styles from '../styles/ContactsStyles';
+import ContactsStyles from '../styles/ContactsStyles';
 import Divider from '../comps/Divider';
 
 
@@ -9,16 +9,16 @@ function Contacts() {
   
   return (
 
-    <SafeAreaView style={styles.Contacts}>
+    <SafeAreaView style={ContactsStyles.Contacts}>
 
-      <View style={styles.Contacts}>
+      <View style={ContactsStyles.Contacts}>
 
-        <View style={styles.TitleCont}>
-        <Text style={styles.Title}>Call Contacts</Text>
-        <View style={styles.TitleImg} >
+        <View style={ContactsStyles.TitleCont}>
+        <Text style={ContactsStyles.Title}>Call Contacts</Text>
+        <View style={ContactsStyles.TitleImg} >
         <TouchableOpacity>
         <Image 
-        style={styles.Settings}
+        style={ContactsStyles.Settings}
          source={require('../assets/icons/settings.png')}
          />
          </TouchableOpacity>
@@ -28,22 +28,22 @@ function Contacts() {
       
         {/* Contact */}
         <TouchableOpacity>
-        <View style={styles.FirstContainer}>
+        <View style={ContactsStyles.FirstContainer}>
           
-          <Text style={styles.Name}>Alyssa Martin</Text>
+          <Text style={ContactsStyles.Name}>Alyssa Martin</Text>
 
-          <View style={styles.ImageCont}> 
+          <View style={ContactsStyles.ImageCont}> 
           
           <TouchableOpacity>
           <Image 
-          style={[styles.Image, {marginRight: 30}]}
+          style={[ContactsStyles.Image, {marginRight: 30}]}
           source={require('../assets/icons/message.png')}
           />
           </TouchableOpacity>
 
           <TouchableOpacity>
           <Image 
-          style={styles.Image}
+          style={ContactsStyles.Image}
           source={require('../assets/icons/phone.png')}
           />
           </TouchableOpacity>
@@ -58,22 +58,22 @@ function Contacts() {
 
         {/* Contact */}
         <TouchableOpacity>
-        <View style={styles.Container}>
+        <View style={ContactsStyles.Container}>
 
-          <Text style={styles.Name}>Mom</Text>
+          <Text style={ContactsStyles.Name}>Mom</Text>
 
-          <View style={styles.ImageCont}> 
+          <View style={ContactsStyles.ImageCont}> 
           
           <TouchableOpacity>
           <Image 
-          style={[styles.Image, {marginRight: 30}]}
+          style={[ContactsStyles.Image, {marginRight: 30}]}
           source={require('../assets/icons/message.png')}
           />
           </TouchableOpacity>
 
           <TouchableOpacity>
           <Image 
-          style={styles.Image}
+          style={ContactsStyles.Image}
           source={require('../assets/icons/phone.png')}
           />
           </TouchableOpacity>
@@ -88,22 +88,22 @@ function Contacts() {
 
         {/* Contact */}
         <TouchableOpacity>
-        <View style={styles.Container}>
+        <View style={ContactsStyles.Container}>
 
-          <Text style={styles.Name}>Irvin Alcira</Text>
+          <Text style={ContactsStyles.Name}>Irvin Alcira</Text>
 
-          <View style={styles.ImageCont}> 
+          <View style={ContactsStyles.ImageCont}> 
           
           <TouchableOpacity>
           <Image 
-          style={[styles.Image, {marginRight: 30}]}
+          style={[ContactsStyles.Image, {marginRight: 30}]}
           source={require('../assets/icons/message.png')}
           />
           </TouchableOpacity>
 
           <TouchableOpacity>
           <Image 
-          style={styles.Image}
+          style={ContactsStyles.Image}
           source={require('../assets/icons/phone.png')}
           />
           </TouchableOpacity>
@@ -118,22 +118,22 @@ function Contacts() {
 
         {/* Contact */}
         <TouchableOpacity>
-        <View style={styles.Container}>
+        <View style={ContactsStyles.Container}>
 
-          <Text style={styles.Name}>Jesse</Text>
+          <Text style={ContactsStyles.Name}>Jesse</Text>
 
-          <View style={styles.ImageCont}> 
+          <View style={ContactsStyles.ImageCont}> 
           
           <TouchableOpacity>
           <Image 
-          style={[styles.Image, {marginRight: 30}]}
+          style={[ContactsStyles.Image, {marginRight: 30}]}
           source={require('../assets/icons/message.png')}
           />
           </TouchableOpacity>
 
           <TouchableOpacity>
           <Image 
-          style={styles.Image}
+          style={ContactsStyles.Image}
           source={require('../assets/icons/phone.png')}
           />
           </TouchableOpacity>
