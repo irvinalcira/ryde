@@ -19,24 +19,12 @@ function BusSchedules(){
            placeholder="Enter Bus Name"
            />
 
-  
-          <TouchableOpacity style={BusSchedulesStyles.FirstButton}>
-            <Text style={BusSchedulesStyles.FirstButtonTxt}>View All Bus Routes</Text>
-          </TouchableOpacity>
 
-
-           <Text style={Fonts.Heading}>View Bus Departures in Real-Time</Text>
-           <Text style={Fonts.Body}>Enter route number to view when the next bus comes</Text>
-
-            <Image
-          style={BusSchedulesStyles.ImageStyle}
-          source={require('../../assets/icons/search.png')}
-          />
              <TouchableOpacity style={BusSchedulesStyles.FirstButton} onPress={() => Actions.BusRoute()}>
                <Text style={BusSchedulesStyles.FirstButtonTxt}>View All Bus Routes</Text>
            </TouchableOpacity>
-           <Text style={BusSchedulesStyles.ViewBusFont}>View Bus Departures in Real-Time</Text>
-           <Text style={BusSchedulesStyles.TypeInFont}>Type in a Bus route number to view when the next bus comes</Text>
+           <Text style={Fonts.Heading}>View Bus Departures in Real-Time</Text>
+           <Text style={Fonts.Body}>Enter a bus route number to view when the next bus comes</Text>
 
            <TextInput
            style={Fonts.Inp}
@@ -47,15 +35,9 @@ function BusSchedules(){
            <TouchableOpacity style={BusSchedulesStyles.SecondButton}>
               <Text style={BusSchedulesStyles.SecondButtonTxt}>Find Bus</Text>
 
-               <Image
-          style={BusSchedulesStyles.ImageStyle}
-          source={require('../../assets/icons/search.png')}
-          />
-           <TouchableOpacity style={BusSchedulesStyles.SecondButton} onPress={() => Actions.BusLastRoute()}>
-               <Text style={BusSchedulesStyles.SecondButtonTxt}>Find Bus</Text>
-
-           </TouchableOpacity>
+          </TouchableOpacity>
            </View>
+           
 
       </SafeAreaView>
   )
