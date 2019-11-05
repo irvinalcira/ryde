@@ -1,5 +1,7 @@
 import React from 'react';
-import { View, Text, Image,ScrollView, SafeAreaView} from 'react-native';
+import { View, Text, Image,ScrollView, SafeAreaView, TouchableOpacity} from 'react-native';
+import {Actions} from 'react-native-router-flux';
+
 import SkyTrainRouteStyles from '../../styles/skytrains/SkyTrainRouteStyles';
 export default function SkyTrainRoute(){
   return(
@@ -7,10 +9,13 @@ export default function SkyTrainRoute(){
           <View style={SkyTrainRouteStyles.TopView}>
             <View style={SkyTrainRouteStyles.ImgStyles}>
               <View style={SkyTrainRouteStyles.TrainRouteView}>
-                <Image
-                style={SkyTrainRouteStyles.BackArrow}
-                source={require('../../assets/icons/whitearrow.png')}
-                />
+                <TouchableOpacity onPress={() => Actions.pop('SkyTrainSchedules')}>
+                  <Image
+                  style={SkyTrainRouteStyles.BackArrow}
+                  source={require('../../assets/icons/whitearrow.png')}
+                  />
+                </TouchableOpacity>
+                
                 </View>
                 < View style={SkyTrainRouteStyles.TrainRouteViewAlt}>
                 <Text style={SkyTrainRouteStyles.TrainRouteFont}>Expo Line Station</Text>
@@ -29,7 +34,10 @@ export default function SkyTrainRoute(){
    
             </View>
             <ScrollView style={SkyTrainRouteStyles.ScrollView}>
-              <Text style={SkyTrainRouteStyles.TrainView}>Test</Text>
+              <TouchableOpacity>
+              <Text style={SkyTrainRouteStyles.TrainView}>Waterfront</Text>
+              </TouchableOpacity>
+              
               <Text style={SkyTrainRouteStyles.TrainViewAlt}>Test</Text>
               <Text style={SkyTrainRouteStyles.TrainView}>Test</Text>
               <Text style={SkyTrainRouteStyles.TrainViewAlt}>Test</Text>
