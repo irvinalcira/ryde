@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Button, SafeAreaView, StatusBar, TouchableOpacity, TextInput, Image } from 'react-native';
-import TabBar from '../../comps/TabBar';
+import {Actions} from 'react-native-router-flux';
+
 import SelectedTaxiStyles from '../../styles/taxis/SelectedTaxiStyles';
 
 function SelectedTaxi(){
@@ -18,10 +19,13 @@ function SelectedTaxi(){
     <View style={SelectedTaxiStyles.Container}>
 
     <View style={SelectedTaxiStyles.BackButton}>
+
+        <TouchableOpacity onPress={() => Actions.pop('Taxis')}>
         <Image
             style={SelectedTaxiStyles.BackIcon}
             source={require('../../assets/icons/back2.png')}
         />
+        </TouchableOpacity>
 </View>
  
     <View style={SelectedTaxiStyles.TaxiImageContainer}>
@@ -73,12 +77,6 @@ function SelectedTaxi(){
 </View>
 
         
-    
-
-
-        
-
-      <TabBar/>
       </View>
       </View>
   )
