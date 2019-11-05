@@ -23,12 +23,11 @@ function Route(){
         <Router>
         <Stack key="root" hideNavBar={true}>
 
-
-              <Scene key="EmptyContacts" component={EmptyContacts}/>
+              <Scene key="EmptyContacts" component={EmptyContacts}  initial={true}/>
               <Scene key="Contacts" component={Contacts}/>
               <Scene key="AddContacts" component={AddContacts}/>
           
-              <Scene key="Taxis" component={Taxis} initial={true}/>
+              <Scene key="Taxis" component={Taxis}/>
               <Scene key="SelectedTaxi" component={SelectedTaxi}/>
               
         </Stack>
