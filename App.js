@@ -1,21 +1,26 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React from 'react';
-import { View } from 'react-native';
+import { View, SafeAreaView } from 'react-native';
+import {Actions} from 'react-native-router-flux';
+
+
 import AppStyles from './styles/AppStyles';
-import Main from './pages/Main';
+
+import SelectedTaxi from './pages/taxis/SelectedTaxi';
+import Route from './pages/Route'
+import NavBar from './comps/NavBar';
 
 function App(){
   return (
 
       <View style={AppStyles.app}>
-        <Main />
+
+          <View style={{flex:1}}>
+            <Route/>
+          </View>
+
+          <SafeAreaView>
+              <NavBar/>
+          </SafeAreaView>
       </View>
 
   )

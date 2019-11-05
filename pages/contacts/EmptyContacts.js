@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, Button, SafeAreaView, TouchableOpacity } from 'react-native';
-import TabBar from '../../comps/TabBar';
+import {Actions} from 'react-native-router-flux';
+
+
 import EContactsStyles from '../../styles/contacts/EmptyContactsStyles';
 
 function EmptyContacts(){
@@ -14,15 +16,14 @@ function EmptyContacts(){
         Start by adding your important contacts for quick phone or messaging access. You can edit, add, or remove contacts anytime.
         </Text>
         
-        <TouchableOpacity  style={EContactsStyles.ImportBut}>
+        <TouchableOpacity  style={EContactsStyles.ImportBut} onPress={() => Actions.AddContacts()}>
        <Text style={EContactsStyles.ImportButText}>Import Contacts from Phone</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity  style={EContactsStyles.ManualBut}>
+        <TouchableOpacity  style={EContactsStyles.ManualBut} onPress={() => Actions.AddContacts()}>
        <Text style={EContactsStyles.ImportButText}>Manually Add Contacts</Text>
         </TouchableOpacity>
 
-      <TabBar />
       </View>
       </SafeAreaView>
   )

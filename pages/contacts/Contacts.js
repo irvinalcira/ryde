@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, Image } from 'react-native';
-import TabBar from '../../comps/TabBar';
+import {Actions} from 'react-native-router-flux';
+
+
 import ContactsStyles from '../../styles/contacts/ContactsStyles';
 import Divider from '../../comps/Divider';
 
@@ -144,7 +146,6 @@ function Contacts() {
         </TouchableOpacity>
         {/* End of Contact */}
 
-      <TabBar />
       </View>
       
     </SafeAreaView>

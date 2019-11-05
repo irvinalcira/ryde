@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, SafeAreaView, Text, TextInput,TouchableOpacity, Image } from 'react-native'
-import TabBar from '../../comps/TabBar';
 import BusSchedulesStyles from '../../styles/bus/BusSchedulesStyles';
 
 function BusSchedules(){
@@ -35,7 +34,7 @@ function BusSchedules(){
                <Text style={BusSchedulesStyles.SecondButtonTxt}>Find Bus</Text>
            </TouchableOpacity>
            </View>
-             <TabBar />
+
       </SafeAreaView>
   )
 };

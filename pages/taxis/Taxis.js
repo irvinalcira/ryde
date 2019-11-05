@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Button, SafeAreaView, ScrollView,TouchableOpacity, TextInput, Image } from 'react-native';
-import TabBar from '../../comps/TabBar';
+import {Actions} from 'react-native-router-flux';
+
 import TaxisStyles from '../../styles/taxis/TaxisStyles';
 
 function Taxis(){
@@ -12,12 +13,9 @@ function Taxis(){
         
         <Text style={TaxisStyles.Title}>Taxis</Text>
 
-        
-
-
         <Text style={TaxisStyles.Heading}>My Location</Text>
 
-        {/* This will be a Searchable Drop Down        */}
+        {/* This will be a Searchable Drop Down     */}
 
         <TextInput style={TaxisStyles.Inp}
         placeholder="Vancouver, BC"
@@ -36,7 +34,7 @@ function Taxis(){
         <View style={TaxisStyles.TaxiButtonsContainer}>
 
         {/* First Taxi */}
-        <TouchableOpacity  style={TaxisStyles.TaxiBut}>
+        <TouchableOpacity  style={TaxisStyles.TaxiBut} onPress={() => Actions.SelectedTaxi()}>
                 {/* Left Icon */}
                 <View style={TaxisStyles.IconCont}>
                         <Image
@@ -142,8 +140,6 @@ function Taxis(){
         </View>
 
 
-
-      <TabBar />
       </View>
       </SafeAreaView>
   )

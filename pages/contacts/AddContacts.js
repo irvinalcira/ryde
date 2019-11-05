@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, Image, TextInput } from 'react-native';
-import TabBar from '../../comps/TabBar';
+import {Actions} from 'react-native-router-flux';
+
+
 import AContactsStyles from '../../styles/contacts/AddContactsStyles';
 
 function AddContacts() {
@@ -17,7 +19,7 @@ function AddContacts() {
         </TouchableOpacity>
         <Text style={AContactsStyles.Title}>New Contact</Text>
         <TouchableOpacity>
-        <Text style={AContactsStyles.Link}>Create</Text>
+        <Text style={AContactsStyles.Link} onPress={() => Actions.Contacts()}>Create</Text>
         </TouchableOpacity>
         </View>
 
@@ -45,7 +47,6 @@ function AddContacts() {
         placeholder="(xxx) xxx-xxxx"
         />
 
-      <TabBar/>
       </View>
     </SafeAreaView>
   )

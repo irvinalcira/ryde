@@ -1,7 +1,6 @@
 import React from 'react';
 import {View,Text, Image,SafeAreaView} from 'react-native';
 import BusLastStyles from '../../styles/bus/BusLastRouteStyles';
-import TabBar from '../../comps/TabBar';
 import ScheduleTouchable from '../../comps/ScheduleTouch';
 import DarkBlueTouchable from '../../comps/DarkBlueTouch';
 import DividerLine from '../../comps/Divider';
@@ -51,8 +50,6 @@ export default function BusLastRoute(){
         </View>
           <DarkBlueTouchable />
         </View>
-
-          <TabBar />
 
     </View>
     </SafeAreaView>
