@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Button, SafeAreaView, ScrollView,TouchableOpacity, TextInput, Image } from 'react-native';
-import TabBar from '../../comps/TabBar';
+
 import TaxisStyles from '../../styles/taxis/TaxisStyles';
 
 function Taxis(){
@@ -143,7 +143,6 @@ function Taxis(){
 
 
 
-      <TabBar />
       </View>
       </SafeAreaView>
   )

@@ -8,6 +8,9 @@ import AddContacts from './contacts/AddContacts';
 import BusLastRoute from './bus/BusLastRoute';
 import Taxis from './taxis/Taxis';
 import SelectedTaxi from './taxis/SelectedTaxi';
+import SkyTrainRoute from './skytrains/SkyTrainRoute';
+import SkyTrainSchedules from './skytrains/SkyTrainSchedules';
+import SkyTrainLastRoute from './skytrains/SkyTrainLastRoute';
 
 
 import MainStyles from '../styles/MainStyles';
@@ -21,9 +24,13 @@ function Main(){
         {/* <BusRoute /> */}
         {/* <BusLastRoute /> */}
 
+        {/* <SkyTrainSchedules /> */}
+        {/* <SkyTrainRoute /> */}
+        <SkyTrainLastRoute />
+
         {/* <EmptyContacts /> */}
         {/* <Contacts /> */}
-        <AddContacts />
+        {/* <AddContacts /> */}
 
         {/* <Taxis /> */}
         {/* <SelectedTaxi /> */}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Button, SafeAreaView, StatusBar, TouchableOpacity, TextInput, Image } from 'react-native';
-import TabBar from '../../comps/TabBar';
+
 import SelectedTaxiStyles from '../../styles/taxis/SelectedTaxiStyles';
 
 function SelectedTaxi(){
@@ -78,7 +78,6 @@ function SelectedTaxi(){
 
         
 
-      <TabBar/>
       </View>
       </View>
   )

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Button, SafeAreaView, TouchableOpacity } from 'react-native';
-import TabBar from '../../comps/TabBar';
+
 import EContactsStyles from '../../styles/contacts/EmptyContactsStyles';
 
 function EmptyContacts(){
@@ -22,7 +22,6 @@ function EmptyContacts(){
        <Text style={EContactsStyles.ImportButText}>Manually Add Contacts</Text>
         </TouchableOpacity>
 
-      <TabBar />
       </View>
       </SafeAreaView>
   )
