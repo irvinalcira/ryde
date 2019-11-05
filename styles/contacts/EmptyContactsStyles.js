@@ -14,20 +14,6 @@ Contacts: {
     marginTop: 20,
     width: wp('100%')
 },
-Title: {
-    fontSize: 34,
-    fontFamily: "Assistant-Bold"
-},
-Heading: {
-    fontSize: 20,
-    paddingTop: 40,
-    fontFamily: "Assistant-Bold"
-},
-Description: {
-    marginTop: 5,
-    fontSize: 16,
-    fontFamily: "Assistant-Regular"
-},
 ImportBut: {
     marginTop: 50,
     height:50,

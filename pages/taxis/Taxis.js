@@ -3,6 +3,7 @@ import { View, Text, Button, SafeAreaView, ScrollView,TouchableOpacity, TextInpu
 import {Actions} from 'react-native-router-flux';
 
 import TaxisStyles from '../../styles/taxis/TaxisStyles';
+import Fonts from '../../styles/FontsStyles';
 
 function Taxis(){
   return (
@@ -11,9 +12,9 @@ function Taxis(){
 
 
         
-        <Text style={TaxisStyles.Title}>Taxis</Text>
+        <Text style={Fonts.Title}>Taxis</Text>
 
-        <Text style={TaxisStyles.Heading}>My Location</Text>
+        <Text style={Fonts.Heading}>My Location</Text>
 
         {/* This will be a Searchable Drop Down     */}
 
@@ -28,7 +29,7 @@ function Taxis(){
 
 
         <View style={TaxisStyles.TaxisView}>
-        <Text style={TaxisStyles.Heading}>Taxis in Vancouver</Text>
+        <Text style={Fonts.Heading}>Taxis in Vancouver</Text>
         </View>
 
         <View style={TaxisStyles.TaxiButtonsContainer}>

@@ -20,11 +20,6 @@ TitleCont: {
   justifyContent: "center",
   alignItems: "center",
 },
-Title: {
-  flex: 10,
-  fontSize: 34,
-  fontFamily: "Assistant-Bold"
-},
 TitleImg: {
   display: "flex",
   flex: 1,
@@ -48,12 +43,6 @@ Container: {
   marginBottom: 5,
   display: "flex",
   flexDirection: "row",
-},
-Name: {
-  flex: 3,
-  fontSize: 18,
-  margin: 15,
-  fontFamily: "Assistant-Regular"
 },
 ImageCont: {
   display: "flex",

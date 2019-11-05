@@ -36,18 +36,13 @@ var SelectedTaxiStyles = StyleSheet.create({
     },
 
     TaxiImageContainer: {
-        flex:1,
+        flex:1.25,
         backgroundColor:'gray',
     },
 
     TaxiInformationContainer: {
         flex:1.5,
         paddingHorizontal:15,
-        // justifyContent:'center',
-
-        
-        // backgroundColor:'blue',
-
     },
 
     TaxiImg:{
@@ -56,26 +51,12 @@ var SelectedTaxiStyles = StyleSheet.create({
     },
 
     TitleContainer: {
-        marginBottom:10,
-        flexDirection:'row',
+        paddingVertical: 30,
+        flexDirection:'row'
     },
 
     InfoContainer: {
-        marginBottom:10
-    },
-
-    Title: {
-    fontSize: 35,
-    fontFamily: "Assistant-Bold"
-    },
-
-    SubHeading: {
-        fontSize:20,
-        fontFamily:"Assistant-Bold"
-    },
-    Description: {
-        fontSize:16,
-        fontFamily:"Assistant-Regular"
+        marginBottom: 15
     },
 
     FavoriteIcon:{
