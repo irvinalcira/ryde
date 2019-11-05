@@ -40,7 +40,7 @@ function Taxis(){
                 <View style={TaxisStyles.IconCont}>
                         <Image
                         style={TaxisStyles.TaxiImg}
-                        source={require('../../assets/icons/blacktaxi.png')}
+                        source={require('../../assets/icons/taxi.png')}
                         />
                 </View>
 
@@ -66,7 +66,7 @@ function Taxis(){
                 <View style={TaxisStyles.IconCont}>
                         <Image
                         style={TaxisStyles.TaxiImg}
-                        source={require('../../assets/icons/bluetaxi.png')}
+                        source={require('../../assets/icons/taxi-active.png')}
                         />
                 </View>
 
@@ -92,7 +92,7 @@ function Taxis(){
                 <View style={TaxisStyles.IconCont}>
                         <Image
                         style={TaxisStyles.TaxiImg}
-                        source={require('../../assets/icons/blacktaxi.png')}
+                        source={require('../../assets/icons/taxi.png')}
                         />
                 </View>
 
@@ -118,7 +118,7 @@ function Taxis(){
                 <View style={TaxisStyles.IconCont}>
                         <Image
                         style={TaxisStyles.TaxiImg}
-                        source={require('../../assets/icons/bluetaxi.png')}
+                        source={require('../../assets/icons/taxi-active.png')}
                         />
                 </View>
 

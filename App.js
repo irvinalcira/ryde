@@ -7,7 +7,7 @@ import AppStyles from './styles/AppStyles';
 
 import SelectedTaxi from './pages/taxis/SelectedTaxi';
 import Route from './pages/Route'
-import NavBar from './comps/NavBar';
+import TabBar from './comps/TabBar';
 
 function App(){
   return (
@@ -17,9 +17,9 @@ function App(){
           <View style={{flex:1}}>
             <Route/>
           </View>
-
-          <SafeAreaView>
-              <NavBar/>
+          
+          <TabBar/>
+          <SafeAreaView style={{backgroundColor:'#ffffff'}}>
           </SafeAreaView>
       </View>
 
