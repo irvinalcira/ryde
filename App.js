@@ -7,8 +7,7 @@ import AppStyles from './styles/AppStyles';
 import AddContacts from './pages/contacts/AddContacts';
 import EmptyContacts from './pages/contacts/EmptyContacts';
 import Route from './pages/Route'
-import NavBar from './comps/NavBar';
-import SkyTrainLastRoute from './pages/skytrains/SkyTrainLastRoute';
+
 
 function App(){
   return (
@@ -17,9 +16,9 @@ function App(){
           <View style={{flex:1}}>
 
           </View>
-
-          <SafeAreaView>
-              <NavBar/>
+          
+          <TabBar/>
+          <SafeAreaView style={{backgroundColor:'#ffffff'}}>
           </SafeAreaView>
           
       </View>

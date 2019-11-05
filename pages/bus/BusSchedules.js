@@ -1,39 +1,43 @@
 import React from 'react';
-import { View, SafeAreaView, Text, TextInput,TouchableOpacity, Image } from 'react-native'
+
+import { View, SafeAreaView, Text, TextInput,TouchableOpacity, Image } from 'react-native';
+import {Actions} from 'react-native-router-flux';
+
+
 import BusSchedulesStyles from '../../styles/bus/BusSchedulesStyles';
+import Fonts from '../../styles/FontsStyles';
 
 function BusSchedules(){
   return(
       <SafeAreaView style={BusSchedulesStyles.BusStyles}>
           <View style={[BusSchedulesStyles.BusStyles]}>
-           <Text style={BusSchedulesStyles.BusSchedFont}>Bus Schedules</Text>
-           <Text style={BusSchedulesStyles.FindBusFont}>Find A Bus</Text>
-           <Text style={BusSchedulesStyles.SearchBusFont}>Search for a Bus to see it's full route</Text>
+           <Text style={Fonts.Title}>Bus Schedules</Text>
+           <Text style={Fonts.Heading}>Find A Bus</Text>
+           <Text style={Fonts.Body}>Search for a Bus to see it's full route</Text>
            <TextInput
-           style={BusSchedulesStyles.SecondView}
+           style={Fonts.Inp}
            placeholder="Enter Bus Name"
            />
-            <Image
-          style={BusSchedulesStyles.ImageStyle}
-          source={require('../../assets/icons/search.png')}
-          />
-             <TouchableOpacity style={BusSchedulesStyles.FirstButton}>
+
+
+             <TouchableOpacity style={BusSchedulesStyles.FirstButton} onPress={() => Actions.BusRoute()}>
                <Text style={BusSchedulesStyles.FirstButtonTxt}>View All Bus Routes</Text>
            </TouchableOpacity>
-           <Text style={BusSchedulesStyles.ViewBusFont}>View Bus Departures in Real-Time</Text>
-           <Text style={BusSchedulesStyles.TypeInFont}>Type in a Bus route number to view when the next bus comes</Text>
+           <Text style={Fonts.Heading}>View Bus Departures in Real-Time</Text>
+           <Text style={Fonts.Body}>Enter a bus route number to view when the next bus comes</Text>
+
            <TextInput
-           style={BusSchedulesStyles.ThirdView}
+           style={Fonts.Inp}
            placeholder="Enter Bus Stop Number (IE:#60432)"
            />
-               <Image
-          style={BusSchedulesStyles.ImageStyle}
-          source={require('../../assets/icons/search.png')}
-          />
+
+
            <TouchableOpacity style={BusSchedulesStyles.SecondButton}>
-               <Text style={BusSchedulesStyles.SecondButtonTxt}>Find Bus</Text>
-           </TouchableOpacity>
+              <Text style={BusSchedulesStyles.SecondButtonTxt}>Find Bus</Text>
+
+          </TouchableOpacity>
            </View>
+           
 
       </SafeAreaView>
   )

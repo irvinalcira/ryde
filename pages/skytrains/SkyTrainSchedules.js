@@ -1,5 +1,7 @@
 import React from 'react';
 import { View, Text,SafeAreaView,TouchableOpacity, TextInput, Image } from 'react-native';
+import {Actions} from 'react-native-router-flux';
+
 import SkyTrainScheduleStyles from '../../styles/skytrains/SkyTrainSchedulesStyles';
 
 export default function SkyTrainSchedules(){
@@ -33,8 +35,8 @@ export default function SkyTrainSchedules(){
 
         <View style={SkyTrainScheduleStyles.TaxiButtonsContainer}>
 
-        {/* First Train */}
-        <TouchableOpacity  style={SkyTrainScheduleStyles.ExpoLine}>
+        {/* Expo Line */}
+        <TouchableOpacity  style={SkyTrainScheduleStyles.ExpoLine} onPress={() => Actions.SkyTrainRoute()}>
                 {/* Left Icon */}
                 <View style={SkyTrainScheduleStyles.IconCont}>
                         <Image
@@ -54,18 +56,18 @@ export default function SkyTrainSchedules(){
                 <View style={SkyTrainScheduleStyles.IconCont}>
                         <Image
                         style={SkyTrainScheduleStyles.ArrowImg}
-                        source={require('../../assets/icons/arrow.png')}
+                        source={require('../../assets/icons/whitearrow.png')}
                         />
                 </View>
         </TouchableOpacity>
 
-        {/* Second Train */}
+        {/* Millenium Line */}
         <TouchableOpacity  style={SkyTrainScheduleStyles.MilleniumLine}>
                 {/* Left Icon */}
                 <View style={SkyTrainScheduleStyles.IconCont}>
                         <Image
                         style={SkyTrainScheduleStyles.TrainImg}
-                        source={require('../../assets/icons/blacktrain.png')}
+                        source={require('../../assets/icons/skytrain.png')}
                         />
                 </View>
 
@@ -76,7 +78,7 @@ export default function SkyTrainSchedules(){
                         </Text>
                 </View>
 
-                {/* Right Icon */}
+                {/* Canada Line */}
                 <View style={SkyTrainScheduleStyles.IconCont}>
                         <Image
                         style={SkyTrainScheduleStyles.ArrowImg}
@@ -106,7 +108,7 @@ export default function SkyTrainSchedules(){
                 <View style={SkyTrainScheduleStyles.IconCont}>
                         <Image
                         style={SkyTrainScheduleStyles.ArrowImg}
-                        source={require('../../assets/icons/arrow.png')}
+                        source={require('../../assets/icons/whitearrow.png')}
                         />
                 </View>
         </TouchableOpacity>

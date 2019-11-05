@@ -6,7 +6,12 @@ import {
     removeOrientationListener as rol
   } from 'react-native-responsive-screen';
 
-var SkyTrainLastRouteStyles=StyleSheet.create({
+var SkyTrainStationStyles = StyleSheet.create({
+    Container:{
+        flex:1,
+        width: wp('100%')
+    },
+    
     Main:{
         flex:1,
     },
@@ -172,4 +177,4 @@ OtherCont2:{
 },
 });
 
-export default SkyTrainLastRouteStyles;
+export default SkyTrainStationStyles;

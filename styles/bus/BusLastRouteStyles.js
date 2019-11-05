@@ -9,41 +9,41 @@ import {
 var BusLastStyles=StyleSheet.create({
     Main:{
         flex:1,
+        backgroundColor: "#3971B3"
+        
     },
     TopView:{
-        flex:0.8,
+        flex:0.5,
         backgroundColor:"#3971B3",
-        padding:20,
-        paddingTop: 40,
-    },
-    BusRouteFont:{
-        color:"white",
-        fontFamily:"Assistant-SemiBold",
-        fontSize:22,
-        width:"100%",
-        textAlign:"center",
-        marginLeft:-13
+        padding: 15,
     },
 
-    BusRouteView:{
-        flex:1,
-        justifyContent:"center"
+    // Blue part
+    NavBar:{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent:"center",
     },
 
-    BusRouteView2:{
-        flex:1
+    NavTitle: {
+        flex: 4,
+        textAlign: "center",
     },
+
+    ArrowCont: {
+        flex: 0.5,
+        justifyContent: "center"
+    },
+    
     BackArrow:{
         height:15,
         width:15,
     },
-    ImgStyles:{
-    flexDirection:"row",
-    },
 
-    BotStyles:{
+    //
+    ImgStyles:{
         flexDirection:"row",
-        justifyContent:"space-between",
+        width: "100%"
     },
     MidStyles:{
         width:"100%",
@@ -56,57 +56,28 @@ var BusLastStyles=StyleSheet.create({
         width:60,
         margin:10 
     },
+
+
+    // Content
     Bottom:{
-        flex:2,
+        flex:1,
+        backgroundColor: "#eee"
     },
-    ScheduleText:{
-        fontFamily:"Assistant-Bold",
-        fontSize:25,
+
+    TimeCont:{
+        backgroundColor:"#DCDCDC",
         paddingLeft:20,
         paddingRight:20,
-        paddingTop:20,
-        paddingBottom:10
-},
-TimeCont:{
-    backgroundColor:"#DCDCDC",
-    paddingLeft:20,
-    paddingRight:20,
-    paddingTop:10,
-    borderRadius:6,
-    width:wp('90%'),
-},
-TimeWrap:{
-    justifyContent:"center",
-    alignItems:"center"
-},
-TimeText:{
-    fontSize:20,
-    margin:3,
-    fontFamily:"Assistant-Bold"
-},
-TimeText2:{
-    fontSize:20,
-    margin:3,
-    fontFamily:"Assistant-SemiBold"
-},
-BusText:{
-    color:"white",
-    margin:10,
-    fontFamily:"Assistant-SemiBold"
-},
-DirText:{
-    color:"white",
-    fontFamily:"Assistant-SemiBold"
-},
-StopName:{
-    color:"white",
-    fontFamily:"Assistant-SemiBold"
-},
+        paddingTop:10,
+        borderRadius:6,
+        width:wp('90%')
+    },
 
-StopNumber:{
-    color:"white",
-    fontFamily:"Assistant-SemiBold"
-}
+    TimeWrap:{
+        justifyContent:"center",
+        alignItems:"center"
+    },  
+
 
 });
 

@@ -8,6 +8,7 @@ import Cam from '../CameraRoll';
 
 
 import AContactsStyles from '../../styles/contacts/AddContactsStyles';
+import Fonts from '../../styles/FontsStyles';
 
 function AddContacts() {
 
@@ -16,14 +17,14 @@ function AddContacts() {
     <SafeAreaView style={AContactsStyles.Contacts}>
       <View style={AContactsStyles.Contacts}>
 
-        {/* Top Bar */}
+        {/* Nav Bar */}
         <View style={AContactsStyles.TopBar}>
         <TouchableOpacity>
-        <Text style={AContactsStyles.Link}>Cancel</Text>
+        <Text style={Fonts.NavLink}>Cancel</Text>
         </TouchableOpacity>
-        <Text style={AContactsStyles.Title}>New Contact</Text>
+        <Text style={Fonts.NavTitle}>New Contact</Text>
         <TouchableOpacity>
-        <Text style={AContactsStyles.Link} onPress={() => Actions.Contacts()}>Create</Text>
+        <Text style={Fonts.NavLink} onPress={() => Actions.Contacts()}>Create</Text>
         </TouchableOpacity>
         </View>
         {/* Add Contact */}
@@ -34,23 +35,23 @@ function AddContacts() {
        
 
         {/*Text Inputs */}
-        <Text style={AContactsStyles.Heading}>Manually Add Contact</Text>
+        <Text style={Fonts.Heading}>Manually Add Contact</Text>
 
-        <Text style={AContactsStyles.InpLabel}>First Name</Text>
+        <Text style={Fonts.InpLabel}>First Name</Text>
         <TextInput
-        style={AContactsStyles.Inp}
+        style={Fonts.Inp}
         placeholder="ie: Celine"
         />
 
-        <Text style={AContactsStyles.InpLabel}>Last Name</Text>
+        <Text style={Fonts.InpLabel}>Last Name</Text>
         <TextInput
-        style={AContactsStyles.Inp}
+        style={Fonts.Inp}
         placeholder="ie: Rogers"
         />
 
-        <Text style={AContactsStyles.InpLabel}>Phone Number</Text>
+        <Text style={Fonts.InpLabel}>Phone Number</Text>
         <TextInput
-        style={AContactsStyles.Inp}
+        style={Fonts.Inp}
         keyboardType={'numeric'}
         placeholder="(xxx) xxx-xxxx"
         />

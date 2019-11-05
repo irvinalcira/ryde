@@ -1,60 +1,55 @@
 import React from 'react';
-import {TouchableOpacity,Image,Text, SafeAreaView} from 'react-native';
-import TabBarStyles from '../styles/TabBarStyles';
-
-export default function TabBar(){
-    return(
-
-      <SafeAreaView style={TabBarStyles.Bottom}>
+import { View, Text, TouchableOpacity, Image } from 'react-native';
+import {Actions} from 'react-native-router-flux';
 
 
-            <TouchableOpacity style={TabBarStyles.TouchStyle}>
-            <Image
-            style={TabBarStyles.BotImg}
-              source={require('../assets/icons/blackhouse.png')}
+
+import TabBarStyles from '../styles/comps/TabBarStyles';
+
+function TabBar(){
+  return(
+
+      <View style={TabBarStyles.Container}>
+
+            <TouchableOpacity style={TabBarStyles.Button}>
+            <Image resizeMode='contain' style={TabBarStyles.Img}
+              source={require('../assets/icons/home.png')}
             />
-            {/* <Text style={TabBarStyles.Home}>Home</Text> */}
+            <Text style={TabBarStyles.Text}>Home</Text>
             </TouchableOpacity>
 
-            
-            <TouchableOpacity style={TabBarStyles.TouchStyle}>
-            <Image
-            style={TabBarStyles.BotImg}
-              source={require('../assets/icons/active_bus.png')}
+            <TouchableOpacity style={TabBarStyles.Button} onPress={() => Actions.reset('BusSchedules')}>
+            <Image resizeMode='contain' style={TabBarStyles.Img}
+              source={require('../assets/icons/bus.png')}
             />
-            {/* <Text style={TabBarStyles.Home}>Bus Schedules</Text> */}
+            <Text style={TabBarStyles.Text}>Buses</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={TabBarStyles.Button} onPress={() => Actions.reset('SkyTrainSchedules')}>
+            <Image resizeMode='contain' style={TabBarStyles.Img}
+              source={require('../assets/icons/skytrain.png')}
+            />
+            <Text style={TabBarStyles.Text}>SkyTrains</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={TabBarStyles.Button} onPress={() => Actions.reset('Taxis')}>
+            <Image resizeMode='contain' style={TabBarStyles.Img}
+              source={require('../assets/icons/taxi.png')}
+            />
+            <Text style={TabBarStyles.Text}>Taxis</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={TabBarStyles.Button} onPress={() => Actions.reset('Contacts')}>
+            <Image resizeMode='contain' style={TabBarStyles.Img}
+              source={require('../assets/icons/contact.png')}
+            />
+            <Text style={TabBarStyles.Text}>Contacts</Text>
             </TouchableOpacity>
 
 
-            <TouchableOpacity style={TabBarStyles.TouchStyle}>
-            <Image
-            style={TabBarStyles.BotImg}
-              source={require('../assets/icons/blacktrain.png')}
-            />
-            
-            {/* <Text style={TabBarStyles.Home}>Train Schedules</Text> */}
-            </TouchableOpacity>
 
-
-            <TouchableOpacity style={TabBarStyles.TouchStyle}>
-            <Image
-            style={TabBarStyles.BotImg}
-              source={require('../assets/icons/blacktaxi.png')}
-            />
-            {/* <Text style={TabBarStyles.Home}>Taxis</Text> */}
-            </TouchableOpacity>
-
-
-            <TouchableOpacity style={TabBarStyles.TouchStyle}>
-                
-            <Image
-            style={TabBarStyles.BotImg}
-              source={require('../assets/icons/blackcall.png')}
-            />
-                                {/* <Text style={TabBarStyles.Home}>Contacts</Text> */}
-            </TouchableOpacity>
-
-        </SafeAreaView>
-        
+      </View>
   )
-}
+};
+
+export default TabBar;
