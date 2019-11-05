@@ -27,10 +27,6 @@ function AddContacts() {
         </View>
         {/* Add Contact */}
         <View style={AContactsStyles.AddImgView}>
-        {/* <Image
-          style={AContactsStyles.AddImg}
-          source={require('../../assets/icons/imagefill.png')}
-        /> */}
          <Cam />
   
         </View>
