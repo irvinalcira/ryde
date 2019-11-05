@@ -9,7 +9,8 @@ import {
 
 var BusRouteStyles=StyleSheet.create({
     container:{
-
+        flex:1,
+        width: wp('100%')
     },
     TopView:{
         flex:0.5,

@@ -18,14 +18,14 @@ function TabBar(){
             <Text style={TabBarStyles.Text}>Home</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={TabBarStyles.Button}>
+            <TouchableOpacity style={TabBarStyles.Button} onPress={() => Actions.reset('BusSchedules')}>
             <Image resizeMode='contain' style={TabBarStyles.Img}
               source={require('../assets/icons/bus.png')}
             />
             <Text style={TabBarStyles.Text}>Buses</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={TabBarStyles.Button}>
+            <TouchableOpacity style={TabBarStyles.Button} onPress={() => Actions.reset('SkyTrainSchedules')}>
             <Image resizeMode='contain' style={TabBarStyles.Img}
               source={require('../assets/icons/skytrain.png')}
             />
