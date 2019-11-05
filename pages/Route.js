@@ -41,7 +41,7 @@ function Route(){
               
               <Scene key="EmptyContacts" component={EmptyContacts}  />
               <Scene key="Contacts" component={Contacts} />
-              <Scene key="AddContacts" component={AddContacts}/>
+              <Scene key="AddContacts" component={AddContacts} initial={true}/>
 
         </Stack>
       </Router>
