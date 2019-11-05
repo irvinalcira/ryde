@@ -1,6 +1,9 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, Image, TextInput } from 'react-native';
 import {Actions} from 'react-native-router-flux';
+import CameraRollPicker from 'react-native-camera-roll-picker';
+import Cam from '../CameraRoll';
+
 
 
 import AContactsStyles from '../../styles/contacts/AddContactsStyles';
@@ -22,8 +25,16 @@ function AddContacts() {
         <Text style={AContactsStyles.Link} onPress={() => Actions.Contacts()}>Create</Text>
         </TouchableOpacity>
         </View>
-
-
+        {/* Add Contact */}
+        <View style={AContactsStyles.AddImgView}>
+        {/* <Image
+          style={AContactsStyles.AddImg}
+          source={require('../../assets/icons/imagefill.png')}
+        /> */}
+         <Cam />
+  
+        </View>
+       
 
         {/*Text Inputs */}
         <Text style={AContactsStyles.Heading}>Manually Add Contact</Text>

@@ -50,8 +50,20 @@ Inp: {
   backgroundColor: "white",
   borderColor: "#D6D6D6",
   borderWidth:1
+},
+AddImgView:{
+  justifyContent:"center",
+  alignItems:"center"
+},
+AddImg:{
+width:120,
+height:120,
+margin:10
+},
+AddImgText:{
+  fontSize: 18,
+  fontFamily:"Assistant-Regular"
 }
-
 })
 
 export default AContactsStyles;
