@@ -1,7 +1,7 @@
 import React,{Component,useState} from 'react';
 import { View , Button, Image} from 'react-native';
 import ImagePicker from 'react-native-image-picker';
-//Pick Image
+
 
 
 export default function Cam() {
