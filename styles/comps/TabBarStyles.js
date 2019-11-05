@@ -8,7 +8,7 @@ import {
   } from 'react-native-responsive-screen';
 
 
-var NavBarStyles = StyleSheet.create({
+var TabBarStyles = StyleSheet.create({
     Container: {
         width: wp('100%'),
         height:70,
@@ -37,4 +37,4 @@ var NavBarStyles = StyleSheet.create({
 
 })
 
-export default NavBarStyles;
+export default TabBarStyles;
