@@ -8,41 +8,42 @@ import {
   } from 'react-native-responsive-screen';
 
 var BusRouteStyles=StyleSheet.create({
-    container:{
-
+    BusRoute:{
+        flex:1,
+        backgroundColor: "#3971B3"
     },
     TopView:{
         flex:0.5,
         backgroundColor:"#3971B3",
-        padding:10,
-        paddingTop: 40,
-    },
-    BusRouteFont:{
-        color:"white",
-        fontFamily:"Assistant-SemiBold",
-        fontSize:22,
-        width:"100%",
+        padding: 15
     },
 
-    BusRouteView:{
-        flex:1,
-        justifyContent:"center"
+    // Blue part
+    NavBar:{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent:"center",
     },
 
-    BusRouteViewAlt:{
-        flex:1.7,
+    NavTitle: {
+        flex: 4,
+        textAlign: "center",
     },
+
+    ArrowCont: {
+        flex: 0.5,
+        justifyContent: "center"
+    },
+    
     BackArrow:{
         height:15,
         width:15,
     },
+
+
     ImgStyles:{
         flexDirection:"row",
-        width:"100%",
-    },
-    BotStyles:{
-        flexDirection:"row",
-        justifyContent:"space-between",
+        width:"100%"
     },
     MidStyles:{
         width:"100%",
@@ -55,6 +56,13 @@ var BusRouteStyles=StyleSheet.create({
         width:60,
         margin:10 
     },
+    BotStyles:{
+        flexDirection:"row",
+        justifyContent:"space-between",
+    },
+
+
+    // Doesn't do anything when you change the value of flex
     ScrollView:{
         flex:1,   
     },
@@ -64,7 +72,7 @@ var BusRouteStyles=StyleSheet.create({
         backgroundColor:"#EEEEEE",
         textAlign:"center",
         paddingTop: "6%",
-        fontFamily:"Assistant-Regular"
+        fontFamily:"Assistant-Regular",
     },
     BusViewAlt:{
         width: wp('100%'),

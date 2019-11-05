@@ -15,23 +15,6 @@ var TaxisStyles = StyleSheet.create({
         paddingTop: 20,
         width: wp('100%')
     },
-
-    Title: {
-    fontSize: 40,
-    fontFamily: "Assistant-Bold"
-    },
-
-    Heading: {
-        fontSize:24,
-        marginTop:10,
-        fontFamily:"Assistant-Bold"
-    },
-    Description: {
-        paddingTop:5,
-        fontSize:16,
-        fontFamily:"Assistant-Regular"
-    },
-
     SearchBut: {
         marginTop: 15,
         height:50,

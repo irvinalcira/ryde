@@ -3,6 +3,7 @@ import { View, Text, Button, SafeAreaView, StatusBar, TouchableOpacity, TextInpu
 import {Actions} from 'react-native-router-flux';
 
 import SelectedTaxiStyles from '../../styles/taxis/SelectedTaxiStyles';
+import Fonts from '../../styles/FontsStyles';
 
 function SelectedTaxi(){
 
@@ -42,7 +43,7 @@ function SelectedTaxi(){
      <View style={SelectedTaxiStyles.TitleContainer}>
 
     <View style={SelectedTaxiStyles.TaxiName}>    
-        <Text style={SelectedTaxiStyles.Title}>Vancouver Taxi</Text>
+        <Text style={Fonts.TaxiTitle}>Vancouver Taxi</Text>
     </View>
 
     <View style={SelectedTaxiStyles.TaxiFavorite}>
@@ -56,18 +57,18 @@ function SelectedTaxi(){
 
 
     <View style={SelectedTaxiStyles.InfoContainer}>
-    <Text style={SelectedTaxiStyles.SubHeading}>Address</Text>
-    <Text style={SelectedTaxiStyles.Description}>760 Clark Drive, Vancouver, BC, V5L 3J2</Text>
+    <Text style={Fonts.TaxiHeading}>Address</Text>
+    <Text style={Fonts.Body}>760 Clark Drive, Vancouver, BC, V5L 3J2</Text>
     </View>
 
     <View style={SelectedTaxiStyles.InfoContainer}>
-    <Text style={SelectedTaxiStyles.SubHeading}>Website</Text>
-    <Text style={SelectedTaxiStyles.Description}>www.avancouvertaxi.com</Text>
+    <Text style={Fonts.TaxiHeading}>Website</Text>
+    <Text style={Fonts.Body}>www.avancouvertaxi.com</Text>
     </View>
 
     <View style={SelectedTaxiStyles.InfoContainer}>
-    <Text style={SelectedTaxiStyles.SubHeading}>Phone Number</Text>
-    <Text style={SelectedTaxiStyles.Description}>(604) 871-1111</Text>
+    <Text style={Fonts.TaxiHeading}>Phone Number</Text>
+    <Text style={Fonts.Body}>(604) 871-1111</Text>
     </View>
 
     <TouchableOpacity  style={SelectedTaxiStyles.CallBut}>

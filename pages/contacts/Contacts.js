@@ -4,7 +4,9 @@ import {Actions} from 'react-native-router-flux';
 
 
 import ContactsStyles from '../../styles/contacts/ContactsStyles';
+import Fonts from '../../styles/FontsStyles';
 import Divider from '../../comps/Divider';
+
 
 
 function Contacts() {
@@ -16,7 +18,7 @@ function Contacts() {
       <View style={ContactsStyles.Contacts}>
 
         <View style={ContactsStyles.TitleCont}>
-        <Text style={ContactsStyles.Title}>Call Contacts</Text>
+        <Text style={[Fonts.Title, {flex: 10}]}>Call Contacts</Text>
         <View style={ContactsStyles.TitleImg} >
         <TouchableOpacity>
         <Image 
@@ -32,7 +34,7 @@ function Contacts() {
         <TouchableOpacity>
         <View style={ContactsStyles.FirstContainer}>
           
-          <Text style={ContactsStyles.Name}>Alyssa Martin</Text>
+          <Text style={Fonts.Name}>Alyssa Martin</Text>
 
           <View style={ContactsStyles.ImageCont}> 
           
@@ -62,7 +64,7 @@ function Contacts() {
         <TouchableOpacity>
         <View style={ContactsStyles.Container}>
 
-          <Text style={ContactsStyles.Name}>Mom</Text>
+          <Text style={Fonts.Name}>Mom</Text>
 
           <View style={ContactsStyles.ImageCont}> 
           
@@ -92,7 +94,7 @@ function Contacts() {
         <TouchableOpacity>
         <View style={ContactsStyles.Container}>
 
-          <Text style={ContactsStyles.Name}>Irvin Alcira</Text>
+          <Text style={Fonts.Name}>Irvin Alcira</Text>
 
           <View style={ContactsStyles.ImageCont}> 
           
@@ -122,7 +124,7 @@ function Contacts() {
         <TouchableOpacity>
         <View style={ContactsStyles.Container}>
 
-          <Text style={ContactsStyles.Name}>Jesse</Text>
+          <Text style={Fonts.Name}>Jesse</Text>
 
           <View style={ContactsStyles.ImageCont}> 
           
