@@ -18,19 +18,21 @@ var NavBarStyles = StyleSheet.create({
 
     Button:{
         flex:1,
-        backgroundColor:'#ffffff',
+     
         justifyContent:'center',
         alignItems:"center"
     },
 
     Img: {
-        height:30,
-        width:30
+       
+        height: 25,
+        width: 25
     },
     
     Text: {
         marginTop:5,
-        fontSize:8.5
+        fontSize:8.5,
+        color:"#333333"
     }
 
 })

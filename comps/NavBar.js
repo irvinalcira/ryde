@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
+import {Actions} from 'react-native-router-flux';
 
 import NavBarStyles from '../styles/comps/NavBarStyles';
 
@@ -9,36 +10,36 @@ function NavBar(){
       <View style={NavBarStyles.Container}>
 
             <TouchableOpacity style={NavBarStyles.Button}>
-            <Image style={NavBarStyles.Img}
-              source={require('../assets/icons/blackhouse.png')}
+            <Image resizeMode='contain' style={NavBarStyles.Img}
+              source={require('../assets/icons/home.png')}
             />
             <Text style={NavBarStyles.Text}>Home</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={NavBarStyles.Button}>
-            <Image style={NavBarStyles.Img}
-              source={require('../assets/icons/blackbus.png')}
+            <Image resizeMode='contain' style={NavBarStyles.Img}
+              source={require('../assets/icons/bus.png')}
             />
-            <Text style={NavBarStyles.Text}>Bus Schedules</Text>
+            <Text style={NavBarStyles.Text}>Buses</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={NavBarStyles.Button}>
-            <Image style={NavBarStyles.Img}
-              source={require('../assets/icons/blacktrain.png')}
+            <Image resizeMode='contain' style={NavBarStyles.Img}
+              source={require('../assets/icons/skytrain.png')}
             />
-            <Text style={NavBarStyles.Text}>SkyTrain Schedules</Text>
+            <Text style={NavBarStyles.Text}>SkyTrains</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={NavBarStyles.Button}>
-            <Image style={NavBarStyles.Img}
-              source={require('../assets/icons/blacktaxi.png')}
+            <TouchableOpacity style={NavBarStyles.Button} onPress={() => Actions.Taxis()}>
+            <Image resizeMode='contain' style={NavBarStyles.Img}
+              source={require('../assets/icons/taxi.png')}
             />
             <Text style={NavBarStyles.Text}>Taxis</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={NavBarStyles.Button}>
-            <Image style={NavBarStyles.Img}
-              source={require('../assets/icons/blackcall.png')}
+            <Image resizeMode='contain' style={NavBarStyles.Img}
+              source={require('../assets/icons/contact.png')}
             />
             <Text style={NavBarStyles.Text}>Contacts</Text>
             </TouchableOpacity>
