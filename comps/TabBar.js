@@ -11,7 +11,7 @@ function TabBar(){
 
       <View style={TabBarStyles.Container}>
 
-            <TouchableOpacity style={TabBarStyles.Button}onPress={() => Actions.reset('HomePage')}>
+            <TouchableOpacity style={TabBarStyles.Button}>
             <Image resizeMode='contain' style={TabBarStyles.Img}
               source={require('../assets/icons/home.png')}
             />

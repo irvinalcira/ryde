@@ -4,7 +4,6 @@ import { View, Text } from 'react-native';
 import { Router, Scene, Stack } from 'react-native-router-flux';
 
 //pages
-import HomePage from './home/HomePage';
 
 import BusSchedules from './bus/BusSchedules';
 import BusRoute from './bus/BusRoute';
@@ -29,7 +28,6 @@ function Route(){
         <Router>
         <Stack key="root" hideNavBar={true}>
 
-              <Scene key="HomePage" component={HomePage} />
               <Scene key="BusSchedules" component={BusSchedules} />
               <Scene key="BusRoute" component={BusRoute} />
               <Scene key="BusLastRoute" component={BusLastRoute} />
