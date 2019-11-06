@@ -7,7 +7,7 @@ import {
   } from 'react-native-responsive-screen';
 
 var BusLastStyles=StyleSheet.create({
-    Main:{
+    Container:{
         flex:1,
         backgroundColor: "#3971B3"
         
@@ -40,7 +40,7 @@ var BusLastStyles=StyleSheet.create({
         width:15,
     },
 
-    //
+    // Icon
     ImgStyles:{
         flexDirection:"row",
         width: "100%"

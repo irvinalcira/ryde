@@ -8,10 +8,9 @@ import {
 
 
 var AContactsStyles = StyleSheet.create({
-Contacts: {
+Container: {
     flex:1,
-    padding: 15,
-    width: wp('100%')
+    padding: 15
 },
 TopBar: {
     display: "flex",

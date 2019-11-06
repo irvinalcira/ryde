@@ -4,6 +4,7 @@ import {Actions} from 'react-native-router-flux';
 
 import SelectedTaxiStyles from '../../styles/taxis/SelectedTaxiStyles';
 import Fonts from '../../styles/FontsStyles';
+import Buttons from '../../styles/ButtonsStyles';
 
 function SelectedTaxi(){
 
@@ -71,8 +72,8 @@ function SelectedTaxi(){
     <Text style={Fonts.Body}>(604) 871-1111</Text>
     </View>
 
-    <TouchableOpacity  style={SelectedTaxiStyles.CallBut}>
-    <Text style={SelectedTaxiStyles.CallButText}>Call Taxi</Text>
+    <TouchableOpacity  style={Buttons.CallBut}>
+    <Text style={Buttons.CallButText}>Call Taxi</Text>
     </TouchableOpacity>
 
 </View>

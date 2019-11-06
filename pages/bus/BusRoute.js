@@ -5,8 +5,8 @@ import Fonts from '../../styles/FontsStyles';
 
 export default function BusRoute(){
   return(
-    <SafeAreaView style={BusRouteStyles.BusRoute}>
-      <View style={BusRouteStyles.BusRoute}>
+    <SafeAreaView style={BusRouteStyles.Container}>
+      <View style={BusRouteStyles.Container}>
         
           <View style={BusRouteStyles.TopView}>
 
@@ -15,7 +15,7 @@ export default function BusRoute(){
             <View style={BusRouteStyles.ArrowCont}>
             <Image
             style={BusRouteStyles.BackArrow}
-            source={require('../../assets/icons/whitearrow.png')}
+            source={require('../../assets/icons/backarrow.png')}
             />
             </View>
 

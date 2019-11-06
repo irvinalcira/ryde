@@ -10,17 +10,18 @@ import DividerLine from '../../comps/Divider';
 
 export default function BusLastRoute(){
     return(
-      <SafeAreaView style={BusLastStyles.Main}>
-      <View style={BusLastStyles.Main}>
+      <SafeAreaView style={BusLastStyles.Container}>
+      <View style={BusLastStyles.Container}>
 
         <View style={BusLastStyles.TopView}>
+
 
           {/* Nav Bar (Blue Section) */}
           <View style={BusLastStyles.NavBar}>
             <View style={BusLastStyles.ArrowCont}>
               <Image
               style={BusLastStyles.BackArrow}
-              source={require('../../assets/icons/whitearrow.png')}
+              source={require('../../assets/icons/backarrow.png')}
               />
               </View>
                <Text style={[Fonts.BusRoute, BusLastStyles.NavTitle]}>60212</Text>
@@ -35,6 +36,7 @@ export default function BusLastRoute(){
               <Text style={Fonts.BlueCont}>EAST</Text>
             </View>
         </View>
+     
      
           {/* Schedule */}
           <View style={BusLastStyles.Bottom}>

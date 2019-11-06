@@ -103,6 +103,47 @@ TimeText2:{
   fontFamily:"Assistant-SemiBold"
 },
 
+
+// Skytrain
+WhiteButText: {
+  textAlign:"left",
+  color:"white",
+  fontFamily:"Assistant-Semibold",
+  fontSize:20
+},
+BlackButText: {
+  textAlign:"left",
+  color:"#141414",
+  fontFamily:"Assistant-Semibold",
+  fontSize:20
+},
+SchedText:{
+  marginTop:8,
+  marginLeft:10,
+  width:"100%",
+  fontFamily:"Assistant-SemiBold"
+},
+SchedText2:{
+  marginTop:8,
+  marginLeft:10,
+  fontFamily:"Assistant-Regular"
+},
+OtherHeading: {
+  fontFamily:"Assistant-Bold",
+  fontSize:22
+},
+OtherBody:{
+  fontSize:16,
+  padding:5,
+  fontFamily:"Assistant-Regular"
+},
+OtherHeading2: {
+  textAlign:"center",
+  color:"white",
+  fontFamily:"Assistant-SemiBold",
+  fontSize:20
+}
+
 })
 
 export default Fonts;

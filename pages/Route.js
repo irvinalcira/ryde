@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import { View, Text } from 'react-native';
 import { Router, Scene, Stack } from 'react-native-router-flux';
 
 //pages
+import HomePage from './home/HomePage';
 
 import BusSchedules from './bus/BusSchedules';
 import BusRoute from './bus/BusRoute';
@@ -23,12 +24,18 @@ import SelectedTaxi from './taxis/SelectedTaxi';
 
 
 function Route(){
+
+
+
+
   return(
 
         <Router>
         <Stack key="root" hideNavBar={true}>
 
-              <Scene key="BusSchedules" component={BusSchedules} />
+              <Scene key="HomePage" component={HomePage} initial={true}/>
+        
+              <Scene key="BusSchedules" component={BusSchedules}/>
               <Scene key="BusRoute" component={BusRoute} />
               <Scene key="BusLastRoute" component={BusLastRoute} />
 
@@ -36,12 +43,12 @@ function Route(){
               <Scene key="SkyTrainStation" component={SkyTrainStation} />
               <Scene key="SkyTrainRoute" component={SkyTrainRoute} />
           
-              <Scene key="Taxis" component={Taxis} initial={true}/>
+              <Scene key="Taxis" component={Taxis} i/>
               <Scene key="SelectedTaxi" component={SelectedTaxi}/>
               
               <Scene key="EmptyContacts" component={EmptyContacts}  />
               <Scene key="Contacts" component={Contacts} />
-              <Scene key="AddContacts" component={AddContacts} initial={true}/>
+              <Scene key="AddContacts" component={AddContacts}/>
 
         </Stack>
       </Router>
