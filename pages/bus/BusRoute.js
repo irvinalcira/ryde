@@ -15,7 +15,7 @@ export default function BusRoute(){
             <View style={BusRouteStyles.ArrowCont}>
             <Image
             style={BusRouteStyles.BackArrow}
-            source={require('../../assets/icons/whitearrow.png')}
+            source={require('../../assets/icons/backarrow.png')}
             />
             </View>
 

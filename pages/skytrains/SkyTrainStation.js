@@ -22,7 +22,7 @@ export default function SkyTrainStation(){
         <View style={SkyTrainStationStyles.ArrowCont}>
           <Image
           style={SkyTrainStationStyles.BackArrow}
-          source={require('../../assets/icons/whitearrow.png')}
+          source={require('../../assets/icons/backarrow.png')}
           />
           </View>
            <Text style={[Fonts.BusRoute, SkyTrainStationStyles.NavTitle]}>60212</Text>

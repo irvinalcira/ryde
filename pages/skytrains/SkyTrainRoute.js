@@ -17,7 +17,7 @@ export default function SkyTrainRoute(){
           <View style={SkyTrainRouteStyles.ArrowCont}>
           <Image
           style={SkyTrainRouteStyles.BackArrow}
-          source={require('../../assets/icons/whitearrow.png')}
+          source={require('../../assets/icons/backarrow.png')}
           />
           </View>
 

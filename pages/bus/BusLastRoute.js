@@ -21,7 +21,7 @@ export default function BusLastRoute(){
             <View style={BusLastStyles.ArrowCont}>
               <Image
               style={BusLastStyles.BackArrow}
-              source={require('../../assets/icons/whitearrow.png')}
+              source={require('../../assets/icons/backarrow.png')}
               />
               </View>
                <Text style={[Fonts.BusRoute, BusLastStyles.NavTitle]}>60212</Text>
