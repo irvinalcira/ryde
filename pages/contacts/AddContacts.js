@@ -14,8 +14,8 @@ function AddContacts() {
 
   return (
 
-    <SafeAreaView style={AContactsStyles.Contacts}>
-      <View style={AContactsStyles.Contacts}>
+    <SafeAreaView style={AContactsStyles.Container}>
+      <View style={AContactsStyles.Container}>
 
         {/* Nav Bar */}
         <View style={AContactsStyles.TopBar}>

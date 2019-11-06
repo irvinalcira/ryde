@@ -8,7 +8,7 @@ import {
   } from 'react-native-responsive-screen';
 
 var BusRouteStyles=StyleSheet.create({
-    BusRoute:{
+    Container:{
         flex:1,
         backgroundColor: "#3971B3"
     },

@@ -73,25 +73,7 @@ var SelectedTaxiStyles = StyleSheet.create({
         justifyContent:'center',
         alignItems:'center',
         flex:1,
-    },
-
-    CallBut: {
-        marginTop: 10,
-        height:55,
-        textAlign:'center',
-        justifyContent:'center',
-        backgroundColor:"#3794da",
-        borderRadius: 8
-    },
-    CallButText: {
-        textAlign:"center",
-        color:"white",
-        fontFamily:"Assistant-SemiBold",
-        fontSize:26
-    },
-
-
-
+    }
 })
 
 export default SelectedTaxiStyles;

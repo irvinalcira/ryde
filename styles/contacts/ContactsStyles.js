@@ -8,11 +8,11 @@ import {
 
 
 var ContactsStyles = StyleSheet.create({
-Contacts: {
+Container: {
     flex:1,
     padding: 15,
     marginTop: 20,
-    width: wp('100%')
+    // width: wp('100%')
 },
 TitleCont: {
   display: "flex",
@@ -38,7 +38,7 @@ FirstContainer: {
   display: "flex",
   flexDirection: "row",
 },
-Container: {
+UserContainer: {
   marginTop: 5,
   marginBottom: 5,
   display: "flex",
