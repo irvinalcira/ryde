@@ -13,7 +13,15 @@ var TabBarStyles = StyleSheet.create({
         width: wp('100%'),
         height:70,
         backgroundColor:'#ffffff',
-        flexDirection:'row'
+        flexDirection:'row',
+
+        shadowColor:'#000000',
+        shadowOpacity:0.5,
+        shadowRadius:1.75,
+        shadowOffset: {
+            height:1,
+            weight:1
+        }
     },
 
     Button:{
