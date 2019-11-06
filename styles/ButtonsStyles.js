@@ -65,6 +65,22 @@ Img: {
     height:12,
   },  
 
+  CallBut: {
+    marginTop: 15,
+    height:80,
+    textAlign:'center',
+    justifyContent:'center',
+    backgroundColor:"#3794da",
+    borderRadius: 3
+  },
+
+  CallButText: {
+    textAlign:"center",
+    color:"white",
+    fontFamily:"Assistant-SemiBold",
+    fontSize:25
+  },
+
   // Skytrains
   SkyTrain: {
     marginTop:10,

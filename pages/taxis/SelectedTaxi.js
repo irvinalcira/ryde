@@ -72,8 +72,8 @@ function SelectedTaxi(){
     <Text style={Fonts.Body}>(604) 871-1111</Text>
     </View>
 
-    <TouchableOpacity  style={Buttons.Alt}>
-    <Text style={Buttons.MainText}>Call Taxi</Text>
+    <TouchableOpacity  style={Buttons.CallBut}>
+    <Text style={Buttons.CallButText}>Call Taxi</Text>
     </TouchableOpacity>
 
 </View>
