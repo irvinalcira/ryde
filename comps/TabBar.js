@@ -36,7 +36,7 @@ function TabBar(){
 
       <View style={TabBarStyles.Container}>
 
-<TouchableOpacity style={TabBarStyles.Button} onPress={() => { Actions.reset('BusSchedules'); 
+            <TouchableOpacity style={TabBarStyles.Button} onPress={() => { Actions.reset('HomePage'); 
                               setNavHomeImg(require('../assets/icons/home-active.png')); setNavHomeTxt(ActiveTextColor);
                               setNavContactsTxt(TextColor); setNavBusTxt(TextColor); setNavSkyTrainsTxt(TextColor); setNavTaxiTxt(TextColor);
                               setNavContactsImg(require('../assets/icons/contact.png')); setNavBusImg(require('../assets/icons/bus.png')); setNavSkyTrainsImg(require('../assets/icons/skytrain.png')); setNavTaxiImg(require('../assets/icons/taxi.png')); ;
