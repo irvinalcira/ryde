@@ -61,7 +61,7 @@ function Taxis(){
         </TouchableOpacity>
 
         {/* Second Taxi */}
-        <TouchableOpacity  style={Buttons.Taxi}>
+        <TouchableOpacity  style={Buttons.Taxi}  onPress={() => Actions.BlackTopTaxi()}>
                 {/* Left Icon */}
                 <View style={Buttons.IconCont}>
                         <Image
