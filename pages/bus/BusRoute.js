@@ -5,8 +5,8 @@ import Fonts from '../../styles/FontsStyles';
 
 export default function BusRoute(){
   return(
-    <SafeAreaView style={BusRouteStyles.BusRoute}>
-      <View style={BusRouteStyles.BusRoute}>
+    <SafeAreaView style={BusRouteStyles.Container}>
+      <View style={BusRouteStyles.Container}>
         
           <View style={BusRouteStyles.TopView}>
 

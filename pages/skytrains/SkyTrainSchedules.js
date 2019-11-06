@@ -3,111 +3,107 @@ import { View, Text,SafeAreaView,TouchableOpacity, TextInput, Image } from 'reac
 import {Actions} from 'react-native-router-flux';
 
 import SkyTrainScheduleStyles from '../../styles/skytrains/SkyTrainSchedulesStyles';
+import Fonts from '../../styles/FontsStyles';
+import Buttons from '../../styles/ButtonsStyles';
 
 export default function SkyTrainSchedules(){
   return (
     <SafeAreaView style={SkyTrainScheduleStyles.Container}>
       <View style={SkyTrainScheduleStyles.Container}>
-
-
         
-        <Text style={SkyTrainScheduleStyles.Title}>SkyTrain Schedules</Text>
-
-        
-
-
-        <Text style={SkyTrainScheduleStyles.Heading}>Find A SkyTrain Station</Text>
+        <Text style={Fonts.Title}>SkyTrain Schedules</Text>
+        <Text style={Fonts.Heading}>Find A SkyTrain Station</Text>
+        <Text style={Fonts.Body}>Search for a SkyTrain station to see its schedules</Text>
 
 
-        <TextInput style={SkyTrainScheduleStyles.Inp}
+        <TextInput style={Fonts.Inp}
         placeholder="Search For SkyTrain Station"
         placeholderTextColor='black' 
         />
-        <Image
-          style={SkyTrainScheduleStyles.Search}
-          source={require('../../assets/icons/search.png')}
-          />
 
+        <TouchableOpacity style={Buttons.Main}>
+              <Text style={Buttons.MainText}>Find Bus</Text>
+          </TouchableOpacity>
 
         <View style={SkyTrainScheduleStyles.TrainView}>
-        <Text style={SkyTrainScheduleStyles.Heading}>View SkyTrain Stations by line</Text>
+        <Text style={Fonts.Heading}>View SkyTrain Stations by line</Text>
         </View>
 
         <View style={SkyTrainScheduleStyles.TaxiButtonsContainer}>
 
         {/* Expo Line */}
-        <TouchableOpacity  style={SkyTrainScheduleStyles.ExpoLine} onPress={() => Actions.SkyTrainRoute()}>
+        <TouchableOpacity  style={[Buttons.SkyTrain, {backgroundColor: "#235CA3"}]} onPress={() => Actions.SkyTrainRoute()}>
                 {/* Left Icon */}
-                <View style={SkyTrainScheduleStyles.IconCont}>
+                <View style={Buttons.IconCont}>
                         <Image
-                        style={SkyTrainScheduleStyles.TrainImg}
+                        style={Buttons.Img}
                         source={require('../../assets/icons/whitetrain.png')}
                         />
                 </View>
 
                 {/* Text */}
-                <View style={SkyTrainScheduleStyles.TextCont}>
-                        <Text style={SkyTrainScheduleStyles.ExpoText}>
+                <View style={Buttons.TextCont}>
+                        <Text style={Fonts.WhiteButText}>
                             Expo Line
                         </Text>
                 </View>
 
                 {/* Right Icon */}
-                <View style={SkyTrainScheduleStyles.IconCont}>
+                <View style={Buttons.IconCont}>
                         <Image
-                        style={SkyTrainScheduleStyles.ArrowImg}
+                        style={Buttons.ArrowImg}
                         source={require('../../assets/icons/whitearrow.png')}
                         />
                 </View>
         </TouchableOpacity>
 
         {/* Millenium Line */}
-        <TouchableOpacity  style={SkyTrainScheduleStyles.MilleniumLine}>
+        <TouchableOpacity  style={[Buttons.SkyTrain, {backgroundColor: "#F7D148"}]}>
                 {/* Left Icon */}
-                <View style={SkyTrainScheduleStyles.IconCont}>
+                <View style={Buttons.IconCont}>
                         <Image
-                        style={SkyTrainScheduleStyles.TrainImg}
+                        style={Buttons.Img}
                         source={require('../../assets/icons/skytrain.png')}
                         />
                 </View>
 
                 {/* Text */}
-                <View style={SkyTrainScheduleStyles.TextCont}>
-                        <Text style={SkyTrainScheduleStyles.MilleniumText}>
+                <View style={Buttons.TextCont}>
+                        <Text style={Fonts.BlackButText}>
                             Millenium Line
                         </Text>
                 </View>
 
                 {/* Canada Line */}
-                <View style={SkyTrainScheduleStyles.IconCont}>
+                <View style={Buttons.IconCont}>
                         <Image
-                        style={SkyTrainScheduleStyles.ArrowImg}
+                        style={Buttons.ArrowImg}
                         source={require('../../assets/icons/arrow.png')}
                         />
                 </View>
         </TouchableOpacity>
 
         {/* Third Train */}
-        <TouchableOpacity  style={SkyTrainScheduleStyles.CanadaLine}>
+        <TouchableOpacity  style={[Buttons.SkyTrain, {backgroundColor: "#4298C2"}]}>
                 {/* Left Icon */}
-                <View style={SkyTrainScheduleStyles.IconCont}>
+                <View style={Buttons.IconCont}>
                         <Image
-                        style={SkyTrainScheduleStyles.TrainImg}
+                        style={Buttons.Img}
                         source={require('../../assets/icons/whitetrain.png')}
                         />
                 </View>
 
                 {/* Text */}
-                <View style={SkyTrainScheduleStyles.TextCont}>
-                        <Text style={SkyTrainScheduleStyles.CanadaText}>
+                <View style={Buttons.TextCont}>
+                        <Text style={Fonts.WhiteButText}>
                             Canada Line
                         </Text>
                 </View>
 
                 {/* Right Icon */}
-                <View style={SkyTrainScheduleStyles.IconCont}>
+                <View style={Buttons.IconCont}>
                         <Image
-                        style={SkyTrainScheduleStyles.ArrowImg}
+                        style={Buttons.ArrowImg}
                         source={require('../../assets/icons/whitearrow.png')}
                         />
                 </View>

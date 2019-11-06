@@ -7,45 +7,43 @@ import {
     removeOrientationListener as rol
   } from 'react-native-responsive-screen';
 
-var BusRouteStyles=StyleSheet.create({
-    container:{
+var SkyTrainRouteStyles=StyleSheet.create({
+    Container:{
         flex:1,
-        width: wp('100%')
+        backgroundColor: "#3971B3"
     },
     TopView:{
         flex:0.5,
         backgroundColor:"#3971B3",
-        padding:10,
-        paddingTop: 40,
-    },
-    TrainRouteFont:{
-        color:"white",
-        fontFamily:"Assistant-Bold",
-        fontSize:22,
-        width:"100%",
-        textAlign:"center",
-        marginLeft:-60
+        padding:15
     },
 
-    TrainRouteView:{
-        flex:1,
-        justifyContent:"center"
+    // Blue part
+    NavBar:{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent:"center",
     },
 
-    TrainRouteViewAlt:{
-        flex:1.7,
+    NavTitle: {
+        flex: 4,
+        textAlign: "center",
     },
+
+    ArrowCont: {
+        flex: 0.5,
+        justifyContent: "center"
+    },
+    
     BackArrow:{
         height:15,
         width:15,
     },
+ 
+    
     ImgStyles:{
         flexDirection:"row",
         width:"100%",
-    },
-    BotStyles:{
-        flexDirection:"row",
-        justifyContent:"space-between",
     },
     MidStyles:{
         width:"100%",
@@ -58,6 +56,13 @@ var BusRouteStyles=StyleSheet.create({
         width:60,
         margin:10 
     },
+    BotStyles:{
+        flexDirection:"row",
+        justifyContent:"space-between",
+    },
+
+
+     // Doesn't do anything when you change the value of flex
     ScrollView:{
         flex:1,   
     },
@@ -91,4 +96,4 @@ var BusRouteStyles=StyleSheet.create({
     }
 });
 
-export default BusRouteStyles;
+export default SkyTrainRouteStyles;

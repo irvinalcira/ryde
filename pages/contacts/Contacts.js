@@ -13,12 +13,12 @@ function Contacts() {
   
   return (
 
-    <SafeAreaView style={ContactsStyles.Contacts}>
+    <SafeAreaView style={ContactsStyles.Container}>
 
-      <View style={ContactsStyles.Contacts}>
+      <View style={ContactsStyles.Container}>
 
         <View style={ContactsStyles.TitleCont}>
-        <Text style={[Fonts.Title, {flex: 10}]}>Call Contacts</Text>
+        <Text style={[Fonts.Title, {flex: 10}]}>Contacts</Text>
         <View style={ContactsStyles.TitleImg} >
         <TouchableOpacity>
         <Image 
@@ -62,7 +62,7 @@ function Contacts() {
 
         {/* Contact */}
         <TouchableOpacity>
-        <View style={ContactsStyles.Container}>
+        <View style={ContactsStyles.UserContainer}>
 
           <Text style={Fonts.Name}>Mom</Text>
 
@@ -92,7 +92,7 @@ function Contacts() {
 
         {/* Contact */}
         <TouchableOpacity>
-        <View style={ContactsStyles.Container}>
+        <View style={ContactsStyles.UserContainer}>
 
           <Text style={Fonts.Name}>Irvin Alcira</Text>
 
@@ -122,7 +122,7 @@ function Contacts() {
 
         {/* Contact */}
         <TouchableOpacity>
-        <View style={ContactsStyles.Container}>
+        <View style={ContactsStyles.UserContainer}>
 
           <Text style={Fonts.Name}>Jesse</Text>
 

@@ -9,48 +9,40 @@ import {
 var SkyTrainStationStyles = StyleSheet.create({
     Container:{
         flex:1,
-        width: wp('100%')
-    },
-    
-    Main:{
-        flex:1,
+        backgroundColor: "#3971B3"
     },
     TopView:{
-        flex:0.4,
+        flex:0.5,
         backgroundColor:"#3971B3",
-        padding:20,
-        paddingTop: 40,
-    },
-    TrainRouteFont:{
-        color:"white",
-        fontFamily:"Assistant-Bold",
-        fontSize:22,
-        width:"100%",
-        textAlign:"center",
-        marginLeft:-13,
-        marginTop:-7,
-        width:"100%"
+        padding: 15,
     },
 
-    BusRouteView:{
-        flex:1,
-        justifyContent:"center"
-    },
 
-    BusRouteView2:{
-        flex:1
-    },
+    // Blue part
+     NavBar:{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent:"center",
+    },     
+
+    NavTitle: {
+        flex: 4,
+        textAlign: "center",
+    },     
+
+    ArrowCont: {
+        flex: 0.5,
+        justifyContent: "center"
+    },     
+
     BackArrow:{
         height:15,
         width:15,
     },
+
+    // Icon
     ImgStyles:{
     flexDirection:"row",
-    },
-
-    BotStyles:{
-        flexDirection:"row",
-        justifyContent:"space-between",
     },
     MidStyles:{
         width:"100%",
@@ -63,116 +55,79 @@ var SkyTrainStationStyles = StyleSheet.create({
         width:60,
         margin:10 
     },
+    BotStyles:{
+        flexDirection:"row",
+        justifyContent:"space-between",
+    },
+
+
+    // Content
     Bottom:{
         flex:1,
+        backgroundColor: "#eee"
     },
-    ScheduleText:{
-        fontFamily:"Assistant-Bold",
-        fontSize:22,
-        marginLeft:20,
-        marginTop:10
-},
-TimeCont:{
-    backgroundColor:"#DCDCDC",
-    paddingLeft:20,
-    paddingRight:20,
-    marginTop:55,
-    borderRadius:6,
-    width:wp('90%'),
-},
-TimeWrap:{
-    justifyContent:"center",
-    alignItems:"center"
-},
-TimeText:{
-    fontSize:20,
-    margin:3,
-    fontFamily:"Assistant-Bold"
-},
-TimeText2:{
-    fontSize:20,
-    margin:3,
-    fontFamily:"Assistant-SemiBold"
-},
-TrainText:{
-    color:"white",
-    fontFamily:"Assistant-SemiBold",
-    fontSize:16
-},
-StopName:{
-    color:"white",
-    fontFamily:"Assistant-SemiBold"
-},
+    SectionCont:{
+        justifyContent:"center",
+        alignItems:"center",
+    },
 
-StopNumber:{
-    color:"white",
-    fontFamily:"Assistant-SemiBold"
-},
-SchedView:{
-    flexDirection:"row",
-},
-SchedText:{
-    marginTop:8,
-    marginLeft:10,
-    width:"100%",
-    fontFamily:"Assistant-SemiBold"
-},
-SchedText1:{
-    marginTop:8,
-    marginLeft:10,
-    fontFamily:"Assistant-Regular"
-},
-OtherCont:{
-    marginTop:20,
-    width:wp('90%'),
-},
-OtherText:{
-    fontFamily:"Assistant-Bold",
-    fontSize:22
-},
-FirstTrainView:{
-    backgroundColor:"#235CA3",
-    justifyContent:"center",
-    height:"20%",
-    borderTopLeftRadius:6,
-    borderTopRightRadius:6,
-    marginTop:10
-},
-FirstTrainText:{
-    textAlign:"center",
-    color:"white",
-    fontFamily:"Assistant-SemiBold",
-    fontSize:20
-},
-ColumnView:{
-flexDirection:"row",
-},
-Days:{
-    backgroundColor:"#D2D2D2",
-    flex:0.5,
-    paddingLeft:15,
-    borderBottomLeftRadius:6,
-},
-FirstTime:{
-    backgroundColor:"#DCDCDC",
-    flex:0.5,
-    alignItems:"center",
-    borderBottomRightRadius:6
-},
-DaysText:{
-    fontSize:16,
-    padding:5,
-    fontFamily:"Assistant-Regular"
-},
+
+    // Schedules
+    TimeCont:{
+        backgroundColor:"#DCDCDC",
+        paddingLeft:20,
+        paddingRight:20,
+        paddingTop:10,
+        borderRadius:6,
+        width:wp('90%'),
+    },
+    SchedView:{
+        flexDirection: "row"
+    },
+
+
+    // First Train
+    OtherCont:{
+        marginTop:20,
+        // backgroundColor: "pink",
+        // width:wp('90%'),
+    },
+    ColumnView:{
+        flexDirection:"row",
+        width:wp('90%'),
+    },
+    FirstTrain:{
+        backgroundColor:"#235CA3",
+        justifyContent:"center",
+        padding: 5,
+        borderTopLeftRadius:6,
+        borderTopRightRadius:6,
+    },
+
+    OtherDays:{
+        backgroundColor:"#D2D2D2",
+        flex:1,
+        paddingBottom: 5,
+        paddingLeft: 15,
+        // alignItems: "center",
+        borderBottomLeftRadius:3,
+    },
+
+    OtherTime:{
+        backgroundColor:"#DCDCDC",
+        flex:1,
+        alignItems:"center",
+        borderBottomRightRadius:3
+    },
+
 SecondTrainView:{
     backgroundColor:"#235CA3",
     justifyContent:"center",
-    height:"20%",
+    // height:"20%",
     borderTopLeftRadius:6,
     borderTopRightRadius:6,
 },
 OtherCont2:{
-    marginTop:-40,
     width:wp('90%'),
 },
 });

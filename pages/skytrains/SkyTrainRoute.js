@@ -3,47 +3,53 @@ import { View, Text, Image,ScrollView, SafeAreaView, TouchableOpacity} from 'rea
 import {Actions} from 'react-native-router-flux';
 
 import SkyTrainRouteStyles from '../../styles/skytrains/SkyTrainRouteStyles';
+import Fonts from '../../styles/FontsStyles';
+
 export default function SkyTrainRoute(){
   return(
-      <View style={SkyTrainRouteStyles.container}>
-          <View style={SkyTrainRouteStyles.TopView}>
-            <View style={SkyTrainRouteStyles.ImgStyles}>
-              <View style={SkyTrainRouteStyles.TrainRouteView}>
-                <TouchableOpacity onPress={() => Actions.pop('SkyTrainSchedules')}>
-                  <Image
-                  style={SkyTrainRouteStyles.BackArrow}
-                  source={require('../../assets/icons/whitearrow.png')}
-                  />
-                </TouchableOpacity>
-                
-                </View>
-                < View style={SkyTrainRouteStyles.TrainRouteViewAlt}>
-                <Text style={SkyTrainRouteStyles.TrainRouteFont}>Expo Line Station</Text>
-                </View>
-            </View>
+    <SafeAreaView style={SkyTrainRouteStyles.Container}>
+    <View style={SkyTrainRouteStyles.Container}>
+      
+        <View style={SkyTrainRouteStyles.TopView}>
 
-                  <View style={SkyTrainRouteStyles.MidStyles}>
-                    <Image
-                      style={SkyTrainRouteStyles.WhiteTrain}
-                      source={require('../../assets/icons/whitetrain.png')}
-                    />
-                      <Text style={SkyTrainRouteStyles.StationText}>Expo Line</Text>
-                      <Text style={SkyTrainRouteStyles.StationAreaText}>To King George Station</Text>
-                  </View>
-              
-   
-            </View>
-            <ScrollView style={SkyTrainRouteStyles.ScrollView}>
-              <TouchableOpacity>
-              <Text style={SkyTrainRouteStyles.TrainView}>Waterfront</Text>
-              </TouchableOpacity>
-              
-              <Text style={SkyTrainRouteStyles.TrainViewAlt}>Test</Text>
-              <Text style={SkyTrainRouteStyles.TrainView}>Test</Text>
-              <Text style={SkyTrainRouteStyles.TrainViewAlt}>Test</Text>
-              <Text style={SkyTrainRouteStyles.TrainView}>Test</Text>
-              <Text style={SkyTrainRouteStyles.TrainViewAlt}>Test</Text>
-            </ScrollView>
-        </View>
+        <View style={SkyTrainRouteStyles.NavBar}>
+
+          <View style={SkyTrainRouteStyles.ArrowCont}>
+          <Image
+          style={SkyTrainRouteStyles.BackArrow}
+          source={require('../../assets/icons/whitearrow.png')}
+          />
+          </View>
+
+          <Text style={[Fonts.BusRoute, SkyTrainRouteStyles.NavTitle]}>Expo Line Station</Text>
+
+          </View>
+        
+          
+          <View style={SkyTrainRouteStyles.MidStyles}>
+            <Image
+              style={SkyTrainRouteStyles.WhiteTrain}
+              source={require('../../assets/icons/whitebus.png')}
+            />
+              <Text style={Fonts.BlueCont}>To King George Station</Text>
+              <Text style={Fonts.BlueCont}>WATERFRONT</Text>
+          </View>
+              <View style={SkyTrainRouteStyles.BotStyles}>
+                <Text style={Fonts.BlueCont}>Station Name</Text>
+                <Text style={Fonts.BlueCont}>Estimated Time</Text>
+              </View>
+            
+ 
+          </View>
+          <ScrollView style={SkyTrainRouteStyles.ScrollView}>
+            <Text style={SkyTrainRouteStyles.TrainView}>Test</Text>
+            <Text style={SkyTrainRouteStyles.TrainViewAlt}>Test</Text>
+            <Text style={SkyTrainRouteStyles.TrainView}>Test</Text>
+            <Text style={SkyTrainRouteStyles.TrainViewAlt}>Test</Text>
+            <Text style={SkyTrainRouteStyles.TrainView}>Test</Text>
+            <Text style={SkyTrainRouteStyles.TrainViewAlt}>Test</Text>
+          </ScrollView>
+      </View>
+      </SafeAreaView>
   )
 };
