@@ -91,6 +91,13 @@ Img: {
     backgroundColor:"#235CA3",
     borderRadius: 8,
 },
+
+  // HomePage
+  HomePageButton: {
+    padding: 15,    
+    position:'relative'
+  }
+
 })
 
 export default Buttons;

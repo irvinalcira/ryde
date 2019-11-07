@@ -1,40 +1,35 @@
 import {StyleSheet} from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+  listenOrientationChange as loc,
+  removeOrientationListener as rol
+} from 'react-native-responsive-screen';
 
 var HomePageStyles = StyleSheet.create({
 
-  HomeStyles:{
+  Container:{
     flex:1,
     padding:15,
-    marginTop:20
+    marginTop:20,
+    backgroundColor:"#EEEEEE"
   },
-  FavTab:{
-    flex:2,
-    flexDirection:"row",
-    padding:15,
-    textAlign:'center'
-  },
-  ContactTab:{
-    flex:1,
-    flexDirection:"row",
-    padding:15
-  },
-  WelcomeText:{
-    fontSize:40,
-    fontFamily:"Assistant-Bold",
-    padding:15
-  },
-  FavText:{
-    fontSize:25,
-    fontFamily:"Assistant-Bold",
-    padding:15
-  },
-  FavTabText:{
-    fontSize:15,
-    fontFamily:"Assistant-SemiBold",
-    padding:10,
-    textAlign:"center"
-  }
 
+  FavContainer:{
+    flex:1,
+    flexDirection:"row",
+  },
+
+  FavBox:{
+    backgroundColor:"#DBDBDB",    
+    width: wp('100%'),
+    height: hp('20%'),
+  },
+
+  ContactContainer:{
+    flex:1,
+    padding:15
+  }
 });
 
 export default HomePageStyles;

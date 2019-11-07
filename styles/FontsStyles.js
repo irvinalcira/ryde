@@ -142,6 +142,12 @@ OtherHeading2: {
   color:"white",
   fontFamily:"Assistant-SemiBold",
   fontSize:20
+},
+
+//HomePage
+FavHeading:{
+  fontSize:25,
+  fontFamily:"Assistant-Bold"
 }
 
 })
