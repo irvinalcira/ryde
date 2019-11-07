@@ -36,7 +36,7 @@ function TabBar(){
 
       <View style={TabBarStyles.Container}>
 
-            <TouchableOpacity style={TabBarStyles.Button} onPress={() => { Actions.reset('HomePage'); 
+            <TouchableOpacity activeOpacity={1} style={TabBarStyles.Button} onPress={() => { Actions.reset('HomePage'); 
                               setNavHomeImg(require('../assets/icons/home-active.png')); setNavHomeTxt(ActiveTextColor);
                               setNavContactsTxt(TextColor); setNavBusTxt(TextColor); setNavSkyTrainsTxt(TextColor); setNavTaxiTxt(TextColor);
                               setNavContactsImg(require('../assets/icons/contact.png')); setNavBusImg(require('../assets/icons/bus.png')); setNavSkyTrainsImg(require('../assets/icons/skytrain.png')); setNavTaxiImg(require('../assets/icons/taxi.png')); ;
@@ -47,7 +47,7 @@ function TabBar(){
             <Text style={[TabBarStyles.Text, {color:NavHomeTxt}]}>Home</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={TabBarStyles.Button} onPress={() => { Actions.reset('BusSchedules'); 
+            <TouchableOpacity activeOpacity={1} style={TabBarStyles.Button} onPress={() => { Actions.reset('BusSchedules'); 
                               setNavBusImg(require('../assets/icons/bus-active.png')); setNavBusTxt(ActiveTextColor);
                               setNavHomeTxt(TextColor); setNavSkyTrainsTxt(TextColor); setNavTaxiTxt(TextColor); setNavContactsTxt(TextColor);
                               setNavHomeImg(require('../assets/icons/home.png')); setNavSkyTrainsImg(require('../assets/icons/skytrain.png')); setNavTaxiImg(require('../assets/icons/taxi.png')); setNavContactsImg(require('../assets/icons/contact.png')); ;
@@ -58,7 +58,7 @@ function TabBar(){
             <Text style={[TabBarStyles.Text, {color:NavBusTxt}]}>Buses</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={TabBarStyles.Button} onPress={() => { Actions.reset('SkyTrainSchedules'); 
+            <TouchableOpacity activeOpacity={1} style={TabBarStyles.Button} onPress={() => { Actions.reset('SkyTrainSchedules'); 
                               setNavSkyTrainsImg(require('../assets/icons/skytrain-active.png')); setNavSkyTrainsTxt(ActiveTextColor);
                               setNavHomeTxt(TextColor); setNavBusTxt(TextColor); setNavTaxiTxt(TextColor); setNavContactsTxt(TextColor);
                               setNavHomeImg(require('../assets/icons/home.png')); setNavBusImg(require('../assets/icons/bus.png')); setNavTaxiImg(require('../assets/icons/taxi.png')); setNavContactsImg(require('../assets/icons/contact.png')); ;
@@ -69,7 +69,7 @@ function TabBar(){
             <Text style={[TabBarStyles.Text, {color:NavSkyTrainsTxt}]}>SkyTrains</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={TabBarStyles.Button} onPress={() => { Actions.reset('Taxis'); 
+            <TouchableOpacity activeOpacity={1} style={TabBarStyles.Button} onPress={() => { Actions.reset('Taxis'); 
                               setNavTaxiImg(require('../assets/icons/taxi-active.png')); setNavTaxiTxt(ActiveTextColor);
                               setNavHomeTxt(TextColor); setNavBusTxt(TextColor); setNavSkyTrainsTxt(TextColor); setNavContactsTxt(TextColor);
                               setNavHomeImg(require('../assets/icons/home.png')); setNavBusImg(require('../assets/icons/bus.png')); setNavSkyTrainsImg(require('../assets/icons/skytrain.png')); setNavContactsImg(require('../assets/icons/contact.png')); ;
@@ -80,7 +80,7 @@ function TabBar(){
             <Text style={[TabBarStyles.Text, {color:NavTaxiTxt}]}>Taxis</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={TabBarStyles.Button} onPress={() => { Actions.reset('Contacts'); 
+            <TouchableOpacity activeOpacity={1} style={TabBarStyles.Button} onPress={() => { Actions.reset('Contacts'); 
                               setNavContactsImg(require('../assets/icons/contact-active.png')); setNavContactsTxt(ActiveTextColor);
                               setNavHomeTxt(TextColor); setNavBusTxt(TextColor); setNavSkyTrainsTxt(TextColor); setNavTaxiTxt(TextColor);
                               setNavHomeImg(require('../assets/icons/home.png')); setNavBusImg(require('../assets/icons/bus.png')); setNavSkyTrainsImg(require('../assets/icons/skytrain.png')); setNavTaxiImg(require('../assets/icons/taxi.png')); ;
