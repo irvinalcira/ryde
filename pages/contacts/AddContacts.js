@@ -1,11 +1,8 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, Image, TextInput } from 'react-native';
 import {Actions} from 'react-native-router-flux';
-import CameraRollPicker from 'react-native-camera-roll-picker';
 import Cam from '../CameraRoll';
 //done
-
-
 
 import AContactsStyles from '../../styles/contacts/AddContactsStyles';
 import Fonts from '../../styles/FontsStyles';
