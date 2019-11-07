@@ -18,6 +18,7 @@ function BusSchedules(){
            <TextInput
            style={Fonts.Inp}
            placeholder="Enter Bus Name"
+           placeholderTextColor='gray'
            />
 
 
@@ -29,6 +30,8 @@ function BusSchedules(){
           <TextInput
           style={Fonts.Inp}
           placeholder="Enter Bus Stop Number (IE:#60432)"
+          placeholderTextColor='gray'
+          
           />
           <TouchableOpacity style={Buttons.Alt}>
              <Text style={Buttons.MainText}>Find Bus</Text>

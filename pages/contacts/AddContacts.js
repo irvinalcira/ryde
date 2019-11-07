@@ -37,20 +37,23 @@ function AddContacts() {
         <Text style={Fonts.InpLabel}>First Name</Text>
         <TextInput
         style={Fonts.Inp}
-        placeholder="ie: Celine"
+        placeholder="John"
+        placeholderTextColor='gray'
         />
 
         <Text style={Fonts.InpLabel}>Last Name</Text>
         <TextInput
         style={Fonts.Inp}
-        placeholder="ie: Rogers"
+        placeholder="Doe"
+        placeholderTextColor='gray'
         />
 
         <Text style={Fonts.InpLabel}>Phone Number</Text>
         <TextInput
         style={Fonts.Inp}
         keyboardType={'numeric'}
-        placeholder="(xxx) xxx-xxxx"
+        placeholder="(604) 333-3333"
+        placeholderTextColor='gray'
         />
 
       </View>

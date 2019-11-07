@@ -66,6 +66,7 @@ Inp: {
   alignItems: "center",
   marginTop: 15,
   padding: 10,
+  color:'black',
   backgroundColor: "white",
   borderColor: "#D6D6D6",
   borderWidth:1
