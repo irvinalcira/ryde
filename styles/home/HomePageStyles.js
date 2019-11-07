@@ -10,25 +10,27 @@ var HomePageStyles = StyleSheet.create({
 
   Container:{
     flex:1,
-    padding:15,
     marginTop:20,
     backgroundColor:"#EEEEEE"
   },
 
   FavContainer:{
-    flex:1,
+    // backgroundColor:'blue',
     flexDirection:"row",
   },
 
   FavBox:{
     backgroundColor:"#DBDBDB",    
     width: wp('100%'),
-    height: hp('20%'),
+    height: hp('30%'),
+    padding:15,
+    alignItems:'center',
+  
   },
 
   ContactContainer:{
     flex:1,
-    padding:15
+    paddingHorizontal:15
   }
 });
 
