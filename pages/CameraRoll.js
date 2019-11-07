@@ -12,7 +12,7 @@ export default function Cam() {
     const options = {
       noData: true,
     };
-    ImagePicker.launchImageLibrary(options, response => {
+    ImagePicker.showImagePicker(options, response => {
       if (response) {
         SetPhoto(response);
         setShowPic(true);
