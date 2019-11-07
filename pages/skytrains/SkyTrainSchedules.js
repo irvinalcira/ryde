@@ -22,7 +22,7 @@ export default function SkyTrainSchedules(){
         />
 
         <TouchableOpacity style={Buttons.Main}>
-              <Text style={Buttons.MainText}>Find Bus</Text>
+              <Text style={Buttons.MainText}>View Station</Text>
           </TouchableOpacity>
 
         <View style={SkyTrainScheduleStyles.TrainView}>
