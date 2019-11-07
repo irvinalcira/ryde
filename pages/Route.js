@@ -21,7 +21,6 @@ import AddContacts from './contacts/AddContacts';
 
 import Taxis from './taxis/Taxis';
 import SelectedTaxi from './taxis/SelectedTaxi';
-import BlackTopTaxi from './taxis/BlackTopTaxi';
 
 
 function Route(){
@@ -44,7 +43,7 @@ function Route(){
               <Scene key="SkyTrainStation" component={SkyTrainStation} />
               <Scene key="SkyTrainRoute" component={SkyTrainRoute} />
           
-              <Scene key="Taxis" component={Taxis} initial={true}/>
+              <Scene key="Taxis" component={Taxis} />
               <Scene key="SelectedTaxi" component={SelectedTaxi}/>
               
               <Scene key="EmptyContacts" component={EmptyContacts}  />
