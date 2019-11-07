@@ -12,23 +12,27 @@ var HomePageStyles = StyleSheet.create({
     flex:1,
     padding:15,
     marginTop:20,
-    backgroundColor:"#EEEEEE"
+    // backgroundColor:'lightblue'
+    
   },
 
   FavContainer:{
-    flex:1,
+    // backgroundColor:'blue',
     flexDirection:"row",
   },
 
   FavBox:{
     backgroundColor:"#DBDBDB",    
-    width: wp('100%'),
-    height: hp('20%'),
+    width: '100%',
+    height: hp('30%'),
+    padding:10,
+    alignItems:'center',
+  
   },
 
   ContactContainer:{
     flex:1,
-    padding:15
+    paddingHorizontal:15
   }
 });
 

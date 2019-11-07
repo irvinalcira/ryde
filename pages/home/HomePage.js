@@ -24,11 +24,11 @@ export default function HomePage(){
   return(
 
     <SafeAreaView style={HomePageStyles.Container}>
-
       <View style={HomePageStyles.Container}>
 
-        <Text style={Fonts.Title}>Welcome Irvin,</Text>
-        <Text style={Fonts.Heading}>
+        <Text style={[Fonts.Title, {}]}>Welcome Irvin,</Text>
+        
+        <Text style={[Fonts.Heading,]}>
           Your Favorites
         </Text>
 
@@ -47,7 +47,7 @@ export default function HomePage(){
           </TouchableOpacity>
 
         </View>
-      </View>
+      
 
         
         <View style={HomePageStyles.FavBox}>
@@ -59,7 +59,7 @@ export default function HomePage(){
         </View>
 
         
-        <View style={HomePageStyles.Container}>
+        
 
           <View style={HomePageStyles.ContactContainer}>
 
