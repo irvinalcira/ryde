@@ -10,8 +10,10 @@ var HomePageStyles = StyleSheet.create({
 
   Container:{
     flex:1,
+    padding:15,
     marginTop:20,
-    backgroundColor:"#EEEEEE"
+    // backgroundColor:'lightblue'
+    
   },
 
   FavContainer:{
@@ -21,9 +23,9 @@ var HomePageStyles = StyleSheet.create({
 
   FavBox:{
     backgroundColor:"#DBDBDB",    
-    width: wp('100%'),
+    width: '100%',
     height: hp('30%'),
-    padding:15,
+    padding:10,
     alignItems:'center',
   
   },

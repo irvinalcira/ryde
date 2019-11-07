@@ -24,11 +24,11 @@ export default function HomePage(){
   return(
 
     <SafeAreaView style={HomePageStyles.Container}>
-
       <View style={HomePageStyles.Container}>
 
-        <Text style={[Fonts.Title, {padding:15}]}>Welcome Irvin,</Text>
-        <Text style={[Fonts.Heading, {padding:15}]}>
+        <Text style={[Fonts.Title, {}]}>Welcome Irvin,</Text>
+        
+        <Text style={[Fonts.Heading,]}>
           Your Favorites
         </Text>
 
