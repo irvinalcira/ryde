@@ -3,7 +3,8 @@ import {
   View,
   Text,
   SafeAreaView,
-  TouchableOpacity
+  TouchableOpacity,
+  ScrollView
 } from 'react-native';
 //import style
 
@@ -21,28 +22,74 @@ import FavContacts from './FavContacts';
 
 export default function HomePage(){
 
+  const [favPage, setFavPage] = useState("FavBus");
+
+  var comp = null;
+
+  if(favPage === "FavBus"){
+    comp = (
+      <View
+        style={HomePageStyles.FavBox}
+      >
+        <FavBus />
+      </View>
+    )
+  }
+
+  if(favPage === "FavTrain"){
+    comp = (
+      <View
+        style={HomePageStyles.FavBox}
+      >
+        <FavTrain />
+      </View>
+    )
+  }
+
+  if(favPage === "FavTaxi"){
+    comp = (
+      <View
+        style={HomePageStyles.FavBox}
+      >
+        <FavTaxi />
+      </View>
+    )
+  }
+
   return(
 
     <SafeAreaView style={HomePageStyles.Container}>
       <View style={HomePageStyles.Container}>
 
-        <Text style={[Fonts.Title, {}]}>Welcome Irvin,</Text>
+        <Text style={Fonts.Title}>Welcome Irvin,</Text>
         
-        <Text style={[Fonts.Heading,]}>
+        <Text style={Fonts.Heading}>
           Your Favorites
         </Text>
 
         <View style={HomePageStyles.FavContainer}>
 
-          <TouchableOpacity style={Buttons.HomePageButton}>
+          <TouchableOpacity style={Buttons.HomePageButton}
+            onPress={()=>{
+              setFavPage("FavBus");
+            }}
+          >
            <Text>Bus Stations</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={Buttons.HomePageButton}>
+          <TouchableOpacity style={Buttons.HomePageButton}
+            onPress={()=>{
+              setFavPage("FavTrain");
+            }}          
+          >
            <Text>SkyTrain Stations</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={Buttons.HomePageButton}>
+          <TouchableOpacity style={Buttons.HomePageButton}
+            onPress={()=>{
+              setFavPage("FavTaxi");
+            }}         
+          >
            <Text>Taxis</Text>
           </TouchableOpacity>
 
@@ -50,24 +97,32 @@ export default function HomePage(){
       
 
         
-        <View style={HomePageStyles.FavBox}>
+        <ScrollView>
 
-          <Text style={Fonts.Body}>
-            Start by adding your favorite Bus Station for quick access on the Home Page. You can edit, add, or remove favorites anytime.
-          </Text>
+          {comp}
 
-        </View>
+        </ScrollView>
 
         
         
 
           <View style={HomePageStyles.ContactContainer}>
 
-            <Text style={Fonts.Heading}>
-              Contacts
-            </Text>
-
+              <Text style={Fonts.Heading}>
+                Contacts
+              </Text>
+              
           </View> 
+            <ScrollView
+              horizontal={true}
+            >
+
+              <View style={HomePageStyles.Container}>
+                <FavContacts />
+              </View>
+
+            </ScrollView>
+
 
         </View>
 

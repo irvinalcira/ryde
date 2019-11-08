@@ -8,7 +8,9 @@ export default function FavBus(){
   return(
     <View>
 
-      <Text>Fav Bus</Text>
+          <Text>
+            Start by adding your favorite Bus Station for quick access on the Home Page. You can edit, add, or remove favorites anytime.
+          </Text>
 
     </View>
   )

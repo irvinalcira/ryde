@@ -149,6 +149,18 @@ OtherHeading2: {
 FavHeading:{
   fontSize:25,
   fontFamily:"Assistant-Bold"
+},
+
+ContactIconFont:{
+  fontSize:25,
+  fontFamily: "Assistant-Bold",
+  color:"white",
+},
+
+ContactNameFonts:{
+  fontSize:15,
+  fontFamily:"Assistant-SemiBold",
+  color:"#000000"
 }
 
 })

@@ -7,9 +7,9 @@ import {
 export default function FavTrain(){
   return(
     <View>
-
-      <Text>Fav Train</Text>
-
+          <Text>
+            Start by adding your favorite SkyTrain Station for quick access on the Home Page. You can edit, add, or remove favorites anytime.
+          </Text>
     </View>
   )
 };
