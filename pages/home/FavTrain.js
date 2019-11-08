@@ -1,36 +1,15 @@
 import React from 'react';
 import {
   Text,
-  View,
-  StyleSheet
+  View
 } from 'react-native';
 
-import TabName from '../../comps/TabName';
+export default function FavTrain(){
+  return(
+    <View>
 
-export default class FavTrain extends React.Component {
+      <Text>Fav Train</Text>
 
-  static navigationOptions = {
-
-  };
-  
-  render() {
-
-    return(
-
-      <View>
-        <TabName name={'Fav Train'} />
-      </View>
-
-    );
-
-  }
+    </View>
+  )
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  }
-
-})

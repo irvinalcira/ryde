@@ -1,36 +1,15 @@
 import React from 'react';
 import {
   Text,
-  View,
-  StyleSheet
+  View
 } from 'react-native';
 
-import TabName from '../../comps/TabName';
+export default function FavBus(){
+  return(
+    <View>
 
-export default class FavBus extends React.Component {
+      <Text>Fav Bus</Text>
 
-  static navigationOptions = {
-
-  };
-  
-  render() {
-
-    return(
-
-      <View>
-        <TabName name={'Fav Bus'} />
-      </View>
-
-    );
-
-  }
+    </View>
+  )
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  }
-
-})
