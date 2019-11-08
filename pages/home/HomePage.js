@@ -11,12 +11,9 @@ import HomePageStyles from '../../styles/home/HomePageStyles';
 import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
 
-// import pages
 
-import FavBus from './FavBus';
-import FavTrain from './FavTrain';
-import FavTaxi from './FavTaxi';
-import FavContacts from './FavContacts';
+// import Navigator
+import AppNavigator from './AppNavigator';
 
 
 export default function HomePage(){
@@ -51,6 +48,8 @@ export default function HomePage(){
 
         
         <View style={HomePageStyles.FavBox}>
+
+          <AppNavigator />
 
           <Text style={Fonts.Body}>
             Start by adding your favorite Bus Station for quick access on the Home Page. You can edit, add, or remove favorites anytime.

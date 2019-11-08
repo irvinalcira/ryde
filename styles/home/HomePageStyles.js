@@ -27,7 +27,7 @@ var HomePageStyles = StyleSheet.create({
     height: hp('30%'),
     padding:10,
     alignItems:'center',
-  
+    
   },
 
   ContactContainer:{
