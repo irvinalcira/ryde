@@ -22,9 +22,21 @@ import FavContacts from './FavContacts';
 
 export default function HomePage(){
 
+  // Favorites Box Container
+  var comp = null;
   const [favPage, setFavPage] = useState("FavBus");
 
-  var comp = null;
+  // Favorites Tab Buttons Pressed Styling
+
+  var favBus = (
+    <Text style={Fonts.FavButtonText}>Bus Stations</Text>
+  );
+  var favTrain = (
+    <Text style={Fonts.FavButtonText}>SkyTrain Stations</Text>
+  );
+  var favTaxi = (
+    <Text style={Fonts.FavButtonText}>Taxis</Text>
+  );
 
   if(favPage === "FavBus"){
     comp = (
@@ -32,7 +44,11 @@ export default function HomePage(){
         style={HomePageStyles.FavBox}
       >
         <FavBus />
+
       </View>
+    ),
+    favBus = (
+      <Text style={Fonts.FavButtonTextPressed}>Bus Stations</Text>
     )
   }
 
@@ -43,6 +59,9 @@ export default function HomePage(){
       >
         <FavTrain />
       </View>
+    ),
+    favTrain = (
+      <Text style={Fonts.FavButtonTextPressed}>SkyTrain Stations</Text>      
     )
   }
 
@@ -53,8 +72,12 @@ export default function HomePage(){
       >
         <FavTaxi />
       </View>
+    ),
+    favTaxi = (
+      <Text style={Fonts.FavButtonTextPressed}>Taxis</Text>
     )
   }
+
 
   return(
 
@@ -67,14 +90,14 @@ export default function HomePage(){
           Your Favorites
         </Text>
 
-        <View style={HomePageStyles.FavContainer}>
+        <View style={HomePageStyles.FavContainer}>          
 
           <TouchableOpacity style={Buttons.HomePageButton}
             onPress={()=>{
               setFavPage("FavBus");
             }}
           >
-           <Text>Bus Stations</Text>
+           {favBus}
           </TouchableOpacity>
 
           <TouchableOpacity style={Buttons.HomePageButton}
@@ -82,7 +105,7 @@ export default function HomePage(){
               setFavPage("FavTrain");
             }}          
           >
-           <Text>SkyTrain Stations</Text>
+           {favTrain}
           </TouchableOpacity>
 
           <TouchableOpacity style={Buttons.HomePageButton}
@@ -90,19 +113,20 @@ export default function HomePage(){
               setFavPage("FavTaxi");
             }}         
           >
-           <Text>Taxis</Text>
+           {favTaxi}
           </TouchableOpacity>
 
         </View>
       
-
+        <View style={HomePageStyles.CompContainer}>
         
         <ScrollView>
 
-          {comp}
+            {comp}
 
         </ScrollView>
 
+        </View>
         
         
 

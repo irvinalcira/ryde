@@ -161,6 +161,18 @@ ContactNameFonts:{
   fontSize:15,
   fontFamily:"Assistant-SemiBold",
   color:"#000000"
+},
+
+FavButtonText:{
+  color:"#999999",
+  fontFamily: "Assistant-Bold"
+},
+
+FavButtonTextPressed:{
+  color:'#000000',
+  fontFamily: "Assistant-Bold",
+  borderBottomWidth: 1,
+  borderBottomColor: '#235CA3'
 }
 
 })

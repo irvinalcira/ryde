@@ -1,10 +1,4 @@
 import {StyleSheet} from 'react-native';
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-  listenOrientationChange as loc,
-  removeOrientationListener as rol
-} from 'react-native-responsive-screen';
 
 var HomePageStyles = StyleSheet.create({
 
@@ -28,6 +22,12 @@ var HomePageStyles = StyleSheet.create({
     padding:10,
     alignItems:'center',
     position: 'relative',
+  },
+
+  CompContainer: {
+    flex:3,
+    width: '120%',
+    left: '-10%'
   },
 
   ContactContainer:{
@@ -54,6 +54,10 @@ var HomePageStyles = StyleSheet.create({
   ContactList:{
     alignItems:'center',
     justifyContent:'center'
+  },
+
+  CompTextBox:{
+    padding: 20,
   }
 
 });

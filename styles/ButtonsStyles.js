@@ -95,7 +95,7 @@ Img: {
   // HomePage
   HomePageButton: {
     padding: 15,    
-    position:'relative'
+    position:'relative',
   }
 
 })
