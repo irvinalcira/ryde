@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import { View, Text, Button, SafeAreaView, ScrollView, TouchableOpacity, TextInput, Image } from 'react-native';
+import { View, Text, Button, SafeAreaView, FlatList, ScrollView, TouchableOpacity, TextInput, Image } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 import TaxisStyles from '../../styles/taxis/TaxisStyles';
@@ -40,10 +40,11 @@ function Taxis() {
 
 
                 <View style={TaxisStyles.TaxisView}>
-                    <Text style={Fonts.Heading}>Taxis in Vancouver</Text>
+                    <Text style={[Fonts.Heading]}>All Taxis</Text>
                 </View>
 
                 <View style={TaxisStyles.TaxiButtonsContainer}>
+                   <ScrollView style={TaxisStyles.ScrollViewContainer}>
                     {
                         users.map((obj,i)=>{
                             return (
@@ -54,6 +55,7 @@ function Taxis() {
                     
                                     }
                                 )}>
+                                    
                  
                         <View style={Buttons.IconCont}>
                             <Image
@@ -76,10 +78,12 @@ function Taxis() {
                             />
                         </View>
                     </TouchableOpacity>
+                    
 
                             )
                         })
                     }
+                   </ScrollView>
 
                 </View>
 

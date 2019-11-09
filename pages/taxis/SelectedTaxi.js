@@ -11,7 +11,7 @@ import Buttons from '../../styles/ButtonsStyles';
   
       <View style={SelectedTaxiStyles.Container}>
   
-  <StatusBar   
+  <StatusBar 
       hidden={true} />  
   
       <View style={SelectedTaxiStyles.Container}>
