@@ -7,15 +7,6 @@ import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
 
  export default function SelectedTaxi({taxiname,address,phone,website,img}){
-    var fetchData = async () => {
-        const response = await fetch('http://localhost:8888/ryde/ryde.php');
-        j = await response.json();
-        console.log(name,address,phone);
-
-    }
-    useEffect(() => {
-        fetchData();
-    }, []);
     return (
   
       <View style={SelectedTaxiStyles.Container}>
