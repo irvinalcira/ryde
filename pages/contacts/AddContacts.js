@@ -32,7 +32,6 @@ function AddContacts() {
        
 
         {/*Text Inputs */}
-        <Text style={Fonts.Heading}>Manually Add Contact</Text>
 
         <Text style={Fonts.InpLabel}>First Name</Text>
         <TextInput
@@ -51,9 +50,10 @@ function AddContacts() {
         <Text style={Fonts.InpLabel}>Phone Number</Text>
         <TextInput
         style={Fonts.Inp}
-        keyboardType={'numeric'}
+        keyboardType={'number-pad'}
         placeholder="(604) 333-3333"
         placeholderTextColor='gray'
+        maxLength={10}
         />
 
       </View>
