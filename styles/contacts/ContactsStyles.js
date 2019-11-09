@@ -46,15 +46,23 @@ UserContainer: {
 },
 ImageCont: {
   display: "flex",
-  flex: 1,
+  flex: 1.5,
   flexDirection: "row",
   justifyContent: "center",
   alignItems: "center",
-  margin: 15
+  width: "100%"
 },
+ImageBox:
+ {
+   width: "100%",
+   padding: 20,
+   flex: 1,
+   justifyContent: "center",
+   alignItems: "center",
+ },
 Image: {
-  flex: 1,
-  width: 25
+  height: 25,
+  width: 26
 }
 
 })

@@ -67,20 +67,40 @@ var BusRouteStyles=StyleSheet.create({
         flex:1,   
     },
     BusView:{
-        width: wp('100%'),
         height: hp('10%'),
         backgroundColor:"#EEEEEE",
-        textAlign:"center",
-        paddingTop: "6%",
-        fontFamily:"Assistant-Regular",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center"
     },
     BusViewAlt:{
         width: wp('100%'),
-        height: hp('10%'),
+        // height: hp('10%'),
         backgroundColor:"#DBDBDB",
-        textAlign:"center",
-        paddingTop: "6%",
+        // textAlign:"center",
+        // paddingTop: "6%",
         fontFamily:"Assistant-Regular"
+    },
+    StopName: {
+        flexDirection: "row",
+        flex:4
+    },
+    BusCont: {
+        flex: 1,
+        alignItems: "center"
+    },
+    BusIcon: {
+        width: 30,
+        height: 35
+    },
+    Address: {
+        flex: 3,
+        paddingRight: 20,
+    },
+    StopNum: {
+        flex: 1,
+        marginLeft: 10,
+        height: 35
     }
 });
 
