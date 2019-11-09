@@ -76,7 +76,7 @@ export default function BusRoute(){
               {/* Bus Stop */}
               <TouchableOpacity onPress={() => Actions.BusLastRoute()}>
 
-              <View style={BusRouteStyles.BusView}>
+              <View style={[BusRouteStyles.BusView, {backgroundColor:"#DBDBDB",}]}>
 
                 <View style={BusRouteStyles.StopName}>
                 <View style={BusRouteStyles.BusCont}>
@@ -134,7 +134,7 @@ export default function BusRoute(){
               {/* Bus Stop */}
               <TouchableOpacity onPress={() => Actions.BusLastRoute()}>
 
-              <View style={BusRouteStyles.BusView}>
+              <View style={[BusRouteStyles.BusView, {backgroundColor:"#DBDBDB",}]}>
 
                 <View style={BusRouteStyles.StopName}>
                 <View style={BusRouteStyles.BusCont}>
@@ -192,7 +192,7 @@ export default function BusRoute(){
               {/* Bus Stop */}
               <TouchableOpacity onPress={() => Actions.BusLastRoute()}>
 
-              <View style={BusRouteStyles.BusView}>
+              <View style={[BusRouteStyles.BusView, {backgroundColor:"#DBDBDB",}]}>
 
                 <View style={BusRouteStyles.StopName}>
                 <View style={BusRouteStyles.BusCont}>
