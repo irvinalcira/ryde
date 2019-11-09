@@ -15,9 +15,6 @@ export default function FavBus(){
           <Text>
             Start by adding your favorite Bus Station for quick access on the Home Page. You can edit, add, or remove favorites anytime.
           </Text>
-          <Text>
-            Start by adding your favorite Bus Station for quick access on the Home Page. You can edit, add, or remove favorites anytime.
-          </Text>
 
     </View>
   )

@@ -38,7 +38,8 @@ var HomePageStyles = StyleSheet.create({
     flexDirection:'row',
     flex:1,
     marginLeft:-25,
-    marginTop:-15
+    marginTop:-15,
+    left: '-10%'
   },
 
   ContactIconBox:{    
@@ -58,6 +59,8 @@ var HomePageStyles = StyleSheet.create({
 
   CompTextBox:{
     padding: 20,
+    minHeight: 100
+  
   }
 
 });
