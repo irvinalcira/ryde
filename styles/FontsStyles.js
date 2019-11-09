@@ -75,7 +75,7 @@ Inp: {
 },
 
 
-// Bus
+// Bus Route
 BusRoute:{
   color:"white",
   fontFamily:"Assistant-SemiBold",
@@ -87,6 +87,11 @@ BlueCont:{
   marginVertical: 5,
   fontSize: 14,
   fontFamily:"Assistant-SemiBold"
+},
+AddressText: {
+  color: "#3971B3",
+  fontSize: 20,
+  fontFamily: "Assistant-SemiBold",
 },
 
 // Bus Schedules
@@ -145,6 +150,16 @@ OtherHeading2: {
   color:"white",
   fontFamily:"Assistant-SemiBold",
   fontSize:20
+},
+EstNum: {
+  color: "#3971B3",
+  fontSize: 35,
+  fontFamily: "Assistant-Bold",
+},
+EstTime: {
+  color: "#3971B3",
+  fontSize: 12,
+  fontFamily: "Assistant-SemiBold",
 },
 
 //HomePage

@@ -39,17 +39,22 @@ function Contacts() {
           <View style={ContactsStyles.ImageCont}> 
           
           <TouchableOpacity>
+          <View style={ContactsStyles.ImageBox}>
           <Image 
-          style={[ContactsStyles.Image, {marginRight: 30}]}
+          style={[ContactsStyles.Image,]}
           source={require('../../assets/icons/message.png')}
           />
+          </View>
           </TouchableOpacity>
+    
 
           <TouchableOpacity>
+          <View style={ContactsStyles.ImageBox}>
           <Image 
           style={ContactsStyles.Image}
           source={require('../../assets/icons/phone.png')}
           />
+          </View>
           </TouchableOpacity>
           
           </View>
@@ -63,23 +68,28 @@ function Contacts() {
         {/* Contact */}
         <TouchableOpacity>
         <View style={ContactsStyles.UserContainer}>
-
+          
           <Text style={Fonts.Name}>Mom</Text>
 
           <View style={ContactsStyles.ImageCont}> 
           
           <TouchableOpacity>
+          <View style={ContactsStyles.ImageBox}>
           <Image 
-          style={[ContactsStyles.Image, {marginRight: 30}]}
+          style={[ContactsStyles.Image,]}
           source={require('../../assets/icons/message.png')}
           />
+          </View>
           </TouchableOpacity>
+    
 
           <TouchableOpacity>
+          <View style={ContactsStyles.ImageBox}>
           <Image 
           style={ContactsStyles.Image}
           source={require('../../assets/icons/phone.png')}
           />
+          </View>
           </TouchableOpacity>
           
           </View>
@@ -93,23 +103,28 @@ function Contacts() {
         {/* Contact */}
         <TouchableOpacity>
         <View style={ContactsStyles.UserContainer}>
-
+          
           <Text style={Fonts.Name}>Irvin Alcira</Text>
 
           <View style={ContactsStyles.ImageCont}> 
           
           <TouchableOpacity>
+          <View style={ContactsStyles.ImageBox}>
           <Image 
-          style={[ContactsStyles.Image, {marginRight: 30}]}
+          style={[ContactsStyles.Image,]}
           source={require('../../assets/icons/message.png')}
           />
+          </View>
           </TouchableOpacity>
+    
 
           <TouchableOpacity>
+          <View style={ContactsStyles.ImageBox}>
           <Image 
           style={ContactsStyles.Image}
           source={require('../../assets/icons/phone.png')}
           />
+          </View>
           </TouchableOpacity>
           
           </View>
@@ -123,23 +138,28 @@ function Contacts() {
         {/* Contact */}
         <TouchableOpacity>
         <View style={ContactsStyles.UserContainer}>
-
-          <Text style={Fonts.Name}>Jesse</Text>
+          
+          <Text style={Fonts.Name}>Jesse M</Text>
 
           <View style={ContactsStyles.ImageCont}> 
           
           <TouchableOpacity>
+          <View style={ContactsStyles.ImageBox}>
           <Image 
-          style={[ContactsStyles.Image, {marginRight: 30}]}
+          style={[ContactsStyles.Image,]}
           source={require('../../assets/icons/message.png')}
           />
+          </View>
           </TouchableOpacity>
+    
 
           <TouchableOpacity>
+          <View style={ContactsStyles.ImageBox}>
           <Image 
           style={ContactsStyles.Image}
           source={require('../../assets/icons/phone.png')}
           />
+          </View>
           </TouchableOpacity>
           
           </View>
@@ -147,6 +167,10 @@ function Contacts() {
         </View>
         </TouchableOpacity>
         {/* End of Contact */}
+
+        <Divider />
+
+      
 
       </View>
       
