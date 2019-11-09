@@ -25,14 +25,11 @@ import SelectedTaxi from './taxis/SelectedTaxi';
 
 function Route(){
 
-
-
-
   return(
 
         <Router>
-        <Stack key="root" hideNavBar={true}>
-
+        <Stack hideNavBar={true}>
+  
               <Scene key="HomePage" component={HomePage} initial={true}/>
         
               <Scene key="BusSchedules" component={BusSchedules}/>
@@ -43,16 +40,15 @@ function Route(){
               <Scene key="SkyTrainStation" component={SkyTrainStation} />
               <Scene key="SkyTrainRoute" component={SkyTrainRoute} />
           
-              <Scene key="Taxis" component={Taxis} />
-              <Scene key="SelectedTaxi" component={SelectedTaxi}/>
+              <Scene key="Taxis" component={Taxis} initial={true}/>
+              <Scene key="SelectedTaxi" component={SelectedTaxi} />
               
               <Scene key="EmptyContacts" component={EmptyContacts}  />
               <Scene key="Contacts" component={Contacts} />
-              <Scene key="AddContacts" component={AddContacts}/>
+              <Scene key="AddContacts" component={AddContacts} />
 
         </Stack>
       </Router>
-
   )
 };
 
