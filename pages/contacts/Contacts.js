@@ -22,8 +22,8 @@ function Contacts() {
         <View style={ContactsStyles.TitleImg} >
         <TouchableOpacity>
         <Image 
-        style={ContactsStyles.Settings}
-         source={require('../../assets/icons/settings.png')}
+        style={ContactsStyles.Add}
+         source={require('../../assets/icons/add.png')}
          />
          </TouchableOpacity>
          </View>

@@ -28,10 +28,11 @@ TitleImg: {
   alignItems: "center",
   height: "100%"
 },
-Settings: {
-  width: 6,
+Add: {
+  width: 25,
   height: 25,
-  resizeMode : 'stretch'
+  marginRight:15
+  // resizeMode : 'stretch'
 },
 FirstContainer: {
   marginTop: 40,
