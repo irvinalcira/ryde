@@ -27,7 +27,7 @@ export default function SkyTrainStation(){
           />
           </TouchableOpacity>
           </View>
-           <Text style={[Fonts.BusRoute, SkyTrainStationStyles.NavTitle]}>60212</Text>
+           <Text style={[Fonts.BusRoute, SkyTrainStationStyles.NavTitle]}>Waterfront</Text>
         </View>
 
         <View style={SkyTrainStationStyles.MidStyles}>
@@ -35,8 +35,8 @@ export default function SkyTrainStation(){
             style={SkyTrainStationStyles.WhiteBus}
             source={require('../../assets/icons/whitebus.png')}
           />
-          <Text style={Fonts.BlueCont}>Metrotown Station @ Bay 12</Text>
-          <Text style={Fonts.BlueCont}>EAST</Text>
+          <Text style={Fonts.BlueCont}>To King George Station</Text>
+          <Text style={Fonts.BlueCont}>EXPO LINE</Text>
         </View>
       </View>
      
