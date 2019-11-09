@@ -139,7 +139,7 @@ export default function HomePage(){
           </View> 
             <ScrollView
               horizontal={true}
-              
+              showsHorizontalScrollIndicator={false}
             >
 
               <View style={HomePageStyles.Container}>
