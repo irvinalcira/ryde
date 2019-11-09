@@ -41,7 +41,7 @@ export default function FavContacts(){
               A
             </Text>
         </View>
-            <Text style={Fonts.ContactNameFonts}>Ahbi</Text>
+            <Text style={Fonts.ContactNameFonts}> Abhi</Text>
         
       </View>
 

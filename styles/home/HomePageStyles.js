@@ -39,7 +39,6 @@ var HomePageStyles = StyleSheet.create({
     flex:1,
     marginLeft:-25,
     marginTop:-15,
-    left: '-10%'
   },
 
   ContactIconBox:{    
