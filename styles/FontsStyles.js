@@ -33,6 +33,7 @@ TaxiHeading: {
 // Contact List
 Name: {
   flex: 3,
+
   fontSize: 18,
   margin: 15,
   fontFamily: "Assistant-Regular"
@@ -42,8 +43,8 @@ Name: {
 // Navigation Bar
 NavTitle: {
   flex: 4,
-  fontSize: 25,
-  fontFamily: "Assistant-Bold",
+  fontSize: 20,
+  fontFamily: "Assistant-SemiBold",
   textAlign: "center"
 },
 NavLink: {
@@ -64,8 +65,9 @@ InpLabel: {
 Inp: {
   justifyContent: "flex-start",
   alignItems: "center",
-  marginTop: 15,
-  padding: 10,
+  marginTop: 5,
+  height:45,
+  padding:10,
   color:'black',
   backgroundColor: "white",
   borderColor: "#D6D6D6",

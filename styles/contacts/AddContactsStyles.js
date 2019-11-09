@@ -16,7 +16,9 @@ TopBar: {
     display: "flex",
     flexDirection: 'row',
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    height:30,
+    width:'100%'
 }
 })
 
