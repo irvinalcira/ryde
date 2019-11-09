@@ -3,7 +3,6 @@ import {View,Text, Image,SafeAreaView,ScrollView, TouchableOpacity} from 'react-
 import {Actions} from 'react-native-router-flux';
 
 import SkyTrainStationStyles from '../../styles/skytrains/SkyTrainStationStyles';
-import BusLastStyles from '../../styles/bus/BusLastRouteStyles';
 import Fonts from '../../styles/FontsStyles';
 
 import ScheduleTouchable from '../../comps/ScheduleTouch';
@@ -19,11 +18,14 @@ export default function SkyTrainStation(){
 
       {/* Nav Bar (Blue Section) */}
       <View style={SkyTrainStationStyles.NavBar}>
+
         <View style={SkyTrainStationStyles.ArrowCont}>
+        <TouchableOpacity onPress={() => Actions.pop('SkyTrain Route')}>
           <Image
           style={SkyTrainStationStyles.BackArrow}
           source={require('../../assets/icons/backarrow.png')}
           />
+          </TouchableOpacity>
           </View>
            <Text style={[Fonts.BusRoute, SkyTrainStationStyles.NavTitle]}>60212</Text>
         </View>

@@ -151,6 +151,16 @@ OtherHeading2: {
   fontFamily:"Assistant-SemiBold",
   fontSize:20
 },
+EstNum: {
+  color: "#3971B3",
+  fontSize: 35,
+  fontFamily: "Assistant-Bold",
+},
+EstTime: {
+  color: "#3971B3",
+  fontSize: 12,
+  fontFamily: "Assistant-SemiBold",
+},
 
 //HomePage
 FavHeading:{
