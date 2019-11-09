@@ -6,11 +6,11 @@ import SelectedTaxiStyles from '../../styles/taxis/SelectedTaxiStyles';
 import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
 
- export default function SelectedTaxi({taxiname,address,phone,website,img}){
+ export default function BlackTop({}){
     var fetchData = async () => {
         const response = await fetch('http://localhost:8888/ryde/ryde.php');
         j = await response.json();
-        console.log(name,address,phone);
+        console.log(j)
 
     }
     useEffect(() => {
@@ -38,7 +38,7 @@ import Buttons from '../../styles/ButtonsStyles';
       <View style={SelectedTaxiStyles.TaxiImageContainer}>
           <Image
                   style={SelectedTaxiStyles.TaxiImg}
-                  source={{uri:img}}
+                  source={require('../../imgs/taxis/vancouver-taxi.jpg')}
               />
       </View>
   <View style={SelectedTaxiStyles.TaxiInformationContainer}>
@@ -46,7 +46,7 @@ import Buttons from '../../styles/ButtonsStyles';
        <View style={SelectedTaxiStyles.TitleContainer}>
   
       <View style={SelectedTaxiStyles.TaxiName}>    
-          <Text style={Fonts.TaxiTitle}>{taxiname}</Text>
+          <Text style={Fonts.TaxiTitle}>{j[1].name}</Text>
       </View>
   
       <View style={SelectedTaxiStyles.TaxiFavorite}>
@@ -61,17 +61,17 @@ import Buttons from '../../styles/ButtonsStyles';
   
       <View style={SelectedTaxiStyles.InfoContainer}>
       <Text style={Fonts.TaxiHeading}>Address</Text>
-      <Text style={Fonts.Body}>{address}</Text>
+      <Text style={Fonts.Body}>{j[1].address}</Text>
       </View>
   
       <View style={SelectedTaxiStyles.InfoContainer}>
       <Text style={Fonts.TaxiHeading}>Website</Text>
-      <Text style={Fonts.Body}>{website}</Text>
+      <Text style={Fonts.Body}>{j[1].website}</Text>
       </View>
   
       <View style={SelectedTaxiStyles.InfoContainer}>
       <Text style={Fonts.TaxiHeading}>Phone Number</Text>
-      <Text style={Fonts.Body}>{phone}</Text>
+      <Text style={Fonts.Body}>{j[1].phone}</Text>
       </View>
   
       <TouchableOpacity  style={Buttons.CallBut}>
