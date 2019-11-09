@@ -64,7 +64,8 @@ var BusRouteStyles=StyleSheet.create({
 
     // Doesn't do anything when you change the value of flex
     ScrollView:{
-        flex:1,   
+        flex:1,
+        backgroundColor: "#EEEEEE"
     },
     BusView:{
         height: hp('10%'),
@@ -72,14 +73,6 @@ var BusRouteStyles=StyleSheet.create({
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center"
-    },
-    BusViewAlt:{
-        width: wp('100%'),
-        // height: hp('10%'),
-        backgroundColor:"#DBDBDB",
-        // textAlign:"center",
-        // paddingTop: "6%",
-        fontFamily:"Assistant-Regular"
     },
     StopName: {
         flexDirection: "row",
