@@ -80,7 +80,7 @@ function TabBar(){
             <Text style={[TabBarStyles.Text, {color:NavTaxiTxt}]}>Taxis</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity activeOpacity={1} style={TabBarStyles.Button} onPress={() => { Actions.reset('EmptyContacts'); 
+            <TouchableOpacity activeOpacity={1} style={TabBarStyles.Button} onPress={() => { Actions.replace('Contacts'); 
                               setNavContactsImg(require('../assets/icons/contact-active.png')); setNavContactsTxt(ActiveTextColor);
                               setNavHomeTxt(TextColor); setNavBusTxt(TextColor); setNavSkyTrainsTxt(TextColor); setNavTaxiTxt(TextColor);
                               setNavHomeImg(require('../assets/icons/home.png')); setNavBusImg(require('../assets/icons/bus.png')); setNavSkyTrainsImg(require('../assets/icons/skytrain.png')); setNavTaxiImg(require('../assets/icons/taxi.png')); ;

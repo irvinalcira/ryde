@@ -18,11 +18,11 @@ function EmptyContacts(){
         Start by adding your important contacts for quick phone or messaging access. You can edit, add, or remove contacts anytime.
         </Text>
         
-        <TouchableOpacity  style={[Buttons.Main, {marginTop:35}]} onPress={() => Actions.AddContacts()}>
+        <TouchableOpacity  style={[Buttons.Main, {marginTop:35}]} onPress={() => Actions.AddContact()}>
        <Text style={Buttons.MainText}>Import Contacts from Phone</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity  style={Buttons.Alt} onPress={() => Actions.AddContacts()}>
+        <TouchableOpacity  style={Buttons.Alt} onPress={() => Actions.AddContact()}>
        <Text style={Buttons.MainText}>Manually Add Contacts</Text>
         </TouchableOpacity>
 

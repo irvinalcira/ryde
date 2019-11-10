@@ -1,18 +1,17 @@
 import React, {useState} from 'react';
-import { View, Text, TouchableOpacity, SafeAreaView, Image } from 'react-native';
+import { View, Text, TouchableOpacity, SafeAreaView, Image, Button } from 'react-native';
 import {Actions} from 'react-native-router-flux';
+import Modal from "react-native-modal";
+
 
 //Components
-import AddContactPopup from '../../comps/AddContactPopup';
 import AddButton from '../../comps/AddButton';
 
 //Styles
 import ContactsStyles from '../../styles/contacts/ContactsStyles';
 import Fonts from '../../styles/FontsStyles';
 import Divider from '../../comps/Divider';
-
-
-
+import ModalStyles from '../../styles/contacts/ModalStyles';
 
 
 function Contacts() {
@@ -21,21 +20,39 @@ function Contacts() {
 
    console.log(Popup);
 
-
-   if (setPopup === true){
-     
-  }
-
  
   return (
     
-
     <SafeAreaView style={ContactsStyles.Container}>
 
 
       <View style={ContactsStyles.Container}>
 
-        <AddContactPopup />
+      <Modal isVisible={Popup} hideModalContentWhileAnimating={true} backdropTransitionOutTiming={0} 
+             onBackdropPress={() => setPopup(false)} onSwipeComplete={() => setPopup(false)} swipeDirection="down"
+             animationInTiming={550} animationOutTiming={850}>
+        <View style={ModalStyles.Container}>  
+
+          <View style={ModalStyles.ImgCont}>
+            <Image style={ModalStyles.Img}source={require('../../assets/icons/swipe.png')}/>
+          </View>
+
+          <Text style={ModalStyles.Heading}>Add Contact</Text>
+
+          <TouchableOpacity style={ModalStyles.TextCont}
+          onPress={ () => { setPopup(false), Actions.AddContact() } }>
+            <Text style={ModalStyles.Text}>Manually Add Contact</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={ModalStyles.TextCont} onPress={() => setPopup(false)}>
+            <Text style={ModalStyles.Text}>Import Contact From Phone</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={ModalStyles.TextCont} onPress={()=>{setPopup(false)}}>
+            <Text style={[ModalStyles.Text, ModalStyles.CancelText]}>Cancel</Text>
+          </TouchableOpacity>
+        </View>
+       </Modal>
 
         <View style={ContactsStyles.TitleCont}>
         <Text style={[Fonts.Title, {flex: 10}]}>Contacts</Text>
@@ -58,7 +75,7 @@ function Contacts() {
           <TouchableOpacity>
           <View style={ContactsStyles.ImageBox}>
           <Image 
-          style={[ContactsStyles.Image,]}
+          style={ContactsStyles.Image}
           source={require('../../assets/icons/message.png')}
           />
           </View>

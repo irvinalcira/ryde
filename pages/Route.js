@@ -16,7 +16,7 @@ import SkyTrainRoute from './skytrains/SkyTrainRoute'
 
 import EmptyContacts from './contacts/EmptyContacts';
 import Contacts from './contacts/Contacts';
-import AddContacts from './contacts/AddContacts';
+import AddContact from './contacts/AddContact';
 
 
 import Taxis from './taxis/Taxis';
@@ -26,14 +26,12 @@ import SelectedTaxi from './taxis/SelectedTaxi';
 function Route(){
 
 
-
-
   return(
 
         <Router>
         <Stack key="root" hideNavBar={true}>
 
-              <Scene key="HomePage" component={HomePage} />
+              <Scene key="HomePage" component={HomePage} initial={true} />
         
               <Scene key="BusSchedules" component={BusSchedules}/>
               <Scene key="BusRoute" component={BusRoute} />
@@ -46,9 +44,9 @@ function Route(){
               <Scene key="Taxis" component={Taxis} />
               <Scene key="SelectedTaxi" component={SelectedTaxi}/>
               
-              <Scene key="EmptyContacts" component={EmptyContacts}  />
-              <Scene key="Contacts" component={Contacts} initial={true}/>
-              <Scene key="AddContacts" component={AddContacts}/>
+              <Scene key="Contacts" component={Contacts} panHandlers={null}/>
+              <Scene key="EmptyContacts" component={EmptyContacts} />
+              <Scene key="AddContact" component={AddContact} panHandlers={null}/>
 
         </Stack>
       </Router>

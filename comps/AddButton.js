@@ -6,13 +6,14 @@ import ContactsStyles from '../styles/contacts/ContactsStyles';
 
 function AddButton(props) {
     return (
-        <TouchableOpacity onPress={()=>{props.setPopup(true)}
-        }>
+        <TouchableOpacity onPress={()=>{props.setPopup(true)}}>
+        <View style={ContactsStyles.AddContainer}> 
           <Image 
           style={ContactsStyles.Add}
           source={require('../assets/icons/add.png')}
           />
-          </TouchableOpacity>
+        </View>
+        </TouchableOpacity>
     )
 
 }
