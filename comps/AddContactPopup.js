@@ -7,7 +7,7 @@ import Modal from "react-native-modal";
 import Contacts from "../pages/contacts/Contacts";
 
 function AddContactPopup(props){
- 
+
     return(
 
         <Modal isVisible={false}>

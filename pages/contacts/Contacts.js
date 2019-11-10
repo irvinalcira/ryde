@@ -21,9 +21,11 @@ function Contacts() {
 
    console.log(Popup);
 
-   if (setPopup === true){
 
-   }
+   if (setPopup === true){
+     
+  }
+
  
   return (
     
@@ -33,7 +35,7 @@ function Contacts() {
 
       <View style={ContactsStyles.Container}>
 
-        <AddContactPopup setPopup={setPopup}/>
+        <AddContactPopup />
 
         <View style={ContactsStyles.TitleCont}>
         <Text style={[Fonts.Title, {flex: 10}]}>Contacts</Text>
