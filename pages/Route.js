@@ -33,7 +33,7 @@ function Route(){
         <Router>
         <Stack key="root" hideNavBar={true}>
 
-              <Scene key="HomePage" component={HomePage} initial={true}/>
+              <Scene key="HomePage" component={HomePage} />
         
               <Scene key="BusSchedules" component={BusSchedules}/>
               <Scene key="BusRoute" component={BusRoute} />
@@ -47,7 +47,7 @@ function Route(){
               <Scene key="SelectedTaxi" component={SelectedTaxi}/>
               
               <Scene key="EmptyContacts" component={EmptyContacts}  />
-              <Scene key="Contacts" component={Contacts} />
+              <Scene key="Contacts" component={Contacts} initial={true}/>
               <Scene key="AddContacts" component={AddContacts}/>
 
         </Stack>

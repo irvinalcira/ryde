@@ -1,31 +1,46 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, Image } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 
+//Components
+import AddContactPopup from '../../comps/AddContactPopup';
+import AddButton from '../../comps/AddButton';
 
+//Styles
 import ContactsStyles from '../../styles/contacts/ContactsStyles';
 import Fonts from '../../styles/FontsStyles';
 import Divider from '../../comps/Divider';
 
 
 
+
+
 function Contacts() {
-  
+
+   const [Popup, setPopup] = useState(false);
+
+   console.log(Popup);
+
+   if (setPopup === true){
+
+   }
+ 
   return (
+    
 
     <SafeAreaView style={ContactsStyles.Container}>
 
+
       <View style={ContactsStyles.Container}>
+
+        <AddContactPopup setPopup={setPopup}/>
 
         <View style={ContactsStyles.TitleCont}>
         <Text style={[Fonts.Title, {flex: 10}]}>Contacts</Text>
         <View style={ContactsStyles.TitleImg} >
-        <TouchableOpacity>
-        <Image 
-        style={ContactsStyles.Add}
-         source={require('../../assets/icons/add.png')}
-         />
-         </TouchableOpacity>
+
+          <AddButton setPopup={setPopup}/>
+
          </View>
         </View>
         

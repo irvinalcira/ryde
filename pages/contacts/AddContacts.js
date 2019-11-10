@@ -1,9 +1,11 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, Image, TextInput } from 'react-native';
 import {Actions} from 'react-native-router-flux';
-import Cam from '../CameraRoll';
-//done
 
+// Components
+import Cam from '../../comps/CameraRoll';
+
+// Styles
 import AContactsStyles from '../../styles/contacts/AddContactsStyles';
 import Fonts from '../../styles/FontsStyles';
 
@@ -21,7 +23,7 @@ function AddContacts() {
         </TouchableOpacity>
         <Text style={Fonts.NavTitle}>New Contact</Text>
         <TouchableOpacity>
-        <Text style={Fonts.NavLink} onPress={() => Actions.Contacts()}>Create</Text>
+        <Text style={Fonts.NavLink} onPress={() => Actions.reset('Contacts')}>Create</Text>
         </TouchableOpacity>
         </View>
         {/* Add Contact */}

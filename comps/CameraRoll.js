@@ -2,18 +2,7 @@ import React,{ useState} from 'react';
 import { View , Button, Image, StyleSheet} from 'react-native';
 import ImagePicker from 'react-native-image-picker';
 
-
-const CamRoll = StyleSheet.create({
-  Container: {
-    alignItems: 'center', justifyContent: 'center',
-    marginTop:20,
-  },
-
-  ProfPic: {
-    width: 120, height: 120, borderRadius:100,
-  }
-
-});
+import CamRoll from '../styles/comps/CameraRollStyles';
 
 
 export default function Cam() {
