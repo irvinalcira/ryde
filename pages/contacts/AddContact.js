@@ -1,31 +1,36 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, Image, TextInput } from 'react-native';
 import {Actions} from 'react-native-router-flux';
-import Cam from '../CameraRoll';
-//done
 
-import AContactsStyles from '../../styles/contacts/AddContactsStyles';
+// Components
+import Cam from '../../comps/CameraRoll';
+
+// Styles
+import AContactStyles from '../../styles/contacts/AddContactStyles';
 import Fonts from '../../styles/FontsStyles';
 
-function AddContacts() {
+function AddContact() {
 
   return (
 
-    <SafeAreaView style={AContactsStyles.Container}>
-      <View style={AContactsStyles.Container}>
+    <SafeAreaView style={AContactStyles.Container}>
+      <View style={AContactStyles.Container}>
 
         {/* Nav Bar */}
-        <View style={AContactsStyles.TopBar}>
+        <View style={AContactStyles.TopBar}>
         <TouchableOpacity>
         <Text style={Fonts.NavLink}>Cancel</Text>
         </TouchableOpacity>
         <Text style={Fonts.NavTitle}>New Contact</Text>
         <TouchableOpacity>
-        <Text style={Fonts.NavLink} onPress={() => Actions.Contacts()}>Create</Text>
+        <Text style={Fonts.NavLink} onPress={() => Actions.pop()}>Create</Text>
         </TouchableOpacity>
         </View>
+
         {/* Add Contact */}
-        <View style={AContactsStyles.AddImgView}>
+
+        <View style={AContactStyles.AddImgView}>
+
          <Cam />
   
         </View>
@@ -61,4 +66,4 @@ function AddContacts() {
   )
 }
 
-export default AddContacts;
+export default AddContact;

@@ -15,7 +15,8 @@ import SkyTrainRoute from '../../pages/skytrains/SkyTrainRoute'
 
 import EmptyContacts from '../../pages/contacts/EmptyContacts';
 import Contacts from '../../pages/contacts/Contacts';
-import AddContacts from '../../pages/contacts/AddContacts';
+import AddContact from '../../pages/contacts/AddContact';
+import AddContactPopup from '../../comps/AddContactPopup';
 
 import Taxis from '../../pages/taxis/Taxis';
 import SelectedTaxis from '../../pages/taxis/SelectedTaxi';
@@ -42,4 +43,5 @@ storiesOf('SkyTrains', module)
 storiesOf('Contacts', module)
 .add('Contacts', () => <Contacts />)
 .add('Empty Contacts', () => <EmptyContacts />)
-.add('Add Contact', () => <AddContacts />);
+.add('Add Contact', () => <AddContacts />)
+.add('Add Contact Popup', () => <AddContactPopup />);
