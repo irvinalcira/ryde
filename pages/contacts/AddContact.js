@@ -18,7 +18,7 @@ function AddContact() {
 
         {/* Nav Bar */}
         <View style={AContactStyles.TopBar}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => Actions.pop()}>
         <Text style={Fonts.NavLink}>Cancel</Text>
         </TouchableOpacity>
         <Text style={Fonts.NavTitle}>New Contact</Text>
