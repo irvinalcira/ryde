@@ -1,6 +1,8 @@
 import React,{useState,useEffect} from 'react';
 import { View, Text, Button, SafeAreaView, FlatList, ScrollView, TouchableOpacity, TextInput, Image } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import { Dropdown } from 'react-native-material-dropdown';
+ 
 
 import TaxisStyles from '../../styles/taxis/TaxisStyles';
 import Fonts from '../../styles/FontsStyles';
@@ -9,6 +11,22 @@ import Buttons from '../../styles/ButtonsStyles';
 function Taxis() {
 
     const [users, setData] = useState([]);
+    const [input,setInput]=useState();
+    var Search=users.filter((obj,i)=>{
+
+        return (obj.city===input)
+    });
+    let data = [{
+        value: 'Burnaby',
+      }, {
+        value: "Vancouver",
+      },{
+        value: 'Richmond',
+      },{
+        value: 'Surrey',
+      },{
+        value: 'Langley',
+      }];
     var fetchData = async () => {
         const response = await fetch('http://localhost:8888/ryde/ryde.php');
         j = await response.json();
@@ -17,7 +35,7 @@ function Taxis() {
     }
     useEffect(() => {
         fetchData();
-    }, []);
+    },[]);
     return (
         <SafeAreaView style={TaxisStyles.Container}>
             <View style={TaxisStyles.Container}>
@@ -28,25 +46,22 @@ function Taxis() {
                 <Text style={Fonts.Body}>Enter a location to view taxis in the surrounding area</Text>
 
                 {/* This will be a Searchable Drop Down     */}
-
-                <TextInput style={Fonts.Inp}
-                    placeholder="Vancouver, BC"
-                    placeholderTextColor='black'
-                />
-
-                <TouchableOpacity style={Buttons.Main}>
-                    <Text style={Buttons.MainText}>Search Location</Text>
-                </TouchableOpacity>
+                    <Dropdown
+                    label='City'
+                    data={data}
+                    textColor =	"rgba(0, 0, 0, .98)"
+                    onChangeText={text => setInput(text)}
+                    />
 
 
                 <View style={TaxisStyles.TaxisView}>
-                    <Text style={[Fonts.Heading]}>All Taxis</Text>
+                    <Text style={[Fonts.Heading]}>{input}</Text>
                 </View>
 
                 <View style={TaxisStyles.TaxiButtonsContainer}>
                    <ScrollView style={TaxisStyles.ScrollViewContainer}>
                     {
-                        users.map((obj,i)=>{
+                        Search.map((obj,i)=>{
                             return (
                                 <TouchableOpacity style={Buttons.Taxi} onPress={() => Actions.SelectedTaxi(
                                     {
@@ -55,8 +70,6 @@ function Taxis() {
                     
                                     }
                                 )}>
-                                    
-                 
                         <View style={Buttons.IconCont}>
                             <Image
                                 style={Buttons.Img}
