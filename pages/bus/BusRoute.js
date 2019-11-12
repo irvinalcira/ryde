@@ -14,7 +14,7 @@ export default function BusRoute(){
           <View style={BusRouteStyles.NavBar}>
 
             <View style={BusRouteStyles.ArrowCont}>
-            <TouchableOpacity onPress={() => Actions.pop("BusSchedules")}>
+            <TouchableOpacity onPress={() => Actions.pop('Bus Schedules')}>
             <Image
             style={BusRouteStyles.BackArrow}
             source={require('../../assets/icons/backarrow.png')}

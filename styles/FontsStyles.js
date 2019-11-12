@@ -94,35 +94,6 @@ AddressText: {
   fontFamily: "Assistant-SemiBold",
 },
 
-// Schedules
-BusNum: {
-  color: "white",
-  fontSize: 45,
-  fontFamily: "Assistant-Bold"
-},
-BusName: {
-  color: "white",
-  fontSize: 20,
-  fontFamily: "Assistant-SemiBold",
-  marginLeft: 10
-},
-Time: {
-  fontSize: 20,
-  fontFamily: "Assistant-SemiBold",
-  paddingBottom: 5
-},
-LineName: {
-  marginTop: 10,
-  color: "white",
-  fontSize: 34,
-  fontFamily: "Assistant-SemiBold",
-},
-LineDetail: {
-  fontSize: 16,
-  fontFamily: "Assistant-SemiBold",
-  marginLeft: 15,
-},
-
 // Bus Schedules
 ScheduleTitle:{
   fontFamily:"Assistant-Bold",
@@ -139,9 +110,6 @@ TimeText2:{
   margin:3,
   fontFamily:"Assistant-SemiBold"
 },
-
-
-
 
 
 // Skytrain
