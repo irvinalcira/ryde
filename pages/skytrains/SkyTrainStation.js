@@ -5,7 +5,7 @@ import {Actions} from 'react-native-router-flux';
 import SkyTrainStationStyles from '../../styles/skytrains/SkyTrainStationStyles';
 import Fonts from '../../styles/FontsStyles';
 
-import ScheduleTouchable from '../../comps/ScheduleTouch';
+import Buttons from '../../styles/ButtonsStyles';
 import DividerLine from '../../comps/Divider';
 
 export default function SkyTrainStation(){
@@ -69,12 +69,21 @@ export default function SkyTrainStation(){
                 <Text style={Fonts.SchedText2}>Production-Way University</Text>
               </View>
 
-              <DividerLine />
+              {/* <DividerLine /> */}
 
-              <View>
-                <ScheduleTouchable />
-              </View>
-
+              <View style={Buttons.SchedCont}>
+                  <TouchableOpacity style ={Buttons.TouchWrap} onPress={() => Actions.FullSkyTrainSchedule()}>
+                  <Image
+                    style={Buttons.time}
+                    source={require('../../assets/icons/time.png')}
+                  />
+                  <Text style={Buttons.TouchText}>See Full Schedule</Text>
+                    <Image
+                      style={Buttons.next}
+                      source={require('../../assets/icons/next.png')}
+                    />
+                  </TouchableOpacity>
+                </View>
             </View>
           </View>
 
