@@ -6,7 +6,7 @@ import {
     removeOrientationListener as rol
   } from 'react-native-responsive-screen';
 
-var ModalStyles = StyleSheet.create({
+var AddPopupStyles = StyleSheet.create({
 
 Container : {
   position:'absolute',
@@ -60,4 +60,4 @@ CancelText:{
 
 })
 
-export default ModalStyles;
+export default AddPopupStyles;
