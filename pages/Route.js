@@ -9,10 +9,12 @@ import HomePage from './home/HomePage';
 import BusSchedules from './bus/BusSchedules';
 import BusRoute from './bus/BusRoute';
 import BusLastRoute from './bus/BusLastRoute';
+import FullBusSchedule from './bus/FullBusSchedule';
 
 import SkyTrainSchedules from './skytrains/SkyTrainSchedules'
 import SkyTrainStation from './skytrains/SkyTrainStation'
 import SkyTrainRoute from './skytrains/SkyTrainRoute'
+import FullSkyTrainSchedule from './skytrains/FullSkyTrainSchedule'
 
 import EmptyContacts from './contacts/EmptyContacts';
 import Contacts from './contacts/Contacts';
@@ -36,10 +38,12 @@ function Route(){
               <Scene key="BusSchedules" component={BusSchedules}/>
               <Scene key="BusRoute" component={BusRoute} />
               <Scene key="BusLastRoute" component={BusLastRoute} />
+              <Scene key="FullBusSchedule" component={FullBusSchedule} />
 
               <Scene key="SkyTrainSchedules" component={SkyTrainSchedules} />
               <Scene key="SkyTrainStation" component={SkyTrainStation} />
               <Scene key="SkyTrainRoute" component={SkyTrainRoute} />
+              <Scene key="FullSkyTrainSchedule" component={FullSkyTrainSchedule} />
           
               <Scene key="Taxis" component={Taxis} />
               <Scene key="SelectedTaxi" component={SelectedTaxi}/>
