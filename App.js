@@ -12,6 +12,7 @@ import EmptyContacts from './pages/contacts/EmptyContacts';
 import Route from './pages/Route'
 
 function App(){
+  console.disableYellowBox = true;
   return (
     
 
