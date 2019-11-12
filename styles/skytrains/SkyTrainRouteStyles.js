@@ -100,4 +100,4 @@ var SkyTrainRouteStyles=StyleSheet.create({
 
 });
 
-export default SkyTrainRouteStyles;
+export default SkyTrainRouteStyles; //test

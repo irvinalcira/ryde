@@ -7,6 +7,7 @@ import Fonts from '../../styles/FontsStyles';
 
 import Divider from '../../comps/Divider';
 
+// test
 function FullSkyTrainSchedule() {
 
   return (
@@ -33,7 +34,7 @@ function FullSkyTrainSchedule() {
             </View>
              
             <View style={FullSkyTrainStyles.MidStyles}>
-              <Text style={Fonts.LineName}>EXPO LINE</Text>
+              <Text style={Fonts.LineName}>Expo Line</Text>
               <Text style={Fonts.BlueCont}>TO KING GEORGE STATION</Text>
             </View>
 

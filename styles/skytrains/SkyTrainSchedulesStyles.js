@@ -30,4 +30,4 @@ var SkyTrainScheduleStyles = StyleSheet.create({
     }
 })
 
-export default SkyTrainScheduleStyles;
+export default SkyTrainScheduleStyles; //test
