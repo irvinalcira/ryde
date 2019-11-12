@@ -1,11 +1,4 @@
 import {StyleSheet} from 'react-native';
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-  listenOrientationChange as loc,
-  removeOrientationListener as rol
-} from 'react-native-responsive-screen';
-
 
 var Buttons = StyleSheet.create({
   
@@ -97,44 +90,14 @@ Img: {
     height:75,
     backgroundColor:"#235CA3",
     borderRadius: 8,
-  },
+},
 
   // HomePage
   HomePageButton: {
     padding: 15,    
     position:'relative',
-  },
+  }
 
-  // Schedules
-  SchedCont: {
-    marginRight: -20,
-    marginLeft: -20
-  },
-  TouchWrap:{
-    alignItems:"center",
-    backgroundColor:"#3794DA",
-    height:50,
-    justifyContent:"space-around",
-    borderBottomRightRadius:6,
-    borderBottomLeftRadius:6,
-    flexDirection:"row",
-    
-},
-TouchText:{
-    textAlign:"center",
-    color:"white",
-    fontFamily:"Assistant-SemiBold",
-    fontSize:20,
-    marginRight:50
-},
-time:{
-    height:35,
-    width:35
-},
-next:{
-    height:30,
-    width:30
-},
 })
 
 export default Buttons;

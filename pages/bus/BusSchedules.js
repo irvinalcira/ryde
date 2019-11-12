@@ -33,7 +33,7 @@ function BusSchedules(){
           placeholderTextColor='gray'
           
           />
-          <TouchableOpacity style={Buttons.Alt} onPress={() => Actions.BusLastRoute()}>
+          <TouchableOpacity style={Buttons.Alt}>
              <Text style={Buttons.MainText}>Find Bus</Text>
           </TouchableOpacity>
            </View>

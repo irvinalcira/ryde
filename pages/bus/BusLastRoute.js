@@ -5,7 +5,7 @@ import {Actions} from 'react-native-router-flux';
 import BusLastStyles from '../../styles/bus/BusLastRouteStyles';
 import Fonts from '../../styles/FontsStyles';
 
-import Buttons from '../../styles/ButtonsStyles';
+import ScheduleTouchable from '../../comps/ScheduleTouch';
 import DarkBlueTouchable from '../../comps/DarkBlueTouch';
 import DividerLine from '../../comps/Divider';
 
@@ -51,20 +51,10 @@ export default function BusLastRoute(){
                 <Text style={Fonts.TimeText2}>5 min</Text>
                 <DividerLine />
                 <Text style={Fonts.TimeText2}>8 min</Text>
-                {/* <DividerLine /> */}
+                <DividerLine />
 
-                <View style={Buttons.SchedCont}>
-                  <TouchableOpacity style ={Buttons.TouchWrap} onPress={() => Actions.FullBusSchedule()}>
-                  <Image
-                    style={Buttons.time}
-                    source={require('../../assets/icons/time.png')}
-                  />
-                  <Text style={Buttons.TouchText}>See Full Schedule</Text>
-                    <Image
-                      style={Buttons.next}
-                      source={require('../../assets/icons/next.png')}
-                    />
-                  </TouchableOpacity>
+                <View>
+                  <ScheduleTouchable />
                 </View>
               </View>
            </View>
