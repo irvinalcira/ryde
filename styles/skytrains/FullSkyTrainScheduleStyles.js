@@ -6,14 +6,14 @@ import {
     removeOrientationListener as rol
   } from 'react-native-responsive-screen';
 
-var BusLastStyles=StyleSheet.create({
+var FullBusStyles =StyleSheet.create({
     Container:{
         flex:1,
         backgroundColor: "#3971B3"
         
     },
     TopView:{
-        flex:0.5,
+        flex:0.45,
         backgroundColor:"#3971B3",
         padding: 15,
     },
@@ -46,39 +46,37 @@ var BusLastStyles=StyleSheet.create({
         width: "100%"
     },
     MidStyles:{
-        width:"100%",
-        justifyContent:"center",
-        alignItems:"center",
-        height:"80%"
-    },
-    WhiteBus:{
-        height:60,
-        width:60,
-        margin:10 
+      marginLeft: 15,
+      marginTop: 10
     },
 
 
     // Content
     Bottom:{
-        flex:1,
-        backgroundColor: "#eee"
+      flex:2,
+      backgroundColor: "#eee",
+      alignItems:"center",
+      paddingTop: 20
+    },
+
+    ScheduleCont:{
+        backgroundColor:"#DCDCDC",
+        padding: 20,
+        borderRadius:6,
+        width:wp('90%'),
+
     },
 
     TimeCont:{
-        backgroundColor:"#DCDCDC",
-        paddingLeft:20,
-        paddingRight:20,
-        paddingTop:10,
-        borderRadius:6,
-        width:wp('90%')
-    },
+      height: 45,
+      // justifyContent: 'center',
+      flexDirection: "row",
+      alignItems: "center",
+      // backgroundColor: "pink"
 
-    TimeWrap:{
-        justifyContent:"center",
-        alignItems:"center"
     },  
 
 
 });
 
-export default BusLastStyles; //test
+export default FullBusStyles; //test
