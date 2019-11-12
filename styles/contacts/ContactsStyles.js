@@ -20,6 +20,7 @@ TitleCont: {
   flexDirection: "row",
   justifyContent: "center",
   alignItems: "center",
+  marginBottom: 40,
 },
 TitleImg: {
   display: "flex",
@@ -35,6 +36,7 @@ FirstContainer: {
   display: "flex",
   flexDirection: "row",
 },
+
 UserContainer: {
   marginTop: 5,
   marginBottom: 5,
