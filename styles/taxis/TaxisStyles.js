@@ -19,10 +19,14 @@ var TaxisStyles = StyleSheet.create({
     TaxisView: {
         marginTop:20,
     },
+    dropdownMargins:{
+
+    },
     TaxiButtonsContainer:{
     },
+
     ScrollViewContainer:{
-        height:"50%",
+        height:"80%",
 
     }
 })

@@ -8,13 +8,17 @@ import TaxisStyles from '../../styles/taxis/TaxisStyles';
 import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
 
-function Taxis() {
+function Taxis(props) {
 
     const [users, setData] = useState([]);
     const [input,setInput]=useState();
+    const [name,setName]= useState("All Taxis");
     var Search=users.filter((obj,i)=>{
-
-        return (obj.city===input)
+        if (input){
+            return (obj.city===input)
+        } else{
+            return (obj.name)
+        }
     });
     let data = [{
         value: 'Burnaby',
@@ -31,11 +35,12 @@ function Taxis() {
         const response = await fetch('http://localhost:8888/ryde/ryde.php');
         j = await response.json();
         setData(j);
-
+        setName(input);
+        console.log(name)
     }
     useEffect(() => {
         fetchData();
-    },[]);
+    });
     return (
         <SafeAreaView style={TaxisStyles.Container}>
             <View style={TaxisStyles.Container}>
@@ -47,15 +52,18 @@ function Taxis() {
 
                 {/* This will be a Searchable Drop Down     */}
                     <Dropdown
+                    // style = {TaxisStyles.}
                     label='City'
                     data={data}
                     textColor =	"rgba(0, 0, 0, .98)"
+                    itemPadding = "10"
                     onChangeText={text => setInput(text)}
                     />
 
 
                 <View style={TaxisStyles.TaxisView}>
-                    <Text style={[Fonts.Heading]}>{input}</Text>
+                    
+                    <Text style={[Fonts.Heading]}>{name}</Text>
                 </View>
 
                 <View style={TaxisStyles.TaxiButtonsContainer}>
