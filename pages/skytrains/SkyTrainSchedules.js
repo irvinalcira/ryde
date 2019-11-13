@@ -5,7 +5,7 @@ import {Actions} from 'react-native-router-flux';
 import SkyTrainScheduleStyles from '../../styles/skytrains/SkyTrainSchedulesStyles';
 import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
-
+//test
 export default function SkyTrainSchedules(){
   return (
     <SafeAreaView style={SkyTrainScheduleStyles.Container}>

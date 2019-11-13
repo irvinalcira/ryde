@@ -9,14 +9,16 @@ import HomePage from './home/HomePage';
 import BusSchedules from './bus/BusSchedules';
 import BusRoute from './bus/BusRoute';
 import BusLastRoute from './bus/BusLastRoute';
+import FullBusSchedule from './bus/FullBusSchedule';
 
 import SkyTrainSchedules from './skytrains/SkyTrainSchedules'
 import SkyTrainStation from './skytrains/SkyTrainStation'
 import SkyTrainRoute from './skytrains/SkyTrainRoute'
+import FullSkyTrainSchedule from './skytrains/FullSkyTrainSchedule'
 
 import EmptyContacts from './contacts/EmptyContacts';
 import Contacts from './contacts/Contacts';
-import AddContacts from './contacts/AddContacts';
+import AddContact from './contacts/AddContact';
 
 
 import Taxis from './taxis/Taxis';
@@ -25,30 +27,34 @@ import SelectedTaxi from './taxis/SelectedTaxi';
 
 function Route(){
 
+
   return(
 
         <Router>
-        <Stack hideNavBar={true}>
-  
-              <Scene key="HomePage" component={HomePage} initial={true}/>
+        <Stack key="root" hideNavBar={true}>
+
+              <Scene key="HomePage" component={HomePage} initial={true} />
         
               <Scene key="BusSchedules" component={BusSchedules}/>
               <Scene key="BusRoute" component={BusRoute} />
               <Scene key="BusLastRoute" component={BusLastRoute} />
+              <Scene key="FullBusSchedule" component={FullBusSchedule} />
 
               <Scene key="SkyTrainSchedules" component={SkyTrainSchedules} />
               <Scene key="SkyTrainStation" component={SkyTrainStation} />
               <Scene key="SkyTrainRoute" component={SkyTrainRoute} />
+              <Scene key="FullSkyTrainSchedule" component={FullSkyTrainSchedule} />
           
-              <Scene key="Taxis" component={Taxis} initial={true}/>
-              <Scene key="SelectedTaxi" component={SelectedTaxi} />
+              <Scene key="Taxis" component={Taxis} />
+              <Scene key="SelectedTaxi" component={SelectedTaxi}/>
               
-              <Scene key="EmptyContacts" component={EmptyContacts}  />
-              <Scene key="Contacts" component={Contacts} />
-              <Scene key="AddContacts" component={AddContacts} />
+              <Scene key="Contacts" component={Contacts} panHandlers={null}/>
+              <Scene key="EmptyContacts" component={EmptyContacts} />
+              <Scene key="AddContact" component={AddContact} panHandlers={null}/>
 
         </Stack>
       </Router>
+
   )
 };
 

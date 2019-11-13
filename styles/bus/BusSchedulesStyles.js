@@ -8,4 +8,4 @@ var BusSchedulesStyles =StyleSheet.create({
     },
 })
 
-export default BusSchedulesStyles;
+export default BusSchedulesStyles; //test

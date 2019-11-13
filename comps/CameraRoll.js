@@ -1,7 +1,8 @@
 import React,{ useState} from 'react';
-import { View , Button, Image} from 'react-native';
+import { View , Button, Image, StyleSheet} from 'react-native';
 import ImagePicker from 'react-native-image-picker';
 
+import CamRoll from '../styles/comps/CameraRollStyles';
 
 
 export default function Cam() {
@@ -29,9 +30,9 @@ export default function Cam() {
     });
   };
   return (
-    <View style={{alignItems: 'center', justifyContent: 'center' }}>
-    {showPic ? <Image source={{ uri: Photo.uri}}style={{ width: 120, height: 120, borderRadius:100, margin:20}}/>:<Image source={source=require('../assets/icons/imagefill.png')}style={{ width: 120, height: 120, borderRadius:100, margin:20}}  />}
-      <Button title={picText} onPress={handleChoosePhoto} />
+    <View style={CamRoll.Container}>
+    {showPic ? <Image source={{ uri: Photo.uri}} style={CamRoll.ProfPic}/>:<Image source={source=require('../assets/icons/imagefill.png')}style={CamRoll.ProfPic}  />}
+      <Button title={picText} onPress={handleChoosePhoto}/>
     </View>
   );
 }

@@ -7,13 +7,14 @@ import AppStyles from './styles/AppStyles';
 
 import TabBar from './comps/TabBar';
 
-import AddContacts from './pages/contacts/AddContacts';
+import AddContact from './pages/contacts/AddContact';
 import EmptyContacts from './pages/contacts/EmptyContacts';
 import Route from './pages/Route'
 
-
 function App(){
+  console.disableYellowBox = true;
   return (
+    
 
       <View style={AppStyles.app}>
 
