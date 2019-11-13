@@ -26,7 +26,7 @@ export default function HomePage(){
     <SafeAreaView style={HomePageStyles.Container}>
       <View style={HomePageStyles.Container}>
 
-        <Text style={[Fonts.Title, {}]}>Welcome Irvin,</Text>
+        <Text style={[Fonts.Title]}>Welcome Irvin,</Text>
         
         <Text style={[Fonts.Heading,]}>
           Your Favorites

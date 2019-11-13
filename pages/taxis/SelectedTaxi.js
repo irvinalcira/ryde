@@ -1,5 +1,5 @@
 import React,{Component,useState,useEffect} from 'react';
-import { View, Text, SafeAreaView, StatusBar, TouchableOpacity, Image } from 'react-native';
+import { View, Text, SafeAreaView, StatusBar, TouchableOpacity, Image, ScrollView } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 
 import SelectedTaxiStyles from '../../styles/taxis/SelectedTaxiStyles';
@@ -40,12 +40,13 @@ import Buttons from '../../styles/ButtonsStyles';
           <Text style={Fonts.TaxiTitle}>{taxiname}</Text>
       </View>
   
-      <View style={SelectedTaxiStyles.TaxiFavorite}>
+      <TouchableOpacity style={SelectedTaxiStyles.TaxiFavorite}>
+          
           <Image
               style={SelectedTaxiStyles.FavoriteIcon}
               source={require('../../assets/icons/favorite2.png')}
           />
-      </View>
+      </TouchableOpacity>
   
       </View>
   

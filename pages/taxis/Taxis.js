@@ -12,7 +12,6 @@ function Taxis(props) {
 
     const [users, setData] = useState([]);
     const [input,setInput]=useState();
-    const [name,setName]= useState("All Taxis");
     var Search=users.filter((obj,i)=>{
         if (input){
             return (obj.city===input)
@@ -35,8 +34,6 @@ function Taxis(props) {
         const response = await fetch('http://localhost:8888/ryde/ryde.php');
         j = await response.json();
         setData(j);
-        setName(input);
-        console.log(name)
     }
     useEffect(() => {
         fetchData();
@@ -63,7 +60,7 @@ function Taxis(props) {
 
                 <View style={TaxisStyles.TaxisView}>
                     
-                    <Text style={[Fonts.Heading]}>{name}</Text>
+                    <Text style={[Fonts.Heading]}>{input}</Text>
                 </View>
 
                 <View style={TaxisStyles.TaxiButtonsContainer}>
