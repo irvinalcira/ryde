@@ -15,10 +15,36 @@ function AddContact(props) {
   const [LName,setLName] = useState('');
   const [PNumber,setPNumber] = useState('');
 
-  console.log('First Name:', FName)
-  console.log('Last Name:', LName)
-  console.log('Phone Number:', PNumber)
+  // console.log('First Name:', FName)
+  // console.log('Last Name:', LName)
+  // console.log('Phone Number:', PNumber)
 
+  // Async
+
+  var firstname = "";
+  var lastname = "";
+  var phonenumber = "";
+  
+  const CreateContact = async()=>{
+    console.log('firstname & lastname & phonenumber', FName, LName, PNumber);
+
+    var obj ={
+      key:"contact_create",
+      data:{
+        firstname: FName,
+        lastname: LName,
+        phonenumber: PNumber
+      }
+    }    
+    var r = await AsyncStorage.setItem(obj);
+
+    var dbusers = JSON.parse(r.data.firstname);
+    console.log("create",r.data);
+    
+  }
+
+  //Async end
+  
   return (
 
     <SafeAreaView style={AContactStyles.Container}>
@@ -34,7 +60,10 @@ function AddContact(props) {
         <Text style={Fonts.NavTitle}>New Contact</Text>
 
         <TouchableOpacity>
-        <Text style={Fonts.NavLink} onPress={() => Actions.pop()}>Create</Text>
+        <Text style={Fonts.NavLink} 
+        onPress={() => {Actions.pop(); CreateContact();}
+        }
+        >Create</Text>
         </TouchableOpacity>
         </View>
 
@@ -42,6 +71,7 @@ function AddContact(props) {
 
 
         {/* Add Contact */}
+        
 
         {/* Camera Component */}
         <View style={AContactStyles.AddImgView}>
@@ -72,5 +102,6 @@ function AddContact(props) {
     </SafeAreaView>
   )
 }
+
 
 export default AddContact;
