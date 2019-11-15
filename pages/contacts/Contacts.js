@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { View, Text, TouchableOpacity, SafeAreaView, Image, Button } from 'react-native';
+import React, {useState,useEffect} from 'react';
+import { View, Text, TouchableOpacity, SafeAreaView, Image, Button,AsyncStorage } from 'react-native';
 
 //Components
 import AddButton from '../../comps/AddButton';
@@ -13,10 +13,22 @@ import Divider from '../../comps/Divider';
 function Contacts() {
 
    const [Popup, setPopup] = useState(false);
-  //  console.log(Popup);
- 
+   const [Contact,setContact] = useState([]);
+   
+   async function GetContacts(){
+    var data = await AsyncStorage.getItem("storage")
+    data =  JSON.parse(data);
+    console.log(data);
+    setContact(data.Contacts)
+    //console.log("Contacts",Contact.Contacts);
+      }
+      useEffect(() => {
+        GetContacts();
+    });
+
+    console.log(Contact);
+
   return (
-    
     <SafeAreaView style={ContactsStyles.Container}>
       <View style={ContactsStyles.Container}>
 
@@ -32,140 +44,49 @@ function Contacts() {
             {/* Add Button Component */}
             <AddButton setPopup={setPopup}/>
             </View>
-
           </View>
+          {
+    Contact.map((obj,i)=>{
+                        return (
+                          <View>
+                          <TouchableOpacity>
+          <View style={ContactsStyles.UserContainer}>
+                
+          {/* Name */}
+          <Text style={Fonts.Name}>{obj.firstname} {obj.lastname}</Text>
+
+          {/* Message/Call Container */}
+              <View style={ContactsStyles.ImageCont}> 
+                  {/* Message */}
+                  <TouchableOpacity>
+                  <View style={ContactsStyles.ImageBox}>
+                    <Image style={ContactsStyles.Image} source={require('../../assets/icons/message.png')} />
+                  </View>
+                  </TouchableOpacity>
             
-          
-          {/* Contact */}
-            <TouchableOpacity>
-                <View style={ContactsStyles.UserContainer}>
-                      
-                  {/* Name */}
-                  <Text style={Fonts.Name}>Irvin Alcira</Text>
+                  {/* Call */}
+                  <TouchableOpacity>
+                  <View style={ContactsStyles.ImageBox}>
+                    <Image style={ContactsStyles.Image} source={require('../../assets/icons/phone.png')} />
+                  </View>
+                  </TouchableOpacity>
+              </View>
+          {/* End of Message/Call Container */}
+        </View>
 
-                  {/* Message/Call Container */}
-                      <View style={ContactsStyles.ImageCont}> 
-                          {/* Message */}
-                          <TouchableOpacity>
-                          <View style={ContactsStyles.ImageBox}>
-                            <Image style={ContactsStyles.Image} source={require('../../assets/icons/message.png')} />
-                          </View>
-                          </TouchableOpacity>
-                    
-                          {/* Call */}
-                          <TouchableOpacity>
-                          <View style={ContactsStyles.ImageBox}>
-                            <Image style={ContactsStyles.Image} source={require('../../assets/icons/phone.png')} />
-                          </View>
-                          </TouchableOpacity>
-                      </View>
-                  {/* End of Message/Call Container */}
-                </View>
-            </TouchableOpacity>
-
+    </TouchableOpacity>
                 <Divider />
-          {/* End of Contact */}
-
-
-
-          {/* Contact */}
-          <TouchableOpacity>
-                <View style={ContactsStyles.UserContainer}>
-                      
-                  {/* Name */}
-                  <Text style={Fonts.Name}>Shenis Macabenta</Text>
-
-                  {/* Message/Call Container */}
-                      <View style={ContactsStyles.ImageCont}> 
-                          {/* Message */}
-                          <TouchableOpacity>
-                          <View style={ContactsStyles.ImageBox}>
-                            <Image style={ContactsStyles.Image} source={require('../../assets/icons/message.png')} />
-                          </View>
-                          </TouchableOpacity>
-                    
-                          {/* Call */}
-                          <TouchableOpacity>
-                          <View style={ContactsStyles.ImageBox}>
-                            <Image style={ContactsStyles.Image} source={require('../../assets/icons/phone.png')} />
-                          </View>
-                          </TouchableOpacity>
-                      </View>
-                  {/* End of Message/Call Container */}
                 </View>
-            </TouchableOpacity>
 
-                <Divider />
-          {/* End of Contact */}
-
-
-
-          {/* Contact */}
-          <TouchableOpacity>
-                <View style={ContactsStyles.UserContainer}>
-                      
-                  {/* Name */}
-                  <Text style={Fonts.Name}>Abhimannyu Shaktivel</Text>
-
-                  {/* Message/Call Container */}
-                      <View style={ContactsStyles.ImageCont}> 
-                          {/* Message */}
-                          <TouchableOpacity>
-                          <View style={ContactsStyles.ImageBox}>
-                            <Image style={ContactsStyles.Image} source={require('../../assets/icons/message.png')} />
-                          </View>
-                          </TouchableOpacity>
-                    
-                          {/* Call */}
-                          <TouchableOpacity>
-                          <View style={ContactsStyles.ImageBox}>
-                            <Image style={ContactsStyles.Image} source={require('../../assets/icons/phone.png')} />
-                          </View>
-                          </TouchableOpacity>
-                      </View>
-                  {/* End of Message/Call Container */}
-                </View>
-            </TouchableOpacity>
-
-                <Divider />
-          {/* End of Contact */}
-
-
-
-          {/* Contact */}
-          <TouchableOpacity>
-                <View style={ContactsStyles.UserContainer}>
-                      
-                  {/* Name */}
-                  <Text style={Fonts.Name}>Bin Im</Text>
-
-                  {/* Message/Call Container */}
-                      <View style={ContactsStyles.ImageCont}> 
-                          {/* Message */}
-                          <TouchableOpacity>
-                          <View style={ContactsStyles.ImageBox}>
-                            <Image style={ContactsStyles.Image} source={require('../../assets/icons/message.png')} />
-                          </View>
-                          </TouchableOpacity>
-                    
-                          {/* Call */}
-                          <TouchableOpacity>
-                          <View style={ContactsStyles.ImageBox}>
-                            <Image style={ContactsStyles.Image} source={require('../../assets/icons/phone.png')} />
-                          </View>
-                          </TouchableOpacity>
-                      </View>
-                  {/* End of Message/Call Container */}
-                </View>
-            </TouchableOpacity>
-
-                <Divider />
-          {/* End of Contact */}
-
-
+                        )
+                        })
+                    }
       </View>  
     </SafeAreaView>
   )
 }
 
 export default Contacts;
+
+// {
+                       

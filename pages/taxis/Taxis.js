@@ -10,16 +10,37 @@ import Buttons from '../../styles/ButtonsStyles';
 
 function Taxis(props) {
 
+    
     const [users, setData] = useState([]);
-    const [input,setInput]=useState();
-    var Search=users.filter((obj,i)=>{
-        if (input){
-            return (obj.city===input)
-        } else{
-            return (obj.name)
+    const [input,setInput]=useState('');
+    inputTitle=null;
+
+    function runTitle(){
+        if (input !=="" && input !=="All Taxis")  {
+            inputTitle=(
+            <Text style={[Fonts.Heading]}>Taxis in {input}</Text>
+            )
         }
-    });
+        else {
+            inputTitle=(
+                <Text style={[Fonts.Heading]}>All Taxis</Text>
+            )
+        }
+    }
+    
+
+    var Search=users;
+    if(input !== "" && input !== "All Taxis"){
+        Search = users.filter((obj,i)=>{
+            return (obj.city===input);
+        });
+    }
+
+    
     let data = [{
+        
+        value:'All Taxis'
+        },{
         value: 'Burnaby',
       }, {
         value: "Vancouver",
@@ -29,7 +50,8 @@ function Taxis(props) {
         value: 'Surrey',
       },{
         value: 'Langley',
-      }];
+      } ];
+
     var fetchData = async () => {
         const response = await fetch('http://localhost:8888/ryde/ryde.php');
         j = await response.json();
@@ -37,7 +59,9 @@ function Taxis(props) {
     }
     useEffect(() => {
         fetchData();
-    });
+        
+    },[]);
+    runTitle();
     return (
         <SafeAreaView style={TaxisStyles.Container}>
             <View style={TaxisStyles.Container}>
@@ -48,19 +72,22 @@ function Taxis(props) {
                 <Text style={Fonts.Body}>Enter a location to view taxis in the surrounding area</Text>
 
                 {/* This will be a Searchable Drop Down     */}
+
                     <Dropdown
-                    // style = {TaxisStyles.}
                     label='City'
                     data={data}
                     textColor =	"rgba(0, 0, 0, .98)"
                     itemPadding = "10"
                     onChangeText={text => setInput(text)}
+                    dropdownPosition= "0"
+                    itemCount="6"
+                
                     />
-
 
                 <View style={TaxisStyles.TaxisView}>
                     
-                    <Text style={[Fonts.Heading]}>{input}</Text>
+                {inputTitle}
+                    
                 </View>
 
                 <View style={TaxisStyles.TaxiButtonsContainer}>
