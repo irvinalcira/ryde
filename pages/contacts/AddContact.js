@@ -25,11 +25,10 @@ function AddContact(props) {
     if (checkdata.Contacts != ""){
       AsyncStorage.setItem("storage",JSON.stringify(checkdata));
       console.log("Has something inside",checkdata.Contacts)
-    }else {
+    }else if (checkdata.Contacts === "") {
       AsyncStorage.setItem("storage",JSON.stringify(data));
       console.log("Its empty")
     }
-
     }
     
  async function UpdateContacts(){
