@@ -20,6 +20,7 @@ function AddContact(props) {
   const [Contact,setContact] = useState([]);
 
    async function SetInfo(){
+    AsyncStorage.setItem("storage",JSON.stringify(data));
     var checkdata = await AsyncStorage.getItem("storage");
     checkdata =  JSON.parse(checkdata)
     if (checkdata.Contacts != ""){
@@ -32,6 +33,7 @@ function AddContact(props) {
     }
     
  async function UpdateContacts(){
+
     var datanew = await AsyncStorage.getItem("storage");
     datanew =  JSON.parse(datanew)
       datanew.Contacts.push({
@@ -45,6 +47,7 @@ function AddContact(props) {
 
   useEffect(() => {   
     SetInfo();
+
 },[]);
   return (
 
