@@ -1,48 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {StyleSheet, Text, View, Alert} from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
 
-export default class GeoLoc extends React.Component{
-  state = {
-    initialPosition: 'unknown',
-    lastPosition: 'unknown',
-  };
+function GeoLoc(){
 
+  const [initialPosition, setInitialPosition] = useState('unknown');
+  const [lastPosition, setLastPosition] = useState('unknown');
+  const [watchID, setWatchID] = useState(null);
 
-  componentDidMount() {
+  componentDidMount = () => {
     Geolocation.getCurrentPosition(
       position => {
-        const initialPosition = JSON.stringify(position);
-        this.setState({initialPosition});
+        var initialPosition = JSON.stringify(position);
+        setInitialPosition({position});
       },
       error => Alert.alert('Error', JSON.stringify(error)),
       {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000},
     );
-    this.watchID = Geolocation.watchPosition(position => {
-      const lastPosition = JSON.stringify(position);
-      this.setState({lastPosition});
+    setWatchID = Geolocation.watchPosition(position => {
+      var lastPosition = JSON.stringify(position);
+      setLastPosition({position});
     });
   }
 
-  componentWillUnmount() {
-    this.watchID != null && Geolocation.clearWatch(this.watchID);
+  componentWillUnmount = () =>{
+    var watchID = null && Geolocation.clearWatch(setWatchID);
   }
-
-  render() {
     return (
       <View>
         <Text>
           <Text style={styles.title}>Initial position: </Text>
-          {this.state.initialPosition}
+          {initialPosition}
         </Text>
         <Text>
           <Text style={styles.title}>Current position: </Text>
-          {this.state.lastPosition}
+          {lastPosition}
         </Text>
       </View>
     );
   }
-}
+
 
 const styles = StyleSheet.create({
   title: {
