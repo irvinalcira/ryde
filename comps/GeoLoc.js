@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {StyleSheet, Text, View, Alert} from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
 
@@ -8,7 +8,7 @@ function GeoLoc(){
   const [lastPosition, setLastPosition] = useState('unknown');
   const [watchID, setWatchID] = useState(null);
 
-  componentDidMount = () => {
+  useEffect(() =>{
     Geolocation.getCurrentPosition(
       position => {
         var initialPosition = JSON.stringify(position);
@@ -20,12 +20,28 @@ function GeoLoc(){
     setWatchID = Geolocation.watchPosition(position => {
       var lastPosition = JSON.stringify(position);
       setLastPosition({position});
-    });
-  }
-
-  componentWillUnmount = () =>{
+    });    
     var watchID = null && Geolocation.clearWatch(setWatchID);
-  }
+
+  });
+  // componentDidMount = () => {
+  //   Geolocation.getCurrentPosition(
+  //     position => {
+  //       var initialPosition = JSON.stringify(position);
+  //       setInitialPosition({position});
+  //     },
+  //     error => Alert.alert('Error', JSON.stringify(error)),
+  //     {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000},
+  //   );
+  //   setWatchID = Geolocation.watchPosition(position => {
+  //     var lastPosition = JSON.stringify(position);
+  //     setLastPosition({position});
+  //   });
+  // }
+
+  // componentWillUnmount = () =>{
+  //   var watchID = null && Geolocation.clearWatch(setWatchID);
+  // }
     return (
       <View>
         <Text>
