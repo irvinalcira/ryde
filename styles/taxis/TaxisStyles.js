@@ -16,12 +16,17 @@ var TaxisStyles = StyleSheet.create({
     },
     
     TaxisView: {
-        marginTop:10
+        // marginTop:10
     },
 
     TaxiButtonsContainer:{
         marginTop:10,
+        // padding:15,
     },
+
+    ScrollViewContainer:{
+        padding:0,
+    }
 
 })
 

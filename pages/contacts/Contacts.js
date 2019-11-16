@@ -60,7 +60,7 @@ function Contacts(props) {
           <View style={ContactsStyles.UserContainer}>
                 
           {/* Name */}
-          <Text style={Fonts.Name}>{obj.firstname} {obj.lastname}</Text>
+          <Text style={[Fonts.Name]}>{obj.firstname} {obj.lastname}</Text>
 
           {/* Message/Call Container */}
               <View style={ContactsStyles.ImageCont}> 

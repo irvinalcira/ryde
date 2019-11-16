@@ -18,12 +18,12 @@ function Taxis(props) {
     function runTitle(){
         if (input !=="" && input !=="All Taxis")  {
             inputTitle=(
-            <Text style={[Fonts.Heading]}>Taxis in {input}</Text>
+            <Text style={[Fonts.Heading, {marginTop:20, marginBottom:10}]}>Taxis in {input}</Text>
             )
         }
         else {
             inputTitle=(
-                <Text style={[Fonts.Heading]}>All Taxis</Text>
+                <Text style={[Fonts.Heading, {marginTop:20, marginBottom:10}]}>All Taxis</Text>
             )
         }
     }
@@ -81,17 +81,16 @@ function Taxis(props) {
                     onChangeText={text => setInput(text)}
                     dropdownPosition= "0"
                     itemCount="6"
-                
                     />
 
-                <View style={TaxisStyles.TaxisView}>
+                <View style={[TaxisStyles.TaxisView]}>
                     
                 {inputTitle}
                     
                 </View>
 
+                <ScrollView style={[TaxisStyles.ScrollViewContainer]} >
                 <View style={TaxisStyles.TaxiButtonsContainer}>
-                   <ScrollView style={TaxisStyles.ScrollViewContainer}>
                     {
                         Search.map((obj,i)=>{
                             return (
@@ -128,9 +127,9 @@ function Taxis(props) {
                             )
                         })
                     }
-                   </ScrollView>
 
                 </View>
+                </ScrollView>
 
 
             </View>

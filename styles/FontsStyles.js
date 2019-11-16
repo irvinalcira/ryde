@@ -33,10 +33,9 @@ TaxiHeading: {
 // Contact List
 Name: {
   flex: 3,
-
   fontSize: 18,
   margin: 15,
-  fontFamily: "Assistant-Regular"
+  fontFamily: "Assistant-Semibold",
 },
 
 

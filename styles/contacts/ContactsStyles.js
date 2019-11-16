@@ -41,6 +41,7 @@ UserContainer: {
   marginTop: 5,
   marginBottom: 5,
   display: "flex",
+  alignItems:'center',
   flexDirection: "row",
 },
 ImageCont: {
