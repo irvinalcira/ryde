@@ -33,6 +33,7 @@ TaxiHeading: {
 // Contact List
 Name: {
   flex: 3,
+
   fontSize: 18,
   margin: 15,
   fontFamily: "Assistant-Regular"
@@ -42,8 +43,8 @@ Name: {
 // Navigation Bar
 NavTitle: {
   flex: 4,
-  fontSize: 25,
-  fontFamily: "Assistant-Bold",
+  fontSize: 20,
+  fontFamily: "Assistant-SemiBold",
   textAlign: "center"
 },
 NavLink: {
@@ -64,8 +65,9 @@ InpLabel: {
 Inp: {
   justifyContent: "flex-start",
   alignItems: "center",
-  marginTop: 15,
-  padding: 10,
+  marginTop: 5,
+  height:45,
+  padding:10,
   color:'black',
   backgroundColor: "white",
   borderColor: "#D6D6D6",
@@ -73,7 +75,7 @@ Inp: {
 },
 
 
-// Bus
+// Bus Route
 BusRoute:{
   color:"white",
   fontFamily:"Assistant-SemiBold",
@@ -85,6 +87,11 @@ BlueCont:{
   marginVertical: 5,
   fontSize: 14,
   fontFamily:"Assistant-SemiBold"
+},
+AddressText: {
+  color: "#3971B3",
+  fontSize: 20,
+  fontFamily: "Assistant-SemiBold",
 },
 
 // Schedules
@@ -176,11 +183,45 @@ OtherHeading2: {
   fontFamily:"Assistant-SemiBold",
   fontSize:20
 },
+EstNum: {
+  color: "#3971B3",
+  fontSize: 35,
+  fontFamily: "Assistant-Bold",
+},
+EstTime: {
+  color: "#3971B3",
+  fontSize: 12,
+  fontFamily: "Assistant-SemiBold",
+},
 
 //HomePage
 FavHeading:{
   fontSize:25,
   fontFamily:"Assistant-Bold"
+},
+
+ContactIconFont:{
+  fontSize:25,
+  fontFamily: "Assistant-Bold",
+  color:"white",
+},
+
+ContactNameFonts:{
+  fontSize:15,
+  fontFamily:"Assistant-SemiBold",
+  color:"#000000"
+},
+
+FavButtonText:{
+  color:"#999999",
+  fontFamily: "Assistant-Bold"
+},
+
+FavButtonTextPressed:{
+  color:'#000000',
+  fontFamily: "Assistant-Bold",
+  borderBottomWidth: 1,
+  borderBottomColor: '#235CA3'
 }
 
 })
