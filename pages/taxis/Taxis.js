@@ -1,149 +1,141 @@
-import React from 'react';
-import { View, Text, Button, SafeAreaView, ScrollView,TouchableOpacity, TextInput, Image } from 'react-native';
-import {Actions} from 'react-native-router-flux';
+import React,{useState,useEffect} from 'react';
+import { View, Text, Button, SafeAreaView, FlatList, ScrollView, TouchableOpacity, TextInput, Image } from 'react-native';
+import { Actions } from 'react-native-router-flux';
+import { Dropdown } from 'react-native-material-dropdown';
+ 
 
 import TaxisStyles from '../../styles/taxis/TaxisStyles';
 import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
 
-function Taxis(){
-  return (
-    <SafeAreaView style={TaxisStyles.Container}>
-      <View style={TaxisStyles.Container}>
+function Taxis(props) {
+
+    
+    const [users, setData] = useState([]);
+    const [input,setInput]=useState('');
+    inputTitle=null;
+
+    function runTitle(){
+        if (input !=="" && input !=="All Taxis")  {
+            inputTitle=(
+            <Text style={[Fonts.Heading]}>Taxis in {input}</Text>
+            )
+        }
+        else {
+            inputTitle=(
+                <Text style={[Fonts.Heading]}>All Taxis</Text>
+            )
+        }
+    }
+    
+
+    var Search=users;
+    if(input !== "" && input !== "All Taxis"){
+        Search = users.filter((obj,i)=>{
+            return (obj.city===input);
+        });
+    }
+
+    
+    let data = [{
         
-        <Text style={Fonts.Title}>Taxis</Text>
+        value:'All Taxis'
+        },{
+        value: 'Burnaby',
+      }, {
+        value: "Vancouver",
+      },{
+        value: 'Richmond',
+      },{
+        value: 'Surrey',
+      },{
+        value: 'Langley',
+      } ];
 
-        <Text style={Fonts.Heading}>Location</Text>
-        <Text style={Fonts.Body}>Enter a location to view taxis in the surrounding area</Text>
-
-        {/* This will be a Searchable Drop Down     */}
-
-        <TextInput style={Fonts.Inp}
-        placeholder="Vancouver, BC"
-        placeholderTextColor='black' 
-        />
+    var fetchData = async () => {
+        const response = await fetch('http://localhost:8888/ryde/ryde.php');
+        j = await response.json();
+        setData(j);
+    }
+    useEffect(() => {
+        fetchData();
         
-        <TouchableOpacity style={Buttons.Main}>
-        <Text style={Buttons.MainText}>Search Location</Text>
-        </TouchableOpacity>
+    },[]);
+    runTitle();
+    return (
+        <SafeAreaView style={TaxisStyles.Container}>
+            <View style={TaxisStyles.Container}>
 
+                <Text style={Fonts.Title}>Taxis</Text>
 
-        <View style={TaxisStyles.TaxisView}>
-        <Text style={Fonts.Heading}>Taxis in Vancouver</Text>
-        </View>
+                <Text style={Fonts.Heading}>Location</Text>
+                <Text style={Fonts.Body}>Enter a location to view taxis in the surrounding area</Text>
 
-        <View style={TaxisStyles.TaxiButtonsContainer}>
+                {/* This will be a Searchable Drop Down     */}
 
-        {/* First Taxi */}
-        <TouchableOpacity  style={Buttons.Taxi} onPress={() => Actions.SelectedTaxi()}>
-                {/* Left Icon */}
-                <View style={Buttons.IconCont}>
-                        <Image
-                        style={Buttons.Img}
-                        source={require('../../assets/icons/taxi.png')}
-                        />
+                    <Dropdown
+                    label='City'
+                    data={data}
+                    textColor =	"rgba(0, 0, 0, .98)"
+                    itemPadding = "10"
+                    onChangeText={text => setInput(text)}
+                    dropdownPosition= "0"
+                    itemCount="6"
+                
+                    />
+
+                <View style={TaxisStyles.TaxisView}>
+                    
+                {inputTitle}
+                    
                 </View>
 
-                {/* Text */}
-                <View style={Buttons.TextCont}>
-                        <Text style={Buttons.TaxiText}>
-                            Vancouver Taxi
+                <View style={TaxisStyles.TaxiButtonsContainer}>
+                   <ScrollView style={TaxisStyles.ScrollViewContainer}>
+                    {
+                        Search.map((obj,i)=>{
+                            return (
+                                <TouchableOpacity style={Buttons.Taxi} onPress={() => Actions.SelectedTaxi(
+                                    {
+                                        ...obj,
+                                        taxiname:obj.name,
+                    
+                                    }
+                                )}>
+                        <View style={Buttons.IconCont}>
+                            <Image
+                                style={Buttons.Img}
+                                source={require('../../assets/icons/taxi.png')}
+                            />
+                        </View>
+
+        
+                        <View style={Buttons.TextCont}>
+                            <Text style={Buttons.TaxiText}>
+                                {obj.name}
                         </Text>
+                        </View>
+
+                        <View style={Buttons.IconCont}>
+                            <Image
+                                style={Buttons.ArrowImg}
+                                source={require('../../assets/icons/arrow.png')}
+                            />
+                        </View>
+                    </TouchableOpacity>
+                    
+
+                            )
+                        })
+                    }
+                   </ScrollView>
+
                 </View>
 
-                {/* Right Icon */}
-                <View style={Buttons.IconCont}>
-                        <Image
-                        style={Buttons.ArrowImg}
-                        source={require('../../assets/icons/arrow.png')}
-                        />
-                </View>
-        </TouchableOpacity>
 
-        {/* Second Taxi */}
-        <TouchableOpacity  style={Buttons.Taxi}  onPress={() => Actions.BlackTopTaxi()}>
-                {/* Left Icon */}
-                <View style={Buttons.IconCont}>
-                        <Image
-                        style={Buttons.Img}
-                        source={require('../../assets/icons/taxi-active.png')}
-                        />
-                </View>
-
-                {/* Text */}
-                <View style={Buttons.TextCont}>
-                        <Text style={[Buttons.TaxiText, Buttons.TextAltColor]}>
-                            Black &amp; Checker Cabs
-                        </Text>
-                </View>
-
-                {/* Right Icon */}
-                <View style={Buttons.IconCont}>
-                        <Image
-                        style={Buttons.ArrowImg}
-                        source={require('../../assets/icons/bluearrow.png')}
-                        />
-                </View>
-        </TouchableOpacity>
-
-        {/* Third Taxi */}
-        <TouchableOpacity  style={Buttons.Taxi}>
-                {/* Left Icon */}
-                <View style={Buttons.IconCont}>
-                        <Image
-                        style={Buttons.Img}
-                        source={require('../../assets/icons/taxi.png')}
-                        />
-                </View>
-
-                {/* Text */}
-                <View style={Buttons.TextCont}>
-                        <Text style={Buttons.TaxiText}>
-                            Excel Limosuine Service
-                        </Text>
-                </View>
-
-                {/* Right Icon */}
-                <View style={Buttons.IconCont}>
-                        <Image
-                        style={Buttons.ArrowImg}
-                        source={require('../../assets/icons/arrow.png')}
-                        />
-                </View>
-        </TouchableOpacity>
-
-        {/* Fourth Taxi */}
-        <TouchableOpacity  style={Buttons.Taxi}>
-                {/* Left Icon */}
-                <View style={Buttons.IconCont}>
-                        <Image
-                        style={Buttons.Img}
-                        source={require('../../assets/icons/taxi-active.png')}
-                        />
-                </View>
-
-                {/* Text */}
-                <View style={Buttons.TextCont}>
-                        <Text style={[Buttons.TaxiText, Buttons.TextAltColor]}>
-                            Yellow Cabs
-                        </Text>
-                </View>
-
-                {/* Right Icon */}
-                <View style={Buttons.IconCont}>
-                        <Image
-                        style={Buttons.ArrowImg}
-                        source={require('../../assets/icons/bluearrow.png')}
-                        />
-                </View>
-        </TouchableOpacity>
-
-        </View>
-
-
-      </View>
-      </SafeAreaView>
-  )
+            </View>
+        </SafeAreaView>
+    )
 };
 
 export default Taxis;

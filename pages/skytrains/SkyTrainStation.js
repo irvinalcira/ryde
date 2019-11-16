@@ -3,6 +3,7 @@ import {View,Text, Image,SafeAreaView,ScrollView, TouchableOpacity} from 'react-
 import {Actions} from 'react-native-router-flux';
 
 import SkyTrainStationStyles from '../../styles/skytrains/SkyTrainStationStyles';
+import BusLastStyles from '../../styles/bus/BusLastRouteStyles';
 import Fonts from '../../styles/FontsStyles';
 //test
 import Buttons from '../../styles/ButtonsStyles';
@@ -18,16 +19,13 @@ export default function SkyTrainStation(){
 
       {/* Nav Bar (Blue Section) */}
       <View style={SkyTrainStationStyles.NavBar}>
-
         <View style={SkyTrainStationStyles.ArrowCont}>
-        <TouchableOpacity onPress={() => Actions.pop('SkyTrain Route')}>
           <Image
           style={SkyTrainStationStyles.BackArrow}
           source={require('../../assets/icons/backarrow.png')}
           />
-          </TouchableOpacity>
           </View>
-           <Text style={[Fonts.BusRoute, SkyTrainStationStyles.NavTitle]}>Waterfront</Text>
+           <Text style={[Fonts.BusRoute, SkyTrainStationStyles.NavTitle]}>60212</Text>
         </View>
 
         <View style={SkyTrainStationStyles.MidStyles}>
@@ -35,8 +33,8 @@ export default function SkyTrainStation(){
             style={SkyTrainStationStyles.WhiteBus}
             source={require('../../assets/icons/whitebus.png')}
           />
-          <Text style={Fonts.BlueCont}>To King George Station</Text>
-          <Text style={Fonts.BlueCont}>EXPO LINE</Text>
+          <Text style={Fonts.BlueCont}>Metrotown Station @ Bay 12</Text>
+          <Text style={Fonts.BlueCont}>EAST</Text>
         </View>
       </View>
      

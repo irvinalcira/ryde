@@ -65,39 +65,35 @@ var SkyTrainRouteStyles=StyleSheet.create({
      // Doesn't do anything when you change the value of flex
     ScrollView:{
         flex:1,   
-        backgroundColor: "#EEEEEE"
     },
     TrainView:{
+        width: wp('100%'),
         height: hp('10%'),
         backgroundColor:"#EEEEEE",
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center"
+        textAlign:"center",
+        paddingTop: "6%",
+        fontFamily:"Assistant-Regular"
     },
-    StationName: {
-        flexDirection: "row",
-        flex:4
+    TrainViewAlt:{
+        width: wp('100%'),
+        height: hp('10%'),
+        backgroundColor:"#DBDBDB",
+        textAlign:"center",
+        paddingTop: "6%",
+        fontFamily:"Assistant-Regular"
     },
-    TrainCont: {
-        flex: 1,
-        alignItems: "center"
+    StationText:{
+        color:"white",
+        margin:10,
+        fontFamily:"Assistant-SemiBold",
+        fontSize:20
+        
     },
-    TrainIcon: {
-        width: 30,
-        height: 35
-    },
-    Address: {
-        flex: 3,
-        paddingRight: 20,
-    },
-    TimeCont: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        marginLeft: 10,
-        marginBottom: 10
+    StationAreaText:{
+        color:"white",
+        fontFamily:"Assistant-SemiBold",
+        fontSize:20
     }
-
 });
 
 export default SkyTrainRouteStyles; //test

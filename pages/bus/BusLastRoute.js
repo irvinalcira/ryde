@@ -1,6 +1,5 @@
 import React from 'react';
-import {View,Text, Image,SafeAreaView, TouchableOpacity} from 'react-native';
-import {Actions} from 'react-native-router-flux';
+import {View,Text, Image,SafeAreaView} from 'react-native';
 
 import BusLastStyles from '../../styles/bus/BusLastRouteStyles';
 import Fonts from '../../styles/FontsStyles';
@@ -20,12 +19,10 @@ export default function BusLastRoute(){
           {/* Nav Bar (Blue Section) */}
           <View style={BusLastStyles.NavBar}>
             <View style={BusLastStyles.ArrowCont}>
-            <TouchableOpacity onPress={() => Actions.pop('Bus Route')}>
               <Image
               style={BusLastStyles.BackArrow}
               source={require('../../assets/icons/backarrow.png')}
               />
-              </TouchableOpacity>
               </View>
                <Text style={[Fonts.BusRoute, BusLastStyles.NavTitle]}>60212</Text>
             </View>
