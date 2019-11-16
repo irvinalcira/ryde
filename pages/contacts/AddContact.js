@@ -18,24 +18,13 @@ function AddContact(props) {
   const [LName,setLName] = useState('');
   const [PNumber,setPNumber] = useState('');
   const [Contact,setContact] = useState([]);
-
-   async function SetInfo(){
-    AsyncStorage.setItem("storage",JSON.stringify(data));
-    var checkdata = await AsyncStorage.getItem("storage");
-    checkdata =  JSON.parse(checkdata)
-    if (checkdata.Contacts != ""){
-      AsyncStorage.setItem("storage",JSON.stringify(checkdata));
-      console.log("Has something inside",checkdata.Contacts)
-    }else if (checkdata.Contacts === "") {
-      AsyncStorage.setItem("storage",JSON.stringify(data));
-      console.log("Its empty")
-    }
-    }
-    
  async function UpdateContacts(){
-
     var datanew = await AsyncStorage.getItem("storage");
-    datanew =  JSON.parse(datanew)
+    if(!datanew){
+      datanew = data;
+    }else {
+      datanew =  JSON.parse(datanew)
+    }
       datanew.Contacts.push({
         firstname:FName,
         lastname:LName,
@@ -44,11 +33,9 @@ function AddContact(props) {
       AsyncStorage.setItem("storage",JSON.stringify(datanew));
     console.log(datanew);
   }
-
-  useEffect(() => {   
-    SetInfo();
-
-},[]);
+//   useEffect(() => {
+//   AsyncStorage.clear()
+// },[]);
   return (
 
     <SafeAreaView style={AContactStyles.Container}>
@@ -57,7 +44,10 @@ function AddContact(props) {
         {/* Nav Bar */}
 
         <View style={AContactStyles.TopBar}>
-        <TouchableOpacity onPress={() => Actions.pop()}>
+        <TouchableOpacity onPress={() => {
+          Actions.replace("Contacts");
+        }
+        }>
         <Text style={Fonts.NavLink}>Cancel</Text>
         </TouchableOpacity>
 
@@ -66,7 +56,7 @@ function AddContact(props) {
         <TouchableOpacity>
         <Text style={Fonts.NavLink} onPress={() => {
           UpdateContacts();
-          Actions.pop();
+          Actions.replace("Contacts");
           }}>Create</Text>
         </TouchableOpacity>
         </View>

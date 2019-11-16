@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react';
-import { View, Text, TouchableOpacity, SafeAreaView, Image, Button,AsyncStorage } from 'react-native';
+import { View, Text, TouchableOpacity, SafeAreaView, Image, Button,AsyncStorage, ScrollView } from 'react-native';
 
 //Components
 import AddButton from '../../comps/AddButton';
@@ -10,7 +10,7 @@ import ContactsStyles from '../../styles/contacts/ContactsStyles';
 import Fonts from '../../styles/FontsStyles';
 import Divider from '../../comps/Divider';
 
-function Contacts() {
+function Contacts(props) {
 
    const [Popup, setPopup] = useState(false);
    const [Contact,setContact] = useState([]);
@@ -23,10 +23,16 @@ function Contacts() {
     //console.log("Contacts",Contact.Contacts);
       }
       useEffect(() => {
+        //console.log("effects");
         GetContacts();
-    });
+    },[]);
 
-    console.log(Contact);
+
+    useEffect(() => {
+        //console.log("effects2");
+        GetContacts();
+    },[props.navigation.state.params]);
+    //console.log("refresh", props.navigation.state.params);
 
   return (
     <SafeAreaView style={ContactsStyles.Container}>
@@ -45,6 +51,7 @@ function Contacts() {
             <AddButton setPopup={setPopup}/>
             </View>
           </View>
+          <ScrollView>
           {
     Contact.map((obj,i)=>{
                         return (
@@ -81,6 +88,7 @@ function Contacts() {
                         )
                         })
                     }
+                    </ScrollView>
       </View>  
     </SafeAreaView>
   )
