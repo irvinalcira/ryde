@@ -77,14 +77,14 @@ Inp: {
 // Bus Route
 BusRoute:{
   color:"white",
-  fontFamily:"Assistant-SemiBold",
+  fontFamily:"Assistant-Bold",
   fontSize:22,
   marginRight: 40
 },
 BlueCont:{
   color:"white",
   marginVertical: 5,
-  fontSize: 14,
+  fontSize: 16,
   fontFamily:"Assistant-SemiBold"
 },
 AddressText: {
