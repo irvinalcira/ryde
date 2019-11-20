@@ -15,35 +15,43 @@ import Buttons from '../../styles/ButtonsStyles';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
-function InitialSetup(){
+export default function InitialSetup(){
 
-    const [userName, setUserName] = useState("");
+    
+
+    const [Name, setUserName] = useState([]);
 
     async function UpdateUserName(){
         var datanew = await AsyncStorage.getItem("storage");
         if(!datanew){
             datanew = data;
-        }else {
+        } else {
             datanew = JSON.parse(datanew)
         }
-            datanew.UserName.push({
-                username:userName
-            })
-            AsyncStorage.setItem("storage",JSON.stringify(datanew));
-            console.log(datanew);
+
+        datanew.UserName.push({
+            username:Name
+        })
+
+        AsyncStorage.setItem("storage",JSON.stringify(datanew));
+        console.log(datanew);
+
     }
+    // useEffect(() => {
+    //   UpdateUserName()
+    //     },[]);
 
     return(
         <SafeAreaView style={HomePageStyles.Container}>
             <View style={HomePageStyles.Container}>
 
-                <Text style={Fonts.Title}> Welcome, </Text>
+                <Text style={Fonts.Title}> Welcome </Text>
+
                 <TextInput style={Fonts.Inp} 
                             placeholder="Your Name" 
                             placeholderTextColor="grey"
-                            onChangeText = {(Text) => setUserName(Text)} value={userName}
-                            >                                
-                            </TextInput>
+                            onChangeText = {(Text) => setUserName(Text)}
+                           />             
 
                 <TouchableOpacity style={Buttons.Main}>
                                     onPress={() => {
@@ -55,5 +63,3 @@ function InitialSetup(){
         </SafeAreaView>
     )
 }
-
-export default InitialSetup;

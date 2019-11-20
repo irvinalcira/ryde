@@ -25,7 +25,7 @@ const CurrentPosition = () => {
   useEffect(() => {
     getPosition();
 // console.log(position.latitude, position.longitude)
-  },[Geolocation.requestAuthorization()]);
+  },[]);
 
   return (
     <View >

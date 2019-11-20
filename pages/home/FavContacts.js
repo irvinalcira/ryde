@@ -1,23 +1,41 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Text,
-  View
+  View,
+  AsyncStorage,
+  TouchableOpacity
 } from 'react-native';
+import {Actions} from 'react-native-router-flux';
 
+//Comps
+import ContactPopup from '../../comps/ContactPopup';
+
+//Styles
 import HomePageStyles from '../../styles/home/HomePageStyles';
 import Fonts from '../../styles/FontsStyles';
-import Buttons from '../../styles/ButtonsStyles';
+
+// data
+import data from "../../storage";
 
 export default function FavContacts(){
+
+  const [Popup, setPopup] = useState(false);
+
   return(
     <View style={HomePageStyles.ContactBox}>
 
       <View style={HomePageStyles.ContactList}>
+        
+      <ContactPopup Popup={Popup} setPopup={setPopup} />
 
         <View style={HomePageStyles.ContactIconBox}>
+          <TouchableOpacity
+            onPress={()=>{setPopup(true)}}
+          >
             <Text style={Fonts.ContactIconFont}>
               I
             </Text>
+          </TouchableOpacity>
         </View>
             <Text style={Fonts.ContactNameFonts}>Irvin</Text>
         
