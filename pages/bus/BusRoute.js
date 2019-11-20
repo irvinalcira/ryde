@@ -1,10 +1,20 @@
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 import { View, Text, TextInput, Button, TouchableOpacity, Image,ScrollView, SafeAreaView} from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import BusRouteStyles from '../../styles/bus/BusRouteStyles';
 import Fonts from '../../styles/FontsStyles';
 
-export default function BusRoute(){
+export default function BusRoute(props){
+const [StopNumber,setStopNumber] = useState("");
+  var fetchData = async () => {
+    const response = await fetch('http://localhost:8888/ryde/StopNumber.php');
+    StopJson = await response.json();
+    setStopNumber(StopJson);
+    console.log(StopNumber);
+  }
+  useEffect(() => {
+    fetchData();
+  },[]);
   return(
     <SafeAreaView style={BusRouteStyles.Container}>
       <View style={BusRouteStyles.Container}>
