@@ -13,6 +13,7 @@ import AddPopup from '../../comps/AddPopup';
 import ContactsStyles from '../../styles/contacts/ContactsStyles';
 import Fonts from '../../styles/FontsStyles';
 import Divider from '../../comps/Divider';
+import { getFSInfo } from 'react-native-fs';
 
 
 
@@ -32,6 +33,16 @@ function Contacts(props) {
     });
   }
 );
+
+latitude = position.latitude;
+longitude = position.longitude;
+
+
+var location = 'https://www.google.com/maps/place/'+ latitude +'+' + longitude +'/?entry=im'
+
+
+
+// console.log('phone #: ', phone, 'lat: ', latitude)
 
    
    async function GetContacts(){
@@ -71,14 +82,6 @@ function Contacts(props) {
           {
     Contact.map((obj,i)=>{
 
-          var phone = obj.phone;
-          ContactFName = obj.firstname;
-          message = 'Hi ' + ContactFName + ' can you pick me up? ' + location;
-          latitude = position.latitude;
-          longitude = position.longitude;
-          location = 'https://www.google.com/maps/place/'+ latitude +'+' + longitude +'/?entry=im'
-          console.log('phone #: ', phone, 'lat: ', latitude)
-
                         return (
                           <View>
                           <TouchableOpacity>
@@ -90,7 +93,7 @@ function Contacts(props) {
           {/* Message/Call Container */}
               <View style={ContactsStyles.ImageCont}> 
                   {/* Message */}
-                  <TouchableOpacity onPress={() => Communications.text(phone,message)}>
+                  <TouchableOpacity onPress={() =>  Communications.text( obj.phone ,'Hi '+obj.firstname+', can you pick me up? This is my location. ' + location )}>
                   {/* <TouchableOpacity onPress={() => Communications.text(, 'Test Text Here')}> */}
                   <View style={ContactsStyles.ImageBox}>
                     <Image style={ContactsStyles.Image} source={require('../../assets/icons/message.png')} />
