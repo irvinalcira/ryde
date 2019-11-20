@@ -87,6 +87,12 @@ BlueCont:{
   fontSize: 16,
   fontFamily:"Assistant-SemiBold"
 },
+Destination: {
+  color:"white",
+  marginVertical: 5,
+  fontSize: 18,
+  fontFamily:"Assistant-Bold"
+},
 AddressText: {
   color: "#3971B3",
   fontSize: 20,
