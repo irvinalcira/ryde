@@ -1,5 +1,9 @@
 import React, {useState,useEffect} from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, Image, Button,AsyncStorage, ScrollView } from 'react-native';
+import Communications from 'react-native-communications';
+import Geolocation from '@react-native-community/geolocation';
+
+
 
 //Components
 import AddButton from '../../comps/AddButton';
@@ -10,10 +14,25 @@ import ContactsStyles from '../../styles/contacts/ContactsStyles';
 import Fonts from '../../styles/FontsStyles';
 import Divider from '../../comps/Divider';
 
+
+
+
+
 function Contacts(props) {
 
    const [Popup, setPopup] = useState(false);
    const [Contact,setContact] = useState([]);
+   const [position, setPosition] = useState({latitude: 0,
+    longitude: 0});
+   Geolocation.getCurrentPosition(
+    pos => {
+    setPosition({
+      latitude: pos.coords.latitude,
+      longitude: pos.coords.longitude
+    });
+  }
+);
+
    
    async function GetContacts(){
     var data = await AsyncStorage.getItem("storage")
@@ -22,17 +41,14 @@ function Contacts(props) {
     setContact(data.Contacts)
     //console.log("Contacts",Contact.Contacts);
       }
-      useEffect(() => {
-        //console.log("effects");
-        GetContacts();
-    },[]);
-
 
     useEffect(() => {
         //console.log("effects2");
         GetContacts();
-    },[props.navigation.state.params]);
+    },[props.navigation.state.params, Geolocation.requestAuthorization()]);
     //console.log("refresh", props.navigation.state.params);
+
+    
 
   return (
     <SafeAreaView style={ContactsStyles.Container}>
@@ -54,6 +70,15 @@ function Contacts(props) {
           <ScrollView>
           {
     Contact.map((obj,i)=>{
+
+          var phone = obj.phone;
+          ContactFName = obj.firstname;
+          message = 'Hi ' + ContactFName + ' can you pick me up? ' + location;
+          latitude = position.latitude;
+          longitude = position.longitude;
+          location = 'https://www.google.com/maps/place/'+ latitude +'+' + longitude +'/?entry=im'
+          console.log('phone #: ', phone, 'lat: ', latitude)
+
                         return (
                           <View>
                           <TouchableOpacity>
@@ -65,7 +90,8 @@ function Contacts(props) {
           {/* Message/Call Container */}
               <View style={ContactsStyles.ImageCont}> 
                   {/* Message */}
-                  <TouchableOpacity>
+                  <TouchableOpacity onPress={() => Communications.text(phone,message)}>
+                  {/* <TouchableOpacity onPress={() => Communications.text(, 'Test Text Here')}> */}
                   <View style={ContactsStyles.ImageBox}>
                     <Image style={ContactsStyles.Image} source={require('../../assets/icons/message.png')} />
                   </View>
@@ -95,6 +121,3 @@ function Contacts(props) {
 }
 
 export default Contacts;
-
-// {
-                       
