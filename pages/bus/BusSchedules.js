@@ -8,9 +8,9 @@ import BusSchedulesStyles from '../../styles/bus/BusSchedulesStyles';
 import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
 
-function BusSchedules(){
+function BusSchedules(props){
   const [StopNumber,setStopNumber]=useState("");
-
+  console.log(props);
   return(
       <SafeAreaView style={BusSchedulesStyles.Container}>
           <View style={[BusSchedulesStyles.Container]}>
@@ -37,7 +37,7 @@ function BusSchedules(){
           onChangeText = {(Text)=> setStopNumber(Text)}
           />
           <TouchableOpacity style={Buttons.Alt} onPress={() => Actions.BusLastRoute(
-              setStopNumber(StopNo)
+              setStopNumber(StopNumber)
           )}>
              <Text style={Buttons.MainText}>Find Bus</Text>
           </TouchableOpacity>

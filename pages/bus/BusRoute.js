@@ -5,12 +5,12 @@ import BusRouteStyles from '../../styles/bus/BusRouteStyles';
 import Fonts from '../../styles/FontsStyles';
 
 export default function BusRoute(props){
-const [StopNumber,setStopNumber] = useState("");
+const [StopNumberData,setStopNumberData] = useState("");
   var fetchData = async () => {
-    const response = await fetch('http://localhost:8888/ryde/StopNumber.php');
+    const response = await fetch('http://localhost:8888/ryde/StopNumber.php?stopnum='+StopNumber);
     StopJson = await response.json();
-    setStopNumber(StopJson);
-    console.log(StopNumber);
+    setStopNumberData(StopJson);
+    console.log(StopNumberData);
   }
   useEffect(() => {
     fetchData();
@@ -49,13 +49,12 @@ const [StopNumber,setStopNumber] = useState("");
                   <Text style={Fonts.BlueCont}>Stop Name</Text>
                   <Text style={Fonts.BlueCont}>Stop Number</Text>
                 </View>
-              
-   
             </View>
             <ScrollView style={BusRouteStyles.ScrollView}>
 
               {/* Bus Stop */}
-              <TouchableOpacity onPress={() => Actions.BusLastRoute()}>
+              <TouchableOpacity onPress={() => Actions.BusLastRoute(
+              )}>
 
               <View style={BusRouteStyles.BusView}>
 
