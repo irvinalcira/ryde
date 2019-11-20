@@ -17,13 +17,13 @@ function GeoLoc(){
       error => Alert.alert('Error', JSON.stringify(error)),
       {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000},
     );
-    setWatchID = Geolocation.watchPosition(position => {
-      var lastPosition = JSON.stringify(position);
-      setLastPosition({position});
-    });    
-    var watchID = null && Geolocation.clearWatch(setWatchID);
+    // setWatchID = Geolocation.watchPosition(position => {
+    //   var lastPosition = JSON.stringify(position);
+    //   setLastPosition({position});
+    // });    
+    // var watchID = null && Geolocation.clearWatch(setWatchID);
 
-  });
+  }, []);
   // componentDidMount = () => {
   //   Geolocation.getCurrentPosition(
   //     position => {
@@ -55,6 +55,8 @@ function GeoLoc(){
       </View>
     );
   }
+
+  export default GeoLoc;
 
 
 const styles = StyleSheet.create({
