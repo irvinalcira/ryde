@@ -1,66 +1,38 @@
 import React, { useState, useEffect } from 'react';
-import {StyleSheet, Text, View, Alert} from 'react-native';
+import {StyleSheet, Text, View, Alert,Button} from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
 
-function GeoLoc(){
 
-  const [initialPosition, setInitialPosition] = useState('unknown');
-  const [lastPosition, setLastPosition] = useState('unknown');
-  const [watchID, setWatchID] = useState(null);
+const CurrentPosition = () => {
+  const [error, setError] = useState("");
+  const [position, setPosition] = useState({
+    latitude: 0,
+    longitude: 0
+  });
 
-  useEffect(() =>{
+  const getPosition = () => {
     Geolocation.getCurrentPosition(
-      position => {
-        var initialPosition = JSON.stringify(position);
-        setInitialPosition({position});
+      pos => {
+        setError("");
+        setPosition({
+          latitude: pos.coords.latitude,
+          longitude: pos.coords.longitude
+        });
       },
-      error => Alert.alert('Error', JSON.stringify(error)),
-      {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000},
+      e => setError(e.message)
     );
-    // setWatchID = Geolocation.watchPosition(position => {
-    //   var lastPosition = JSON.stringify(position);
-    //   setLastPosition({position});
-    // });    
-    // var watchID = null && Geolocation.clearWatch(setWatchID);
+  };
+  useEffect(() => {
+    getPosition();
+// console.log(position.latitude, position.longitude)
+  },[Geolocation.requestAuthorization()]);
 
-  }, []);
-  // componentDidMount = () => {
-  //   Geolocation.getCurrentPosition(
-  //     position => {
-  //       var initialPosition = JSON.stringify(position);
-  //       setInitialPosition({position});
-  //     },
-  //     error => Alert.alert('Error', JSON.stringify(error)),
-  //     {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000},
-  //   );
-  //   setWatchID = Geolocation.watchPosition(position => {
-  //     var lastPosition = JSON.stringify(position);
-  //     setLastPosition({position});
-  //   });
-  // }
+  return (
+    <View >
+          <Text>Latitude: {position.latitude}</Text>
+          <Text>Longitude: {position.longitude}</Text>
+    </View>
+  );
+};
 
-  // componentWillUnmount = () =>{
-  //   var watchID = null && Geolocation.clearWatch(setWatchID);
-  // }
-    return (
-      <View>
-        <Text>
-          <Text style={styles.title}>Initial position: </Text>
-          {initialPosition}
-        </Text>
-        <Text>
-          <Text style={styles.title}>Current position: </Text>
-          {lastPosition}
-        </Text>
-      </View>
-    );
-  }
-
-  export default GeoLoc;
-
-
-const styles = StyleSheet.create({
-  title: {
-    fontWeight: '500',
-  },
-});
+export default CurrentPosition;
