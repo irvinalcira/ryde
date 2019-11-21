@@ -33,7 +33,7 @@ export default function SkyTrainRoute(){
               style={SkyTrainRouteStyles.WhiteTrain}
               source={require('../../assets/icons/whitebus.png')}
             />
-              <Text style={Fonts.BlueCont}>To King George Station</Text>
+              <Text style={Fonts.Destination}>To King George Station</Text>
               <Text style={Fonts.BlueCont}>WATERFRONT</Text>
           </View>
               <View style={SkyTrainRouteStyles.BotStyles}>

@@ -13,6 +13,7 @@ Container: {
     flex:1,
     padding: 15,
     marginTop: 20,
+
     // width: wp('100%')
 },
 TitleCont: {
@@ -31,12 +32,6 @@ TitleImg: {
   height: "100%"
 },
 
-FirstContainer: {
-  marginTop: 40,
-  display: "flex",
-  flexDirection: "row",
-},
-
 UserContainer: {
   marginTop: 5,
   marginBottom: 5,
@@ -44,6 +39,7 @@ UserContainer: {
   alignItems:'center',
   flexDirection: "row",
 },
+
 ImageCont: {
   display: "flex",
   flex: 1.5,
