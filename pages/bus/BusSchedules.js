@@ -37,7 +37,7 @@ function BusSchedules(){
           onChangeText = {(Text)=> setStopNumber(Text)}
           />
           <TouchableOpacity style={Buttons.Alt} onPress={() => Actions.BusLastRoute(
-              setStopNumber(StopNo)
+             
           )}>
              <Text style={Buttons.MainText}>Find Bus</Text>
           </TouchableOpacity>
