@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, SafeAreaView,Button,Image, StatusBar} from 'react-native';
 import {Actions} from 'react-native-router-flux';
-import GeoLoc from './comps/GeoLoc';
 
 import AppStyles from './styles/AppStyles';
 
@@ -21,7 +20,6 @@ function App(){
         <StatusBar barStyle="dark-content" />
 
           <View style={{flex:1}}>
-            <GeoLoc />
             <Route />
           </View>
           
