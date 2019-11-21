@@ -1,50 +1,78 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-import { View, SafeAreaView, Text, TextInput,TouchableOpacity, Image } from 'react-native';
-import {Actions} from 'react-native-router-flux';
+import { View, SafeAreaView, Text, TextInput, TouchableOpacity, Image, AsyncStorage } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 
 import BusSchedulesStyles from '../../styles/bus/BusSchedulesStyles';
 import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
 
-function BusSchedules(props){
-  const [StopNumber,setStopNumber]=useState("");
-  console.log(props);
-  return(
-      <SafeAreaView style={BusSchedulesStyles.Container}>
-          <View style={[BusSchedulesStyles.Container]}>
-           <Text style={Fonts.Title}>Bus Schedules</Text>
-           <Text style={Fonts.Heading}>Find A Bus</Text>
-           <Text style={Fonts.Body}>Search for a bus to see its full route</Text>
-           <TextInput
-           style={Fonts.Inp}
-           placeholder="Enter Bus Name"
-           placeholderTextColor='gray'
-         
-           />
+function BusSchedules() {
+ 
+  const [StopNumberInput, setStopNumberInput] = useState("");
+  const [RouteNumberInput, setRouteNumberInput] = useState("");
+  //Bus Stop Data Eg: 60715 
+async function fetchStopData(){
+    var data = {
+      "StopNumber": StopNumberInput
+    }
 
+    var response = await fetch('http://localhost:8888/ryde/StopNumber.php?stopnum=' + StopNumberInput);
+     newdata = await response.json();
+    // console.log('stopnum', data);
+  }
+async function fetchRouteData() {
+  var routedata = {
+    "RouteNumber": RouteNumberInput
+  }
 
-          <TouchableOpacity style={Buttons.Main} onPress={() => Actions.BusRoute()}>
-            <Text style={Buttons.MainText}>View All Bus Routes</Text>
-          </TouchableOpacity>
-          <Text style={Fonts.Heading}>View Bus Departures in Real-Time</Text>
-          <Text style={Fonts.Body}>Enter a bus route number to view the next bus</Text>
-          <TextInput
+  var response = await fetch('http://localhost:8888/ryde/BusNumber.php?busnum=' + RouteNumberInput);
+   newroutedata = await response.json();
+
+  // console.log('busnum', routedata, response);
+}
+  //  useEffect(() => {
+  //   fetchStopData();
+  //   fetchRouteData();
+  // },[]);
+  return (
+    <SafeAreaView style={BusSchedulesStyles.Container}>
+      <View style={[BusSchedulesStyles.Container]}>
+        <Text style={Fonts.Title}>Bus Schedules</Text>
+        <Text style={Fonts.Heading}>Find A Bus</Text>
+        <Text style={Fonts.Body}>Search for a bus to see its full route</Text>
+        <TextInput
           style={Fonts.Inp}
-          placeholder="Enter Bus Stop Number (IE:#60432)"
+          placeholder="Enter Bus Name"
           placeholderTextColor='gray'
-          onChangeText = {(Text)=> setStopNumber(Text)}
-          />
-          <TouchableOpacity style={Buttons.Alt} onPress={() => Actions.BusLastRoute(
-              setStopNumber(StopNumber)
-          )}>
-             <Text style={Buttons.MainText}>Find Bus</Text>
-          </TouchableOpacity>
-           </View>
-           
+          onChangeText={(Text) => setRouteNumberInput(Text)}
+        />
 
-      </SafeAreaView>
+
+        <TouchableOpacity style={Buttons.Main} onPress={() => Actions.BusRoute(
+          fetchRouteData()
+        )}>
+          <Text style={Buttons.MainText}>View All Bus Routes</Text>
+        </TouchableOpacity>
+        <Text style={Fonts.Heading}>View Bus Departures in Real-Time</Text>
+        <Text style={Fonts.Body}>Enter a bus route number to view the next bus</Text>
+        <TextInput
+          style={Fonts.Inp}
+          placeholder="Enter Bus Stop Number (IE:#60715)"
+          placeholderTextColor='gray'
+          onChangeText={(Text) => setStopNumberInput(Text)}
+        />
+        <TouchableOpacity style={Buttons.Alt} onPress={() =>
+          Actions.BusLastRoute(
+            fetchStopData()
+          )}>
+          <Text style={Buttons.MainText}>Find Bus</Text>
+        </TouchableOpacity>
+      </View>
+
+
+    </SafeAreaView>
   )
 };
 
