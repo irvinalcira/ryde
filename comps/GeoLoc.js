@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import {StyleSheet, Text, View, Alert,Button} from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
 
-
 const CurrentPosition = () => {
   const [error, setError] = useState("");
   const [position, setPosition] = useState({
@@ -25,7 +24,9 @@ const CurrentPosition = () => {
   useEffect(() => {
     getPosition();
 // console.log(position.latitude, position.longitude)
-  },[Geolocation.requestAuthorization()]);
+  },
+  [Geolocation.requestAuthorization()]
+  );
 
   return (
     <View >
