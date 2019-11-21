@@ -56,6 +56,7 @@ function Taxis(props) {
         const response = await fetch('http://localhost:8888/ryde/ryde.php');
         j = await response.json();
         setData(j);
+        console.log(j);
     }
     useEffect(() => {
         fetchData();

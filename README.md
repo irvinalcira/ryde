@@ -12,3 +12,5 @@ npm install react-native-responsive-screen --save
 To link your fonts in the assests folder run this in your terminal</br>
 yarn react-native link
 
+To install geolocation</br>
+npm install react-native-community/geolocation --save

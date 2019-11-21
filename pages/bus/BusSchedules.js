@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { View, SafeAreaView, Text, TextInput,TouchableOpacity, Image } from 'react-native';
 import {Actions} from 'react-native-router-flux';
@@ -9,6 +9,8 @@ import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
 
 function BusSchedules(){
+  const [StopNumber,setStopNumber]=useState("");
+
   return(
       <SafeAreaView style={BusSchedulesStyles.Container}>
           <View style={[BusSchedulesStyles.Container]}>
@@ -19,6 +21,7 @@ function BusSchedules(){
            style={Fonts.Inp}
            placeholder="Enter Bus Name"
            placeholderTextColor='gray'
+         
            />
 
 
@@ -31,9 +34,11 @@ function BusSchedules(){
           style={Fonts.Inp}
           placeholder="Enter Bus Stop Number (IE:#60432)"
           placeholderTextColor='gray'
-          
+          onChangeText = {(Text)=> setStopNumber(Text)}
           />
-          <TouchableOpacity style={Buttons.Alt} onPress={() => Actions.BusLastRoute()}>
+          <TouchableOpacity style={Buttons.Alt} onPress={() => Actions.BusLastRoute(
+              setStopNumber(StopNo)
+          )}>
              <Text style={Buttons.MainText}>Find Bus</Text>
           </TouchableOpacity>
            </View>
