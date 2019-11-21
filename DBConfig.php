@@ -1,15 +1,16 @@
 <?php
  
 //Define your host here.
-$HostName = "localhost";
+$HostName = "us-cdbr-iron-east-05.cleardb.net";
  
 //Define your database name here.
-$DatabaseName = "ryde";
+$DatabaseName = "heroku_8995ffa5c160baf";
  
+
 //Define your database username here.
-$HostUser = "root";
+$HostUser = "bd647197a172ad";
  
 //Define your database password here.
-$HostPass = "hi";
+$HostPass = "a5f7622f";
  
 ?>

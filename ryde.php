@@ -1,33 +1,16 @@
 <?php
-include 'DBConfig.php';
- 
-// Create connection
-$conn = new mysqli($HostName, $HostUser, $HostPass, $DatabaseName);
- 
-if ($conn->connect_error) {
- 
- die("Connection failed: " . $conn->connect_error);
-} 
- 
-$sql = "SELECT * FROM Taxis";
- 
+$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+$server = $url["us-cdbr-iron-east-05.cleardb.net"];
+$username = $url["bd647197a172ad"];
+$password = $url["a5f7622f"];
+$db = substr($url["heroku_8995ffa5c160baf"], 1);
+
+$conn = new mysqli($server, $username, $password, $db);
+mysqli_select_db($db);
+$sql = "SELECT * FROM taxis";
+
 $result = $conn->query($sql);
  
-if ($result->num_rows >0) {
- 
- 
- while($row[] = $result->fetch_assoc()) {
- 
- $tem = $row;
- 
- $json = json_encode($tem);
- 
- 
- }
- 
-} else {
- echo "No Results Found.";
-}
- echo $json;
-$conn->close();
+
+$result = mysqli_query($sql) or die('MySQL query error');
 ?>
