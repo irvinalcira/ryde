@@ -23,7 +23,7 @@ import AddContact from './contacts/AddContact';
 
 import Taxis from './taxis/Taxis';
 import SelectedTaxi from './taxis/SelectedTaxi';
-import InitialSetup from './home/InitialSetup';
+// import InitialSetup from './home/InitialSetup';
 
 
 function Route(){
@@ -34,8 +34,8 @@ function Route(){
         <Router>
         <Stack key="root" hideNavBar={true}>
 
-              <Scene key="HomePage" component={HomePage} />
-              <Scene key="InitialSetup" component={InitialSetup} initial={true} />
+              <Scene key="HomePage" component={HomePage} initial={true} />
+              {/* <Scene key="InitialSetup" component={InitialSetup} /> */}
         
               <Scene key="BusSchedules" component={BusSchedules}/>
               <Scene key="BusRoute" component={BusRoute} />

@@ -21,7 +21,7 @@ function App(){
         <StatusBar barStyle="dark-content" />
 
           <View style={{flex:1}}>
-            <GeoLoc />
+            {/* <GeoLoc /> */}
             <Route />
           </View>
           

@@ -1,16 +1,20 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import {
   View,
   Text,
   SafeAreaView,
   TouchableOpacity,
-  ScrollView
+  ScrollView,
+  AsyncStorage
 } from 'react-native';
 //import style
 
 import HomePageStyles from '../../styles/home/HomePageStyles';
 import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
+
+//import comps
+import InitialSetup from '../../comps/InitialSetup';
 
 // import pages
 
@@ -26,6 +30,100 @@ export default function HomePage(){
   var comp = null;
   const [favPage, setFavPage] = useState("FavBus");
 
+  // var nameInput = null;
+  const [ Name, SetUserName ] = useState(null);
+
+  async function GetUserName(){
+    var getUsername = await AsyncStorage.getItem("storage");
+    var parseUsername = JSON.parse(getUsername);
+    username = parseUsername.UserName;
+    SetUserName(username);
+  }
+  useEffect(() => {
+   GetUserName();
+  //  AsyncStorage.clear()
+
+},[]);
+  var nameInput = null;
+      if(Name === null){
+  
+      nameInput = (
+       <View style={{flex:1}}>
+          <InitialSetup /> 
+      </View>
+  
+    )} else {
+      nameInput = (
+      <View style={HomePageStyles.Container}>
+
+
+        <Text style={Fonts.Title}>Welcome {Name},</Text>
+        
+        <Text style={Fonts.Heading}>
+          Your Favorites
+        </Text>
+
+        <View style={HomePageStyles.FavContainer}>          
+
+          <TouchableOpacity style={Buttons.HomePageButton}
+            onPress={()=>{
+              setFavPage("FavBus");
+            }}
+          >
+           {favBus}
+          </TouchableOpacity>
+
+          <TouchableOpacity style={Buttons.HomePageButton}
+            onPress={()=>{
+              setFavPage("FavTrain");
+            }}          
+          >
+           {favTrain}
+          </TouchableOpacity>
+
+          <TouchableOpacity style={Buttons.HomePageButton}
+            onPress={()=>{
+              setFavPage("FavTaxi");
+            }}         
+          >
+           {favTaxi}
+          </TouchableOpacity>
+
+        </View>
+      
+        <View style={HomePageStyles.CompContainer}>
+        
+        <ScrollView>
+
+        </ScrollView>
+
+        </View>
+        
+        
+
+          <View style={HomePageStyles.ContactContainer}>
+
+              <Text style={Fonts.Heading}>
+                Contacts
+              </Text>
+              
+          </View> 
+            <ScrollView
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+            >
+
+              <View style={HomePageStyles.Container}>
+                <FavContacts />
+              </View>
+
+            </ScrollView>
+
+
+        </View>
+    )
+  }
+ 
   // Favorites Tab Buttons Pressed Styling
 
   var favBus = (
@@ -82,74 +180,12 @@ export default function HomePage(){
   return(
 
     <SafeAreaView style={HomePageStyles.Container}>
-      <View style={HomePageStyles.Container}>
-
-        <Text style={Fonts.Title}>Welcome Irvin,</Text>
-        
-        <Text style={Fonts.Heading}>
-          Your Favorites
-        </Text>
-
-        <View style={HomePageStyles.FavContainer}>          
-
-          <TouchableOpacity style={Buttons.HomePageButton}
-            onPress={()=>{
-              setFavPage("FavBus");
-            }}
-          >
-           {favBus}
-          </TouchableOpacity>
-
-          <TouchableOpacity style={Buttons.HomePageButton}
-            onPress={()=>{
-              setFavPage("FavTrain");
-            }}          
-          >
-           {favTrain}
-          </TouchableOpacity>
-
-          <TouchableOpacity style={Buttons.HomePageButton}
-            onPress={()=>{
-              setFavPage("FavTaxi");
-            }}         
-          >
-           {favTaxi}
-          </TouchableOpacity>
-
-        </View>
       
-        <View style={HomePageStyles.CompContainer}>
-        
-        <ScrollView>
-
-            {comp}
-
-        </ScrollView>
-
-        </View>
-        
-        
-
-          <View style={HomePageStyles.ContactContainer}>
-
-              <Text style={Fonts.Heading}>
-                Contacts
-              </Text>
-              
-          </View> 
-            <ScrollView
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-            >
-
-              <View style={HomePageStyles.Container}>
-                <FavContacts />
-              </View>
-
-            </ScrollView>
+      { nameInput }
 
 
-        </View>
+
+      
 
     </SafeAreaView>
 

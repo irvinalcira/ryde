@@ -3,23 +3,24 @@ import { View,
          Text, 
          AsyncStorage,
          SafeAreaView, 
+         TouchableOpacity,
          TextInput 
         } from 'react-native';
 
-import data from '../../storage';
+import {Actions} from 'react-native-router-flux';
+
+
+import data from '../storage';
 
 //style
-import HomePageStyles from '../../styles/home/HomePageStyles';
-import Fonts from '../../styles/FontsStyles';
-import Buttons from '../../styles/ButtonsStyles';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import HomePageStyles from '../styles/home/HomePageStyles';
+import Fonts from '../styles/FontsStyles';
+import Buttons from '../styles/ButtonsStyles';
 
 
-export default function InitialSetup(){
+export default function InitialSetup(){    
 
-    
-
-    const [Name, setUserName] = useState([]);
+    const [Name, setUserName] = useState('');
 
     async function UpdateUserName(){
         var datanew = await AsyncStorage.getItem("storage");
@@ -28,10 +29,8 @@ export default function InitialSetup(){
         } else {
             datanew = JSON.parse(datanew)
         }
-
-        datanew.UserName.push({
-            username:Name
-        })
+        console.log(datanew);
+        datanew.UserName = Name;
 
         AsyncStorage.setItem("storage",JSON.stringify(datanew));
         console.log(datanew);
@@ -42,8 +41,8 @@ export default function InitialSetup(){
     //     },[]);
 
     return(
-        <SafeAreaView style={HomePageStyles.Container}>
-            <View style={HomePageStyles.Container}>
+       
+            <View>
 
                 <Text style={Fonts.Title}> Welcome </Text>
 
@@ -53,13 +52,16 @@ export default function InitialSetup(){
                             onChangeText = {(Text) => setUserName(Text)}
                            />             
 
-                <TouchableOpacity style={Buttons.Main}>
-                                    onPress={() => {
-                                        UpdateUserName();
-                                    }}
+                <TouchableOpacity style={Buttons.Main}
+                                     onPress={ async () => {
+                                        await UpdateUserName(); 
+                                        Actions.reset('HomePage'); 
+                                        // forceUpdate();                                      
+                                       }
+                                    }
+                                    >
                     <Text style={Buttons.MainText}>Submit</Text>
                 </TouchableOpacity>
             </View>
-        </SafeAreaView>
     )
 }
