@@ -33,7 +33,7 @@ export default function SkyTrainRoute(){
               style={SkyTrainRouteStyles.WhiteTrain}
               source={require('../../assets/icons/whitebus.png')}
             />
-              <Text style={Fonts.BlueCont}>To King George Station</Text>
+              <Text style={Fonts.Destination}>To King George Station</Text>
               <Text style={Fonts.BlueCont}>WATERFRONT</Text>
           </View>
               <View style={SkyTrainRouteStyles.BotStyles}>
@@ -69,7 +69,7 @@ export default function SkyTrainRoute(){
                 <View style={SkyTrainRouteStyles.TimeCont}>
                    <Text style={Fonts.EstNum}>3</Text>
                   
-                  <Text style={Fonts.EstTime}>MIN(S) AWAY</Text>
+                  <Text style={Fonts.EstTime}>MIN AWAY</Text>
 
                 </View>
 
@@ -101,7 +101,7 @@ export default function SkyTrainRoute(){
                 <View style={SkyTrainRouteStyles.TimeCont}>
                    <Text style={Fonts.EstNum}>5</Text>
                   
-                  <Text style={Fonts.EstTime}>MIN(S) AWAY</Text>
+                  <Text style={Fonts.EstTime}>MIN AWAY</Text>
 
                 </View>
 
@@ -133,7 +133,7 @@ export default function SkyTrainRoute(){
                 <View style={SkyTrainRouteStyles.TimeCont}>
                    <Text style={Fonts.EstNum}>6</Text>
                   
-                  <Text style={Fonts.EstTime}>MIN(S) AWAY</Text>
+                  <Text style={Fonts.EstTime}>MIN AWAY</Text>
 
                 </View>
 
@@ -165,7 +165,7 @@ export default function SkyTrainRoute(){
                 <View style={SkyTrainRouteStyles.TimeCont}>
                    <Text style={Fonts.EstNum}>7</Text>
                   
-                  <Text style={Fonts.EstTime}>MIN(S) AWAY</Text>
+                  <Text style={Fonts.EstTime}>MIN AWAY</Text>
 
                 </View>
 
@@ -196,7 +196,7 @@ export default function SkyTrainRoute(){
                 <View style={SkyTrainRouteStyles.TimeCont}>
                    <Text style={Fonts.EstNum}>10</Text>
                   
-                  <Text style={Fonts.EstTime}>MIN(S) AWAY</Text>
+                  <Text style={Fonts.EstTime}>MIN AWAY</Text>
 
                 </View>
 
@@ -228,7 +228,7 @@ export default function SkyTrainRoute(){
                 <View style={SkyTrainRouteStyles.TimeCont}>
                    <Text style={Fonts.EstNum}>13</Text>
                   
-                  <Text style={Fonts.EstTime}>MIN(S) AWAY</Text>
+                  <Text style={Fonts.EstTime}>MIN AWAY</Text>
 
                 </View>
 
@@ -260,7 +260,7 @@ export default function SkyTrainRoute(){
                 <View style={SkyTrainRouteStyles.TimeCont}>
                    <Text style={Fonts.EstNum}>14</Text>
                   
-                  <Text style={Fonts.EstTime}>MIN(S) AWAY</Text>
+                  <Text style={Fonts.EstTime}>MIN AWAY</Text>
 
                 </View>
 
@@ -292,7 +292,7 @@ export default function SkyTrainRoute(){
                 <View style={SkyTrainRouteStyles.TimeCont}>
                    <Text style={Fonts.EstNum}>16</Text>
                   
-                  <Text style={Fonts.EstTime}>MIN(S) AWAY</Text>
+                  <Text style={Fonts.EstTime}>MIN AWAY</Text>
 
                 </View>
 
@@ -323,7 +323,7 @@ export default function SkyTrainRoute(){
                 <View style={SkyTrainRouteStyles.TimeCont}>
                    <Text style={Fonts.EstNum}>18</Text>
                   
-                  <Text style={Fonts.EstTime}>MIN(S) AWAY</Text>
+                  <Text style={Fonts.EstTime}>MIN AWAY</Text>
 
                 </View>
 

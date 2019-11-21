@@ -2,7 +2,6 @@ import React from 'react';
 import { View, SafeAreaView,Button,Image, StatusBar} from 'react-native';
 import {Actions} from 'react-native-router-flux';
 
-
 import AppStyles from './styles/AppStyles';
 
 import TabBar from './comps/TabBar';

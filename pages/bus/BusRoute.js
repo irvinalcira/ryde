@@ -42,7 +42,7 @@ const [StopNumberData,setStopNumberData] = useState("");
                 style={BusRouteStyles.WhiteBus}
                 source={require('../../assets/icons/whitebus.png')}
               />
-                <Text style={Fonts.BlueCont}>116 Edmonds Station</Text>
+                <Text style={Fonts.Destination}>116 Edmonds Station</Text>
                 <Text style={Fonts.BlueCont}>EAST</Text>
             </View>
                 <View style={BusRouteStyles.BotStyles}>
@@ -62,8 +62,8 @@ const [StopNumberData,setStopNumberData] = useState("");
                 <View style={BusRouteStyles.BusCont}>
                   <Image
                     style={BusRouteStyles.BusIcon}
-                    source={require('../../assets/icons/bus-active.png')}
-                    />
+                     source={require('../../assets/icons/bus-active.png')}
+                     /> 
                 </View>
 
                 <View style={BusRouteStyles.Address}>

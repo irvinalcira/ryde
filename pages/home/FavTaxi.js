@@ -4,15 +4,15 @@ import {
   View
 } from 'react-native';
 
-import HomePageStyles from '../../styles/home/HomePageStyles';
+import FavStyles from '../../styles/home/FavStyles';
 import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
 
 export default function FavTaxi(){
   return(
-    <View style={HomePageStyles.CompTextBox}>
-          <Text>
-            Start by adding your favorite Taxi for quick access on the Home Page. You can edit, add, or remove favorites anytime.
+    <View style={FavStyles.CompBox}>
+          <Text style={Fonts.Body}>
+            Start by adding your favourite taxis for quick access. You can edit, add, or remove favorites anytime.
           </Text>
     </View>
   )

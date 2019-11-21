@@ -1,7 +1,8 @@
 import React from 'react';
 import {
   Text,
-  View
+  View,
+  ScrollView,
 } from 'react-native';
 
 import HomePageStyles from '../../styles/home/HomePageStyles';

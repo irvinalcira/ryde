@@ -41,9 +41,10 @@ export default function HomePage(){
   if(favPage === "FavBus"){
     comp = (
       <View
-        style={HomePageStyles.FavBox}
-      >
+        style={HomePageStyles.FavBox}      >
+        <ScrollView>
         <FavBus />
+        </ScrollView>
 
       </View>
     ),
@@ -118,36 +119,33 @@ export default function HomePage(){
 
         </View>
       
-        <View style={HomePageStyles.CompContainer}>
-        
-        <ScrollView>
+       <View style={HomePageStyles.CompContainer}>
 
             {comp}
 
-        </ScrollView>
-
-        </View>
+        </View> 
         
         
 
           <View style={HomePageStyles.ContactContainer}>
 
+              <View style={HomePageStyles.ContactHeader}>
               <Text style={Fonts.Heading}>
                 Contacts
               </Text>
-              
-          </View> 
+              </View>
+
             <ScrollView
               horizontal={true}
               showsHorizontalScrollIndicator={false}
             >
 
-              <View style={HomePageStyles.Container}>
+              <View style={HomePageStyles.ContactContent}>
                 <FavContacts />
               </View>
-
             </ScrollView>
 
+          </View> 
 
         </View>
 

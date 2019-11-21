@@ -54,8 +54,8 @@ function AddContact(props) {
         <Text style={Fonts.NavTitle}>New Contact</Text>
 
         <TouchableOpacity>
-        <Text style={Fonts.NavLink} onPress={() => {
-          UpdateContacts();
+        <Text style={Fonts.NavLink} onPress={ async () => {
+           await UpdateContacts();
           Actions.replace("Contacts");
           }}>Create</Text>
         </TouchableOpacity>

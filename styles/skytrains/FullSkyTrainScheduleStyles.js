@@ -36,8 +36,9 @@ var FullBusStyles =StyleSheet.create({
     },
     
     BackArrow:{
-        height:15,
-        width:15,
+        height:20,
+        width:20,
+        resizeMode:'contain'
     },
 
     // Icon
