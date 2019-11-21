@@ -64,6 +64,7 @@ var HomePageStyles = StyleSheet.create({
   },
 
   ContactList:{
+    flexDirection: 'row',
     alignItems:'center',
     justifyContent:'center',
   },
