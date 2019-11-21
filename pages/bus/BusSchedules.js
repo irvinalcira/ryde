@@ -14,31 +14,34 @@ function BusSchedules(){
   return(
       <SafeAreaView style={BusSchedulesStyles.Container}>
           <View style={[BusSchedulesStyles.Container]}>
+
            <Text style={Fonts.Title}>Bus Schedules</Text>
-           <Text style={Fonts.Heading}>Find A Bus</Text>
+
+           {/* FIND A BUS INPUT */}
+           <Text style={Fonts.Heading}>View Bus Route</Text>
            <Text style={Fonts.Body}>Search for a bus to see its full route</Text>
            <TextInput
            style={Fonts.Inp}
-           placeholder="Enter Bus Name"
+           placeholder="Example: 130 Metrotown Station"
            placeholderTextColor='gray'
-         
            />
+          {/* END OF FIND A BUS INPUT */}
 
+          {/* NEXT BUS INPUT */}
 
           <TouchableOpacity style={Buttons.Main} onPress={() => Actions.BusRoute()}>
-            <Text style={Buttons.MainText}>View All Bus Routes</Text>
+            <Text style={Buttons.MainText}>View Bus Route</Text>
           </TouchableOpacity>
-          <Text style={Fonts.Heading}>View Bus Departures in Real-Time</Text>
-          <Text style={Fonts.Body}>Enter a bus route number to view the next bus</Text>
+
+          <Text style={Fonts.Heading}>Check Next Bus</Text>
+          <Text style={Fonts.Body}>Enter a Bus Stop # to see when the next bus comes</Text>
           <TextInput
           style={Fonts.Inp}
-          placeholder="Enter Bus Stop Number (IE:#60432)"
-          placeholderTextColor='gray'
-          onChangeText = {(Text)=> setStopNumber(Text)}
+          placeholder="Example: 60212"
+          keyboardType={'number-pad'} maxLength={5}
+          placeholderTextColor='gray' onChangeText = {(Text)=> setStopNumber(Text)}
           />
-          <TouchableOpacity style={Buttons.Alt} onPress={() => Actions.BusLastRoute(
-             
-          )}>
+          <TouchableOpacity style={Buttons.Alt} onPress={() => Actions.BusLastRoute()}>
              <Text style={Buttons.MainText}>Find Bus</Text>
           </TouchableOpacity>
            </View>

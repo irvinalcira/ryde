@@ -1,14 +1,7 @@
 import React,{useState,useEffect} from 'react';
-import { View, 
-         Text, 
-         AsyncStorage,
-         SafeAreaView, 
-         TouchableOpacity,
-         TextInput 
-        } from 'react-native';
+import { View, Text, AsyncStorage, SafeAreaView, TouchableOpacity, TextInput } from 'react-native';
 
 import {Actions} from 'react-native-router-flux';
-
 
 import data from '../storage';
 
@@ -42,12 +35,14 @@ export default function InitialSetup(){
 
     return(
        
-            <View style={HomePageStyles.Container}>
+            <View style={[HomePageStyles.Container]}>
 
-                <Text style={Fonts.Title}> Welcome </Text>
+                <Text style={Fonts.Title}>Welcome to Ryde</Text>
+                <Text style={[Fonts.Heading, {marginTop:20, marginBottom:30}]}>What's your name?</Text>
+                <Text style ={[Fonts.Body, {marginBottom:15}]}>Type your name below to get started!</Text>
 
                 <TextInput style={Fonts.Inp} 
-                            placeholder="Your Name" 
+                            placeholder="Your Name Here" 
                             placeholderTextColor="grey"
                             onChangeText = {(Text) => setUserName(Text)}
                            />             
