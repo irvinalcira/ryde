@@ -1,19 +1,15 @@
-import React, {useState} from 'react';
-import {
-  View,
-  Text,
-  SafeAreaView,
-  TouchableOpacity,
-  ScrollView
-} from 'react-native';
-//import style
+import React, {useState,useEffect} from 'react';
+import { View, Text, SafeAreaView, TouchableOpacity, ScrollView, AsyncStorage } from 'react-native';
 
+//STYLE IMPORTS
 import HomePageStyles from '../../styles/home/HomePageStyles';
 import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
 
-// import pages
+//COMP IMPORTS
+import InitialSetup from '../../comps/InitialSetup';
 
+// FAV BOX IMPORTS
 import FavBus from './FavBus';
 import FavTrain from './FavTrain';
 import FavTaxi from './FavTaxi';
@@ -22,42 +18,51 @@ import FavContacts from './FavContacts';
 
 export default function HomePage(){
 
-  // Favorites Box Container
+  // FAVORITE BOX CONTAINER USE STATE
   var comp = null;
   const [favPage, setFavPage] = useState("FavBus");
 
-  // Favorites Tab Buttons Pressed Styling
+  // USER NAME DISPLAY USE STATE
+  const [ Name, SetUserName ] = useState(null);
 
-  var favBus = (
-    <Text style={Fonts.FavButtonText}>Bus Stations</Text>
-  );
-  var favTrain = (
-    <Text style={Fonts.FavButtonText}>SkyTrain Stations</Text>
-  );
-  var favTaxi = (
-    <Text style={Fonts.FavButtonText}>Taxis</Text>
-  );
+  // SET THE USERNAME
+    async function GetUserName(){
+      var getUsername = await AsyncStorage.getItem("storage");
+      var parseUsername = JSON.parse(getUsername);
+      username = parseUsername.UserName;
+      SetUserName(username);
+      console.log('username: ', username)
+    }
+    useEffect(() => {
+     GetUserName();
+
+     // UN-COMMENT THE CODE BELOW TO RESET USER NAME TO NOTHING
+    //  AsyncStorage.clear()
+  
+  },[]);
+
+  // FAVORITES TAB BUTTONS PRESSED
+
+  var favBus = ( <Text style={Fonts.FavButtonText}>Bus Stations</Text> );
+  var favTrain = ( <Text style={Fonts.FavButtonText}>SkyTrain Stations</Text> );
+  var favTaxi = ( <Text style={Fonts.FavButtonText}>Taxis</Text> );
 
   if(favPage === "FavBus"){
     comp = (
-      <View
-        style={HomePageStyles.FavBox}      >
-        <ScrollView>
-        <FavBus />
+      <View style={HomePageStyles.FavBox}>
+        <ScrollView> 
+          <FavBus /> 
         </ScrollView>
-
       </View>
     ),
     favBus = (
-      <Text style={Fonts.FavButtonTextPressed}>Bus Stations</Text>
+      <Text style={Fonts.FavButtonTextPressed}> Bus Stations </Text>
     )
   }
 
   if(favPage === "FavTrain"){
     comp = (
-      <View
-        style={HomePageStyles.FavBox}
-      >
+      <View style={HomePageStyles.FavBox}>
         <FavTrain />
       </View>
     ),
@@ -68,10 +73,8 @@ export default function HomePage(){
 
   if(favPage === "FavTaxi"){
     comp = (
-      <View
-        style={HomePageStyles.FavBox}
-      >
-        <FavTaxi />
+      <View style={HomePageStyles.FavBox}> 
+        <FavTaxi /> 
       </View>
     ),
     favTaxi = (
@@ -80,66 +83,68 @@ export default function HomePage(){
   }
 
 
-  return(
+    var HomePageSection = null;
 
-    <SafeAreaView style={HomePageStyles.Container}>
-      <View style={HomePageStyles.Container}>
+    // IF THERE IS NO USER'S NAME STORED, SHOW SETUP SCREEN
+    if(Name === null){
+  
+    HomePageSection = (
+     <View style={{flex:1}}>
+        <InitialSetup /> 
+      </View>
+  
+    )} 
+    
+    // IF USER'S NAME STORED, SHOW HOME PAGE
+    else {
+      HomePageSection = (
+        <View style={HomePageStyles.Container}>
 
-        <Text style={Fonts.Title}>Welcome Irvin,</Text>
+        <Text style={Fonts.Title}>Welcome {Name},</Text>
         
-        <Text style={Fonts.Heading}>
-          Your Favorites
-        </Text>
 
-        <View style={HomePageStyles.FavContainer}>          
+        {/* FAVORITES SECTION */}
 
-          <TouchableOpacity style={Buttons.HomePageButton}
-            onPress={()=>{
-              setFavPage("FavBus");
-            }}
-          >
-           {favBus}
-          </TouchableOpacity>
+        <Text style={Fonts.Heading}> Your Favorites </Text>
 
-          <TouchableOpacity style={Buttons.HomePageButton}
-            onPress={()=>{
-              setFavPage("FavTrain");
-            }}          
-          >
-           {favTrain}
-          </TouchableOpacity>
+          <View style={HomePageStyles.FavContainer}>          
 
-          <TouchableOpacity style={Buttons.HomePageButton}
-            onPress={()=>{
-              setFavPage("FavTaxi");
-            }}         
-          >
-           {favTaxi}
-          </TouchableOpacity>
+              <TouchableOpacity style={Buttons.HomePageButton}
+                onPress={()=>{ setFavPage("FavBus"); }} >
+              {favBus}
+              </TouchableOpacity>
 
-        </View>
-      
-       <View style={HomePageStyles.CompContainer}>
+              <TouchableOpacity style={Buttons.HomePageButton}
+                onPress={()=>{ setFavPage("FavTrain"); }} >
+              {favTrain}
+              </TouchableOpacity>
 
-            {comp}
+              <TouchableOpacity style={Buttons.HomePageButton}
+                onPress={()=>{ setFavPage("FavTaxi"); }}   >
+              {favTaxi}
+              </TouchableOpacity>
 
-        </View> 
+            </View>
+
+
+            {/* SHOWING FAVORITES BOX BASED ON SELECTION */}
+            
+            <View style={HomePageStyles.CompContainer}>
+                  {comp}
+          </View> 
         
-        
+        {/* END OF FAVORITES SECTION */}
+
+
+        {/* CONTACTS SECTION */}
 
           <View style={HomePageStyles.ContactContainer}>
 
               <View style={HomePageStyles.ContactHeader}>
-              <Text style={Fonts.Heading}>
-                Contacts
-              </Text>
+              <Text style={Fonts.Heading}>Contacts</Text>    
               </View>
 
-            <ScrollView
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-            >
-
+            <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
               <View style={HomePageStyles.ContactContent}>
                 <FavContacts />
               </View>
@@ -147,8 +152,15 @@ export default function HomePage(){
 
           </View> 
 
-        </View>
+        {/* END OF CONTACTS SECTION */}
 
+        </View>
+      )};
+
+  return(
+
+    <SafeAreaView style={HomePageStyles.Container}>
+      { HomePageSection }
     </SafeAreaView>
 
   )
