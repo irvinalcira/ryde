@@ -16,7 +16,7 @@ export default function InitialSetup(){
     const [Name, setUserName] = useState('');
 
     async function UpdateUserName(){
-        var datanew = await AsyncStorage.getItem("storage");
+        var datanew = await AsyncStorage.getItem("user");
         if(!datanew){
             datanew = data;
         } else {
@@ -25,7 +25,7 @@ export default function InitialSetup(){
         console.log(datanew);
         datanew.UserName = Name;
 
-        AsyncStorage.setItem("storage",JSON.stringify(datanew));
+        AsyncStorage.setItem("user",JSON.stringify(datanew));
         console.log(datanew);
 
     }
