@@ -38,8 +38,7 @@ export default function InitialSetup(){
             <View style={[HomePageStyles.Container]}>
 
                 <Text style={Fonts.Title}>Welcome to Ryde</Text>
-                <Text style={[Fonts.Heading, {marginTop:20, marginBottom:30}]}>What's your name?</Text>
-                <Text style ={[Fonts.Body, {marginBottom:15}]}>Type your name below to get started!</Text>
+                <Text style ={[Fonts.Body, {marginBottom:15}]}>Please enter your name below so you can start adding your favorite Buses, SkyTrains and Taxis straight to the home page!</Text>
 
                 <TextInput style={Fonts.Inp} 
                             placeholder="Your Name Here" 
