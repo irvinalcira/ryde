@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, ScrollView, AsyncStorage, TouchableOpacity } from 'react-native';
+import { Text, View, ScrollView, AsyncStorage, TouchableOpacity,Image } from 'react-native';
 import Communications from 'react-native-communications';
 
 //STYLES IMPORT
@@ -47,8 +47,8 @@ function FavContacts(){
               
                 {/* CONTACT ICON */}
                 <View style={HomePageStyles.ContactIconBox}>
-                    <Text style={Fonts.ContactIconFont}> {obj.firstname[0]} </Text>
-                    {/* <Image source={source=require([obj.image])}style={AContactStyles.ProfPic}  /> */}
+                    {/* <Text style={Fonts.ContactIconFont}> {obj.firstname[0]} </Text> */}
+                    <Image source={{uri:obj.image}}style={AContactStyles.ProfPic}  />
                 </View>
                 {/* CONTACT NAME */}
                 <Text numberOfLines={1} style={[Fonts.ContactNameFonts, {textAlign:'center', fontSize:11, paddingHorizontal:15}]}>{obj.firstname}</Text>
