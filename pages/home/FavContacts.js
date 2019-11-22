@@ -36,7 +36,7 @@ function FavContacts(){
       {
         favContact.map((obj,i)=>{
           return (
-            <View style={[HomePageStyles.ContactList, {width:100}]}>
+            <View style={[HomePageStyles.ContactList, {width:95}]}>
 
             {/* CONTACT CALL/MESSAGE POPUP */}
             <ContactPopup Popup={Popup} setPopup={setPopup} />
