@@ -5,16 +5,7 @@ import BusRouteStyles from '../../styles/bus/BusRouteStyles';
 import Fonts from '../../styles/FontsStyles';
 
 export default function BusRoute(props){
-const [StopNumberData,setStopNumberData] = useState("");
-  var fetchData = async () => {
-    const response = await fetch('http://localhost:8888/ryde/StopNumber.php?stopnum='+StopNumber);
-    StopJson = await response.json();
-    setStopNumberData(StopJson);
-    console.log(StopNumberData);
-  }
-  useEffect(() => {
-    fetchData();
-  },[]);
+  
   return(
     <SafeAreaView style={BusRouteStyles.Container}>
       <View style={BusRouteStyles.Container}>

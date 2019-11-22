@@ -20,6 +20,8 @@ async function fetchStopData(){
 
     var response = await fetch('http://localhost:8888/ryde/StopNumber.php?stopnum=' + StopNumberInput);
      newdata = await response.json();
+
+     Actions.BusLastRoute(newdata);
     // console.log('stopnum', data);
   }
 async function fetchRouteData() {
@@ -27,10 +29,12 @@ async function fetchRouteData() {
     "RouteNumber": RouteNumberInput
   }
 
+  console.log(RouteNumberInput);
   var response = await fetch('http://localhost:8888/ryde/BusNumber.php?busnum=' + RouteNumberInput);
    newroutedata = await response.json();
 
-  // console.log('busnum', routedata, response);
+  console.log('busnum', newroutedata);
+  Actions.BusRoute(newroutedata);
 }
   //  useEffect(() => {
   //   fetchStopData();
@@ -50,9 +54,9 @@ async function fetchRouteData() {
         />
 
 
-        <TouchableOpacity style={Buttons.Main} onPress={() => Actions.BusRoute(
+        <TouchableOpacity style={Buttons.Main} onPress={() => {
           fetchRouteData()
-        )}>
+        }}>
           <Text style={Buttons.MainText}>View All Bus Routes</Text>
         </TouchableOpacity>
         <Text style={Fonts.Heading}>View Bus Departures in Real-Time</Text>
@@ -63,10 +67,9 @@ async function fetchRouteData() {
           placeholderTextColor='gray'
           onChangeText={(Text) => setStopNumberInput(Text)}
         />
-        <TouchableOpacity style={Buttons.Alt} onPress={() =>
-          Actions.BusLastRoute(
+        <TouchableOpacity style={Buttons.Alt} onPress={() =>{
             fetchStopData()
-          )}>
+        }}>
           <Text style={Buttons.MainText}>Find Bus</Text>
         </TouchableOpacity>
       </View>
