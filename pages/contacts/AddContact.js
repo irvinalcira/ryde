@@ -1,7 +1,8 @@
 import React,{useState,useEffect} from 'react';
-import { View, Text, AsyncStorage, TouchableOpacity, SafeAreaView, Image, TextInput } from 'react-native';
+import { View, Text, AsyncStorage, TouchableOpacity, SafeAreaView, Image, TextInput,Button } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import data from '../../storage';
+import ImagePicker from 'react-native-image-picker';
 
 
 
@@ -13,11 +14,33 @@ import AContactStyles from '../../styles/contacts/AddContactStyles';
 import Fonts from '../../styles/FontsStyles';
 
 function AddContact(props) {
-
+  const [showPic, SetShowPic] = useState(false);
+  const [Photo,SetPhoto] = useState("");
+  const [picText, SetPickText] = useState("Add Profile Picture")
   const [FName,setFName] = useState('');
   const [LName,setLName] = useState('');
   const [PNumber,setPNumber] = useState('');
   const [Contact,setContact] = useState([]);
+
+  handleChoosePhoto = () => {
+    const options = {
+      noData: true,
+      tintColor:'#1970bf'
+    };
+
+    ImagePicker.showImagePicker(options, response => {
+      if (response) {
+        SetPhoto(response);
+        SetShowPic(true);
+        SetPickText('Edit Profile Picture')
+      }
+      else {
+        SetPickText('Add Profile Picture')
+        SetShowPic(false);
+        
+      }
+    });
+  };
  async function UpdateContacts(){
     var datanew = await AsyncStorage.getItem("storage");
     if(!datanew){
@@ -28,7 +51,8 @@ function AddContact(props) {
       datanew.Contacts.push({
         firstname:FName,
         lastname:LName,
-        phone:PNumber 
+        phone:PNumber ,
+        Image:Photo.uri
         })
       AsyncStorage.setItem("storage",JSON.stringify(datanew));
     console.log(datanew);
@@ -84,7 +108,10 @@ async function checkContact(){
 
         {/* Camera Component */}
         <View style={AContactStyles.AddImgView}>
-            <Cam uri={props.uri}/>
+        <View style={AContactStyles.CamContainer}>
+    {showPic ? <Image source={{ uri: Photo.uri}} style={AContactStyles.ProfPic}/>:<Image source={source=require('../../assets/icons/imagefill.png')}style={AContactStyles.ProfPic}  />}
+      <Button title={picText} onPress={handleChoosePhoto}/>
+    </View>
         </View>
        
 

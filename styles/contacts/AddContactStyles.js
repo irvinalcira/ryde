@@ -19,7 +19,16 @@ TopBar: {
     alignItems: "center",
     height:30,
     width:'100%'
-}
+},
+CamContainer: {
+    alignItems: 'center', justifyContent: 'center',
+    marginTop:20,
+  },
+
+  ProfPic: {
+    width: 120, height: 120, borderRadius:100,
+  }
+
 })
 
 export default AContactStyles;
