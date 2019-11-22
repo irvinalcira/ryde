@@ -36,19 +36,20 @@ function FavContacts(){
       {
         favContact.map((obj,i)=>{
           return (
-            <View style={HomePageStyles.ContactList}>
+            <View style={[HomePageStyles.ContactList, {width:100}]}>
 
             {/* CONTACT CALL/MESSAGE POPUP */}
             <ContactPopup Popup={Popup} setPopup={setPopup} />
 
             {/* CONTACT  */}
             <TouchableOpacity onPress={() => {setPopup(true)}}>
+              
                 {/* CONTACT ICON */}
                 <View style={HomePageStyles.ContactIconBox}>
                     <Text style={Fonts.ContactIconFont}> {obj.firstname[0]} </Text>
                 </View>
                 {/* CONTACT NAME */}
-                <Text style={[Fonts.ContactNameFonts, {textAlign:'center'}]}>{obj.firstname}</Text>
+                <Text numberOfLines={1} style={[Fonts.ContactNameFonts, {textAlign:'center', fontSize:11, paddingHorizontal:15}]}>{obj.firstname}</Text>
             </TouchableOpacity>
             {/* END OF CONTACT */}
             
