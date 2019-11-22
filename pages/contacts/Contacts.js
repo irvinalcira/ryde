@@ -87,6 +87,8 @@ function Contacts(props) {
 
                       {/* Contact Name */}
                       <Text numberOfLines={1} style={[Fonts.Name]}> {obj.firstname} {obj.lastname} </Text>
+                      {/* <Image source={require(obj.image)}/> */}
+
 
                       {/* Message/Call Container */}
                       <View style={ContactsStyles.ImageCont}>

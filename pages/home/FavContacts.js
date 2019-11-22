@@ -6,6 +6,7 @@ import Communications from 'react-native-communications';
 import HomePageStyles from '../../styles/home/HomePageStyles';
 import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
+import AContactStyles from '../../styles/contacts/AddContactStyles';
 
 //COMPS IMPORT
 import ContactPopup from '../../comps/ContactPopup';
@@ -22,7 +23,7 @@ function FavContacts(){
   async function GetFavContacts() {
     var data = await AsyncStorage.getItem("storage");
     var parseContactName = JSON.parse(data);
-    console.log(parseContactName.Contacts[0].firstname);
+    console.log("imagenew",parseContactName.Contacts.image);
     setFavContact(parseContactName.Contacts);
   }
   useEffect(() => {
@@ -47,12 +48,12 @@ function FavContacts(){
                 {/* CONTACT ICON */}
                 <View style={HomePageStyles.ContactIconBox}>
                     <Text style={Fonts.ContactIconFont}> {obj.firstname[0]} </Text>
+                    {/* <Image source={source=require([obj.image])}style={AContactStyles.ProfPic}  /> */}
                 </View>
                 {/* CONTACT NAME */}
                 <Text numberOfLines={1} style={[Fonts.ContactNameFonts, {textAlign:'center', fontSize:11, paddingHorizontal:15}]}>{obj.firstname}</Text>
             </TouchableOpacity>
             {/* END OF CONTACT */}
-            
             </View>
                 )
               })
