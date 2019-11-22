@@ -12,6 +12,9 @@ import Buttons from '../../styles/ButtonsStyles';
  export default function SelectedTaxi({taxiname,address,phone,website,img}){
 
     console.log(phone);
+
+    var stringPhone = 
+    JSON.stringify(phone);
     return (
         
   
@@ -72,7 +75,7 @@ import Buttons from '../../styles/ButtonsStyles';
       <Text style={Fonts.Body}>{phone}</Text>
       </View>
   
-      <TouchableOpacity  style={Buttons.CallBut} onPress = {() => Communications.phonecall( {phone} , true)}>
+      <TouchableOpacity  style={Buttons.CallBut} onPress = {() => Communications.phonecall( stringPhone , true)}>
       <Text style={Buttons.CallButText}>Call Taxi</Text>
       </TouchableOpacity>
   </View>       
