@@ -29,6 +29,16 @@ export default function InitialSetup(){
         console.log(datanew);
 
     }
+
+    async function checkName(){
+          if (Name === ''){
+            alert('You must enter a name')
+          }  else {
+            await UpdateUserName(); 
+            Actions.reset('HomePage'); 
+        
+          }
+    }
     // useEffect(() => {
     //   UpdateUserName()
     //     },[]);
@@ -48,8 +58,7 @@ export default function InitialSetup(){
 
                 <TouchableOpacity style={Buttons.Main}
                                      onPress={ async () => {
-                                        await UpdateUserName(); 
-                                        Actions.reset('HomePage'); 
+                                        checkName()
                                         // forceUpdate();                                      
                                        }
                                     }
