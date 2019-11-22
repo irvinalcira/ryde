@@ -27,7 +27,7 @@ export default function HomePage(){
 
   // SET THE USERNAME
     async function GetUserName(){
-      var getUsername = await AsyncStorage.getItem("storage");
+      var getUsername = await AsyncStorage.getItem("user");
       var parseUsername = JSON.parse(getUsername);
       username = parseUsername.UserName;
       SetUserName(username);

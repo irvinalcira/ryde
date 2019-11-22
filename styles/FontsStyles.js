@@ -21,7 +21,7 @@ Body: {
 
 // Taxis
 TaxiTitle: {
-  fontSize: 34,
+  fontSize: 28,
   fontFamily: "Assistant-Bold"
 },
 TaxiHeading: {
