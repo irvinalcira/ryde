@@ -36,6 +36,21 @@ function AddContact(props) {
 //   useEffect(() => {
 //   AsyncStorage.clear()
 // },[]);
+
+async function checkContact(){
+  if (FName === '' && PNumber ===''){
+    alert('You must enter a first name and phone number')
+  }
+  else if (FName === ''){
+    alert('You must enter a first name')
+  } else if (PNumber === ''){
+    alert('You must enter a phone number')
+  } else {
+          await UpdateContacts();
+          Actions.replace("Contacts");
+
+  }
+}
   return (
 
     <SafeAreaView style={AContactStyles.Container}>
@@ -55,8 +70,9 @@ function AddContact(props) {
 
         <TouchableOpacity>
         <Text style={Fonts.NavLink} onPress={ async () => {
-           await UpdateContacts();
-          Actions.replace("Contacts");
+          //  await UpdateContacts();
+          // Actions.replace("Contacts");
+          checkContact()
           }}>Create</Text>
         </TouchableOpacity>
         </View>
@@ -74,6 +90,7 @@ function AddContact(props) {
 
         {/*First Name Input */}
         <Text style={Fonts.InpLabel}>First Name</Text>
+        
         <TextInput style={Fonts.Inp} placeholder="John" placeholderTextColor='gray'
         onChangeText = {(Text)=> setFName(Text)} value={FName}
         />
