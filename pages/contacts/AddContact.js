@@ -67,7 +67,6 @@ async function checkContact(){
   } else {
           await UpdateContacts();
           Actions.replace("Contacts");
-
   }
 }
   return (

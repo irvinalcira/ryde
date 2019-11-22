@@ -34,8 +34,6 @@ function Contacts(props) {
       }
     );
   },[]); 
-
-  
   // SETTING THE GOOGLE MAPS LINK TO INCLUDE USER'S LOCATION 
   latitude = position.latitude;
   longitude = position.longitude;
@@ -50,14 +48,11 @@ function Contacts(props) {
     setContact(data.Contacts)
     //console.log("Contacts",Contact.Contacts);
   }
-
   useEffect(() => {
     //console.log("effects2");
     GetContacts();
   }, [props.navigation.state.params]);
   //console.log("refresh", props.navigation.state.params);
-
-
 
   return (
     <SafeAreaView style={ContactsStyles.Container}>
@@ -71,7 +66,6 @@ function Contacts(props) {
 
           <Text style={[Fonts.Title, { flex: 10 }]}>Contacts</Text>
           <View style={ContactsStyles.TitleImg}>
-
             {/* Add Button Component */}
             <AddButton setPopup={setPopup} />
           </View>
