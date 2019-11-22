@@ -35,6 +35,7 @@ function Contacts(props) {
     );
   },[]); 
 
+
   
   // SETTING THE GOOGLE MAPS LINK TO INCLUDE USER'S LOCATION 
   latitude = position.latitude;

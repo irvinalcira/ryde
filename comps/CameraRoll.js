@@ -1,5 +1,5 @@
 import React,{ useState} from 'react';
-import { View , Button, Image, StyleSheet} from 'react-native';
+import { View , Button, Image, AsyncStorage} from 'react-native';
 import ImagePicker from 'react-native-image-picker';
 
 import CamRoll from '../styles/comps/CameraRollStyles';
@@ -29,6 +29,24 @@ export default function Cam() {
       }
     });
   };
+
+  // function SaveImage(){
+  //   var datanew = await AsyncStorage.getItem("storage");
+  //   if(!Photo.uri){
+  //  datanew=data
+  //     }
+  //     else {
+  //       JSON.parse(datanew)
+  //     }
+  //     datanew.Contacts.push({
+  //       firstname:FName,
+  //       lastname:LName,
+  //       phone:PNumber 
+  //       })
+  //     AsyncStorage.setItem("storage",(datanew));
+  //   console.log(datanew);
+  // }
+  // console.log(Photo.uri);
   return (
     <View style={CamRoll.Container}>
     {showPic ? <Image source={{ uri: Photo.uri}} style={CamRoll.ProfPic}/>:<Image source={source=require('../assets/icons/imagefill.png')}style={CamRoll.ProfPic}  />}

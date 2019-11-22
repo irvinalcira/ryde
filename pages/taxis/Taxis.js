@@ -53,7 +53,7 @@ function Taxis(props) {
       } ];
 
     var fetchData = async () => {
-        const response = await fetch('ryde.php');
+        const response = await fetch('http://localhost:8888/ryde/ryde.php');
         j = await response.json();
         setData(j);
         console.log(response.text());
