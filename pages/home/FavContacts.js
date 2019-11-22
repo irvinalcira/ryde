@@ -1,23 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import {
-  Text,
-  View,
-  ScrollView,
-  AsyncStorage,
-  TouchableOpacity
-} from 'react-native';
+import { Text, View, ScrollView, AsyncStorage, TouchableOpacity } from 'react-native';
 import Communications from 'react-native-communications';
 
-//import styles
+//STYLES IMPORT
 import HomePageStyles from '../../styles/home/HomePageStyles';
 import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
 
-//import comps
+//COMPS IMPORT
 import ContactPopup from '../../comps/ContactPopup';
 import data from '../../storage';
 
-export default function FavContacts(){
+function FavContacts(){
 
   // Set Popup 
   const [ Popup, setPopup ] = useState(false);
@@ -37,35 +31,36 @@ export default function FavContacts(){
 
   return(
   
-    
     <View style={HomePageStyles.ContactBox}>
 
-      <View style={HomePageStyles.ContactList}>
-            {
-              favContact.map((obj,i)=>{
-                  return (
-                    <View style={{backgroundColor:'blue', justifyContent:'center',alignItems:'center'}}>
-                      <ContactPopup Popup={Popup} setPopup={setPopup} />
-                        
-                        <TouchableOpacity onPress={() => {setPopup(true)}}>
+      {
+        favContact.map((obj,i)=>{
+          return (
+            <View style={HomePageStyles.ContactList}>
 
-                        {/* ICON */}
-                        <View style={HomePageStyles.ContactIconBox}>
-                          <View>
-                              <Text style={Fonts.ContactIconFont}>
-                                {obj.firstname[0]}
-                              </Text>
-                          </View>
-                        </View>  
-                        {/* CONTACT'S NAME */}
-                        <Text style={Fonts.ContactNameFonts}>{obj.firstname}</Text>
-                      </TouchableOpacity>
-                  </View>
-                      )
-            })
-          }
-      </View>
+            {/* CONTACT CALL/MESSAGE POPUP */}
+            <ContactPopup Popup={Popup} setPopup={setPopup} />
+
+            {/* CONTACT  */}
+            <TouchableOpacity onPress={() => {setPopup(true)}}>
+                {/* CONTACT ICON */}
+                <View style={HomePageStyles.ContactIconBox}>
+                    <Text style={Fonts.ContactIconFont}> {obj.firstname[0]} </Text>
+                </View>
+                {/* CONTACT NAME */}
+                <Text style={[Fonts.ContactNameFonts, {textAlign:'center'}]}>{obj.firstname}</Text>
+            </TouchableOpacity>
+            {/* END OF CONTACT */}
+            
+            </View>
+                )
+              })
+            }
 
     </View>
+
+
   )
 };
+
+export default FavContacts;
