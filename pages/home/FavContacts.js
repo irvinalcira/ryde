@@ -13,6 +13,7 @@ import ContactPopup from '../../comps/ContactPopup';
 import data from '../../storage';
 
 function FavContacts(){
+
   // Set Popup 
   const [ Popup, setPopup ] = useState(false);
 
@@ -22,12 +23,15 @@ function FavContacts(){
   async function GetFavContacts() {
     var data = await AsyncStorage.getItem("storage");
     var parseContactName = JSON.parse(data);
-    console.log("imagenew",parseContactName.Contacts.image);
+    console.log("imagenew",parseContactName.Contacts[0].firstname[0]);
     setFavContact(parseContactName.Contacts);
   }
   useEffect(() => {
     GetFavContacts();
   },[]);
+
+  var showIcon = null;
+  
 
   return(
   
@@ -35,6 +39,22 @@ function FavContacts(){
 
       {
         favContact.map((obj,i)=>{
+
+            console.log(obj.image)
+          
+          if (obj.image === undefined) {
+            showIcon = (
+              <View style={HomePageStyles.ContactIconBox}>
+                <Text style={Fonts.ContactIconFont}> {obj.firstname[0].toUpperCase()} </Text>
+              </View>
+            ) } else {
+              showIcon = (
+                <View style={HomePageStyles.ContactIconBox}>
+                <Image  source={{uri:obj.image}}style={HomePageStyles.ProfPic} />
+                </View>
+              )
+            }
+          
           return (
             <View style={[HomePageStyles.ContactList, {width:95}]}>
 
@@ -45,10 +65,8 @@ function FavContacts(){
             <TouchableOpacity onPress={() => {setPopup(true)}}>
               
                 {/* CONTACT ICON */}
-                <View style={HomePageStyles.ContactIconBox}>
-                    {/* <Text style={Fonts.ContactIconFont}> {obj.firstname[0]} </Text> */}
-                    <Image source={{uri:obj.image}}style={AContactStyles.ProfPic}  />
-                </View>
+                { showIcon }
+                
                 {/* CONTACT NAME */}
                 <Text numberOfLines={1} style={[Fonts.ContactNameFonts, {textAlign:'center', fontSize:11, paddingHorizontal:15}]}>{obj.firstname}</Text>
             </TouchableOpacity>

@@ -7,6 +7,7 @@ import Geolocation from '@react-native-community/geolocation';
 //Components
 import AddButton from '../../comps/AddButton';
 import AddPopup from '../../comps/AddPopup';
+import EmptyContacts from './EmptyContacts';
 
 //Styles
 import ContactsStyles from '../../styles/contacts/ContactsStyles';
@@ -34,6 +35,8 @@ function Contacts(props) {
       }
     );
   },[]); 
+
+  
   // SETTING THE GOOGLE MAPS LINK TO INCLUDE USER'S LOCATION 
   latitude = position.latitude;
   longitude = position.longitude;
@@ -48,11 +51,30 @@ function Contacts(props) {
     setContact(data.Contacts)
     //console.log("Contacts",Contact.Contacts);
   }
+
+    // DELETE CONTACT FUNCTION
+
+    async function DeleteContact(index){
+      var c = Contact;
+      console.log("this ", c);
+      c.splice(index, 1);
+      var data = await AsyncStorage.getItem("storage");
+      parsedelete = JSON.parse(data);
+      parsedelete.Contacts = c;
+      await AsyncStorage.setItem("storage", JSON.stringify(parsedelete));
+      GetContacts();
+      console.log(Contact);
+    }
+
+  
   useEffect(() => {
-    //console.log("effects2");
+    
     GetContacts();
   }, [props.navigation.state.params]);
   //console.log("refresh", props.navigation.state.params);
+
+
+  
 
   return (
     <SafeAreaView style={ContactsStyles.Container}>
@@ -66,12 +88,19 @@ function Contacts(props) {
 
           <Text style={[Fonts.Title, { flex: 10 }]}>Contacts</Text>
           <View style={ContactsStyles.TitleImg}>
+
             {/* Add Button Component */}
             <AddButton setPopup={setPopup} />
           </View>
         </View>
+
+
         <ScrollView>
+          { Contact.length === 0 ? <EmptyContacts /> : null }
+
           {
+
+
             Contact.map((obj, i) => {
 
               return (
@@ -81,8 +110,10 @@ function Contacts(props) {
 
                       {/* Contact Name */}
                       <Text numberOfLines={1} style={[Fonts.Name]}> {obj.firstname} {obj.lastname} </Text>
-                      {/* <Image source={require(obj.image)}/> */}
 
+                      <TouchableOpacity onPress={() => DeleteContact(i) }>
+                         <Text>Delete</Text>
+                      </TouchableOpacity>
 
                       {/* Message/Call Container */}
                       <View style={ContactsStyles.ImageCont}>
