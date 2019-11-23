@@ -4,11 +4,6 @@ import {Actions} from 'react-native-router-flux';
 import data from '../../storage';
 import ImagePicker from 'react-native-image-picker';
 
-
-
-// Components
-import Cam from '../../comps/CameraRoll';
-
 // Styles
 import AContactStyles from '../../styles/contacts/AddContactStyles';
 import Fonts from '../../styles/FontsStyles';
@@ -21,7 +16,6 @@ function AddContact(props) {
   const [LName,setLName] = useState('');
   const [PNumber,setPNumber] = useState('');
   const [Contact,setContact] = useState([]);
-
   handleChoosePhoto = () => {
     const options = {
       noData: true,
@@ -41,6 +35,7 @@ function AddContact(props) {
       }
     });
   };
+
  async function UpdateContacts(){
     var datanew = await AsyncStorage.getItem("storage");
     if(!datanew){
@@ -51,8 +46,8 @@ function AddContact(props) {
       datanew.Contacts.push({
         firstname:FName,
         lastname:LName,
-        phone:PNumber ,
-        Image:Photo.uri
+        phone:PNumber,
+        image:Photo.uri
         })
       AsyncStorage.setItem("storage",JSON.stringify(datanew));
     console.log(datanew);
@@ -72,7 +67,6 @@ async function checkContact(){
   } else {
           await UpdateContacts();
           Actions.replace("Contacts");
-
   }
 }
   return (
@@ -112,6 +106,7 @@ async function checkContact(){
     {showPic ? <Image source={{ uri: Photo.uri}} style={AContactStyles.ProfPic}/>:<Image source={source=require('../../assets/icons/imagefill.png')}style={AContactStyles.ProfPic}  />}
       <Button title={picText} onPress={handleChoosePhoto}/>
     </View>
+
         </View>
        
 
