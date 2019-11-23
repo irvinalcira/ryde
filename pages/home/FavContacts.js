@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, ScrollView, AsyncStorage, TouchableOpacity } from 'react-native';
+import { Text, View, ScrollView, AsyncStorage, TouchableOpacity,Image } from 'react-native';
 import Communications from 'react-native-communications';
 
 //STYLES IMPORT
 import HomePageStyles from '../../styles/home/HomePageStyles';
 import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
+import AContactStyles from '../../styles/contacts/AddContactStyles';
 
 //COMPS IMPORT
 import ContactPopup from '../../comps/ContactPopup';
@@ -22,12 +23,15 @@ function FavContacts(){
   async function GetFavContacts() {
     var data = await AsyncStorage.getItem("storage");
     var parseContactName = JSON.parse(data);
-    console.log(parseContactName.Contacts[0].firstname);
+    console.log("imagenew",parseContactName.Contacts[0].firstname[0]);
     setFavContact(parseContactName.Contacts);
   }
   useEffect(() => {
     GetFavContacts();
   },[]);
+
+  var showIcon = null;
+  
 
   return(
   
@@ -35,6 +39,22 @@ function FavContacts(){
 
       {
         favContact.map((obj,i)=>{
+
+            console.log(obj.image)
+          
+          if (obj.image === undefined) {
+            showIcon = (
+              <View style={HomePageStyles.ContactIconBox}>
+                <Text style={Fonts.ContactIconFont}> {obj.firstname[0].toUpperCase()} </Text>
+              </View>
+            ) } else {
+              showIcon = (
+                <View style={HomePageStyles.ContactIconBox}>
+                <Image  source={{uri:obj.image}}style={HomePageStyles.ProfPic} />
+                </View>
+              )
+            }
+          
           return (
             <View style={[HomePageStyles.ContactList, {width:95}]}>
 
@@ -45,14 +65,12 @@ function FavContacts(){
             <TouchableOpacity onPress={() => {setPopup(true)}}>
               
                 {/* CONTACT ICON */}
-                <View style={HomePageStyles.ContactIconBox}>
-                    <Text style={Fonts.ContactIconFont}> {obj.firstname[0]} </Text>
-                </View>
+                { showIcon }
+                
                 {/* CONTACT NAME */}
                 <Text numberOfLines={1} style={[Fonts.ContactNameFonts, {textAlign:'center', fontSize:11, paddingHorizontal:15}]}>{obj.firstname}</Text>
             </TouchableOpacity>
             {/* END OF CONTACT */}
-            
             </View>
                 )
               })
