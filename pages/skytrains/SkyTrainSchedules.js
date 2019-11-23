@@ -17,8 +17,8 @@ export default function SkyTrainSchedules(){
 
 
         <TextInput style={Fonts.Inp}
-        placeholder="Search For SkyTrain Station"
-        placeholderTextColor='black' 
+        placeholder="Example: Waterfront Station"
+        placeholderTextColor='gray' 
         />
 
         <TouchableOpacity style={Buttons.Main}>

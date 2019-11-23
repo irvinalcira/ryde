@@ -1,5 +1,5 @@
 import React,{ useState} from 'react';
-import { View , Button, Image, StyleSheet} from 'react-native';
+import { View , Button, Image, AsyncStorage} from 'react-native';
 import ImagePicker from 'react-native-image-picker';
 
 import CamRoll from '../styles/comps/CameraRollStyles';

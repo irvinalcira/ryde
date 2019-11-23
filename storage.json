@@ -2,7 +2,5 @@
     "Contacts":[],
     "FavTaxi":[],
     "FavTrain":[],
-    "FavBus":[],
-    "FavContact":[],
-    "UserName":""
+    "FavBus":[]
 }
