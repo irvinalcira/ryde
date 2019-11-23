@@ -38,7 +38,7 @@ function Route(){
 
               <Scene key="HomePage" component={HomePage} initial={true} />
               {/* <Scene key="InitialSetup" component={InitialSetup} /> */}
-              <Scene key="FavContact" component={FavContact}/>
+              <Scene key="FavContact" component={FavContact}/>         
               <Scene key="ContactPopup" component={ContactPopup}/>
         
               <Scene key="BusSchedules" component={BusSchedules}/>

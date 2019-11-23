@@ -7,12 +7,10 @@ import Communications from 'react-native-communications';
 //styles
 import AddPopupStyles from '../styles/comps/AddPopupStyles';
 
-export default function ContactPopup(props,{firstname, lastname, phone}){
+export default function ContactPopup(props,{firstname, lastname, phone}, obj){
 
-  console.log(phone);
+  console.log(phone, firstname, lastname);
 
-  var stringPhone = 
-  JSON.stringify(phone);
   return(
 
     <Modal isVisible={props.Popup} hideModalContentWhileAnimating={true}
@@ -33,13 +31,13 @@ export default function ContactPopup(props,{firstname, lastname, phone}){
         <Text style={AddPopupStyles.Heading}>{firstname}{lastname}</Text>
 
           <TouchableOpacity style={AddPopupStyles.TextCont}
-                            onPress = {() => Communications.phonecall( obj.phone , true)}        
+                            onPress = {() => Communications.phonecall( props.phone , true)}        
           >
-            <Text style={AddPopupStyles.Text}>Call {firstname}{lastname}</Text>
+            <Text style={AddPopupStyles.Text}>Call {props.firstname}{props.lastname}</Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={AddPopupStyles.TextCont}
-                            onPress={()  => Communications.text(obj.phone, 'Hey ' + obj.firstname + ', im in need of a Ryde. Are you able to pick me up? This is my current location: ' + location)}
+                            onPress={()  => Communications.text( props.phone, 'Hey ' + props.firstname + ', im in need of a Ryde. Are you able to pick me up? This is my current location: ' )}
           >
             <Text style={AddPopupStyles.Text}>Text</Text>
           </TouchableOpacity>

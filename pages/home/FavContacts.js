@@ -13,7 +13,7 @@ import AContactStyles from '../../styles/contacts/AddContactStyles';
 import ContactPopup from '../../comps/ContactPopup';
 import data from '../../storage';
 
-function FavContacts(props){
+function FavContacts(){
 
   // Set Popup 
   const [ Popup, setPopup ] = useState(false);
@@ -24,7 +24,7 @@ function FavContacts(props){
   async function GetFavContacts() {
     var data = await AsyncStorage.getItem("storage");
     var parseContactName = JSON.parse(data);
-    console.log("imagenew",parseContactName.Contacts[0].firstname[0],parseContactName.Contacts[0].lastname,parseContactName.Contacts[0].phone);
+    // console.log("imagenew",parseContactName.Contacts[0].firstname[0],parseContactName.Contacts[0].lastname,parseContactName.Contacts[0].phone);
     setFavContact(parseContactName.Contacts);
   }
   useEffect(() => {
@@ -62,12 +62,19 @@ function FavContacts(props){
             <ContactPopup Popup={Popup} setPopup={setPopup} />
 
             {/* CONTACT  */}
-            <TouchableOpacity onPress={() => {setPopup(true)}, Actions.ContactPopup({
-              ...obj,
-              firstname:obj.firstname,
-              lastname:obj.lastname,
-              phone:obj.phone,
-            })
+            <TouchableOpacity onPress={() => {setPopup(true),
+                              // console.log( obj.firstname, obj.lastname, obj.phone),
+
+                              Actions.ContactPopup(
+                                {
+                                    ...obj,
+                                    firstname:obj.firstname,
+                                    lastname:obj.lastname,
+                                    phone:obj.phone,
+                                }
+                            ),                              
+                            Actions.pop('')
+                          }
             }>
               
                 {/* CONTACT ICON */}
