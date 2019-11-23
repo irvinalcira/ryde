@@ -13,7 +13,6 @@ import ContactPopup from '../../comps/ContactPopup';
 import data from '../../storage';
 
 function FavContacts(){
-
   // Set Popup 
   const [ Popup, setPopup ] = useState(false);
 

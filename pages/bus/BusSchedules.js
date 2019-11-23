@@ -33,7 +33,7 @@ async function fetchRouteData() {
   var response = await fetch('http://localhost:8888/ryde/BusNumber.php?busnum=' + RouteNumberInput);
    newroutedata = await response.json();
 
-  console.log('busnum', newroutedata);
+  // console.log('busnum', newroutedata);
   Actions.BusRoute(newroutedata);
 }
   //  useEffect(() => {
