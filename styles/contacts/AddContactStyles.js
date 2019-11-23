@@ -29,6 +29,7 @@ CamContainer: {
     width: 120, height: 120, borderRadius:100,
   }
 
+
 })
 
 export default AContactStyles;

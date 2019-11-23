@@ -9,7 +9,33 @@ import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
 
 function BusSchedules(){
-  const [StopNumber,setStopNumber]=useState("");
+  
+  const [StopNumberInput, setStopNumberInput] = useState("");
+  const [RouteNumberInput, setRouteNumberInput] = useState("");
+    //Bus Stop Data Eg: 60715 
+  async function fetchStopData(){
+      var data = {
+        "StopNumber": StopNumberInput
+      }
+
+      var response = await fetch('http://localhost:8888/ryde/StopNumber.php?stopnum=' + StopNumberInput);
+      newdata = await response.json();
+
+      Actions.BusLastRoute(newdata);
+      // console.log('stopnum', data);
+    }
+  async function fetchRouteData() {
+    var routedata = {
+      "RouteNumber": RouteNumberInput
+    }
+
+    console.log(RouteNumberInput);
+    var response = await fetch('http://localhost:8888/ryde/BusNumber.php?busnum=' + RouteNumberInput);
+    newroutedata = await response.json();
+
+    console.log('busnum', newroutedata);
+    Actions.BusRoute(newroutedata);
+  }
 
   return(
       <SafeAreaView style={BusSchedulesStyles.Container}>
@@ -22,14 +48,17 @@ function BusSchedules(){
            <Text style={Fonts.Body}>Search for a bus to see its full route</Text>
            <TextInput
            style={Fonts.Inp}
-           placeholder="Example: 130 Metrotown Station"
+           placeholder="Example: 130, 125, or 555"
            placeholderTextColor='gray'
+           keyboardType={'number-pad'}
+           keyboardType={'number-pad'} maxLength={3}
+           onChangeText={(Text) => setRouteNumberInput(Text)}
            />
           {/* END OF FIND A BUS INPUT */}
 
           {/* NEXT BUS INPUT */}
 
-          <TouchableOpacity style={Buttons.Main} onPress={() => Actions.BusRoute()}>
+          <TouchableOpacity style={Buttons.Main} onPress={() => { fetchRouteData() }}>
             <Text style={Buttons.MainText}>View Bus Route</Text>
           </TouchableOpacity>
 
@@ -39,9 +68,9 @@ function BusSchedules(){
           style={Fonts.Inp}
           placeholder="Example: 60212"
           keyboardType={'number-pad'} maxLength={5}
-          placeholderTextColor='gray' onChangeText = {(Text)=> setStopNumber(Text)}
+          placeholderTextColor='gray' onChangeText={(Text) => setStopNumberInput(Text)}
           />
-          <TouchableOpacity style={Buttons.Alt} onPress={() => Actions.BusLastRoute()}>
+          <TouchableOpacity style={Buttons.Alt} onPress={() =>{ fetchStopData() }}>
              <Text style={Buttons.MainText}>Find Bus</Text>
           </TouchableOpacity>
            </View>
