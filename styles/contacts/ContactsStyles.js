@@ -14,7 +14,6 @@ Container: {
     padding: 15,
     marginTop: 20,
     height:100,
-
 },
 TitleCont: {
   display: "flex",

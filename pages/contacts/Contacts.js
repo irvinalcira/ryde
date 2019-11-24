@@ -123,7 +123,7 @@ function Contacts(props) {
                 <View>
 
                   <TouchableOpacity
-                  // onPress={() => Actions.SelectedTaxi()}
+                  onPress={() => Actions.EditContact()}
                   >
                   
                   <Swipeable renderRightActions={RightActions} >
