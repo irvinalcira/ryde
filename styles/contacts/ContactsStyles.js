@@ -14,9 +14,7 @@ Container: {
     padding: 15,
     marginTop: 20,
     height:100,
-    // backgroundColor:'green'
 
-    // width: wp('100%')
 },
 TitleCont: {
   display: "flex",

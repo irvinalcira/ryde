@@ -19,6 +19,9 @@ import FullSkyTrainSchedule from './skytrains/FullSkyTrainSchedule'
 import EmptyContacts from './contacts/EmptyContacts';
 import Contacts from './contacts/Contacts';
 import AddContact from './contacts/AddContact';
+import EditContact from './contacts/EditContact';
+
+import Loading from './Loading';
 
 import Taxis from './taxis/Taxis';
 import SelectedTaxi from './taxis/SelectedTaxi';
@@ -33,6 +36,9 @@ function Route(){
         <Stack key="root" hideNavBar={true}>
 
               <Scene key="HomePage" component={HomePage} initial={true} />
+
+
+              <Scene key="Loading" component={Loading}/>
         
               <Scene key="BusSchedules" component={BusSchedules}/>
               <Scene key="BusRoute" component={BusRoute} />
@@ -50,6 +56,7 @@ function Route(){
               <Scene key="Contacts" component={Contacts} panHandlers={null}/>
               <Scene key="EmptyContacts" component={EmptyContacts} />
               <Scene key="AddContact" component={AddContact} panHandlers={null}/>
+              <Scene key="EditContact" component={EditContact} panHandlers={null} />
 
         </Stack>
       </Router>
