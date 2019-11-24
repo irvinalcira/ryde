@@ -1,31 +1,133 @@
-import React from 'react';
-import { View, Text, Button, SafeAreaView, TouchableOpacity } from 'react-native';
+import React,{useState,useEffect} from 'react';
+import { View, Text, AsyncStorage, Button, TouchableOpacity, SafeAreaView, Image, TextInput } from 'react-native';
 import {Actions} from 'react-native-router-flux';
+import data from '../../storage';
+
+// Components
+import CamRoll from '../../comps/CameraRoll';
+import ImagePicker from 'react-native-image-picker';
+
+// Styles
 import Fonts from '../../styles/FontsStyles';
-import Buttons from '../../styles/ButtonsStyles';
+import EditContactStyles from '../../styles/contacts/EditContactStyles';
 
+function EditContact(props) {
 
-import EContactsStyles from '../../styles/contacts/EmptyContactsStyles';
+  const [showPic, SetShowPic] = useState(false);
+  const [Photo,SetPhoto] = useState("");
+  const [picText, SetPickText] = useState("Edit Profile Picture");
+  const [FName,setFName] = useState('');
+  const [LName,setLName] = useState('');
+  const [PNumber,setPNumber] = useState('');
 
-function EmptyContacts(){
+ handleChoosePhoto = () => {
+   const options = {
+     noData: true,
+     tintColor:'#1970bf'
+   };
+
+   ImagePicker.showImagePicker(options, response => {
+     if (response) {
+       SetPhoto(response);
+       SetShowPic(true);
+       SetPickText('Edit Profile Picture')
+     }
+     else {
+       SetPickText('Add Profile Picture')
+       SetShowPic(false);
+       
+     }
+   });
+ };
+
   return (
-    <View>
-        <Text style={[Fonts.Heading, {marginTop:0}]}>You have no Contacts on Ryde</Text>
-        <Text style={Fonts.Body}>
-        Start by adding your important contacts for quick phone or messaging access. You can edit, add, or remove contacts anytime.
-        </Text>
 
-        <TouchableOpacity  style={[Buttons.Main, {marginTop:35}]} onPress={() => Actions.AddContact()}>
-        <Text style={Buttons.MainText}>Import Contacts from Phone</Text>
-        </TouchableOpacity>
+    <SafeAreaView style={EditContactStyles.Container}>
+      <View style={EditContactStyles.Container}>
 
-        <TouchableOpacity  style={Buttons.Alt} onPress={() => Actions.AddContact()}>
-        <Text style={Buttons.MainText}>Manually Add Contacts</Text>
+        {/* Nav Bar */}
+
+        <View style={EditContactStyles.TopBar}>
+
+          {/* Contacts */}
+          <View style={EditContactStyles.BackNav}>
+          <TouchableOpacity style={EditContactStyles.flexRow}
+          onPress={() => {Actions.replace("Contacts");}}>
+
+            <Image 
+            style={EditContactStyles.BackArrow}
+            source={require('../../assets/icons/backarrow-blue.png')}
+            />
+        <Text style={[Fonts.NavLink, {marginTop: -3}]}>Contacts</Text>
         </TouchableOpacity>
-    </View>
+        </View>
+
+
+          {/* Title */}
+          <View style={EditContactStyles.TitleNav}>
+          <Text style={Fonts.EditTitle}>Edit Contact</Text>
+          </View>
+
+          {/* Edit */}
+
+          <View style={EditContactStyles.EditNav}>
+          <TouchableOpacity style={EditContactStyles.flexRow}>
+          <Text style={[Fonts.NavLink, EditContactStyles.EditText]} onPress={ async () => {}}>Update</Text>
+                  </TouchableOpacity>
+          </View>
+
+        </View>
+
+        {/* End of Nav Bar */}
+
+
+
+        {/* Add Contact */}
+
+        {/* Camera Component */}
+        <View style={EditContactStyles.CamContainer}>
+        {showPic ? <Image source={{ uri: Photo.uri}} style={EditContactStyles.ProfPic}/>:<Image source={source=require('../../assets/icons/imagefill.png')}style={EditContactStyles.ProfPic}  />}
+        <Button title={picText} onPress={handleChoosePhoto}/>
+        </View>
+
+        {/* Icon Bar */}
+        {/* <View style={EditContactStyles.IconCont}>
+        <View style={EditContactStyles.IconBar}>
+        <View>
+          <Image
+          style={EditContactStyles.Image} source={require('../../assets/icons/message.png')} />
+        </View>
+
+        <View>
+          <Image
+          style={EditContactStyles.Image} source={require('../../assets/icons/phone.png')} />
+        </View>
         
-  )
-};
+        </View>
+        </View> */}
 
-export default EmptyContacts;
-import {StyleSheet} from 'react-native';
+       
+
+        <View style={EditContactStyles.NameCont}>
+
+        {/*First Name Input */}
+        <TextInput style={[Fonts.Inp, EditContactStyles.EditInp]} placeholder="First Name" placeholderTextColor='gray'
+        onChangeText = {(Text)=> setFName(Text)} value={FName}
+        />
+
+        {/*Last Name Input */}
+        <TextInput style={[Fonts.Inp, EditContactStyles.EditInp]} placeholder="Last Name" placeholderTextColor='gray'
+        onChangeText = {(Text)=> setLName(Text)} value={LName}
+        />
+        
+        {/* Phone Number Input */}
+        {/* <TextInput style={Fonts.Inp} keyboardType={'number-pad'} placeholder="Phone" placeholderTextColor='gray' maxLength={10}
+        onChangeText = {(Text)=> setPNumber(Text)} value={PNumber}
+        /> */}
+</View>
+      </View>
+    </SafeAreaView>
+  )
+}
+
+export default EditContact;
