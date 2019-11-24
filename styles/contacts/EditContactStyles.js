@@ -4,7 +4,6 @@ var EditContactStyles = StyleSheet.create({
   Container: {
       flex:1,
       padding: 15,
-      // backgroundColor: "#fff"
   },
   TopBar: {
     flexDirection: 'row',
@@ -17,9 +16,7 @@ var EditContactStyles = StyleSheet.create({
   },
   flexRow: {
     flexDirection: "row",
-   // justifyContent: "center", 
     alignItems: "center",
-    // textAlign: "center",
     width: "100%"
   },
   BackNav: {
@@ -27,16 +24,10 @@ var EditContactStyles = StyleSheet.create({
     flex: 1,
   },
   TitleNav: {
-    flex: 3,
-  },
-  NavTitle: {
-    flex: 4,
-    fontSize: 20,
-    fontFamily: "Assistant-SemiBold",
-    marginLeft: 45
+    flex: 1,
   },
   EditNav: {
-    flex: 2,
+    flex: 1,
   },
   EditText: {
     justifyContent: "center",
@@ -69,7 +60,6 @@ var EditContactStyles = StyleSheet.create({
     width: 120, 
     height: 120, 
     borderRadius:100,
-    // backgroundColor: "pink"
   },
   NameCont: {
     marginTop: 10,
@@ -87,7 +77,7 @@ var EditContactStyles = StyleSheet.create({
     height:1
   },
 
-  WhiteCont: {
+  Spacer: {
     // backgroundColor: "#e9e9ee",
     width: "120%",
     marginLeft: -20,

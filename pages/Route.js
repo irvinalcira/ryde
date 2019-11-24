@@ -39,7 +39,7 @@ function Route(){
               <Scene key="HomePage" component={HomePage}  />
               {/* <Scene key="InitialSetup" component={InitialSetup} /> */}
 
-              {/* <Scene key="Loading" component={Loading} /> */}
+              <Scene key="Loading" component={Loading} initial={true} />
         
               <Scene key="BusSchedules" component={BusSchedules}/>
               <Scene key="BusRoute" component={BusRoute} />
@@ -57,7 +57,7 @@ function Route(){
               <Scene key="Contacts" component={Contacts} panHandlers={null}/>
               <Scene key="EmptyContacts" component={EmptyContacts} />
               <Scene key="AddContact" component={AddContact} panHandlers={null}/>
-              <Scene key="EditContact" component={EditContact} panHandlers={null} initial={true}/>
+              <Scene key="EditContact" component={EditContact} panHandlers={null} />
 
         </Stack>
       </Router>

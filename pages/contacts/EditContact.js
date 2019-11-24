@@ -68,7 +68,16 @@ function EditContact(props) {
 
           {/* Title */}
           <View style={EditContactStyles.TitleNav}>
-          <Text style={EditContactStyles.NavTitle}>Edit Contact</Text>
+          <Text style={Fonts.NavTitle}>Edit Contact</Text>
+          </View>
+
+
+          {/* Edit */}
+
+          <View style={EditContactStyles.EditNav}>
+          <TouchableOpacity style={EditContactStyles.flexRow}>
+          <Text style={[Fonts.NavLink, EditContactStyles.EditText]} onPress={ async () => {}}>Save</Text>
+                  </TouchableOpacity>
           </View>
 
 
@@ -85,8 +94,7 @@ function EditContact(props) {
         {showPic ? <Image source={{ uri: Photo.uri}} style={EditContactStyles.ProfPic}/>:<Image source={source=require('../../assets/icons/imagefill.png')}style={EditContactStyles.ProfPic}  />}
         <Button title={picText} onPress={handleChoosePhoto}/>
         </View>
-{/* 
-        <View style={EditContactStyles.FWDivider}></View> */}
+
 
         <View style={EditContactStyles.NameCont}>
 
@@ -95,25 +103,21 @@ function EditContact(props) {
         onChangeText = {(Text)=> setFName(Text)} value={FName}
         />
 
-        {/* <Divider /> */}
-
         {/*Last Name Input */}
         <TextInput style={[Fonts.Inp, EditContactStyles.EditInp]} placeholder="Last Name" placeholderTextColor='gray'
         onChangeText = {(Text)=> setLName(Text)} value={LName}
         />
-{/* 
-        <Divider /> */}
+
         
         {/* Phone Number Input */}
         <TextInput style={[Fonts.Inp, EditContactStyles.EditInp]} keyboardType={'number-pad'} placeholder="Phone" placeholderTextColor='gray' maxLength={10}
         onChangeText = {(Text)=> setPNumber(Text)} value={PNumber}
         />
 
-        {/* <View style={EditContactStyles.FWDivider}></View> */}
       </View>
 
 
-      <View style={EditContactStyles.WhiteCont}></View>
+      <View style={EditContactStyles.Spacer}></View>
 
 
       {/* Delete */}
@@ -124,21 +128,6 @@ function EditContact(props) {
       </TouchableOpacity>
       </View>
       <View style={EditContactStyles.FWDivider}></View>
-
-
-      <View style={EditContactStyles.WhiteCont}></View>
-
-
-      {/* Call + Message */}
-      {/* <View style={EditContactStyles.ButtonCont}>
-      <TouchableOpacity style={Buttons.Main} onPress={() => Actions.BusRoute()}>
-        <Text style={Buttons.MainText}>Call Irvin {FName}</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={Buttons.Alt} onPress={() => Actions.BusLastRoute()}>
-        <Text style={Buttons.MainText}>Message Irvin {FName}</Text>
-      </TouchableOpacity>
-      </View> */}
 
   </View>
 </SafeAreaView>
