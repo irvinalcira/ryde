@@ -7,7 +7,6 @@ var HomePageStyles = StyleSheet.create({
     padding:15,
     marginTop:20,
     // backgroundColor:'lightblue'
-    
   },
 
   FavContainer:{

@@ -37,6 +37,14 @@ Name: {
   margin: 15,
   fontFamily: "Assistant-Semibold",
 },
+Delete: {
+  fontSize: 20,
+  marginTop: 20,
+  marginBottom: 20,
+  fontFamily: "Assistant-Regular",
+  color: "red",
+  textAlign: "center"
+},
 
 
 // Navigation Bar

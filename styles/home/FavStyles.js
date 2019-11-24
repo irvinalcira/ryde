@@ -10,19 +10,16 @@ var FavStyles = StyleSheet.create({
 
   FavCont: {
     width: "100%",
-    // backgroundColor: "pink",
   },
   FavPieceCont: {
     backgroundColor: "#fff",
     flexDirection: "row",
     marginBottom: 10
-    // paddingLeft: "10%"
   },
 
   // For buses
   StopName: {
     flexDirection: "row",
-    // backgroundColor: "pink",
     flex: 4,
     padding: 15,
     alignItems: "center",
@@ -52,8 +49,6 @@ var FavStyles = StyleSheet.create({
     flex: 1.5,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: -10
-    // backgroundColor: "pink"
   }
 
 
