@@ -1,9 +1,10 @@
+import {StyleSheet} from 'react-native';
 
 var EditContactStyles = StyleSheet.create({
   Container: {
       flex:1,
       padding: 15,
-      // backgroundColor: "#eee"
+      // backgroundColor: "#fff"
   },
   TopBar: {
     flexDirection: 'row',
@@ -16,17 +17,23 @@ var EditContactStyles = StyleSheet.create({
   },
   flexRow: {
     flexDirection: "row",
-    justifyContent: "center",
+   // justifyContent: "center", 
     alignItems: "center",
-    textAlign: "center",
+    // textAlign: "center",
     width: "100%"
   },
   BackNav: {
     flexDirection: "row",
-    flex: 2,
+    flex: 1,
   },
   TitleNav: {
-    flex: 2,
+    flex: 3,
+  },
+  NavTitle: {
+    flex: 4,
+    fontSize: 20,
+    fontFamily: "Assistant-SemiBold",
+    marginLeft: 45
   },
   EditNav: {
     flex: 2,
@@ -55,7 +62,8 @@ var EditContactStyles = StyleSheet.create({
   CamContainer: {
     alignItems: 'center', 
     justifyContent: 'center',
-    marginTop: 20
+    marginTop: 20,
+    marginBottom: 10
   },
   ProfPic: {
     width: 120, 
@@ -64,13 +72,31 @@ var EditContactStyles = StyleSheet.create({
     // backgroundColor: "pink"
   },
   NameCont: {
-    marginTop: 10
+    marginTop: 10,
   },
   EditInp: {
     borderWidth: 0,
-    backgroundColor: "#fff"
+    marginBottom: 10,
+    // backgroundColor: "#e9e9ee"
+  },
+
+  FWDivider: {
+    backgroundColor:'rgba(0,0,0,0.1)',
+    width:"120%",
+    marginLeft: -20,
+    height:1
+  },
+
+  WhiteCont: {
+    // backgroundColor: "#e9e9ee",
+    width: "120%",
+    marginLeft: -20,
+    height: 50
+  },
+
+  ButtonCont: {
+    marginTop: 10
   }
-  
   
   })
   

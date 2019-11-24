@@ -13,8 +13,6 @@ Container: {
     flex:1,
     padding: 15,
     marginTop: 20,
-
-    // width: wp('100%')
 },
 TitleCont: {
   display: "flex",
