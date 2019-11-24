@@ -20,6 +20,7 @@ import EmptyContacts from './contacts/EmptyContacts';
 import Contacts from './contacts/Contacts';
 import AddContact from './contacts/AddContact';
 
+import Loading from './Loading';
 
 import Taxis from './taxis/Taxis';
 import SelectedTaxi from './taxis/SelectedTaxi';
@@ -36,6 +37,8 @@ function Route(){
 
               <Scene key="HomePage" component={HomePage} initial={true} />
               {/* <Scene key="InitialSetup" component={InitialSetup} /> */}
+
+              <Scene key="Loading" component={Loading} initial={true} />
         
               <Scene key="BusSchedules" component={BusSchedules}/>
               <Scene key="BusRoute" component={BusRoute} />
