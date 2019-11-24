@@ -7,10 +7,11 @@ function Loading() {
   return (
     <SafeAreaView style={{justifyContent: "center", alignItems: "center"}}>
       <LottieView source={require('../assets/animations/117-progress-bar.json')} autoPlay loop />
+    
+    // Visual reference of what it's supposed to look like
       <Image 
       style={{width: 200, height: 200}}
       source={require('../assets/animations/117-progress-bar.gif')} />
-       {/* <Image source={require('../assets/animation/222-trail-loading.gif')} /> */}
     </SafeAreaView>
   )
 }
