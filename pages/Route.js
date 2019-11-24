@@ -34,10 +34,10 @@ function Route(){
         <Router>
         <Stack key="root" hideNavBar={true}>
 
-              <Scene key="HomePage" component={HomePage} initial={true} />
+              <Scene key="HomePage" component={HomePage} />
               {/* <Scene key="InitialSetup" component={InitialSetup} /> */}
         
-              <Scene key="BusSchedules" component={BusSchedules}/>
+              <Scene key="BusSchedules" component={BusSchedules} initial={true} />
               <Scene key="BusRoute" component={BusRoute} />
               <Scene key="BusLastRoute" component={BusLastRoute} />
               <Scene key="FullBusSchedule" component={FullBusSchedule} />

@@ -13,7 +13,6 @@ var BusLastStyles=StyleSheet.create({
         
     },
     TopView:{
-        flex:0.5,
         backgroundColor:"#3971B3",
         padding: 15,
     },
@@ -23,11 +22,6 @@ var BusLastStyles=StyleSheet.create({
         display: "flex",
         flexDirection: "row",
         justifyContent:"center",
-    },
-
-    NavTitle: {
-        flex: 4,
-        textAlign: "center",
     },
 
     ArrowCont: {
@@ -78,6 +72,10 @@ var BusLastStyles=StyleSheet.create({
         justifyContent:"center",
         alignItems:"center"
     },  
+    ScrollView:{
+        flex:1,
+        backgroundColor:"#DCDCDC"
+    }
 
 
 });

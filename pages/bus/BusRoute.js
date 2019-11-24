@@ -9,11 +9,11 @@ export default function BusRoute(props){
 async function setvalue(){
    getvalue = await props.navigation.state.params
   setBusRouteNum(getvalue);
-    console.log("it works",BusRouteNum);
+    // console.log("it works",props);
   }
    useEffect(() => {
 setvalue()
-  });
+  },[]);
   return(
     <SafeAreaView style={BusRouteStyles.Container}>
       <View style={BusRouteStyles.Container}>

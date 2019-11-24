@@ -1,6 +1,6 @@
 <?php
 $stopnum = $_GET['stopnum'];
-$ch = curl_init('https://api.translink.ca/rttiapi/v1/stops/'. $stopnum . '?apikey=S6F17Wr4uZO8rLOA31vO');
+$ch = curl_init('https://api.translink.ca/rttiapi/v1/stops/'. $stopnum . '/estimates?apikey=S6F17Wr4uZO8rLOA31vO');
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
     'Content-Type: application/json',
     'Accept:application/json'

@@ -8,38 +8,36 @@ import BusSchedulesStyles from '../../styles/bus/BusSchedulesStyles';
 import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
 
-function BusSchedules() {
+function BusSchedules(props) {
  
   const [StopNumberInput, setStopNumberInput] = useState("");
   const [RouteNumberInput, setRouteNumberInput] = useState("");
-  //Bus Stop Data Eg: 60715 
-async function fetchStopData(){
-    var data = {
-      "StopNumber": StopNumberInput
-    }
 
-    var response = await fetch('http://localhost:8888/ryde/StopNumber.php?stopnum=' + StopNumberInput);
-     newdata = await response.json();
-
-     Actions.BusLastRoute(newdata);
-    // console.log('stopnum', data);
-  }
+  // Bus Number : 130
 async function fetchRouteData() {
   var routedata = {
     "RouteNumber": RouteNumberInput
   }
 
-  console.log(RouteNumberInput);
+  // console.log(RouteNumberInput);
   var response = await fetch('http://localhost:8888/ryde/BusNumber.php?busnum=' + RouteNumberInput);
    newroutedata = await response.json();
 
   // console.log('busnum', newroutedata);
-  Actions.BusRoute(newroutedata);
+  Actions.BusRoute(newroutedata,RouteNumberInput);
 }
-  //  useEffect(() => {
-  //   fetchStopData();
-  //   fetchRouteData();
-  // },[]);
+
+  //Bus Stop Data Eg: 60715 
+  async function fetchStopData(){
+    var data = {
+      "StopNumber": StopNumberInput
+    }
+   var response = await fetch('http://localhost:8888/ryde/StopNumber.php?stopnum=' + StopNumberInput);
+     newdata = await response.json();
+   Actions.BusLastRoute(newdata);
+    console.log('stopnum', newdata);
+  }
+
   return (
     <SafeAreaView style={BusSchedulesStyles.Container}>
       <View style={[BusSchedulesStyles.Container]}>
