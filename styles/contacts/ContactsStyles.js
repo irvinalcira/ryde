@@ -5,14 +5,16 @@ import {
     listenOrientationChange as loc,
     removeOrientationListener as rol
   } from 'react-native-responsive-screen';
-import { red } from 'ansi-colors';
+import { red, white } from 'ansi-colors';
 
 
 var ContactsStyles = StyleSheet.create({
 Container: {
-    flex:1,
+
     padding: 15,
     marginTop: 20,
+    height:100,
+
 },
 TitleCont: {
   display: "flex",
@@ -31,16 +33,19 @@ TitleImg: {
 },
 
 UserContainer: {
-  marginTop: 5,
-  marginBottom: 5,
+  flex:1,
+  // marginTop: 5,
+  // marginBottom: 5,
   display: "flex",
   alignItems:'center',
   flexDirection: "row",
+  backgroundColor:'#eae9ef'
 },
 
 ImageCont: {
   display: "flex",
   flex: 1.5,
+  paddingRight:15,
   flexDirection: "row",
   justifyContent: "center",
   alignItems: "center",
@@ -91,8 +96,31 @@ ModalContainer : {
 
 CancelText:{
   color:'red'
-}
+},
 
+ContContainer: {
+  flex:1, 
+  width:wp('100%'),
+  height:50, 
+  justifyContent:'center'
+
+},
+
+rightAction:{
+  backgroundColor:'#cb1b1b',
+  width:100,
+  height:'100%',
+  alignItems:'center',
+  justifyContent:'center'
+
+},
+actionText:{
+  textAlign:'center',
+  fontFamily:'Assistant-Regular',
+  fontSize:18,
+  color:'white',
+  textAlign:'center'
+}
 
 })
 
