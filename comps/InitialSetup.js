@@ -48,7 +48,10 @@ export default function InitialSetup(){
             <View style={[HomePageStyles.Container]}>
 
                 <Text style={Fonts.Title}>Welcome to Ryde</Text>
-                <Text style ={[Fonts.Body, {marginBottom:15}]}>Please enter your name below so you can start adding your favorite Buses, SkyTrains and Taxis straight to the home page!</Text>
+
+                <Text style={Fonts.Heading}>Enter your Name</Text>
+
+                <Text style ={[Fonts.Body, {marginBottom:15}]}>Enter your name below so you can start adding your favorite Buses, SkyTrains, Taxis and view your saved Contacts straight from the home page!</Text>
 
                 <TextInput style={Fonts.Inp} 
                             placeholder="Your Name Here" 

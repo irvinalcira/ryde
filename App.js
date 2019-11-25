@@ -14,7 +14,6 @@ function App(){
   console.disableYellowBox = true;
 
   return (
-    
 
       <View style={[AppStyles.app, {backgroundColor:'blue'}]}>
 
