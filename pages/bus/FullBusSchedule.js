@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {View,Text, Image,SafeAreaView, TouchableOpacity} from 'react-native';
 import {Actions} from 'react-native-router-flux';
 
@@ -9,6 +9,8 @@ import Divider from '../../comps/Divider';
 
 function FullBusSchedule({RouteNo,RouteName,Schedules}) {
 console.log(Schedules[0])
+const [Min,setMin] = useState("Minutes")
+var min = "Minutes"
   return (
   
     <SafeAreaView style={FullBusStyles.Container}>
@@ -48,9 +50,15 @@ console.log(Schedules[0])
       <View style={FullBusStyles.ScheduleCont}>
 {
       Schedules.map((obj,i)=>{
+        if (obj.ExpectedCountdown===0||obj.ExpectedCountdown===1){
+          obj.ExpectedCountdown="Now"
+          setMin("")
+        }
+
+
                       return (
                         <View style={FullBusStyles.TimeCont}>
-                        <Text style={[Fonts.Time]}>  {obj.ExpectedLeaveTime} </Text>
+                        <Text style={[Fonts.Time]}>  {obj.ExpectedCountdown} {Min} </Text>
                         <Divider />
                       </View>
                       )
