@@ -59,21 +59,15 @@ function FavContacts(){
             <View style={[HomePageStyles.ContactList, {width:95}]}>
 
             {/* CONTACT CALL/MESSAGE POPUP */}
-            <ContactPopup Popup={Popup} setPopup={setPopup} />
+            <ContactPopup Popup={Popup} setPopup={setPopup}{...obj}/>
+            
 
             {/* CONTACT  */}
             <TouchableOpacity onPress={() => {setPopup(true),
                               // console.log( obj.firstname, obj.lastname, obj.phone),
 
                               Actions.ContactPopup(
-                                {
-                                    ...obj,
-                                    firstname:obj.firstname,
-                                    lastname:obj.lastname,
-                                    phone:obj.phone,
-                                }
-                            ),                              
-                            Actions.pop('')
+                            )
                           }
             }>
               
