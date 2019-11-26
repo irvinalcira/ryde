@@ -122,7 +122,14 @@ BusName: {
 Time: {
   fontSize: 20,
   fontFamily: "Assistant-SemiBold",
-  paddingBottom: 5
+  marginRight:10,
+  paddingBottom: 10,
+},
+Time2: {
+  fontSize: 24,
+  fontFamily: "Assistant-Bold",
+  paddingBottom: 10,
+  marginRight:2,
 },
 LineName: {
   marginTop: 10,

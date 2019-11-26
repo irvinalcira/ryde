@@ -1,48 +1,103 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import {View,Text, Image,SafeAreaView, TouchableOpacity} from 'react-native';
 import {Actions} from 'react-native-router-flux';
 
 import BusLastStyles from '../../styles/bus/BusLastRouteStyles';
+import BusRouteStyles from '../../styles/bus/BusRouteStyles';
 import Fonts from '../../styles/FontsStyles';
+import { ScrollView } from 'react-native-gesture-handler';
+export default function BusLastRoute(props){
 
-import Buttons from '../../styles/ButtonsStyles';
-import DarkBlueTouchable from '../../comps/DarkBlueTouch';
-import DividerLine from '../../comps/Divider';
+  //This is for Looping info
+  const [BusStopNum,setBusStopNum] = useState([]);
 
-export default function BusLastRoute(){
+  //This is for displaying the user input bus stop number
+  const [StopNumber, setStopNumber] = useState("");
+
+   async function SetValue(){
+     var getvalue =  props.navigation.state.params
+    // console.log("this is what i get", getvalue.StopNumberInput);
+    setBusStopNum(getvalue.newdata);
+    setStopNumber(getvalue.StopNumberInput);
+    }
+     useEffect(() => {
+  SetValue()
+    },[]);
     return(
       <SafeAreaView style={BusLastStyles.Container}>
       <View style={BusLastStyles.Container}>
+      <View style={BusRouteStyles.TopView}>
+<View style={BusRouteStyles.NavBar}>
 
-        <View style={BusLastStyles.TopView}>
+  <View style={BusRouteStyles.ArrowCont}>
+  <TouchableOpacity onPress={() => Actions.pop("BusSchedules")}>
+  <Image
+  style={BusRouteStyles.BackArrow}
+  source={require('../../assets/icons/backarrow.png')}
+  />
+  </TouchableOpacity>
+  </View>
 
+  <Text style={[Fonts.BusRoute, BusRouteStyles.NavTitle]}>{StopNumber}</Text>
 
-          {/* Nav Bar (Blue Section) */}
-          <View style={BusLastStyles.NavBar}>
-            <View style={BusLastStyles.ArrowCont}>
-            <TouchableOpacity onPress={() => Actions.pop('Bus Route')}>
-              <Image
-              style={BusLastStyles.BackArrow}
-              source={require('../../assets/icons/backarrow.png')}
-              />
-              </TouchableOpacity>
-              </View>
-               <Text style={[Fonts.BusRoute, BusLastStyles.NavTitle]}>60212</Text>
-            </View>
-             
-            <View style={BusLastStyles.MidStyles}>
-              <Image
-                style={BusLastStyles.WhiteBus}
-                source={require('../../assets/icons/whitebus.png')}
-              />
-              <Text style={Fonts.BlueCont}>Metrotown Station @ Bay 12</Text>
-              <Text style={Fonts.BlueCont}>EAST</Text>
-            </View>
-        </View>
-     
-     
+  </View>
+  
+  <View style={BusRouteStyles.MidStyles}>
+    <Image
+      style={BusRouteStyles.WhiteBus}
+      source={require('../../assets/icons/whitebus.png')}
+    />
+  </View>
+      <View style={BusRouteStyles.BotStyles}>
+        <Text style={Fonts.BlueCont}>Bus Name</Text>
+        <Text style={Fonts.BlueCont}>Bus Number</Text>
+      </View>
+  </View>
+  <ScrollView style={BusLastStyles.ScrollView}>
+
+       {
+                        BusStopNum.map((obj,i)=>{ 
+                             return ( 
+        <TouchableOpacity onPress={() => Actions.FullBusSchedule(
+          {
+            ...obj,
+            StopNumber:StopNumber
+          }
+                                )}>
+                                <View style={BusRouteStyles.BusView}>
+                  
+                                  <View style={BusRouteStyles.StopName}>
+                                  <View style={BusRouteStyles.BusCont}>
+                                    <Image
+                                      style={BusRouteStyles.BusIcon}
+                                       source={require('../../assets/icons/bus-active.png')}
+                                       /> 
+                                  </View>
+                  
+                                  <View style={BusRouteStyles.Address}>
+                                    <Text
+                                    numberOfLines={1}
+                                    style={Fonts.AddressText}>
+                                      {obj.RouteName}
+                                    </Text>
+                                    
+                                  </View>
+                                  </View>
+                  
+                                  <View style={BusRouteStyles.StopNum}>
+                                    <Text style={Fonts.AddressText}>{obj.RouteNo}</Text>
+                                    
+                                  </View>
+                  
+                                </View>
+                                </TouchableOpacity>
+                                   
+                          )
+        }) } 
+        </ScrollView>
+                    
           {/* Schedule */}
-          <View style={BusLastStyles.Bottom}>
+          {/* <View style={BusLastStyles.Bottom}>
             <Text style={Fonts.ScheduleTitle}>Schedule</Text>
             <View style={BusLastStyles.TimeWrap}>
               <View style={BusLastStyles.TimeCont}>
@@ -50,10 +105,10 @@ export default function BusLastRoute(){
                 <DividerLine />
                 <Text style={Fonts.TimeText2}>5 min</Text>
                 <DividerLine />
-                <Text style={Fonts.TimeText2}>8 min</Text>
+                <Text style={Fonts.TimeText2}>8 min</Text> */}
                 {/* <DividerLine /> */}
 
-                <View style={Buttons.SchedCont}>
+                {/* <View style={Buttons.SchedCont}>
                   <TouchableOpacity style ={Buttons.TouchWrap} onPress={() => Actions.FullBusSchedule()}>
                   <Image
                     style={Buttons.time}
@@ -67,10 +122,10 @@ export default function BusLastRoute(){
                   </TouchableOpacity>
                 </View>
               </View>
-           </View>
+           </View> */}
           
-          <DarkBlueTouchable />
-        </View>
+          {/* <DarkBlueTouchable /> */}
+        {/* </View> */}
       </View>
       </SafeAreaView>
     )

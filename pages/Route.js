@@ -35,10 +35,10 @@ function Route(){
         <Router>
         <Stack key="root" hideNavBar={true}>
 
-              <Scene key="HomePage" component={HomePage} initial={true} />
+              <Scene key="HomePage" component={HomePage} initial={true}/>
 
 
-              <Scene key="Loading" component={Loading}/>
+              <Scene key="Loading" component={Loading} />
         
               <Scene key="BusSchedules" component={BusSchedules}/>
               <Scene key="BusRoute" component={BusRoute} />

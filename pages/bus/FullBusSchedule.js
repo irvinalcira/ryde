@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {View,Text, Image,SafeAreaView, TouchableOpacity} from 'react-native';
 import {Actions} from 'react-native-router-flux';
 
@@ -7,8 +7,9 @@ import Fonts from '../../styles/FontsStyles';
 
 import Divider from '../../comps/Divider';
 
-function FullBusSchedule() {
-
+function FullBusSchedule({RouteNo,RouteName,Schedules,StopNumber}) {
+// console.log(Schedules[0])
+let Min;
   return (
     <SafeAreaView style={FullBusStyles.Container}>
       <View style={FullBusStyles.Container}> 
@@ -29,15 +30,15 @@ function FullBusSchedule() {
               </View>
 
               {/* Stop Number */}
-               <Text style={[Fonts.BusRoute, FullBusStyles.NavTitle]}>60212</Text>
+               <Text style={[Fonts.BusRoute, FullBusStyles.NavTitle]}>{StopNumber}</Text>
             </View>
              
             <View style={FullBusStyles.MidStyles}>
               <View style={FullBusStyles.BusStopInfo}>
-              <Text style={Fonts.BusNum}>116</Text>
-              <Text style={Fonts.BusName}>EDMONDS STATION</Text>
+              <Text style={Fonts.BusNum}>{RouteNo}</Text>
+
               </View>
-              <Text style={Fonts.BlueCont}>METROTOWN STATION @ BAY 12</Text>
+              <Text style={Fonts.BusName}>{RouteName}</Text>
             </View>
 
        </View>
@@ -45,27 +46,30 @@ function FullBusSchedule() {
       <View style={FullBusStyles.Bottom}>
 
       <View style={FullBusStyles.ScheduleCont}>
-
-        <View style={FullBusStyles.TimeCont}>
-          <Text style={[Fonts.Time]}> 3:24 PM</Text>
-          <Divider />
-        </View>
-
-        <View style={FullBusStyles.TimeCont}>
-          <Text style={[Fonts.Time]}> 3:28 PM</Text>
-          <Divider />
-        </View>
-
-        <View style={FullBusStyles.TimeCont}>
-          <Text style={[Fonts.Time]}> 3:37 PM</Text>
-          <Divider />
-        </View>
-
-        <View style={FullBusStyles.TimeCont}>
-          <Text style={[Fonts.Time]}> 3:43 PM</Text>
-          {/* <Divider /> */}
-        </View>
-
+{
+      Schedules.map((obj,i)=>{
+        if (obj.ExpectedCountdown===0||obj.ExpectedCountdown===1){
+          Min = ""
+          obj.ExpectedCountdown="Now";
+         
+        } else {
+          Min = "Min"
+        }
+                     return (
+                        <View style={FullBusStyles.TimeCont}>
+                          <View style={FullBusStyles.TimeOuterCont}>
+                            <View style={FullBusStyles.TimeInnerCont}>
+                        <Text style={[Fonts.Time2]}> {obj.ExpectedCountdown}</Text>
+                         <Text style={[Fonts.Time]}> {Min} </Text>
+                         </View>
+                        <Text style={[Fonts.Time]}> {obj.ExpectedLeaveTime}</Text>
+                        </View>
+                        <Divider />
+                      </View>
+                      )
+                      })
+                  }
+      
       </View>
 
       </View>
