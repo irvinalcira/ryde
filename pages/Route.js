@@ -36,7 +36,7 @@ function Route(){
         <Stack key="root" hideNavBar={true}>
 
               <Scene key="HomePage" component={HomePage} initial={true} />
-              {/* <Scene key="ContactPopup" component={ContactPopup} /> */}
+              <Scene key="ContactPopup" component={ContactPopup} />
               {/* <Scene key="InitialSetup" component={InitialSetup} /> */}
         
               <Scene key="BusSchedules" component={BusSchedules} />
