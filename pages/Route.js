@@ -5,7 +5,6 @@ import { Router, Scene, Stack } from 'react-native-router-flux';
 
 //pages
 import HomePage from './home/HomePage';
-import FavContact from './home/FavContacts';
 import ContactPopup from '../comps/ContactPopup';
 
 import BusSchedules from './bus/BusSchedules';
@@ -37,11 +36,10 @@ function Route(){
         <Stack key="root" hideNavBar={true}>
 
               <Scene key="HomePage" component={HomePage} initial={true} />
+              {/* <Scene key="ContactPopup" component={ContactPopup} /> */}
               {/* <Scene key="InitialSetup" component={InitialSetup} /> */}
-              <Scene key="FavContact" component={FavContact}/>         
-              <Scene key="ContactPopup" component={ContactPopup}/>
         
-              <Scene key="BusSchedules" component={BusSchedules}/>
+              <Scene key="BusSchedules" component={BusSchedules} />
               <Scene key="BusRoute" component={BusRoute} />
               <Scene key="BusLastRoute" component={BusLastRoute} />
               <Scene key="FullBusSchedule" component={FullBusSchedule} />

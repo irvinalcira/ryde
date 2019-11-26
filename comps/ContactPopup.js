@@ -7,10 +7,9 @@ import Communications from 'react-native-communications';
 //styles
 import AddPopupStyles from '../styles/comps/AddPopupStyles';
 
-export default function ContactPopup(props,{firstname, lastname, phone}, obj){
+export default function ContactPopup(props,{firstname,lastname,phone}){
 
-  console.log(phone, firstname, lastname);
-
+console.log(props.firstname, props.phone);
   return(
 
     <Modal isVisible={props.Popup} hideModalContentWhileAnimating={true}
@@ -28,7 +27,7 @@ export default function ContactPopup(props,{firstname, lastname, phone}, obj){
 
         </View>
 
-        <Text style={AddPopupStyles.Heading}>{firstname}{lastname}</Text>
+        <Text style={AddPopupStyles.Heading}>{props.firstname}{props.lastname}</Text>
 
           <TouchableOpacity style={AddPopupStyles.TextCont}
                             onPress = {() => Communications.phonecall( props.phone , true)}        
