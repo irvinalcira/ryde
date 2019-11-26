@@ -17,9 +17,9 @@ export default function FavTaxi(){
     // GETTING CONTACTS USING ASYNC
     async function GetFavTaxi() {
       var data = await AsyncStorage.getItem("storage")
-      data = JSON.parse(data);
-      console.log(data);
-      setContact(data.Contacts)
+      data = JSON.parse(datanew);
+      console.log(datanew);
+      setFavTaxi(datanew.favTaxi)
       //console.log("Contacts",Contact.Contacts);
     }
 
