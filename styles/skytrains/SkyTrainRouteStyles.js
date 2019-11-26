@@ -73,7 +73,9 @@ var SkyTrainRouteStyles=StyleSheet.create({
         backgroundColor:"#EEEEEE",
         flexDirection: "row",
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        borderBottomColor: "rgba(0, 0, 0, 0.1)",
+        borderBottomWidth: 1,
     },
     StationName: {
         flexDirection: "row",
@@ -81,7 +83,8 @@ var SkyTrainRouteStyles=StyleSheet.create({
     },
     TrainCont: {
         flex: 1,
-        alignItems: "center"
+        alignItems: "center",
+        justifyContent: "center"
     },
     TrainIcon: {
         width: 30,
@@ -90,6 +93,7 @@ var SkyTrainRouteStyles=StyleSheet.create({
     Address: {
         flex: 3,
         paddingRight: 20,
+        justifyContent: "center"
     },
     TimeCont: {
         flex: 1,

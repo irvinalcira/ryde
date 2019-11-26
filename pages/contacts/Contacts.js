@@ -76,7 +76,7 @@ function Contacts(props) {
   //console.log("refresh", props.navigation.state.params);
 
   return (
-    <SafeAreaView style={{flex:1}}>
+    <SafeAreaView style={{flex:1, backgroundColor:'#f4f4f4' }}>
       <View style={ContactsStyles.Container}>
 
         {/* Add Popup Component */}

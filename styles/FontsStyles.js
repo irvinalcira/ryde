@@ -7,12 +7,13 @@ var Fonts = StyleSheet.create({
 Title: {
   fontSize: 40,
   fontFamily: "Assistant-Bold",
-  color: "#2475c6"
+  color: "#3971b3"
 },
 Heading: {
   fontSize: 20,
   marginTop: 20,
-  fontFamily: "Assistant-Bold"
+  fontFamily: "Assistant-Bold",
+  color: "#3d3d3d"
 },
 Body: {
   marginTop: 10,
@@ -24,7 +25,8 @@ Body: {
 // Taxis
 TaxiTitle: {
   fontSize: 28,
-  fontFamily: "Assistant-Bold"
+  fontFamily: "Assistant-Bold",
+  color: "#3971b3"
 },
 TaxiHeading: {
   fontSize:18,
@@ -72,15 +74,13 @@ InpLabel: {
   fontFamily:"Assistant-Regular"
 },
 Inp: {
-  justifyContent: "flex-start",
-  alignItems: "center",
-  marginTop: 5,
+  marginTop: 15,
   height:45,
   padding:10,
   color:'black',
   backgroundColor: "white",
-  borderColor: "#D6D6D6",
-  borderWidth:1
+  borderBottomColor: "#D6D6D6",
+  borderBottomWidth:1
 },
 
 
@@ -148,7 +148,7 @@ LineDetail: {
 // Bus Schedules
 ScheduleTitle:{
   fontFamily:"Assistant-Bold",
-  fontSize:25,
+  fontSize:20,
   margin: 20
 },
 TimeText:{
@@ -241,7 +241,7 @@ FavButtonText:{
 },
 
 FavButtonTextPressed:{
-  color:'#000000',
+  color:'#063C5C',
   fontSize: 16,
   fontFamily: "Assistant-Bold",
   borderBottomWidth: 4,

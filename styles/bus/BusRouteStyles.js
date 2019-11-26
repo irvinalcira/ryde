@@ -73,7 +73,9 @@ var BusRouteStyles=StyleSheet.create({
         backgroundColor:"#EEEEEE",
         flexDirection: "row",
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        borderBottomColor: "rgba(0, 0, 0, 0.1)",
+        borderBottomWidth: 1,
     },
     StopName: {
         flexDirection: "row",
@@ -81,13 +83,15 @@ var BusRouteStyles=StyleSheet.create({
     },
     BusCont: {
         flex: 1,
-        alignItems: "center"
+        alignItems: "center",
+        justifyContent: "center"
     },
     BusIcon: {
         width: 30,
         height: 35
     },
     Address: {
+        justifyContent: "center",
         flex: 3,
         paddingRight: 20,
     },

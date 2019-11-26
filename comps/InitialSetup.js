@@ -47,7 +47,7 @@ export default function InitialSetup(){
        
             <View style={[HomePageStyles.Container]}>
 
-                <Text style={Fonts.Title}>Welcome to Ryde</Text>
+                <Text style={Fonts.Title}>Ryde</Text>
 
                 <Text style={Fonts.Heading}>Enter your Name</Text>
 

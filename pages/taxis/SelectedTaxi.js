@@ -46,7 +46,7 @@ import Buttons from '../../styles/ButtonsStyles';
        <View style={SelectedTaxiStyles.TitleContainer}>
   
       <View style={SelectedTaxiStyles.TaxiName}>    
-          <Text style={Fonts.TaxiTitle}>{taxiname}</Text>
+          <Text style={[Fonts.TaxiTitle]}>{taxiname}</Text>
       </View>
   
       <TouchableOpacity style={SelectedTaxiStyles.TaxiFavorite}>

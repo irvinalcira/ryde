@@ -80,7 +80,7 @@ export default function SkyTrainRoute(){
               {/* Train Station */}
               <TouchableOpacity onPress={() => Actions.SkyTrainStation()}>
 
-              <View style={[SkyTrainRouteStyles.TrainView, {backgroundColor:"#DBDBDB",}]}>
+              <View style={[SkyTrainRouteStyles.TrainView]}>
 
                 <View style={SkyTrainRouteStyles.StationName}>
                 <View style={SkyTrainRouteStyles.TrainCont}>
@@ -144,7 +144,7 @@ export default function SkyTrainRoute(){
               {/* Train Station */}
               <TouchableOpacity onPress={() => Actions.SkyTrainStation()}>
 
-              <View style={[SkyTrainRouteStyles.TrainView, {backgroundColor:"#DBDBDB",}]}>
+              <View style={[SkyTrainRouteStyles.TrainView]}>
 
                 <View style={SkyTrainRouteStyles.StationName}>
                 <View style={SkyTrainRouteStyles.TrainCont}>
@@ -207,7 +207,7 @@ export default function SkyTrainRoute(){
               {/* Train Station */}
               <TouchableOpacity onPress={() => Actions.SkyTrainStation()}>
 
-              <View style={[SkyTrainRouteStyles.TrainView, {backgroundColor:"#DBDBDB",}]}>
+              <View style={[SkyTrainRouteStyles.TrainView]}>
 
                 <View style={SkyTrainRouteStyles.StationName}>
                 <View style={SkyTrainRouteStyles.TrainCont}>
@@ -271,7 +271,7 @@ export default function SkyTrainRoute(){
               {/* Train Station */}
               <TouchableOpacity onPress={() => Actions.SkyTrainStation()}>
 
-              <View style={[SkyTrainRouteStyles.TrainView, {backgroundColor:"#DBDBDB",}]}>
+              <View style={[SkyTrainRouteStyles.TrainView]}>
 
                 <View style={SkyTrainRouteStyles.StationName}>
                 <View style={SkyTrainRouteStyles.TrainCont}>

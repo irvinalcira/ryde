@@ -15,7 +15,7 @@ var HomePageStyles = StyleSheet.create({
   }, 
 
   FavBox:{
-    backgroundColor:"#efefef",    
+    backgroundColor:"#f4f4f4",    
     width: '100%',
     paddingLeft:10,
     paddingRight:10,
@@ -25,7 +25,8 @@ var HomePageStyles = StyleSheet.create({
   CompContainer: {
     width: '120%',
     left: '-10%',
-    height: 325
+    backgroundColor:"#efefef",    
+    height: 350
   },
 
   ContactContainer:{
@@ -36,7 +37,7 @@ var HomePageStyles = StyleSheet.create({
   },
 
   ContactHeader:{
-   marginTop: 30,
+   marginTop: 20,
   //  backgroundColor: "purple"
   },
 

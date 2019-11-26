@@ -52,7 +52,7 @@ async function fetchRouteData() {
   return (
     <SafeAreaView style={BusSchedulesStyles.Container}>
       <View style={[BusSchedulesStyles.Container]}>
-        <Text style={Fonts.Title}>Bus Schedules</Text>
+        <Text style={Fonts.Title}>Buses</Text>
         <Text style={Fonts.Heading}>View Bus Route</Text>
         <Text style={Fonts.Body}>Search for a bus to see its full route</Text>
         <TextInput

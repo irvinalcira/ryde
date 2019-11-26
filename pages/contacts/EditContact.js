@@ -67,9 +67,9 @@ function EditContact(props) {
 
 
           {/* Title */}
-          <View style={EditContactStyles.TitleNav}>
+          {/* <View style={EditContactStyles.TitleNav}>
           <Text style={Fonts.NavTitle}>Edit Contact</Text>
-          </View>
+          </View> */}
 
 
           {/* Edit */}
@@ -116,18 +116,25 @@ function EditContact(props) {
 
       </View>
 
-
-      <View style={EditContactStyles.Spacer}></View>
+{/* 
+      <View style={EditContactStyles.Spacer}></View> */}
 
 
       {/* Delete */}
-      <View style={EditContactStyles.FWDivider}></View>
-      <View>
-      <TouchableOpacity>
+
+      {/* <View style={EditContactStyles.FWDivider}></View> */}
+      <View style={{alignItems: "center"}}>
+     
+      {/* <TouchableOpacity>
         <Text style={Fonts.Delete}>Delete Contact</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
+
+        <TouchableOpacity style={Buttons.Delete}>
+              <Text style={Buttons.TextAltColor}>Delete Contact</Text>
+          </TouchableOpacity>
+
       </View>
-      <View style={EditContactStyles.FWDivider}></View>
+      {/* <View style={EditContactStyles.FWDivider}></View> */}
 
   </View>
 </SafeAreaView>

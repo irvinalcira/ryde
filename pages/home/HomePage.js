@@ -114,6 +114,7 @@ export default function HomePage(){
           <View style={HomePageStyles.FavContainer}>          
 
               <TouchableOpacity style={Buttons.HomePageButton}
+              
                 onPress={()=>{ setFavPage("FavBus"); }} >
               {favBus}
               </TouchableOpacity>

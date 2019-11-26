@@ -4,8 +4,9 @@ var Buttons = StyleSheet.create({
   
   // General Buttons
   Main: {
-    marginTop: 15,
-    height:50,
+    marginTop: 20,
+    marginBottom: 20,
+    height:53,
     textAlign:'center',
     justifyContent:'center',
     backgroundColor:"#3971b3",
@@ -18,15 +19,29 @@ var Buttons = StyleSheet.create({
     fontSize:17
   },
   Alt: {
-    marginTop: 15,
-    height:50,
+    marginTop: 20,
+    marginBottom: 20,
+    height:53,
     textAlign:'center',
     justifyContent:'center',
-    backgroundColor:"#4FA1CB",
-    borderRadius: 3
+    backgroundColor:"#0774AA",
+    borderRadius: 20
   },
   TextAltColor: {
-    color:"#1970be",
+    color: "#b73b3b"
+  },
+  Delete: {
+    marginTop: 20,
+    marginBottom: 20,
+    height:40,
+    width: "50%",
+    textAlign:'center',
+    alignItems: "center",
+    justifyContent:'center',
+    backgroundColor:"#fff",
+    // borderWidth:1,
+    borderColor: "#b73b3b",
+    borderRadius: 20
   },
 
   // Taxis
@@ -45,6 +60,7 @@ var Buttons = StyleSheet.create({
     fontFamily:"Assistant-Semibold",
     fontSize:20
   },
+
   IconCont: {
    flex:1,
     justifyContent:'center',
@@ -66,12 +82,12 @@ Img: {
   },  
 
   CallBut: {
-    marginTop: 15,
-    height:80,
+    marginTop: 25,
+    height:53,
     textAlign:'center',
     justifyContent:'center',
-    backgroundColor:"#3794da",
-    borderRadius: 3
+    backgroundColor:"#3971b3",
+    borderRadius: 20
   },
 
   CallButText: {
@@ -84,6 +100,7 @@ Img: {
   // Skytrains
   SkyTrain: {
     marginTop:10,
+    // marginBottom:10,
     flexDirection:'row',
     justifyContent:'center',
     alignItems:'center',

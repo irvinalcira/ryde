@@ -12,7 +12,7 @@ var SelectedTaxiStyles = StyleSheet.create({
     Container: {
         flex:1,
         width: wp('100%'),
-        height:hp('100%'),
+        backgroundColor: "#f4f4f4"
 
         // backgroundColor:'lightgreen'
     },
@@ -67,6 +67,7 @@ var SelectedTaxiStyles = StyleSheet.create({
     TaxiName:{
         flex:7,
         alignSelf:'flex-start',
+        
     },
 
     TaxiFavorite:{
