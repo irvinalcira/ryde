@@ -9,7 +9,7 @@ var Buttons = StyleSheet.create({
     textAlign:'center',
     justifyContent:'center',
     backgroundColor:"#3971b3",
-    borderRadius: 3
+    borderRadius: 20
   },
   MainText: {
     textAlign:"center",

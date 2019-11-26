@@ -1,15 +1,17 @@
 import {StyleSheet} from 'react-native';
+import { underline } from 'ansi-colors';
 
 var Fonts = StyleSheet.create({
 
 // General  
 Title: {
   fontSize: 40,
-  fontFamily: "Assistant-Bold"
+  fontFamily: "Assistant-Bold",
+  color: "#2475c6"
 },
 Heading: {
   fontSize: 20,
-  marginTop: 40,
+  marginTop: 20,
   fontFamily: "Assistant-Bold"
 },
 Body: {
@@ -234,14 +236,16 @@ ContactNameFonts:{
 
 FavButtonText:{
   color:"#999999",
+  fontSize: 16,
   fontFamily: "Assistant-Bold"
 },
 
 FavButtonTextPressed:{
   color:'#000000',
+  fontSize: 16,
   fontFamily: "Assistant-Bold",
-  borderBottomWidth: 1,
-  borderBottomColor: '#235CA3'
+  borderBottomWidth: 4,
+  borderBottomColor: '#235CA3',
 }
 
 })

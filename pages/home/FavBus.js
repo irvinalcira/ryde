@@ -170,6 +170,80 @@ Eastbound Central Blvd @ Willingdon Ave
       </TouchableOpacity>
       {/* End */}
   
+      {/* Start */}
+      <TouchableOpacity>
+        <View style={[FavStyles.FavPieceCont]}>
+        <View style={FavStyles.StopName}>
+         {/* Image */}
+         <View>
+           <Image
+              style={FavStyles.BusIcon}
+              source={require('../../assets/icons/bus-active.png')}
+            />
+         </View>
+
+          {/* Address */}
+          <View style={FavStyles.Address}>
+            <Text
+            numberOfLines={1}
+            style={FavStyles.BusName}>
+              130 Capilano University
+            </Text> 
+            <Text
+            numberOfLines={1}
+            style={FavStyles.RouteName}>
+           Brentwood Station @ Bay 6
+            </Text> 
+          </View>
+        </View>
+
+          {/* Stop Number */}
+          <View style={FavStyles.TimeCont}>
+            <Text style={Fonts.EstNum}>11</Text>     
+            <Text style={[Fonts.EstTime, {marginTop: -5}]}>MIN AWAY</Text>
+          </View>
+
+        </View>
+      </TouchableOpacity>
+      {/* End */}
+  
+      {/* Start */}
+      <TouchableOpacity>
+        <View style={[FavStyles.FavPieceCont]}>
+        <View style={FavStyles.StopName}>
+         {/* Image */}
+         <View>
+           <Image
+              style={FavStyles.BusIcon}
+              source={require('../../assets/icons/bus-active.png')}
+            />
+         </View>
+
+          {/* Address */}
+          <View style={FavStyles.Address}>
+            <Text
+            numberOfLines={1}
+            style={FavStyles.BusName}>
+              130 Capilano University
+            </Text> 
+            <Text
+            numberOfLines={1}
+            style={FavStyles.RouteName}>
+           Brentwood Station @ Bay 6
+            </Text> 
+          </View>
+        </View>
+
+          {/* Stop Number */}
+          <View style={FavStyles.TimeCont}>
+            <Text style={Fonts.EstNum}>11</Text>     
+            <Text style={[Fonts.EstTime, {marginTop: -5}]}>MIN AWAY</Text>
+          </View>
+
+        </View>
+      </TouchableOpacity>
+      {/* End */}
+  
 
 
       </View>
