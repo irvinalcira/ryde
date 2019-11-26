@@ -1,5 +1,5 @@
 import React,{Component,useState,useEffect} from 'react';
-import { View, Text, SafeAreaView, StatusBar, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { View, Text, SafeAreaView, StatusBar, TouchableOpacity, Image, ScrollView, AsyncStorage } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 
 import Communications from 'react-native-communications';
@@ -15,6 +15,28 @@ import Buttons from '../../styles/ButtonsStyles';
 
     var stringPhone = 
     JSON.stringify(phone);
+
+    const [ favTaxi, setFavTaxi ] = useState([]);
+
+    async function UpdateFavTaxi(){
+        var datanew = await AsyncStorage.setItem("storage");
+        if(!datanew){
+            datanew = data;
+        } else {
+            datanew = JSON.parse(datanew)
+        }
+
+        datanew.FavTaxi = favTaxi;
+
+            datanew.FavTaxi.push({
+                taxiname:taxiname,
+                phone:phone,
+            })
+            AsyncStorage.setItem("storage",JSON.stringify(datanew));
+    }
+
+
+
     return (
         
   
@@ -49,7 +71,12 @@ import Buttons from '../../styles/ButtonsStyles';
           <Text style={Fonts.TaxiTitle}>{taxiname}</Text>
       </View>
   
-      <TouchableOpacity style={SelectedTaxiStyles.TaxiFavorite}>
+      <TouchableOpacity style={SelectedTaxiStyles.TaxiFavorite}
+                        onPress={ async () => {
+                            UpdateFavTaxi()
+                            console.log(favTaxi)
+                        }}
+      >
           
           <Image
               style={SelectedTaxiStyles.FavoriteIcon}
