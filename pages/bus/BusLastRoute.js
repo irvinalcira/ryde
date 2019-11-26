@@ -9,13 +9,12 @@ import { ScrollView } from 'react-native-gesture-handler';
 export default function BusLastRoute(props){
   const [BusStopNum,setBusStopNum] = useState([]);
   const [BusStopDirection, setBusStopDirection] = useState([]);
-
+  console.log(BusStopNum);
    async function SetValue(){
      var getvalue =  props.navigation.state.params
-     
-    setBusStopNum(getvalue.data);
-    setBusStopDirection (getvalue);
-    console.log("this is what i get");
+
+    console.log("this is what i get", getvalue);
+    setBusStopNum(getvalue.newdata);
     }
      useEffect(() => {
   SetValue()
@@ -24,7 +23,6 @@ export default function BusLastRoute(props){
       <SafeAreaView style={BusLastStyles.Container}>
       <View style={BusLastStyles.Container}>
       <View style={BusRouteStyles.TopView}>
-
 <View style={BusRouteStyles.NavBar}>
 
   <View style={BusRouteStyles.ArrowCont}>
@@ -52,13 +50,14 @@ export default function BusLastRoute(props){
       </View>
   </View>
   <ScrollView style={BusLastStyles.ScrollView}>
+
        {
                         BusStopNum.map((obj,i)=>{ 
                              return ( 
         <TouchableOpacity onPress={() => Actions.FullBusSchedule(
           {
             ...obj,
-        }
+          }
                                 )}>
                                 <View style={BusRouteStyles.BusView}>
                   

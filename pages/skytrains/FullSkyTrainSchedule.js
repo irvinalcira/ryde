@@ -7,11 +7,12 @@ import Fonts from '../../styles/FontsStyles';
 
 import Divider from '../../comps/Divider';
 
+
 // test
 function FullSkyTrainSchedule() {
 
   return (
-    <SafeAreaView style={FullSkyTrainStyles.Container}>
+    <SafeAreaView style={{skytrain}.Container}>
       <View style={FullSkyTrainStyles.Container}> 
 
       <View style={FullSkyTrainStyles.TopView}>

@@ -9,7 +9,7 @@ export default function BusRoute(props){
 async function setvalue(){
    getvalue = await props.navigation.state.params
   setBusRouteNum(getvalue);
-    // console.log("it works",props);
+    console.log("it works",getvalue);
   }
    useEffect(() => {
 setvalue()

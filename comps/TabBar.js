@@ -8,8 +8,6 @@ import {Actions} from 'react-native-router-flux';
 import TabBarStyles from '../styles/comps/TabBarStyles';
 
 function TabBar(){
-
-
     // Different Text Colors
     var ActiveTextColor = '#2c70bf';
     var TextColor = '#333333';
@@ -36,7 +34,7 @@ function TabBar(){
 
       <View style={TabBarStyles.Container}>
 
-            <TouchableOpacity activeOpacity={1} style={TabBarStyles.Button} onPress={() => { Actions.reset('HomePage'); 
+            <TouchableOpacity activeOpacity={1} style={TabBarStyles.Button} onPress={() => {Actions.reset('HomePage'); 
                               setNavHomeImg(require('../assets/icons/home-active.png')); setNavHomeTxt(ActiveTextColor);
                               setNavContactsTxt(TextColor); setNavBusTxt(TextColor); setNavSkyTrainsTxt(TextColor); setNavTaxiTxt(TextColor);
                               setNavContactsImg(require('../assets/icons/contact.png')); setNavBusImg(require('../assets/icons/bus.png')); setNavSkyTrainsImg(require('../assets/icons/skytrain.png')); setNavTaxiImg(require('../assets/icons/taxi.png')); ;

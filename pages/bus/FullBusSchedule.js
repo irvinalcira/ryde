@@ -8,11 +8,9 @@ import Fonts from '../../styles/FontsStyles';
 import Divider from '../../comps/Divider';
 
 function FullBusSchedule({RouteNo,RouteName,Schedules}) {
-console.log(Schedules[0])
-const [Min,setMin] = useState("Minutes")
-var min = "Minutes"
+// console.log(Schedules[0])
+let Min;
   return (
-  
     <SafeAreaView style={FullBusStyles.Container}>
       <View style={FullBusStyles.Container}> 
 
@@ -51,12 +49,13 @@ var min = "Minutes"
 {
       Schedules.map((obj,i)=>{
         if (obj.ExpectedCountdown===0||obj.ExpectedCountdown===1){
-          obj.ExpectedCountdown="Now"
-          setMin("")
+          Min = ""
+          obj.ExpectedCountdown="Now";
+         
+        } else {
+          Min = "Minutes"
         }
-
-
-                      return (
+                     return (
                         <View style={FullBusStyles.TimeCont}>
                         <Text style={[Fonts.Time]}>  {obj.ExpectedCountdown} {Min} </Text>
                         <Divider />

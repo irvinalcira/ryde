@@ -103,7 +103,6 @@ function Contacts(props) {
             Contact.map((obj, i) => {
 
               // DELETE CONTACT SWIPE POPUP
-
    
               const RightActions = (progress, dragX) => {
                 return (

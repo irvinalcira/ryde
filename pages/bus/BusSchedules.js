@@ -12,7 +12,6 @@ function BusSchedules(props) {
  
   const [StopNumberInput, setStopNumberInput] = useState("");
   const [RouteNumberInput, setRouteNumberInput] = useState("");
-
   // Bus Number : 130
 async function fetchRouteData() {
   var routedata = {
@@ -34,8 +33,9 @@ async function fetchRouteData() {
     }
    var response = await fetch('http://localhost:8888/ryde/StopNumber.php?stopnum=' + StopNumberInput);
      newdata = await response.json();
-   Actions.BusLastRoute(newdata);
-    console.log('stopnum', newdata);
+     console.log("fetch", newdata);
+    Actions.BusLastRoute({newdata:newdata});
+    // console.log('stopnum', newdata);
   }
 
   return (
