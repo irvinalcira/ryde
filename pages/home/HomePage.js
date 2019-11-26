@@ -74,7 +74,9 @@ export default function HomePage(){
   if(favPage === "FavTaxi"){
     comp = (
       <View style={HomePageStyles.FavBox}> 
-        <FavTaxi /> 
+        <ScrollView> 
+          <FavTaxi /> 
+        </ScrollView>
       </View>
     ),
     favTaxi = (
