@@ -33,7 +33,7 @@ async function fetchRouteData() {
     }
    var response = await fetch('https://irvinalcira.com/rydedatabase/StopNumber.php?stopnum=' + StopNumberInput);
      newdata = await response.json();
-     if (newdata.length===0){
+     if (newdata.length===undefined){
       Alert.alert(
         'No Buses Found'
       )
@@ -58,6 +58,7 @@ async function fetchRouteData() {
         <TextInput
           style={Fonts.Inp}
           placeholder="Example: 130, 125 or 555"
+          maxLength={3}
           placeholderTextColor='gray'
           onChangeText={(Text) => setRouteNumberInput(Text)}
         />
@@ -74,6 +75,7 @@ async function fetchRouteData() {
           style={Fonts.Inp}
           placeholder="Example: 60212"
           placeholderTextColor='gray'
+          maxLength={5}
           onChangeText={(Text) => setStopNumberInput(Text)}
         />
         <TouchableOpacity style={Buttons.Alt} onPress={() =>{

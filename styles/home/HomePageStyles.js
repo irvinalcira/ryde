@@ -6,7 +6,8 @@ var HomePageStyles = StyleSheet.create({
     flex:1,
     padding:15,
     marginTop:20,
-    // backgroundColor:'lightblue'
+    backgroundColor:'#eee'
+    
   },
 
   FavContainer:{
@@ -61,14 +62,6 @@ var HomePageStyles = StyleSheet.create({
     justifyContent:'center',
     margin: 10,
   },
-
-  ProfPic: {
-    width:'100%',
-    height:'100%',
-    borderRadius:150,
-    
-  },
-
 
   ContactList:{
     flexDirection:'row',
