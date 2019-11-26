@@ -13,14 +13,14 @@ import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
 import EditContactStyles from '../../styles/contacts/EditContactStyles';
 
-function EditContact(props) {
+function EditContact(obj) {
 
   const [showPic, SetShowPic] = useState(false);
   const [Photo,SetPhoto] = useState("");
   const [picText, SetPickText] = useState("Edit Profile Picture");
-  const [FName,setFName] = useState('');
-  const [LName,setLName] = useState('');
-  const [PNumber,setPNumber] = useState('');
+  const [FName,setFName] = useState(obj.firstname);
+  const [LName,setLName] = useState(obj.lastname);
+  const [PNumber,setPNumber] = useState(obj.phone);
 
  handleChoosePhoto = () => {
    const options = {
@@ -41,6 +41,23 @@ function EditContact(props) {
      }
    });
  };
+
+   // GETTING CONTACTS USING ASYNC
+   async function EditContact() {
+    var data = await AsyncStorage.getItem("storage")
+    data = JSON.parse(data);
+    console.log(data);
+    setContact(data.Contacts)
+    data.Contacts[i].push({
+
+      firstname:FName,
+      lastname: LName,
+      phone: PNumber
+    }
+    )
+    // editedContact =
+    //console.log("Contacts",Contact.Contacts);
+  }
 
   return (
 
@@ -76,7 +93,7 @@ function EditContact(props) {
 
           <View style={EditContactStyles.EditNav}>
           <TouchableOpacity style={EditContactStyles.flexRow}>
-          <Text style={[Fonts.NavLink, EditContactStyles.EditText]} onPress={ async () => {}}>Save</Text>
+          <Text style={[Fonts.NavLink, EditContactStyles.EditText]} onPress={ () => { EditContact() }}>Save</Text>
                   </TouchableOpacity>
           </View>
 

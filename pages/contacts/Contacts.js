@@ -25,6 +25,7 @@ function Contacts(props) {
   const [position, setPosition] = useState({ latitude: 0, longitude: 0 });
 
 
+
   // USE EFFECT TO GET USER'S CURRENT LOCATION
   useEffect(()=>{
     Geolocation.requestAuthorization();
@@ -103,10 +104,21 @@ function Contacts(props) {
             Contact.map((obj, i) => {
 
               // DELETE CONTACT SWIPE POPUP
+
+              var sref= React.createRef();
    
               const RightActions = (progress, dragX) => {
                 return (
-                  <TouchableOpacity onPress={()=>{DeleteContact(i)}}>
+                  <TouchableOpacity onPress={()=>{
+
+                    setTimeout(()=>{
+                      DeleteContact(i);
+                    },300);   
+                    
+                    sref.current.close();
+
+                    console.log(sref.current)
+                    }}>
                   <View style={[ContactsStyles.rightAction]}>
                      <Text style={ContactsStyles.actionText}>Delete</Text>
                   </View>
@@ -122,10 +134,14 @@ function Contacts(props) {
                 <View>
 
                   <TouchableOpacity
-                  onPress={() => Actions.EditContact()}
+                  onPress={() => Actions.EditContact(
+                    {
+                      ...obj
+                    }
+                  )}
                   >
                   
-                  <Swipeable renderRightActions={RightActions} >
+                  <Swipeable renderRightActions={RightActions} ref={sref}>
                     
                     <View style={ContactsStyles.UserContainer}>
 
