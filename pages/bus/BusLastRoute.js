@@ -7,14 +7,18 @@ import BusRouteStyles from '../../styles/bus/BusRouteStyles';
 import Fonts from '../../styles/FontsStyles';
 import { ScrollView } from 'react-native-gesture-handler';
 export default function BusLastRoute(props){
+
+  //This is for Looping info
   const [BusStopNum,setBusStopNum] = useState([]);
-  const [BusStopDirection, setBusStopDirection] = useState([]);
-  console.log(BusStopNum);
+
+  //This is for displaying the user input bus stop number
+  const [StopNumber, setStopNumber] = useState("");
+
    async function SetValue(){
      var getvalue =  props.navigation.state.params
-
-    console.log("this is what i get", getvalue);
+    // console.log("this is what i get", getvalue.StopNumberInput);
     setBusStopNum(getvalue.newdata);
+    setStopNumber(getvalue.StopNumberInput);
     }
      useEffect(() => {
   SetValue()
@@ -34,7 +38,7 @@ export default function BusLastRoute(props){
   </TouchableOpacity>
   </View>
 
-  <Text style={[Fonts.BusRoute, BusRouteStyles.NavTitle]}>Bus Route</Text>
+  <Text style={[Fonts.BusRoute, BusRouteStyles.NavTitle]}>{StopNumber}</Text>
 
   </View>
   
@@ -57,6 +61,7 @@ export default function BusLastRoute(props){
         <TouchableOpacity onPress={() => Actions.FullBusSchedule(
           {
             ...obj,
+            StopNumber:StopNumber
           }
                                 )}>
                                 <View style={BusRouteStyles.BusView}>

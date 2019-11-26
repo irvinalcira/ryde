@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { View, SafeAreaView, Text, TextInput, TouchableOpacity, Image, AsyncStorage } from 'react-native';
+import { View, SafeAreaView, Text, TextInput, TouchableOpacity,Alert} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 
@@ -31,11 +31,22 @@ async function fetchRouteData() {
     var data = {
       "StopNumber": StopNumberInput
     }
-   var response = await fetch('http://localhost:8888/ryde/StopNumber.php?stopnum=' + StopNumberInput);
+   var response = await fetch('https://irvinalcira.com/rydedatabase/StopNumber.php?stopnum=' + StopNumberInput);
      newdata = await response.json();
-     console.log("fetch", newdata);
-    Actions.BusLastRoute({newdata:newdata});
-    // console.log('stopnum', newdata);
+     if (newdata.length===0){
+      Alert.alert(
+        'No Buses Found'
+      )
+      // console.log("fetch", newdata);
+     }
+     else {
+      // console.log("fetch", newdata);
+      Actions.BusLastRoute({
+        newdata:newdata,
+        StopNumberInput:StopNumberInput
+      });
+     }
+   
   }
 
   return (

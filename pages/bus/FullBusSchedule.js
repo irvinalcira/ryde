@@ -7,7 +7,7 @@ import Fonts from '../../styles/FontsStyles';
 
 import Divider from '../../comps/Divider';
 
-function FullBusSchedule({RouteNo,RouteName,Schedules}) {
+function FullBusSchedule({RouteNo,RouteName,Schedules,StopNumber}) {
 // console.log(Schedules[0])
 let Min;
   return (
@@ -30,7 +30,7 @@ let Min;
               </View>
 
               {/* Stop Number */}
-               <Text style={[Fonts.BusRoute, FullBusStyles.NavTitle]}>60212</Text>
+               <Text style={[Fonts.BusRoute, FullBusStyles.NavTitle]}>{StopNumber}</Text>
             </View>
              
             <View style={FullBusStyles.MidStyles}>
@@ -53,11 +53,17 @@ let Min;
           obj.ExpectedCountdown="Now";
          
         } else {
-          Min = "Minutes"
+          Min = "Min"
         }
                      return (
                         <View style={FullBusStyles.TimeCont}>
-                        <Text style={[Fonts.Time]}>  {obj.ExpectedCountdown} {Min} </Text>
+                          <View style={FullBusStyles.TimeOuterCont}>
+                            <View style={FullBusStyles.TimeInnerCont}>
+                        <Text style={[Fonts.Time2]}> {obj.ExpectedCountdown}</Text>
+                         <Text style={[Fonts.Time]}> {Min} </Text>
+                         </View>
+                        <Text style={[Fonts.Time]}> {obj.ExpectedLeaveTime}</Text>
+                        </View>
                         <Divider />
                       </View>
                       )
