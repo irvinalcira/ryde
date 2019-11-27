@@ -11,7 +11,7 @@ import Buttons from '../../styles/ButtonsStyles';
 
  export default function SelectedTaxi({taxiname,address,phone,website,img}){
 
-    console.log(phone);
+    // console.log(phone);
 
     var stringPhone = 
     JSON.stringify(phone);
@@ -19,21 +19,19 @@ import Buttons from '../../styles/ButtonsStyles';
     const [ favTaxi, setFavTaxi ] = useState([]);
 
     async function UpdateFavTaxi(){
-        var datanew = await AsyncStorage.setItem("storage");
+        var datanew = await AsyncStorage.getItem("storage");
         if(!datanew){
             datanew = data;
         } else {
             datanew = JSON.parse(datanew)
         }
-
-        datanew.FavTaxi = favTaxi;
-
             datanew.FavTaxi.push({
-                taxiname:taxiname,
-                phone:phone,
+                favtaxiname:taxiname,
+                favtaxiphone:phone,
             })
-            AsyncStorage.setItem("storage",JSON.stringify(datanew));
-    }
+        AsyncStorage.setItem("storage",JSON.stringify(datanew));
+        console.log(datanew);
+    };
 
 
 
@@ -74,8 +72,9 @@ import Buttons from '../../styles/ButtonsStyles';
       <TouchableOpacity style={SelectedTaxiStyles.TaxiFavorite}
                         onPress={ async () => {
                             UpdateFavTaxi()
-                            console.log(favTaxi)
-                        }}
+                        console.log(favTaxi);
+                        }
+                    }
       >
           
           <Image

@@ -16,18 +16,20 @@ export default function FavTaxi(){
 
     // GETTING CONTACTS USING ASYNC
     async function GetFavTaxi() {
-      var data = await AsyncStorage.getItem("storage")
-      data = JSON.parse(datanew);
-      console.log(datanew);
-      setFavTaxi(datanew.favTaxi)
-      //console.log("Contacts",Contact.Contacts);
+      var datanew = await AsyncStorage.getItem("storage")
+      var parseFavTaxi = JSON.parse(datanew);
+
+      
+    // console.log(parseFavTaxi.FavTaxi[0].favtaxiphone);
+      setFavTaxi(parseFavTaxi.FavTaxi);
     }
 
     useEffect(() => {
 
       GetFavTaxi();
 
-    })
+    },[]);
+
 
   return(
     <View style={FavStyles.CompBox}>
@@ -36,6 +38,7 @@ export default function FavTaxi(){
 
         favTaxi.map((obj, i) => {
 
+          console.log(favTaxi);
           return(
 
             <View>
@@ -44,14 +47,14 @@ export default function FavTaxi(){
 
                   {/* Contact Name */}
                   <Text numberOfLines={1} style={Fonts.Name}>
-
-                    {obj.taxiname}
+              
+                    {favTaxi.favtaxiname}
 
                   </Text>
 
                   <View style={ContactsStyles.ImageCont}>
 
-                    <TouchableOpacity onPress = {() => Communications.phonecall( obj.phone , true)}>
+                    <TouchableOpacity onPress = {() => Communications.phonecall( favTaxi.favtaxiphone , true)}>
 
                       <View style={ContactsStyles.ImageBox}>
 
@@ -73,10 +76,10 @@ export default function FavTaxi(){
         })
 
       }
-
+{/* 
           <Text style={Fonts.Body}>
             Start by adding your favourite taxis for quick access. You can edit, add, or remove favorites anytime.
-          </Text>
+          </Text> */}
     </View>
   )
 };
