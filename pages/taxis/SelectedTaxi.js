@@ -1,7 +1,7 @@
 import React,{Component,useState,useEffect} from 'react';
 import { View, Text, SafeAreaView, StatusBar, TouchableOpacity, Image, ScrollView, AsyncStorage } from 'react-native';
 import {Actions} from 'react-native-router-flux';
-
+import data from '../../storage.json';
 import Communications from 'react-native-communications';
 
 

@@ -2,13 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Text, View, ScrollView, AsyncStorage, TouchableOpacity,Image } from 'react-native';
 import Communications from 'react-native-communications';
 import {Actions} from 'react-native-router-flux';
-
 // styles
 import FavStyles from '../../styles/home/FavStyles';
-import Fonts from '../../styles/FontsStyles';
-import Buttons from '../../styles/ButtonsStyles';
-import ContactsStyles from '../../styles/contacts/ContactsStyles';
-import Divider from '../../comps/Divider';
 
 export default function FavTaxi(){
 
@@ -18,8 +13,6 @@ export default function FavTaxi(){
     async function GetFavTaxi() {
       var datanew = await AsyncStorage.getItem("storage")
       var parseFavTaxi = JSON.parse(datanew);
-
-      
     // console.log(parseFavTaxi.FavTaxi[0].favtaxiphone);
       setFavTaxi(parseFavTaxi.FavTaxi);
     }
@@ -38,48 +31,54 @@ export default function FavTaxi(){
 
         favTaxi.map((obj, i) => {
 
-          console.log(favTaxi);
+          console.log(obj.favtaxiname);
           return(
-
-            <View>
-              <TouchableOpacity>
-                <View style={ContactsStyles.UserContainer}>
-
-                  {/* Contact Name */}
-                  <Text numberOfLines={1} style={Fonts.Name}>
-              
-                    {favTaxi.favtaxiname}
-
-                  </Text>
-
-                  <View style={ContactsStyles.ImageCont}>
-
-                    <TouchableOpacity onPress = {() => Communications.phonecall( favTaxi.favtaxiphone , true)}>
-
-                      <View style={ContactsStyles.ImageBox}>
-
-                        <Image style={ContactsStyles.Image}
-                                source={require('../../assets/icons/phone.png')} />
-                                
-                      </View>
-
-                    </TouchableOpacity>
-
-                  </View>
-
-                </View>
-              </TouchableOpacity>              
-              <Divider />
+            <View style={FavStyles.FavCont}>
+            <TouchableOpacity onPress={()=>{Communications.phonecall( obj.favtaxiphone , true)}}>
+            <View style={[FavStyles.FavPieceCont]}>
+            <View style={FavStyles.StopName}>
+             {/* Image */}
+             <View>
+               <Image
+                  style={FavStyles.TaxiIcon}
+                  source={require('../../assets/icons/taxi-active.png')}
+                />
+             </View>
+    
+              {/* Address */}
+              <View style={FavStyles.Address}>
+                <Text
+                numberOfLines={1}
+                style={FavStyles.BusName}>
+                  {obj.favtaxiname}
+                </Text> 
+                <Text
+                numberOfLines={1}
+                style={FavStyles.RouteName}>
+                  {obj.favtaxiphone}
+                </Text> 
+              </View>
             </View>
+    
+              {/* Call Now */}
+          
+              <View style={FavStyles.CallCont}>
+              
+              <Image
+                  style={FavStyles.PhoneIcon}
+                  source={require('../../assets/icons/phone.png')}
+                />   
+                <Text style={FavStyles.TaxiCall}>CALL NOW</Text>
+              </View>
+    
+            </View>
+          </TouchableOpacity>
+          </View>
           )
 
         })
 
       }
-{/* 
-          <Text style={Fonts.Body}>
-            Start by adding your favourite taxis for quick access. You can edit, add, or remove favorites anytime.
-          </Text> */}
-    </View>
+          </View>
   )
 };
