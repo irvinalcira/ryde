@@ -28,7 +28,6 @@ export default function BusLastRoute(props){
       <View style={BusLastStyles.Container}>
       <View style={BusRouteStyles.TopView}>
 <View style={BusRouteStyles.NavBar}>
-
   <View style={BusRouteStyles.ArrowCont}>
   <TouchableOpacity onPress={() => Actions.pop("BusSchedules")}>
   <Image
@@ -39,6 +38,15 @@ export default function BusLastRoute(props){
   </View>
 
   <Text style={[Fonts.BusRoute, BusRouteStyles.NavTitle]}>{StopNumber}</Text>
+
+  <View style={BusRouteStyles.ArrowCont}>
+  <TouchableOpacity onPress={() => {}}>
+  <Image
+  style={BusRouteStyles.BackArrow}
+  source={require('../../assets/icons/fav.png')}
+  />
+  </TouchableOpacity>
+  </View>
 
   </View>
   

@@ -9,8 +9,6 @@ import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
 
 function Taxis(props) {
-
-    
     const [users, setData] = useState([]);
     const [input,setInput]=useState('');
     inputTitle=null;
