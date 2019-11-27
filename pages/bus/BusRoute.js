@@ -6,11 +6,21 @@ import Fonts from '../../styles/FontsStyles';
 
 export default function BusRoute(props){
   const [BusRouteNum,setBusRouteNum] = useState([]);
+  
 async function setvalue(){
    getvalue = await props.navigation.state.params
-  setBusRouteNum(getvalue);
-    console.log("it works",getvalue);
+  setBusRouteNum(getvalue.NewRouteData);
+    console.log("it works",getvalue.NewRouteData);
   }
+  // function filter(){
+  //   if(obj.Destination==="NORTH"){
+  //  North = BusRouteNum.filter((obj,i)=>{
+
+  //   });
+  //   }
+  
+  
+
    useEffect(() => {
 setvalue()
   },[]);
@@ -40,7 +50,7 @@ setvalue()
                 style={BusRouteStyles.WhiteBus}
                 source={require('../../assets/icons/whitebus.png')}
               />
-                <Text style={Fonts.Destination}>{BusRouteNum.Name}</Text>
+                {/* <Text style={Fonts.Destination}>{BusRouteNum.Name}</Text> */}
                 <Text style={Fonts.BlueCont}>EAST</Text>
             </View>
                 <View style={BusRouteStyles.BotStyles}>
@@ -50,7 +60,7 @@ setvalue()
             </View>
             <ScrollView style={BusRouteStyles.ScrollView}>
             {/* {
-                        BusRouteNum.map((obj,i)=>{
+                        North.map((obj,i)=>{
                             return ( */}
                               <TouchableOpacity onPress={() => Actions.BusLastRoute(
                                 )}>
@@ -73,14 +83,14 @@ setvalue()
                                   </View>
                   
                                   <View style={BusRouteStyles.StopNum}>
-                                    <Text style={Fonts.AddressText}>60212</Text>
+                                    <Text style={Fonts.AddressText}>hi</Text>
                                   </View>
                   
                                 </View>
                                 </TouchableOpacity>
-                            {/* )
-                        }) */}
-                    {/* } */}
+                           {/* )
+                        })
+                     } */}
 
               {/* Bus Stop */}
               

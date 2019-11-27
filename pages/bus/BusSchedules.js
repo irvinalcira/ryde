@@ -20,10 +20,13 @@ async function fetchRouteData() {
 
   // console.log(RouteNumberInput);
   var response = await fetch('http://localhost:8888/ryde/BusNumber.php?busnum=' + RouteNumberInput);
-   newroutedata = await response.json();
+   NewRouteData = await response.json();
 
   // console.log('busnum', newroutedata);
-  Actions.BusRoute(newroutedata,RouteNumberInput);
+  Actions.BusRoute({
+    NewRouteData:NewRouteData,
+    RouteNumberInput:RouteNumberInput
+  });
 }
 
   //Bus Stop Data Eg: 60715 
@@ -33,11 +36,10 @@ async function fetchRouteData() {
     }
    var response = await fetch('https://irvinalcira.com/rydedatabase/StopNumber.php?stopnum=' + StopNumberInput);
      newdata = await response.json();
-     if (newdata.length===0){
+     if (newdata.length===undefined){
       Alert.alert(
-        'No Buses Found'
+        'No Buses Found' 
       )
-      // console.log("fetch", newdata);
      }
      else {
       // console.log("fetch", newdata);
