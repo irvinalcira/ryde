@@ -60,7 +60,6 @@ function Taxis(props) {
     }
     useEffect(() => {
         fetchData();
-        
     },[]);
     runTitle();
     return (
@@ -73,7 +72,6 @@ function Taxis(props) {
                 <Text style={Fonts.Body}>Enter a location to view taxis in the surrounding area</Text>
 
                 {/* This will be a Searchable Drop Down     */}
-
                     <Dropdown
                     label='City'
                     data={data}
@@ -99,7 +97,6 @@ function Taxis(props) {
                                     {
                                         ...obj,
                                         taxiname:obj.name,
-                    
                                     }
                                 )}>
                         <View style={Buttons.IconCont}>
@@ -108,14 +105,11 @@ function Taxis(props) {
                                 source={require('../../assets/icons/taxi.png')}
                             />
                         </View>
-
-        
                         <View style={Buttons.TextCont}>
                             <Text style={Buttons.TaxiText}>
                                 {obj.name}
                         </Text>
                         </View>
-
                         <View style={Buttons.IconCont}>
                             <Image
                                 style={Buttons.ArrowImg}

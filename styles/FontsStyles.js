@@ -37,6 +37,14 @@ Name: {
   margin: 15,
   fontFamily: "Assistant-Semibold",
 },
+Delete: {
+  fontSize: 20,
+  marginTop: 20,
+  marginBottom: 20,
+  fontFamily: "Assistant-Regular",
+  color: "red",
+  textAlign: "center"
+},
 
 
 // Navigation Bar
@@ -114,7 +122,14 @@ BusName: {
 Time: {
   fontSize: 20,
   fontFamily: "Assistant-SemiBold",
-  paddingBottom: 5
+  marginRight:10,
+  paddingBottom: 10,
+},
+Time2: {
+  fontSize: 24,
+  fontFamily: "Assistant-Bold",
+  paddingBottom: 10,
+  marginRight:2,
 },
 LineName: {
   marginTop: 10,

@@ -6,7 +6,7 @@ var HomePageStyles = StyleSheet.create({
     flex:1,
     padding:15,
     marginTop:20,
-    // backgroundColor:'lightblue'
+    backgroundColor:'#eee'
     
   },
 

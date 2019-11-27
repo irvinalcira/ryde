@@ -53,7 +53,6 @@ var FullBusStyles =StyleSheet.create({
     BusStopInfo:{
       flexDirection: "row",
       alignItems: "baseline",
-      // backgroundColor: "pink",
     },
 
 
@@ -77,6 +76,14 @@ var FullBusStyles =StyleSheet.create({
       height: 45,
       justifyContent: 'center',
     },  
+    TimeOuterCont:{
+      flexDirection:'row',
+      justifyContent:"space-between"
+    },
+    TimeInnerCont:{
+      flexDirection:'row',
+      justifyContent:"center",
+    },
 
 
 });

@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, SafeAreaView, Image, Button, AsyncStorage, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, SafeAreaView, Image, Button, AsyncStorage, ScrollView, Animated } from 'react-native';
 import Communications from 'react-native-communications';
 import Geolocation from '@react-native-community/geolocation';
+import Swipeable from 'react-native-gesture-handler/Swipeable';
+import { Actions } from 'react-native-router-flux';
+
 
 
 //Components
@@ -14,13 +17,13 @@ import ContactsStyles from '../../styles/contacts/ContactsStyles';
 import Fonts from '../../styles/FontsStyles';
 import Divider from '../../comps/Divider';
 
-
 function Contacts(props) {
 
   // USE STATES
   const [Popup, setPopup] = useState(false);
   const [Contact, setContact] = useState([]);
   const [position, setPosition] = useState({ latitude: 0, longitude: 0 });
+
 
 
   // USE EFFECT TO GET USER'S CURRENT LOCATION
@@ -73,11 +76,8 @@ function Contacts(props) {
   }, [props.navigation.state.params]);
   //console.log("refresh", props.navigation.state.params);
 
-
-  
-
   return (
-    <SafeAreaView style={ContactsStyles.Container}>
+    <SafeAreaView style={{flex:1}}>
       <View style={ContactsStyles.Container}>
 
         {/* Add Popup Component */}
@@ -94,26 +94,59 @@ function Contacts(props) {
           </View>
         </View>
 
+        </View>
+
 
         <ScrollView>
           { Contact.length === 0 ? <EmptyContacts /> : null }
 
           {
-
-
             Contact.map((obj, i) => {
 
+              // DELETE CONTACT SWIPE POPUP
+
+              var sref= React.createRef();
+   
+              const RightActions = (progress, dragX) => {
+                return (
+                  <TouchableOpacity onPress={()=>{
+
+                    setTimeout(()=>{
+                      DeleteContact(i);
+                    },300);   
+                    
+                    sref.current.close();
+
+                    console.log(sref.current)
+                    }}>
+                  <View style={[ContactsStyles.rightAction]}>
+                     <Text style={ContactsStyles.actionText}>Delete</Text>
+                  </View>
+                  </TouchableOpacity>
+                )
+              }
+
+              // END OF DELETE CONTACT SWIPE POPUP
+
+
               return (
+                
                 <View>
-                  <TouchableOpacity>
+
+                  <TouchableOpacity
+                  onPress={() => Actions.EditContact(
+                    {
+                      ...obj
+                    }
+                  )}
+                  >
+                  
+                  <Swipeable renderRightActions={RightActions} ref={sref}>
+                    
                     <View style={ContactsStyles.UserContainer}>
 
-                      {/* Contact Name */}
-                      <Text numberOfLines={1} style={[Fonts.Name]}> {obj.firstname} {obj.lastname} </Text>
+                           <Text numberOfLines={1} style={[Fonts.Name]}> {obj.firstname} {obj.lastname} </Text>
 
-                      <TouchableOpacity onPress={() => DeleteContact(i) }>
-                         <Text>Delete</Text>
-                      </TouchableOpacity>
 
                       {/* Message/Call Container */}
                       <View style={ContactsStyles.ImageCont}>
@@ -134,16 +167,17 @@ function Contacts(props) {
                       </View>
                       {/* End of Message/Call Container */}
                     </View>
-
-                  </TouchableOpacity>
+                    </Swipeable>
+                    </TouchableOpacity>
                   <Divider />
                 </View>
-
               )
             })
           }
+
+
         </ScrollView>
-      </View>
+
     </SafeAreaView>
   )
 }
