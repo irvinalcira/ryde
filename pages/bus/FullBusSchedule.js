@@ -55,6 +55,7 @@ let Min;
         } else {
           Min = "Min"
         }
+       var Space =  obj.ExpectedLeaveTime.split(" ", 1);
                      return (
                         <View style={FullBusStyles.TimeCont}>
                           <View style={FullBusStyles.TimeOuterCont}>
@@ -62,7 +63,7 @@ let Min;
                         <Text style={[Fonts.Time2]}> {obj.ExpectedCountdown}</Text>
                          <Text style={[Fonts.Time]}> {Min} </Text>
                          </View>
-                        <Text style={[Fonts.Time]}> {obj.ExpectedLeaveTime}</Text>
+                        <Text style={[Fonts.Time]}> {Space}</Text>
                         </View>
                         <Divider />
                       </View>

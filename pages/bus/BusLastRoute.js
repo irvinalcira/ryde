@@ -16,7 +16,7 @@ export default function BusLastRoute(props){
 
    async function SetValue(){
      var getvalue =  props.navigation.state.params
-    // console.log("this is what i get", getvalue.StopNumberInput);
+    console.log("this is what i get", getvalue.newdata);
     setBusStopNum(getvalue.newdata);
     setStopNumber(getvalue.StopNumberInput);
     }
