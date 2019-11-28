@@ -27,23 +27,23 @@ function Contacts(props) {
 
 
   // USE EFFECT TO GET USER'S CURRENT LOCATION
-  useEffect(()=>{
-    Geolocation.requestAuthorization();
-    Geolocation.getCurrentPosition(
-      pos => {
-        setPosition({
-          latitude: pos.coords.latitude,
-          longitude: pos.coords.longitude
-        });
-      }
-    );
-  },[]); 
+  // useEffect(()=>{
+  //   Geolocation.requestAuthorization();
+  //   Geolocation.getCurrentPosition(
+  //     pos => {
+  //       setPosition({
+  //         latitude: pos.coords.latitude,
+  //         longitude: pos.coords.longitude
+  //       });
+  //     }
+  //   );
+  // },[]); 
 
   
   // SETTING THE GOOGLE MAPS LINK TO INCLUDE USER'S LOCATION 
-  latitude = position.latitude;
-  longitude = position.longitude;
-  var location = 'https://www.google.com/maps/place/' + latitude + '+' + longitude + '/?entry=im'
+  // latitude = position.latitude;
+  // longitude = position.longitude;
+  // var location = 'https://www.google.com/maps/place/' + latitude + '+' + longitude + '/?entry=im'
 
 
   // GETTING CONTACTS USING ASYNC

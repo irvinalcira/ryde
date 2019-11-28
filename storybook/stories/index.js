@@ -4,6 +4,8 @@ import { Text } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 
 import HomePage from '../../pages/home/HomePage';
+import FavContact from '../../pages/home/FavContacts';
+import ContactPopup from '../../comps/ContactPopup';
 
 import BusSchedules from '../../pages/bus/BusSchedules';
 import BusRoute from '../../pages/bus/BusRoute';
