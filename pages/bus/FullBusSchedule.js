@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import {View,Text, Image,SafeAreaView, TouchableOpacity} from 'react-native';
 import {Actions} from 'react-native-router-flux';
 
@@ -9,7 +9,13 @@ import Divider from '../../comps/Divider';
 
 function FullBusSchedule({RouteNo,RouteName,Schedules,StopNumber}) {
 // console.log(Schedules[0])
+const [, forceUpdate] = useState();
 let Min;
+let hour;
+let extramin;
+useEffect(() => {
+  setTimeout(forceUpdate, 2000);
+}, []);
   return (
     <SafeAreaView style={FullBusStyles.Container}>
       <View style={FullBusStyles.Container}> 
@@ -52,7 +58,16 @@ let Min;
           Min = ""
           obj.ExpectedCountdown="Now";
          
-        } else {
+        }else if (obj.ExpectedCountdown === 60){
+          obj.ExpectedCountdown = 1
+          hour = "Hour"
+        }
+        else if (obj.ExpectedCountdown > 60){
+          hour = "Hour"
+          extramin = obj.ExpectedCountdown - 60
+          obj.ExpectedCountdown = 1
+        }
+        else {
           Min = "Min"
         }
        var Space =  obj.ExpectedLeaveTime.split(" ", 1);
@@ -60,7 +75,7 @@ let Min;
                         <View style={FullBusStyles.TimeCont}>
                           <View style={FullBusStyles.TimeOuterCont}>
                             <View style={FullBusStyles.TimeInnerCont}>
-                        <Text style={[Fonts.Time2]}> {obj.ExpectedCountdown}</Text>
+                        <Text style={[Fonts.Time2]}> {obj.ExpectedCountdown} {hour}  {extramin}</Text>
                          <Text style={[Fonts.Time]}> {Min} </Text>
                          </View>
                         <Text style={[Fonts.Time]}> {Space}</Text>

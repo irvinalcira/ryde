@@ -13,7 +13,6 @@ export default function BusLastRoute(props){
 
   //This is for displaying the user input bus stop number
   const [StopNumber, setStopNumber] = useState("");
-
    async function SetValue(){
      var getvalue =  props.navigation.state.params
     console.log("this is what i get", getvalue.newdata);
@@ -62,11 +61,11 @@ export default function BusLastRoute(props){
       </View>
   </View>
   <ScrollView style={BusLastStyles.ScrollView}>
-
        {
                         BusStopNum.map((obj,i)=>{ 
                              return ( 
         <TouchableOpacity onPress={() => Actions.FullBusSchedule(
+          // window.location.reload(true),
           {
             ...obj,
             StopNumber:StopNumber

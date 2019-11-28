@@ -36,13 +36,14 @@ async function fetchRouteData() {
     }
    var response = await fetch('https://irvinalcira.com/rydedatabase/StopNumber.php?stopnum=' + StopNumberInput);
      newdata = await response.json();
+    //  console.log("fetch", newdata, StopNumberInput);
      if (newdata.length===0|| newdata.length===undefined){
       Alert.alert(
         'No Buses Found' 
       )
      }
      else {
-      // console.log("fetch", newdata);
+  
       Actions.BusLastRoute({
         newdata:newdata,
         StopNumberInput:StopNumberInput
