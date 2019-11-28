@@ -1,7 +1,6 @@
 import React, { Component, useState, useEffect } from 'react';
 import { Text, View, ScrollView, AsyncStorage, TouchableOpacity,Image } from 'react-native';
 import Communications from 'react-native-communications';
-import {Actions} from 'react-native-router-flux';
 
 //STYLES IMPORT
 import HomePageStyles from '../../styles/home/HomePageStyles';
@@ -58,15 +57,10 @@ function FavContacts(){
             <View style={[HomePageStyles.ContactList, {width:95}]}>
 
             {/* CONTACT CALL/MESSAGE POPUP */}
-            <ContactPopup Popup={Popup} setPopup={setPopup}
-             {
-              ...obj
-            }
-            />
+            <ContactPopup Popup={Popup} setPopup={setPopup} { ...obj } />
 
             {/* CONTACT  */}
-            <TouchableOpacity onPress={() => {setPopup(true)}
-            }>
+            <TouchableOpacity onPress={() => {setPopup(true)} }>
               
                 {/* CONTACT ICON */}
                 { showIcon }

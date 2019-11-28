@@ -18,6 +18,7 @@ import SkyTrainRoute from './skytrains/SkyTrainRoute'
 import FullSkyTrainSchedule from './skytrains/FullSkyTrainSchedule'
 
 import EmptyContacts from './contacts/EmptyContacts';
+import EditContact from './contacts/EditContact'
 import Contacts from './contacts/Contacts';
 import AddContact from './contacts/AddContact';
 
@@ -55,6 +56,7 @@ function Route(){
               <Scene key="Contacts" component={Contacts} panHandlers={null}/>
               <Scene key="EmptyContacts" component={EmptyContacts} />
               <Scene key="AddContact" component={AddContact} panHandlers={null}/>
+              <Scene key="EditContact" component={EditContact} panHandlers={null}/>
 
         </Stack>
       </Router>

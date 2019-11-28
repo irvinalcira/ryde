@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import { View, Text, AsyncStorage, Button, TouchableOpacity, SafeAreaView, Image, TextInput } from 'react-native';
+import { Alert, View, Text, AsyncStorage, Button, TouchableOpacity, SafeAreaView, Image, TextInput } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import data from '../../storage';
 
@@ -22,6 +22,10 @@ function EditContact(obj) {
   const [LName,setLName] = useState(obj.lastname);
   const [PNumber,setPNumber] = useState(obj.phone);
 
+  const [saveBut, SetSaveBut] = useState('');
+
+  console.log('Image link is ', obj.image);
+
  handleChoosePhoto = () => {
    const options = {
      noData: true,
@@ -41,23 +45,6 @@ function EditContact(obj) {
      }
    });
  };
-
-   // GETTING CONTACTS USING ASYNC
-   async function EditContact() {
-    var data = await AsyncStorage.getItem("storage")
-    data = JSON.parse(data);
-    console.log(data);
-    setContact(data.Contacts)
-    data.Contacts[i].push({
-
-      firstname:FName,
-      lastname: LName,
-      phone: PNumber
-    }
-    )
-    // editedContact =
-    //console.log("Contacts",Contact.Contacts);
-  }
 
   return (
 
@@ -89,11 +76,11 @@ function EditContact(obj) {
           </View>
 
 
-          {/* Edit */}
+          {/* Save */}
 
           <View style={EditContactStyles.EditNav}>
           <TouchableOpacity style={EditContactStyles.flexRow}>
-          <Text style={[Fonts.NavLink, EditContactStyles.EditText]} onPress={ () => { EditContact() }}>Save</Text>
+          <Text style={[Fonts.NavLink, EditContactStyles.EditText]} onPress={ async () => { Actions.replace("Contacts");}}>Save</Text>
                   </TouchableOpacity>
           </View>
 
@@ -140,7 +127,16 @@ function EditContact(obj) {
       {/* Delete */}
       <View style={EditContactStyles.FWDivider}></View>
       <View>
-      <TouchableOpacity>
+      <TouchableOpacity onPress= {()=>{
+            Alert.alert(
+              'Delete Contact',
+              'Are you sure you want to delete this contact?',
+              [
+                {text: 'No', onPress: () => console.warn('NO Pressed'), style: 'cancel'},
+                {text: 'Yes', onPress: () => {console.warn('YES Pressed'), Alert.alert('Contact Deleted', "Taking you back to Contacts page") } },
+              ]
+            )
+      }}>
         <Text style={Fonts.Delete}>Delete Contact</Text>
       </TouchableOpacity>
       </View>
