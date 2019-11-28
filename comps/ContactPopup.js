@@ -28,18 +28,18 @@ export default function ContactPopup(props,{firstname,lastname,phone}){
 
         </View>
 
-        <Text style={AddPopupStyles.Heading}>{props.firstname}{props.lastname}</Text>
+        <Text style={AddPopupStyles.Heading}>{props.firstname} {props.lastname}</Text>
 
           <TouchableOpacity style={AddPopupStyles.TextCont}
                             onPress = {() => Communications.phonecall( props.phone , true)}        
           >
-            <Text style={AddPopupStyles.Text}>Call {props.firstname}{props.lastname}</Text>
+            <Text style={AddPopupStyles.Text}>Call {props.firstname}</Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={AddPopupStyles.TextCont}
                             onPress={()  => Communications.text( props.phone, 'Hey ' + props.firstname + ', im in need of a Ryde. Are you able to pick me up? This is my current location: ' )}
           >
-            <Text style={AddPopupStyles.Text}>Text</Text>
+            <Text style={AddPopupStyles.Text}>Text {props.firstname}</Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={AddPopupStyles.TextCont}
