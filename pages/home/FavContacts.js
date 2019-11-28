@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Text, View, ScrollView, AsyncStorage, TouchableOpacity,Image } from 'react-native';
 import Communications from 'react-native-communications';
 
@@ -23,7 +23,7 @@ function FavContacts(){
   async function GetFavContacts() {
     var data = await AsyncStorage.getItem("storage");
     var parseContactName = JSON.parse(data);
-    // console.log("imagenew",parseContactName.Contacts[0].firstname[0],parseContactName.Contacts[0].lastname,parseContactName.Contacts[0].phone);
+    // console.log("imagenew",parseContactName.Contacts[0].firstname[0]);
     setFavContact(parseContactName.Contacts);
   }
   useEffect(() => {
