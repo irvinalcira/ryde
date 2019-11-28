@@ -13,24 +13,31 @@ import Buttons from '../../styles/ButtonsStyles';
 
     // console.log(phone);
 
-    var stringPhone = 
-    JSON.stringify(phone);
+    var stringPhone = JSON.stringify(phone);
 
     const [ favTaxi, setFavTaxi ] = useState([]);
+    const [ faved, setFaved ] = useState("false");
+    const [ favTaxiImg, setFavTaxiImg ] = useState(require('../../assets/icons/favorite2.png'));
+  
 
     async function UpdateFavTaxi(){
+      
         var datanew = await AsyncStorage.getItem("storage");
         if(!datanew){
             datanew = data;
         } else {
             datanew = JSON.parse(datanew)
         }
-            datanew.FavTaxi.push({
-                favtaxiname:taxiname,
-                favtaxiphone:phone,
-            })
+                datanew.FavTaxi.push({
+                    favtaxiname:taxiname,
+                    favtaxiphone:phone,
+                    state: faved
+                })
+    
+        
+        console.log("test",datanew.FavTaxi);
         AsyncStorage.setItem("storage",JSON.stringify(datanew));
-        console.log(datanew);
+ 
     };
 
 
@@ -40,8 +47,7 @@ import Buttons from '../../styles/ButtonsStyles';
   
       <View style={SelectedTaxiStyles.Container}>
   
-  <StatusBar 
-      hidden={true} />  
+  <StatusBar hidden={true} />  
   
       <View style={SelectedTaxiStyles.Container}>
   

@@ -9,7 +9,8 @@ import AddPopupStyles from '../styles/comps/AddPopupStyles';
 
 export default function ContactPopup(props,{firstname,lastname,phone}){
 
-console.log(props.firstname, props.phone);
+  console.log(props.firstname, props.phone);
+
   return(
 
     <Modal isVisible={props.Popup} hideModalContentWhileAnimating={true}

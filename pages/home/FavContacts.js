@@ -65,11 +65,7 @@ function FavContacts(){
             />
 
             {/* CONTACT  */}
-            <TouchableOpacity onPress={() => {setPopup(true),
-                              // console.log( obj.firstname, obj.lastname, obj.phone),
-
-                              Actions.ContactPopup()                          
-                          }
+            <TouchableOpacity onPress={() => {setPopup(true)}
             }>
               
                 {/* CONTACT ICON */}
