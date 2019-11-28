@@ -25,15 +25,25 @@ import Buttons from '../../styles/ButtonsStyles';
         var datanew = await AsyncStorage.getItem("storage");
         if(!datanew){
             datanew = data;
+                    datanew.FavTaxi.push({
+                        favtaxiname:taxiname,
+                        favtaxiphone:phone,
+                    })
         } else {
             datanew = JSON.parse(datanew)
+            for(i=0;i<datanew.FavTaxi.length;i++){
+                if (datanew.FavTaxi[i].favtaxiname!== taxiname){
+                    
+                    datanew.FavTaxi.push({
+                        favtaxiname:taxiname,
+                        favtaxiphone:phone,
+                    })
+                }
+                break;
+            }
         }
-                datanew.FavTaxi.push({
-                    favtaxiname:taxiname,
-                    favtaxiphone:phone,
-                    state: faved
-                })
-    
+        
+
         
         console.log("test",datanew.FavTaxi);
         AsyncStorage.setItem("storage",JSON.stringify(datanew));
@@ -78,7 +88,6 @@ import Buttons from '../../styles/ButtonsStyles';
       <TouchableOpacity style={SelectedTaxiStyles.TaxiFavorite}
                         onPress={ async () => {
                             UpdateFavTaxi()
-                        console.log(favTaxi);
                         }
                     }
       >
