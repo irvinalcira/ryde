@@ -1,15 +1,36 @@
 import React, { useState } from 'react';
-import {View,Text, Image,SafeAreaView, TouchableOpacity} from 'react-native';
+import {View,Text, Image,SafeAreaView, TouchableOpacity, AsyncStorage} from 'react-native';
 import {Actions} from 'react-native-router-flux';
+import data from '../../storage.json';
 
 import FullBusStyles from '../../styles/bus/FullBusScheduleStyles';
 import Fonts from '../../styles/FontsStyles';
-
 import Divider from '../../comps/Divider';
 
-function FullBusSchedule({RouteNo,RouteName,Schedules,StopNumber}) {
+export default function FullBusSchedule({RouteNo,RouteName,Schedules,StopNumber}) {
 // console.log(Schedules[0])
 let Min;
+
+  const [ favBus, setFavBus ] = useState([]);
+
+  async function UpdateFavBus(){
+
+    var datanew = await AsyncStorage.getItem("storage");
+    if(!datanew){
+      datanew = data;
+    } else {
+      datanew = JSON.parse(datanew)
+    }
+      datanew.FavBus.push({
+        favbusstopnumber:StopNumber,
+        favbusroutenumber:RouteNo,
+        favbusroutename: RouteName
+      })
+      console.log("test",datanew.FavBus);
+      AsyncStorage.setItem("storage",JSON.stringify(datanew));
+  
+    };
+
   return (
     <SafeAreaView style={FullBusStyles.Container}>
       <View style={FullBusStyles.Container}> 
@@ -31,14 +52,29 @@ let Min;
 
               {/* Stop Number */}
                <Text style={[Fonts.BusRoute, FullBusStyles.NavTitle]}>{StopNumber}</Text>
+               <TouchableOpacity style={{justifyContent:'center',alignItems:'center',
+                flex:1, flexDirection:'row-reverse', position:'relative'}}
+                onPress={ async () => {
+                  UpdateFavBus()
+                  console.log(favBus);
+                }}
+                >
+          
+                    <Image style={{height:30, width:30}}
+                        source={require('../../assets/icons/favorite2.png')}
+                    />
+                </TouchableOpacity>
             </View>
              
             <View style={FullBusStyles.MidStyles}>
               <View style={FullBusStyles.BusStopInfo}>
               <Text style={Fonts.BusNum}>{RouteNo}</Text>
+              
 
               </View>
               <Text style={Fonts.BusName}>{RouteName}</Text>
+              
+
             </View>
 
        </View>
@@ -78,6 +114,5 @@ let Min;
   )
 }
 
-export default FullBusSchedule;
 
 //test
