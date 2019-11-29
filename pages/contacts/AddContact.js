@@ -106,7 +106,7 @@ async function checkContact(){
         {/* Camera Component */}
         <View style={AContactStyles.AddImgView}>
         <View style={AContactStyles.CamContainer}>
-    {showPic ? <Image source={{ uri: Photo.uri}} style={AContactStyles.ProfPic}/> : <Image source={source=require('../../assets/icons/imagefill.png')}style={AContactStyles.ProfPic}  />}
+    {showPic ? <Image source={{ uri: Photo.uri}} style={AContactStyles.ProfPic}/> : <Image source={source=require('../../assets/icons/default-contact.png')}style={AContactStyles.ProfPic}  />}
       <Button title={picText} onPress={handleChoosePhoto}/>
     </View>
 

@@ -9,8 +9,8 @@ import EContactsStyles from '../../styles/contacts/EmptyContactsStyles';
 
 function EmptyContacts(){
   return (
-    <View style={{padding:15}}>
-        <Text style={[Fonts.Heading, {marginTop:0}]}>You have no Contacts on Ryde</Text>
+    <View style={EContactsStyles.Container}>
+        <Text style={[Fonts.Heading]}>You have no Contacts on Ryde</Text>
         <Text style={Fonts.Body}>
         Start by adding your important contacts for quick phone or messaging access. You can edit, add, or remove contacts anytime.
         </Text>

@@ -6,12 +6,12 @@ import {Actions} from 'react-native-router-flux';
 import data from '../storage';
 
 //style
-import HomePageStyles from '../styles/home/HomePageStyles';
+import StartPageStyles from '../styles/StartPageStyles';
 import Fonts from '../styles/FontsStyles';
 import Buttons from '../styles/ButtonsStyles';
 
 
-export default function InitialSetup(){    
+export default function StartPage(){    
 
     const [Name, setUserName] = useState('');
 
@@ -45,9 +45,8 @@ export default function InitialSetup(){
 
     return(
 
-            <View style={[HomePageStyles.Container]}>
+            <SafeAreaView style={[StartPageStyles.Container]}>
 
-                {/* <Text style={Fonts.Title}>Ryde</Text> */}
 
                 <View style={{alignItems: "center", marginTop: "20%"}}>
                 <Image
@@ -55,11 +54,12 @@ export default function InitialSetup(){
                 source={require('../assets/icons/ryde-icon.png')}
                 />
 
+                <Text style={Fonts.Title}>Welcome to Ryde</Text>
                 </View>
                 {/* <Text style={Fonts.Heading}>Enter your Name</Text> */}
                 
                 <View style={{alignItems: "center"}}>
-                <Text style ={[Fonts.Body, {marginBottom:15, width: "100%"}]}>Enter your name below so you can start adding your favorite Buses, SkyTrains, Taxis and view your saved Contacts straight from the home page!</Text>
+                <Text style ={[Fonts.Body, {marginBottom:15}]}>Enter your name below so you can start adding your favorite Buses, SkyTrains, Taxis and view your saved Contacts straight from the home page!</Text>
                 </View>
                 <TextInput style={Fonts.Inp} 
                             placeholder="Your Name Here" 
@@ -74,8 +74,8 @@ export default function InitialSetup(){
                                        }
                                     }
                                     >
-                    <Text style={Buttons.MainText}>Submit</Text>
+                    <Text style={Buttons.MainText}>Something</Text>
                 </TouchableOpacity>
-            </View>
+            </SafeAreaView>
     )
 }

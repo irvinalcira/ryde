@@ -10,10 +10,10 @@ var Buttons = StyleSheet.create({
     textAlign:'center',
     justifyContent:'center',
     backgroundColor:"#3971b3",
-    borderRadius: 20
+    borderRadius: 20,
+    alignItems: "center"
   },
   MainText: {
-    textAlign:"center",
     color:"white",
     fontFamily:"Assistant-SemiBold",
     fontSize:17
