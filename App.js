@@ -8,6 +8,9 @@ import TabBar from './comps/TabBar';
 
 import AddContact from './pages/contacts/AddContact';
 import EmptyContacts from './pages/contacts/EmptyContacts';
+
+import StartPage from './pages/StartPage';
+
 import Route from './pages/Route'
 
 function App(){
@@ -19,15 +22,17 @@ function App(){
 
         <StatusBar barStyle="dark-content" />
 
+        {/* <StartPage/> */}
+
           <View style={{flex:1}}>
             <Route />
-          </View>
+          </View> 
           
-          <View style={{display:'flex'}}>
+           <View style={{display:'flex'}}>
           <TabBar/>
           <SafeAreaView style={{backgroundColor:'#ffffff'}}>
-          </SafeAreaView>
-          </View>
+          </SafeAreaView> 
+           </View>
           
       </View>
 

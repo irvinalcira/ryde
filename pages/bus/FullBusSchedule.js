@@ -39,6 +39,7 @@ let Min;
 
               </View>
               <Text style={Fonts.BusName}>{RouteName}</Text>
+              <Text style={Fonts.StreetName}>Northbound Willingdon Ave / Kingsborough St</Text>
             </View>
 
        </View>
@@ -48,21 +49,43 @@ let Min;
       <View style={FullBusStyles.ScheduleCont}>
 {
       Schedules.map((obj,i)=>{
-        if (obj.ExpectedCountdown===0||obj.ExpectedCountdown===1){
+
+
+        var LeftTimeColor = '#363636';
+        var LeftTimeSize = 22;
+        var RightTimeSize = 16;
+        var RightTimeFont = 'Assistant-Regular'
+
+        if (i != 0) {
+          LeftTimeColor = 'gray'
+          LeftTimeSize = 19;
+          RightTimeSize = 15;
+        } else {
+          LeftTimeColor = '#3971B3'
+          LeftTimeSize = 23;
+          RightTimeSize = 16
+          RightTimeFont = 'Assistant-Bold'
+        }
+
+
+        if (obj.ExpectedCountdown <= 1){
           Min = ""
-          obj.ExpectedCountdown="Now";
-         
+          obj.ExpectedCountdown="Now";         
         } else {
           Min = "Min"
         }
+
+
+        
+        var Space = obj.ExpectedLeaveTime.split(" ", 1);
                      return (
-                        <View style={FullBusStyles.TimeCont}>
+                        <View style={[FullBusStyles.TimeCont]}>
                           <View style={FullBusStyles.TimeOuterCont}>
-                            <View style={FullBusStyles.TimeInnerCont}>
-                        <Text style={[Fonts.Time2]}> {obj.ExpectedCountdown}</Text>
-                         <Text style={[Fonts.Time]}> {Min} </Text>
+                            <View style={[FullBusStyles.TimeInnerCont]}>
+                        <Text style={[Fonts.Time, {color:LeftTimeColor, fontSize: LeftTimeSize}]}> {obj.ExpectedCountdown}</Text>
+                         <Text style={[Fonts.Min, {color:LeftTimeColor, fontSize: LeftTimeSize}]}> {Min} </Text>
                          </View>
-                        <Text style={[Fonts.Time]}> {obj.ExpectedLeaveTime}</Text>
+                         <Text style={[Fonts.LeaveTime, {color:LeftTimeColor, fontSize: RightTimeSize, fontFamily: RightTimeFont}]}> {Space}</Text>
                         </View>
                         <Divider />
                       </View>

@@ -31,13 +31,8 @@ export default function FavTaxi(){
     if(favTaxi === null){
 
       FavoriteTaxi = (
-
-        <View style={{flex:1}}>
-
-          <EmptyFav />
-
-        </View>
-
+          // <EmptyFav />
+          <View><Text>Testing</Text></View>
       )
 
       

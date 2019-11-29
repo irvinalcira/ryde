@@ -76,6 +76,7 @@ function Taxis(props) {
                     label='City'
                     data={data}
                     textColor =	"rgba(0, 0, 0, .98)"
+                    // containerStyle = {{backgroundColor: "white"}}
                     itemPadding = "10"
                     onChangeText={text => setInput(text)}
                     dropdownPosition= "0"

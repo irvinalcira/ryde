@@ -5,51 +5,53 @@ var HomePageStyles = StyleSheet.create({
   Container:{
     flex:1,
     padding:15,
-    marginTop:20,
-    // backgroundColor:'lightblue'
+    paddingTop: 10,
+    backgroundColor:'#f4f4f4' 
   },
 
   FavContainer:{
-    // backgroundColor:'blue',
     flexDirection:"row",
     marginLeft:-15,
-  },
+  }, 
 
   FavBox:{
-    backgroundColor:"#DBDBDB",    
+    // backgroundColor:"#f4f4f4",    
     width: '100%',
-    padding:10,
+    paddingLeft:10,
+    paddingRight:10,
     paddingTop:15,
-    paddingBottom:15,
-    // height: 275
   },
 
   CompContainer: {
-    flex:3,
     width: '120%',
-    left: '-10%'
+    left: '-10%',
+    backgroundColor:"#efefef",    
+    height: 350
   },
 
   ContactContainer:{
     width: "120%",
-    marginLeft: -25,
-   flex: 2
+    left: '-4%',
+    marginTop: 15,
+    // backgroundColor: "lightyellow"
   },
 
   ContactHeader:{
-    marginLeft: 25
+   marginTop: 20,
+  //  backgroundColor: "purple"
   },
 
   ContactContent:{
-    paddingLeft: 10
+    // paddingLeft: 10
   },
 
+  // Component
 
   ContactBox:{
     flexDirection:'row',
-    flex:1,
     width: "100%",
-    marginRight: 50
+    marginRight: 50,
+    alignItems: "center"
   },
 
   ContactIconBox:{    
@@ -68,7 +70,6 @@ var HomePageStyles = StyleSheet.create({
     borderRadius:150,
     
   },
-
 
   ContactList:{
     flexDirection:'row',

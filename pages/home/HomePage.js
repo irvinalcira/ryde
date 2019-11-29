@@ -62,8 +62,9 @@ export default function HomePage(){
 
   if(favPage === "FavTrain"){
     comp = (
-      <View style={HomePageStyles.FavBox}>
+      <View style={[HomePageStyles.FavBox]}>
         <FavTrain />
+
       </View>
     ),
     favTrain = (
@@ -96,13 +97,15 @@ export default function HomePage(){
       </View>
   
     )} 
+
+  
     
     // IF USER'S NAME STORED, SHOW HOME PAGE
     else {
       HomePageSection = (
         <View style={HomePageStyles.Container}>
 
-        <Text style={Fonts.Title}>Welcome {Name},</Text>
+        <Text style={Fonts.Title}>Hi {Name},</Text>
         
 
         {/* FAVORITES SECTION */}
@@ -112,6 +115,7 @@ export default function HomePage(){
           <View style={HomePageStyles.FavContainer}>          
 
               <TouchableOpacity style={Buttons.HomePageButton}
+              
                 onPress={()=>{ setFavPage("FavBus"); }} >
               {favBus}
               </TouchableOpacity>
@@ -140,11 +144,11 @@ export default function HomePage(){
 
         {/* CONTACTS SECTION */}
 
-          <View style={HomePageStyles.ContactContainer}>
+        <View style={HomePageStyles.ContactHeader}>
+          <Text style={[Fonts.Heading]}>Contacts</Text>    
+        </View>
 
-              <View style={HomePageStyles.ContactHeader}>
-              <Text style={Fonts.Heading}>Contacts</Text>    
-              </View>
+          <View style={HomePageStyles.ContactContainer}>
 
             <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
               <View style={HomePageStyles.ContactContent}>
@@ -167,4 +171,3 @@ export default function HomePage(){
 
   )
 };
-

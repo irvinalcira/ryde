@@ -13,18 +13,14 @@ import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
 import EditContactStyles from '../../styles/contacts/EditContactStyles';
 
-function EditContact(obj) {
+function EditContact(props) {
 
   const [showPic, SetShowPic] = useState(false);
   const [Photo,SetPhoto] = useState("");
   const [picText, SetPickText] = useState("Edit Profile Picture");
-  const [FName,setFName] = useState(obj.firstname);
-  const [LName,setLName] = useState(obj.lastname);
-  const [PNumber,setPNumber] = useState(obj.phone);
-
-  const [saveBut, SetSaveBut] = useState('');
-
-  console.log('Image link is ', obj.image);
+  const [FName,setFName] = useState('');
+  const [LName,setLName] = useState('');
+  const [PNumber,setPNumber] = useState('');
 
  handleChoosePhoto = () => {
    const options = {
@@ -71,16 +67,16 @@ function EditContact(obj) {
 
 
           {/* Title */}
-          <View style={EditContactStyles.TitleNav}>
+          {/* <View style={EditContactStyles.TitleNav}>
           <Text style={Fonts.NavTitle}>Edit Contact</Text>
-          </View>
+          </View> */}
 
 
           {/* Save */}
 
           <View style={EditContactStyles.EditNav}>
           <TouchableOpacity style={EditContactStyles.flexRow}>
-          <Text style={[Fonts.NavLink, EditContactStyles.EditText]} onPress={ async () => { Actions.replace("Contacts");}}>Save</Text>
+          <Text style={[Fonts.NavLink, EditContactStyles.EditText]} onPress={ async () => {}}>Save</Text>
                   </TouchableOpacity>
           </View>
 
@@ -120,14 +116,20 @@ function EditContact(obj) {
 
       </View>
 
-
-      <View style={EditContactStyles.Spacer}></View>
+{/* 
+      <View style={EditContactStyles.Spacer}></View> */}
 
 
       {/* Delete */}
-      <View style={EditContactStyles.FWDivider}></View>
-      <View>
-      <TouchableOpacity onPress= {()=>{
+
+      {/* <View style={EditContactStyles.FWDivider}></View> */}
+      <View style={{alignItems: "center"}}>
+     
+      {/* <TouchableOpacity>
+        <Text style={Fonts.Delete}>Delete Contact</Text>
+      </TouchableOpacity> */}
+
+        <TouchableOpacity style={Buttons.Delete} onPress= {()=>{
             Alert.alert(
               'Delete Contact',
               'Are you sure you want to delete this contact?',
@@ -137,10 +139,11 @@ function EditContact(obj) {
               ]
             )
       }}>
-        <Text style={Fonts.Delete}>Delete Contact</Text>
-      </TouchableOpacity>
+              <Text style={Buttons.TextAltColor}>Delete Contact</Text>
+          </TouchableOpacity>
+
       </View>
-      <View style={EditContactStyles.FWDivider}></View>
+      {/* <View style={EditContactStyles.FWDivider}></View> */}
 
   </View>
 </SafeAreaView>

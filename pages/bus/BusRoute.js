@@ -50,34 +50,34 @@ setvalue()
             </View>
             <ScrollView style={BusRouteStyles.ScrollView}>
             {/* {
-                        BusRouteNum.map((obj,i)=>{
-                            return ( */}
-                              <TouchableOpacity onPress={() => Actions.BusLastRoute(
-                                )}>
-                                <View style={BusRouteStyles.BusView}>
-                  
-                                  <View style={BusRouteStyles.StopName}>
-                                  <View style={BusRouteStyles.BusCont}>
-                                    <Image
-                                      style={BusRouteStyles.BusIcon}
-                                       source={require('../../assets/icons/bus-active.png')}
-                                       /> 
-                                  </View>
-                  
-                                  <View style={BusRouteStyles.Address}>
-                                    <Text 
-                                    numberOfLines={1}
-                                    style={Fonts.AddressText}>
-                                    hi </Text>
-                                  </View>
-                                  </View>
-                  
-                                  <View style={BusRouteStyles.StopNum}>
-                                    <Text style={Fonts.AddressText}>60212</Text>
-                                  </View>
-                  
-                                </View>
-                                </TouchableOpacity>
+            BusRouteNum.map((obj,i)=>{
+                return ( */}
+                  <TouchableOpacity onPress={() => Actions.BusLastRoute(
+                    )}>
+                    <View style={BusRouteStyles.BusView}>
+            
+                      <View style={BusRouteStyles.StopName}>
+                      <View style={BusRouteStyles.BusCont}>
+                        <Image
+                          style={BusRouteStyles.BusIcon}
+                           source={require('../../assets/icons/bus-active.png')}
+                           /> 
+                      </View>
+            
+                      <View style={BusRouteStyles.Address}>
+                        <Text 
+                        numberOfLines={1}
+                        style={Fonts.AddressText}>
+                        hi </Text>
+                      </View>
+                      </View>
+            
+                      <View style={BusRouteStyles.StopNum}>
+                        <Text style={Fonts.AddressText}>60212</Text>
+                      </View>
+            
+                    </View>
+                    </TouchableOpacity>
                             {/* )
                         }) */}
                     {/* } */}

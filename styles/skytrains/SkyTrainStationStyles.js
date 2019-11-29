@@ -75,7 +75,7 @@ var SkyTrainStationStyles = StyleSheet.create({
 
     // Schedules
     TimeCont:{
-        backgroundColor:"#DCDCDC",
+        backgroundColor:"#e5e5e5",
         paddingLeft:20,
         paddingRight:20,
         paddingTop:10,
