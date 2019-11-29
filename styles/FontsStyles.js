@@ -116,23 +116,32 @@ BusNum: {
   fontFamily: "Assistant-Bold"
 },
 BusName: {
-  color: "white",
+  color: "#ededed",
   fontSize: 20,
   fontFamily: "Assistant-SemiBold",
-  marginLeft: 10
+},
+
+StreetName: {
+  color: "white",
+  fontSize: 16,
+  fontFamily: "Assistant-Regular",
+},
+
+Min: {
+  fontSize: 20,
+  fontFamily: "Assistant-Bold",
+
 },
 Time: {
-  fontSize: 20,
-  fontFamily: "Assistant-SemiBold",
-  marginRight:10,
-  paddingBottom: 10,
-},
-Time2: {
   fontSize: 24,
   fontFamily: "Assistant-Bold",
-  paddingBottom: 10,
-  marginRight:2,
 },
+
+LeaveTime: {
+  fontSize: 20,
+  fontFamily: "Assistant-Regular",
+},
+
 LineName: {
   marginTop: 10,
   color: "white",
@@ -148,7 +157,7 @@ LineDetail: {
 // Bus Schedules
 ScheduleTitle:{
   fontFamily:"Assistant-Bold",
-  fontSize:20,
+  fontSize:25,
   margin: 20
 },
 TimeText:{

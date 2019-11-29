@@ -23,7 +23,7 @@ function FavContacts(){
   async function GetFavContacts() {
     var data = await AsyncStorage.getItem("storage");
     var parseContactName = JSON.parse(data);
-    console.log("imagenew",parseContactName.Contacts[0].firstname[0]);
+    // console.log("imagenew",parseContactName.Contacts[0].firstname[0]);
     setFavContact(parseContactName.Contacts);
   }
   useEffect(() => {
@@ -34,13 +34,11 @@ function FavContacts(){
   
 
   return(
-  
-    <View style={HomePageStyles.ContactBox}>
+      <View style={HomePageStyles.ContactBox}>
 
       {
         favContact.map((obj,i)=>{
 
-            console.log(obj.image)
           
           if (obj.image === undefined) {
             showIcon = (
@@ -59,10 +57,10 @@ function FavContacts(){
             <View style={[HomePageStyles.ContactList, {width:95}]}>
 
             {/* CONTACT CALL/MESSAGE POPUP */}
-            <ContactPopup Popup={Popup} setPopup={setPopup} />
+            <ContactPopup Popup={Popup} setPopup={setPopup} { ...obj } />
 
             {/* CONTACT  */}
-            <TouchableOpacity onPress={() => {setPopup(true)}}>
+            <TouchableOpacity onPress={() => {setPopup(true)} }>
               
                 {/* CONTACT ICON */}
                 { showIcon }

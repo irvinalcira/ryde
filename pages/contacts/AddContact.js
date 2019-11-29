@@ -20,7 +20,8 @@ function AddContact(props) {
   handleChoosePhoto = () => {
     const options = {
       noData: true,
-      tintColor:'#1970bf'
+      tintColor:'#1970bf',
+      allowsEditing: true
     };
 
     ImagePicker.showImagePicker(options, response => {

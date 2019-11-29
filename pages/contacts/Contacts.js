@@ -103,10 +103,21 @@ function Contacts(props) {
             Contact.map((obj, i) => {
 
               // DELETE CONTACT SWIPE POPUP
+
+              var sref= React.createRef();
    
               const RightActions = (progress, dragX) => {
                 return (
-                  <TouchableOpacity onPress={()=>{DeleteContact(i)}}>
+                  <TouchableOpacity onPress={()=>{
+
+                    setTimeout(()=>{
+                      DeleteContact(i);
+                    },300);   
+                    
+                    sref.current.close();
+
+                    console.log(sref.current)
+                    }}>
                   <View style={[ContactsStyles.rightAction]}>
                      <Text style={ContactsStyles.actionText}>Delete</Text>
                   </View>
@@ -125,7 +136,7 @@ function Contacts(props) {
                   onPress={() => Actions.EditContact()}
                   >
                   
-                  <Swipeable renderRightActions={RightActions} >
+                  <Swipeable renderRightActions={RightActions} ref={sref}>
                     
                     <View style={ContactsStyles.UserContainer}>
 

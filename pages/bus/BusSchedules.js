@@ -40,7 +40,7 @@ async function fetchRouteData() {
       // console.log("fetch", newdata);
      }
      else {
-      // console.log("fetch", newdata);
+      console.log("fetch", newdata[0].Schedules);
       Actions.BusLastRoute({
         newdata:newdata,
         StopNumberInput:StopNumberInput
@@ -52,12 +52,13 @@ async function fetchRouteData() {
   return (
     <SafeAreaView style={BusSchedulesStyles.Container}>
       <View style={[BusSchedulesStyles.Container]}>
-        <Text style={Fonts.Title}>Buses</Text>
+        <Text style={Fonts.Title}>Bus Schedules</Text>
         <Text style={Fonts.Heading}>View Bus Route</Text>
         <Text style={Fonts.Body}>Search for a bus to see its full route</Text>
         <TextInput
           style={Fonts.Inp}
           placeholder="Example: 130, 125 or 555"
+          keyboardType={'numeric'}
           maxLength={3}
           placeholderTextColor='gray'
           onChangeText={(Text) => setRouteNumberInput(Text)}
@@ -75,6 +76,7 @@ async function fetchRouteData() {
           style={Fonts.Inp}
           placeholder="Example: 60212"
           placeholderTextColor='gray'
+          keyboardType={'numeric'}
           maxLength={5}
           onChangeText={(Text) => setStopNumberInput(Text)}
         />

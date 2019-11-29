@@ -62,8 +62,9 @@ export default function HomePage(){
 
   if(favPage === "FavTrain"){
     comp = (
-      <View style={HomePageStyles.FavBox}>
+      <View style={[HomePageStyles.FavBox]}>
         <FavTrain />
+
       </View>
     ),
     favTrain = (
@@ -170,4 +171,3 @@ export default function HomePage(){
 
   )
 };
-

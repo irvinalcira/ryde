@@ -1,7 +1,7 @@
 import React,{Component,useState,useEffect} from 'react';
-import { View, Text, SafeAreaView, StatusBar, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { View, Alert, Text, Linking, SafeAreaView, StatusBar, TouchableOpacity, Image, ScrollView, AsyncStorage } from 'react-native';
 import {Actions} from 'react-native-router-flux';
-
+import data from '../../storage.json';
 import Communications from 'react-native-communications';
 
 
@@ -11,17 +11,59 @@ import Buttons from '../../styles/ButtonsStyles';
 
  export default function SelectedTaxi({taxiname,address,phone,website,img}){
 
-    console.log(phone);
+    // console.log(phone);
 
-    var stringPhone = 
-    JSON.stringify(phone);
+    var stringPhone = JSON.stringify(phone);
+    var goToWebsite = null;
+    var stringWebsite = JSON.stringify(website);
+
+    console.log(stringWebsite)
+
+    const [ favTaxi, setFavTaxi ] = useState([]);
+    const [ faved, setFaved ] = useState("false");
+    const [ favTaxiImg, setFavTaxiImg ] = useState(require('../../assets/icons/favorite2.png'));
+  
+
+    async function UpdateFavTaxi(){
+
+        var datanew = await AsyncStorage.getItem("storage");
+        if(!datanew){
+            datanew = data;
+        } else {
+            datanew = JSON.parse(datanew)
+        }
+                datanew.FavTaxi.push({
+                    favtaxiname:taxiname,
+                    favtaxiphone:phone,
+                    state: faved
+                })
+    
+        
+        console.log("test",datanew.FavTaxi);
+        AsyncStorage.setItem("storage",JSON.stringify(datanew));
+ 
+    };
+
+
+    function Website(){
+        if (website === 'No Website Available'){  
+            goToWebsite = Alert.alert('No Website Available', "This Taxi Company does not have a Website");
+            
+        } else {
+            goToWebsite = Communications.web('https://' + website)
+        }
+    }
+
+    
+
+
+
     return (
         
   
       <View style={SelectedTaxiStyles.Container}>
   
-  <StatusBar 
-      hidden={true} />  
+  <StatusBar hidden={true} />  
   
       <View style={SelectedTaxiStyles.Container}>
   
@@ -46,10 +88,16 @@ import Buttons from '../../styles/ButtonsStyles';
        <View style={SelectedTaxiStyles.TitleContainer}>
   
       <View style={SelectedTaxiStyles.TaxiName}>    
-          <Text style={[Fonts.TaxiTitle]}>{taxiname}</Text>
+          <Text style={Fonts.TaxiTitle}>{taxiname}</Text>
       </View>
   
-      <TouchableOpacity style={SelectedTaxiStyles.TaxiFavorite}>
+      <TouchableOpacity style={SelectedTaxiStyles.TaxiFavorite}
+                        onPress={ async () => {
+                            UpdateFavTaxi()
+                        console.log(favTaxi);
+                        }
+                    }
+      >
           
           <Image
               style={SelectedTaxiStyles.FavoriteIcon}
@@ -67,7 +115,9 @@ import Buttons from '../../styles/ButtonsStyles';
   
       <View style={SelectedTaxiStyles.InfoContainer}>
       <Text style={Fonts.TaxiHeading}>Website</Text>
-      <Text style={Fonts.Body}>{website}</Text>
+      <TouchableOpacity onPress = {() => Website()}>
+      <Text style={[Fonts.Body, {textDecorationLine: 'underline' }]}>{website}</Text>
+      </TouchableOpacity>
       </View>
   
       <View style={SelectedTaxiStyles.InfoContainer}>
