@@ -52,7 +52,6 @@ function Contacts(props) {
     data = JSON.parse(data);
     console.log('Data = ', data);
     setContact(data.Contacts);
-    setUserName(data.UserName);
   }  
 
 
