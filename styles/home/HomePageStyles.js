@@ -15,7 +15,7 @@ var HomePageStyles = StyleSheet.create({
   }, 
 
   FavBox:{
-    backgroundColor:"#f4f4f4",    
+    // backgroundColor:"#f4f4f4",    
     width: '100%',
     paddingLeft:10,
     paddingRight:10,
