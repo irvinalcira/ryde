@@ -46,23 +46,30 @@ export default function StartPage(){
     return(
 
             <SafeAreaView style={[StartPageStyles.Container]}>
+            <View style={[StartPageStyles.Container]}>
 
-
-                <View style={{alignItems: "center", marginTop: "20%"}}>
+                <View style={StartPageStyles.Logo}>
                 <Image
                 style={{width: 150, height: 150}}
                 source={require('../assets/icons/ryde-icon.png')}
                 />
-
-                <Text style={Fonts.Title}>Welcome to Ryde</Text>
                 </View>
-                {/* <Text style={Fonts.Heading}>Enter your Name</Text> */}
                 
-                <View style={{alignItems: "center"}}>
-                <Text style ={[Fonts.Body, {marginBottom:15}]}>Enter your name below so you can start adding your favorite Buses, SkyTrains, Taxis and view your saved Contacts straight from the home page!</Text>
+                <View style={StartPageStyles.Title}>
+                <Text style={Fonts.Title}>Ryde</Text>
+                </View>
+  
+                
+                <View style={StartPageStyles.Body}>
+                <Text style ={[Fonts.Body, {marginBottom:15}]}>
+                Ryde combines the main methods of transportation into one app. 
+                It displays data of all bus routes and SkyTrain stations, taxis, and your important contacts.
+                </Text>
+                
+                <Text style ={[Fonts.Body, {marginBottom:15}]}>Enter your first name below to get started</Text>
                 </View>
                 <TextInput style={Fonts.Inp} 
-                            placeholder="Your Name Here" 
+                            placeholder="First Name" 
                             placeholderTextColor="grey"
                             onChangeText = {(Text) => setUserName(Text)}
                            />             
@@ -74,8 +81,9 @@ export default function StartPage(){
                                        }
                                     }
                                     >
-                    <Text style={Buttons.MainText}>Something</Text>
+                    <Text style={Buttons.MainText}>Get Started</Text>
                 </TouchableOpacity>
+            </View>
             </SafeAreaView>
     )
 }
