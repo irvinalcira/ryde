@@ -18,64 +18,71 @@ import Buttons from '../../styles/ButtonsStyles';
     var notFavorited = require('../../assets/icons/favorite2.png');
     var taxiFavorited = require('../../assets/icons/favorite.png')
 
-    const [ FavedNum, SetFavedNum ] = useState(1);
-    const [ Faved, SetFaved ] = useState(false);
     const [FavArr,SetFavArr] = useState ([]);
     const [ favTaxiImg, setFavTaxiImg ] = useState(notFavorited);
-  
-
-    async function UpdateFavTaxi(){
-        var datanew = await AsyncStorage.getItem("storage");
+    let datanew;
+    async function checkData(){
+        try{
+            datanew = await AsyncStorage.getItem("storage");
         if(!datanew){
-            datanew = data;
-        } else {
-            datanew = JSON.parse(datanew)
+            promise.datanew = data;
         }
-                if (Faved === false){
-                    datanew.FavTaxi.push({
-                        favtaxiname:taxiname,
-                        favtaxiphone:phone,
-                        // favcheck: FavedNum
-                    })
-                    SetFavArr(datanew.FavTaxi);
-                    SetFaved(!Faved);
-                    setFavTaxiImg(taxiFavorited);
-            }else {
-                DeleteFav()
-            }
-        // console.log("test",datanew.FavTaxi);
-        AsyncStorage.setItem("storage",JSON.stringify(datanew));
-    };
+         else {
+            promise.datanew = JSON.parse(datanew)
+                   console.log("bro",datanew);
+         }  
+         console.log("bro",datanew);
+        } catch {
+            e=>console.log("erorrrrrrr", e.message)
+        }
+ 
+        return datanew;
+      
+    }
 
-    async function DeleteFav(index){
-        FavArr.splice(index, 1);
-        var data = await AsyncStorage.getItem("storage");
-        parsedelete = JSON.parse(data);
-        parsedelete.FavTaxi = FavArr;
-        await AsyncStorage.setItem("storage", JSON.stringify(parsedelete));
-        SetFaved(!Faved);
-        setFavTaxiImg(notFavorited);
+    async function checkFavTaxi(){
+        let c = 0;
+        datanew.FavTaxi.forEach((o) => {
+            if (taxiname === o.favTaxiName){
+                c++;
+            }
+        });
+        return c;
     }
-    async function CheckColor(){
-        var datanew = await AsyncStorage.getItem("storage");
-        if (!datanew){
+
+    function setColor(c){
+        if (c!=0){
+            setFavTaxiImg(taxiFavorited)
+        } else {
             setFavTaxiImg(notFavorited)
-            console.log("hi");
         }
-        else {
-            datanew = JSON.parse(datanew)
-        }
-        for (i=0;i<datanew.FavTaxi.length;i++){
-            if (datanew.FavTaxi[i].taxiname!== taxiname) {
-                setFavTaxiImg(taxiFavorited)
-                console.log("yo");
-                break;
-        }      
     }
-}
-    
-    useEffect(()=>{
-        CheckColor();
+
+    async function addRmFav(index){
+        if(favTaxiImg === taxiFavorited){
+            FavArr.splice(index, 1);
+            var data = await AsyncStorage.getItem("storage");
+            parsedelete = JSON.parse(data);
+            parsedelete.FavTaxi = FavArr;
+            await AsyncStorage.setItem("storage", JSON.stringify(FavArr));
+        } else {
+            var data = await AsyncStorage.getItem("storage");
+            storedata = JSON.parse(data);
+            storedata.FavTaxi.push({
+                favtaxiname: taxiname,
+                favtaxiphone:phone,
+            })
+            await AsyncStorage.setItem("storage", JSON.stringify(storedata));
+        }
+    }
+
+    useEffect(async()=>{
+        await checkData();
+        await checkFavTaxi()
+                setColor();
+      
+
+        
     },[]);
 
     // console.log(faved);
@@ -116,8 +123,7 @@ import Buttons from '../../styles/ButtonsStyles';
 
       <TouchableOpacity style={SelectedTaxiStyles.TaxiFavorite}
                         onPress={ async () => {
-
-               UpdateFavTaxi();
+                            addRmFav()
                             // console.log(faved);
                         }
                     }
