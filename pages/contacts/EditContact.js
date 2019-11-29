@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import { View, Text, AsyncStorage, Button, TouchableOpacity, SafeAreaView, Image, TextInput } from 'react-native';
+import { Alert, View, Text, AsyncStorage, Button, TouchableOpacity, SafeAreaView, Image, TextInput } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import data from '../../storage';
 
@@ -72,7 +72,7 @@ function EditContact(props) {
           </View> */}
 
 
-          {/* Edit */}
+          {/* Save */}
 
           <View style={EditContactStyles.EditNav}>
           <TouchableOpacity style={EditContactStyles.flexRow}>
@@ -129,7 +129,16 @@ function EditContact(props) {
         <Text style={Fonts.Delete}>Delete Contact</Text>
       </TouchableOpacity> */}
 
-        <TouchableOpacity style={Buttons.Delete}>
+        <TouchableOpacity style={Buttons.Delete} onPress= {()=>{
+            Alert.alert(
+              'Delete Contact',
+              'Are you sure you want to delete this contact?',
+              [
+                {text: 'No', onPress: () => console.warn('NO Pressed'), style: 'cancel'},
+                {text: 'Yes', onPress: () => {console.warn('YES Pressed'), Alert.alert('Contact Deleted', "Taking you back to Contacts page") } },
+              ]
+            )
+      }}>
               <Text style={Buttons.TextAltColor}>Delete Contact</Text>
           </TouchableOpacity>
 
