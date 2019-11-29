@@ -25,6 +25,7 @@ function Contacts(props) {
   const [position, setPosition] = useState({ latitude: 0, longitude: 0 });
 
 
+
   // USE EFFECT TO GET USER'S CURRENT LOCATION
   useEffect(()=>{
     Geolocation.requestAuthorization();
@@ -49,10 +50,10 @@ function Contacts(props) {
   async function GetContacts() {
     var data = await AsyncStorage.getItem("storage")
     data = JSON.parse(data);
-    console.log(data);
-    setContact(data.Contacts)
-    //console.log("Contacts",Contact.Contacts);
-  }
+    console.log('Data = ', data);
+    setContact(data.Contacts);
+  }  
+
 
     // DELETE CONTACT FUNCTION
 
@@ -70,7 +71,6 @@ function Contacts(props) {
 
   
   useEffect(() => {
-    
     GetContacts();
   }, [props.navigation.state.params]);
   //console.log("refresh", props.navigation.state.params);
@@ -133,7 +133,12 @@ function Contacts(props) {
                 <View>
 
                   <TouchableOpacity
-                  onPress={() => Actions.EditContact()}
+                  onPress={() => Actions.EditContact(
+                    {
+                      ...obj,
+  
+                  }
+                  )}
                   >
                   
                   <Swipeable renderRightActions={RightActions} ref={sref}>

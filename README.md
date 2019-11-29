@@ -14,3 +14,7 @@ yarn react-native link
 
 To install geolocation</br>
 npm install react-native-community/geolocation --save
+
+If Android Studio failed to build Gradle</br>
+npm i @react-native-community/cli-platform-android
+

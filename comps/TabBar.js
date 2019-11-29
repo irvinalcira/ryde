@@ -3,8 +3,6 @@ import React, {useState} from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 
-
-
 import TabBarStyles from '../styles/comps/TabBarStyles';
 
 function TabBar(){
@@ -27,8 +25,6 @@ function TabBar(){
 
     const [NavContactsImg, setNavContactsImg] = useState(require('../assets/icons/contact.png'));
     const [NavContactsTxt, setNavContactsTxt] = useState(TextColor);
-  
-
 
   return(
 
