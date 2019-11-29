@@ -56,7 +56,7 @@ export default function HomePage(){
       </View>
     ),
     favBus = (
-      <Text style={Fonts.FavButtonTextPressed}> Bus Stations </Text>
+      <Text style={Fonts.FavButtonTextPressed}>Bus Stations</Text>
     )
   }
 
