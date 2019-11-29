@@ -25,7 +25,8 @@ var Buttons = StyleSheet.create({
     textAlign:'center',
     justifyContent:'center',
     backgroundColor:"#0774AA",
-    borderRadius: 20
+    borderRadius: 20,
+    alignItems: "center"
   },
   TextAltColor: {
     color: "#b73b3b"
