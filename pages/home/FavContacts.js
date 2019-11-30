@@ -11,6 +11,8 @@ import AContactStyles from '../../styles/contacts/AddContactStyles';
 //COMPS IMPORT
 import ContactPopup from '../../comps/ContactPopup';
 import data from '../../storage';
+import AddPopup from '../../comps/AddPopup';
+import AddPopupStyles from '../../styles/comps/AddPopupStyles';
 
 function FavContacts(){
 
@@ -31,9 +33,6 @@ function FavContacts(){
   },[]);
 
   var showIcon = null;
-
-  
-  
 
   return(
       <View style={HomePageStyles.ContactBox}>
@@ -75,14 +74,18 @@ function FavContacts(){
                 )
               })
             }
-          <TouchableOpacity onPress={() => {setPopup(true)} }>
-              
-              {/* CONTACT ICON */}
-              <Text style={Fonts.ContactIconFont}> + </Text>
-              
-              {/* CONTACT NAME */}
-              <Text numberOfLines={1} style={[Fonts.ContactNameFonts, {textAlign:'center', fontSize:11, paddingHorizontal:15}]}>Add</Text>
-          </TouchableOpacity>
+
+      <AddPopup Popup={Popup} setPopup={setPopup} />
+      <TouchableOpacity onPress={()=>{setPopup(true)}}>
+          
+          {/* CONTACT ICON */}
+          <View style={HomePageStyles.ContactIconBox}>
+             <Text style={Fonts.ContactIconFont}> + </Text>
+          </View>
+          
+          {/* CONTACT NAME */}
+          <Text numberOfLines={1} style={[Fonts.ContactNameFonts, {textAlign:'center', fontSize:11, paddingHorizontal:15}]}>Add</Text>
+      </TouchableOpacity>
 
     </View>
 
