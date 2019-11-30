@@ -18,7 +18,7 @@ import Buttons from '../../styles/ButtonsStyles';
     var notFavorited = require('../../assets/icons/favorite2.png');
     var taxiFavorited = require('../../assets/icons/favorite.png')
 
-    const [ FavedNum, SetFavedNum ] = useState(1);
+    // const [ FavedNum, SetFavedNum ] = useState(1);
     const [ Faved, SetFaved ] = useState(false);
     const [FavArr,SetFavArr] = useState ([]);
     const [ favTaxiImg, setFavTaxiImg ] = useState(notFavorited);
@@ -38,23 +38,26 @@ import Buttons from '../../styles/ButtonsStyles';
                         // favcheck: FavedNum
                     })
                     SetFavArr(datanew.FavTaxi);
-                    SetFaved(!Faved);
+                    SetFaved(true);
                     setFavTaxiImg(taxiFavorited);
             }else {
                 DeleteFav()
             }
-        // console.log("test",datanew.FavTaxi);
+        console.log("test",datanew.FavTaxi);
         AsyncStorage.setItem("storage",JSON.stringify(datanew));
     };
 
-    async function DeleteFav(index){
-        FavArr.splice(index, 1);
+    async function DeleteFav(){
         var data = await AsyncStorage.getItem("storage");
         parsedelete = JSON.parse(data);
-        parsedelete.FavTaxi = FavArr;
+        var favFilter = parsedelete.FavTaxi.filter((o,i)=>{
+            return o.favtaxiname !== taxiname;
+        });
+        parsedelete.FavTaxi = favFilter;
         await AsyncStorage.setItem("storage", JSON.stringify(parsedelete));
-        SetFaved(!Faved);
+        SetFaved(false);
         setFavTaxiImg(notFavorited);
+        console.log(favFilter);
     }
     async function CheckColor(){
         var datanew = await AsyncStorage.getItem("storage");
@@ -65,16 +68,23 @@ import Buttons from '../../styles/ButtonsStyles';
         else {
             datanew = JSON.parse(datanew)
         }
-        for (i=0;i<datanew.FavTaxi.length;i++){
-            if (datanew.FavTaxi[i].taxiname!== taxiname) {
-                setFavTaxiImg(taxiFavorited)
-                console.log("yo");
-                break;
-        }      
+        var favFilter = datanew.FavTaxi.filter((o,i)=>{
+            return o.favtaxiname === taxiname;
+        });
+        if(favFilter.length>0){
+            setFavTaxiImg(taxiFavorited)
+            SetFaved(true);
+        } else {
+            //its not in favourites.
+            setFavTaxiImg(notFavorited)
+            SetFaved(false);
+        }
+        console.log("filter",favFilter)
+ 
     }
-}
     
     useEffect(()=>{
+
         CheckColor();
     },[]);
 
