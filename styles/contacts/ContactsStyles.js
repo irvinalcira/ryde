@@ -10,7 +10,7 @@ import { red, white } from 'ansi-colors';
 
 var ContactsStyles = StyleSheet.create({
 Container: {
-
+  backgroundColor:'#f4f4f4',
     padding: 15,
     marginTop: 20,
     height:100,
@@ -20,7 +20,8 @@ TitleCont: {
   flexDirection: "row",
   justifyContent: "center",
   alignItems: "center",
-  marginBottom: 40,
+  // marginBottom: 40,
+  
 },
 TitleImg: {
   display: "flex",
@@ -38,7 +39,7 @@ UserContainer: {
   display: "flex",
   alignItems:'center',
   flexDirection: "row",
-  backgroundColor:'#eae9ef'
+  backgroundColor:'#f4f4f4' 
 },
 
 ImageCont: {

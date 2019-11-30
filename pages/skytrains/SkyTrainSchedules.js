@@ -11,7 +11,7 @@ export default function SkyTrainSchedules(){
     <SafeAreaView style={SkyTrainScheduleStyles.Container}>
       <View style={SkyTrainScheduleStyles.Container}>
         
-        <Text style={Fonts.Title}>SkyTrain Schedules</Text>
+        <Text style={Fonts.Title}>SkyTrains</Text>
         <Text style={Fonts.Heading}>Find A SkyTrain Station</Text>
         <Text style={Fonts.Body}>Search for a SkyTrain station to see its schedules</Text>
 

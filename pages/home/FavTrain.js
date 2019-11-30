@@ -12,7 +12,7 @@ export default function FavTrain(){
   return(
     <View style={FavStyles.CompBox}>
 
-      <Text style={Fonts.Body}>
+      <Text style={[Fonts.Body, {marginTop:0}]}>
         Start by adding your favorite station for quick access.
         You can edit, add, or remove favorites anytime.
       </Text>

@@ -1,5 +1,5 @@
 import React,{Component,useState,useEffect} from 'react';
-import { View, Text, SafeAreaView, StatusBar, TouchableOpacity, Image, ScrollView, AsyncStorage } from 'react-native';
+import { View, Alert, Text, Linking, SafeAreaView, StatusBar, TouchableOpacity, Image, ScrollView, AsyncStorage } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import data from '../../storage.json';
 import Communications from 'react-native-communications';
@@ -14,6 +14,10 @@ import Buttons from '../../styles/ButtonsStyles';
     // console.log(phone);
 
     var stringPhone = JSON.stringify(phone);
+    var goToWebsite = null;
+    var stringWebsite = JSON.stringify(website);
+
+    console.log(stringWebsite)
 
     var notFavorited = require('../../assets/icons/favorite2.png');
     var taxiFavorited = require('../../assets/icons/favorite.png')
@@ -90,6 +94,18 @@ import Buttons from '../../styles/ButtonsStyles';
 
     // console.log(faved);
 
+    function Website(){
+        if (website === 'No Website Available'){  
+            goToWebsite = Alert.alert('No Website Available', "This Taxi Company does not have a Website");
+            
+        } else {
+            goToWebsite = Communications.web('https://' + website)
+        }
+    }
+
+    
+
+
 
     return (
         
@@ -149,7 +165,9 @@ import Buttons from '../../styles/ButtonsStyles';
   
       <View style={SelectedTaxiStyles.InfoContainer}>
       <Text style={Fonts.TaxiHeading}>Website</Text>
-      <Text style={Fonts.Body}>{website}</Text>
+      <TouchableOpacity onPress = {() => Website()}>
+      <Text style={[Fonts.Body, {textDecorationLine: 'underline' }]}>{website}</Text>
+      </TouchableOpacity>
       </View>
   
       <View style={SelectedTaxiStyles.InfoContainer}>

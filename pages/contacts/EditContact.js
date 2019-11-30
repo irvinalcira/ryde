@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import { View, Text, AsyncStorage, Button, TouchableOpacity, SafeAreaView, Image, TextInput } from 'react-native';
+import { Alert, View, Text, AsyncStorage, Button, TouchableOpacity, SafeAreaView, Image, TextInput } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import data from '../../storage';
 
@@ -13,14 +13,14 @@ import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
 import EditContactStyles from '../../styles/contacts/EditContactStyles';
 
-function EditContact(obj) {
+function EditContact(props) {
 
   const [showPic, SetShowPic] = useState(false);
   const [Photo,SetPhoto] = useState("");
   const [picText, SetPickText] = useState("Edit Profile Picture");
-  const [FName,setFName] = useState(obj.firstname);
-  const [LName,setLName] = useState(obj.lastname);
-  const [PNumber,setPNumber] = useState(obj.phone);
+  const [FName,setFName] = useState('');
+  const [LName,setLName] = useState('');
+  const [PNumber,setPNumber] = useState('');
 
  handleChoosePhoto = () => {
    const options = {
@@ -41,23 +41,6 @@ function EditContact(obj) {
      }
    });
  };
-
-   // GETTING CONTACTS USING ASYNC
-   async function EditContact() {
-    var data = await AsyncStorage.getItem("storage")
-    data = JSON.parse(data);
-    console.log(data);
-    setContact(data.Contacts)
-    data.Contacts[i].push({
-
-      firstname:FName,
-      lastname: LName,
-      phone: PNumber
-    }
-    )
-    // editedContact =
-    //console.log("Contacts",Contact.Contacts);
-  }
 
   return (
 
@@ -84,16 +67,16 @@ function EditContact(obj) {
 
 
           {/* Title */}
-          <View style={EditContactStyles.TitleNav}>
+          {/* <View style={EditContactStyles.TitleNav}>
           <Text style={Fonts.NavTitle}>Edit Contact</Text>
-          </View>
+          </View> */}
 
 
-          {/* Edit */}
+          {/* Save */}
 
           <View style={EditContactStyles.EditNav}>
           <TouchableOpacity style={EditContactStyles.flexRow}>
-          <Text style={[Fonts.NavLink, EditContactStyles.EditText]} onPress={ () => { EditContact() }}>Save</Text>
+          <Text style={[Fonts.NavLink, EditContactStyles.EditText]} onPress={ async () => {}}>Save</Text>
                   </TouchableOpacity>
           </View>
 
@@ -133,18 +116,34 @@ function EditContact(obj) {
 
       </View>
 
-
-      <View style={EditContactStyles.Spacer}></View>
+{/* 
+      <View style={EditContactStyles.Spacer}></View> */}
 
 
       {/* Delete */}
-      <View style={EditContactStyles.FWDivider}></View>
-      <View>
-      <TouchableOpacity>
+
+      {/* <View style={EditContactStyles.FWDivider}></View> */}
+      <View style={{alignItems: "center"}}>
+     
+      {/* <TouchableOpacity>
         <Text style={Fonts.Delete}>Delete Contact</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
+
+        <TouchableOpacity style={Buttons.Delete} onPress= {()=>{
+            Alert.alert(
+              'Delete Contact',
+              'Are you sure you want to delete this contact?',
+              [
+                {text: 'No', onPress: () => console.warn('NO Pressed'), style: 'cancel'},
+                {text: 'Yes', onPress: () => {console.warn('YES Pressed'), Alert.alert('Contact Deleted', "Taking you back to Contacts page") } },
+              ]
+            )
+      }}>
+              <Text style={Buttons.TextAltColor}>Delete Contact</Text>
+          </TouchableOpacity>
+
       </View>
-      <View style={EditContactStyles.FWDivider}></View>
+      {/* <View style={EditContactStyles.FWDivider}></View> */}
 
   </View>
 </SafeAreaView>

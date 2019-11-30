@@ -2,8 +2,10 @@ import {StyleSheet} from 'react-native';
 
 var EditContactStyles = StyleSheet.create({
   Container: {
-      flex:1,
-      padding: 15,
+    flex:1,
+    padding:15,
+    paddingTop: 10,
+    backgroundColor:'#f4f4f4' 
   },
   TopBar: {
     flexDirection: 'row',
@@ -28,6 +30,7 @@ var EditContactStyles = StyleSheet.create({
   },
   EditNav: {
     flex: 1,
+    alignItems: "center"
   },
   EditText: {
     justifyContent: "center",

@@ -43,7 +43,7 @@ async function fetchRouteData() {
       )
      }
      else {
-  
+       
       Actions.BusLastRoute({
         newdata:newdata,
         StopNumberInput:StopNumberInput
@@ -61,6 +61,9 @@ async function fetchRouteData() {
         <TextInput
           style={Fonts.Inp}
           placeholder="Example: 130, 125 or 555"
+
+          keyboardType={'numeric'}
+          maxLength={3}
           placeholderTextColor='gray'
           onChangeText={(Text) => setRouteNumberInput(Text)}
         />
@@ -77,6 +80,10 @@ async function fetchRouteData() {
           style={Fonts.Inp}
           placeholder="Example: 60212"
           placeholderTextColor='gray'
+
+          keyboardType={'numeric'}
+          maxLength={5}
+
           onChangeText={(Text) => setStopNumberInput(Text)}
         />
         <TouchableOpacity style={Buttons.Alt} onPress={() =>{

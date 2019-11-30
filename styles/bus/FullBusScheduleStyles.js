@@ -13,7 +13,7 @@ var FullBusStyles =StyleSheet.create({
         
     },
     TopView:{
-        flex:0.45,
+        flex:0.55,
         backgroundColor:"#3971B3",
         padding: 15,
     },
@@ -78,11 +78,15 @@ var FullBusStyles =StyleSheet.create({
     },  
     TimeOuterCont:{
       flexDirection:'row',
-      justifyContent:"space-between"
+      justifyContent:"space-between",
+      alignItems:'center',
+      // backgroundColor:'green',
+      height:40
     },
     TimeInnerCont:{
       flexDirection:'row',
       justifyContent:"center",
+      alignItems:'center'
     },
 
 

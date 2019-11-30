@@ -27,33 +27,33 @@ function Contacts(props) {
 
 
   // USE EFFECT TO GET USER'S CURRENT LOCATION
-  // useEffect(()=>{
-  //   Geolocation.requestAuthorization();
-  //   Geolocation.getCurrentPosition(
-  //     pos => {
-  //       setPosition({
-  //         latitude: pos.coords.latitude,
-  //         longitude: pos.coords.longitude
-  //       });
-  //     }
-  //   );
-  // },[]); 
+  useEffect(()=>{
+    Geolocation.requestAuthorization();
+    Geolocation.getCurrentPosition(
+      pos => {
+        setPosition({
+          latitude: pos.coords.latitude,
+          longitude: pos.coords.longitude
+        });
+      }
+    );
+  },[]); 
 
   
   // SETTING THE GOOGLE MAPS LINK TO INCLUDE USER'S LOCATION 
-  // latitude = position.latitude;
-  // longitude = position.longitude;
-  // var location = 'https://www.google.com/maps/place/' + latitude + '+' + longitude + '/?entry=im'
+  latitude = position.latitude;
+  longitude = position.longitude;
+  var location = 'https://www.google.com/maps/place/' + latitude + '+' + longitude + '/?entry=im'
 
 
   // GETTING CONTACTS USING ASYNC
   async function GetContacts() {
     var data = await AsyncStorage.getItem("storage")
     data = JSON.parse(data);
-    console.log(data);
-    setContact(data.Contacts)
-    //console.log("Contacts",Contact.Contacts);
-  }
+    console.log('Data = ', data);
+    setContact(data.Contacts);
+  }  
+
 
     // DELETE CONTACT FUNCTION
 
@@ -74,7 +74,7 @@ function Contacts(props) {
   //console.log("refresh", props.navigation.state.params);
 
   return (
-    <SafeAreaView style={{flex:1}}>
+    <SafeAreaView style={{flex:1, backgroundColor:'#f4f4f4' }}>
       <View style={ContactsStyles.Container}>
 
         {/* Add Popup Component */}
@@ -133,8 +133,9 @@ function Contacts(props) {
                   <TouchableOpacity
                   onPress={() => Actions.EditContact(
                     {
-                      ...obj
-                    }
+                      ...obj,
+  
+                  }
                   )}
                   >
                   

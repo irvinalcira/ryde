@@ -1,16 +1,19 @@
 import {StyleSheet} from 'react-native';
+import { underline } from 'ansi-colors';
 
 var Fonts = StyleSheet.create({
 
 // General  
 Title: {
   fontSize: 40,
-  fontFamily: "Assistant-Bold"
+  fontFamily: "Assistant-Bold",
+  color: "#3971b3"
 },
 Heading: {
   fontSize: 20,
-  marginTop: 40,
-  fontFamily: "Assistant-Bold"
+  marginTop: 20,
+  fontFamily: "Assistant-Bold",
+  color: "#3d3d3d"
 },
 Body: {
   marginTop: 10,
@@ -22,7 +25,8 @@ Body: {
 // Taxis
 TaxiTitle: {
   fontSize: 28,
-  fontFamily: "Assistant-Bold"
+  fontFamily: "Assistant-Bold",
+  color: "#3971b3"
 },
 TaxiHeading: {
   fontSize:18,
@@ -70,15 +74,13 @@ InpLabel: {
   fontFamily:"Assistant-Regular"
 },
 Inp: {
-  justifyContent: "flex-start",
-  alignItems: "center",
-  marginTop: 5,
+  marginTop: 15,
   height:45,
   padding:10,
   color:'black',
   backgroundColor: "white",
-  borderColor: "#D6D6D6",
-  borderWidth:1
+  borderBottomColor: "#D6D6D6",
+  borderBottomWidth:1
 },
 
 
@@ -114,23 +116,32 @@ BusNum: {
   fontFamily: "Assistant-Bold"
 },
 BusName: {
-  color: "white",
+  color: "#ededed",
   fontSize: 20,
   fontFamily: "Assistant-SemiBold",
-  marginLeft: 10
+},
+
+StreetName: {
+  color: "white",
+  fontSize: 16,
+  fontFamily: "Assistant-Regular",
+},
+
+Min: {
+  fontSize: 20,
+  fontFamily: "Assistant-Bold",
+
 },
 Time: {
-  fontSize: 20,
-  fontFamily: "Assistant-SemiBold",
-  marginRight:10,
-  paddingBottom: 10,
-},
-Time2: {
   fontSize: 24,
   fontFamily: "Assistant-Bold",
-  paddingBottom: 10,
-  marginRight:2,
 },
+
+LeaveTime: {
+  fontSize: 20,
+  fontFamily: "Assistant-Regular",
+},
+
 LineName: {
   marginTop: 10,
   color: "white",
@@ -234,14 +245,16 @@ ContactNameFonts:{
 
 FavButtonText:{
   color:"#999999",
+  fontSize: 16,
   fontFamily: "Assistant-Bold"
 },
 
 FavButtonTextPressed:{
-  color:'#000000',
+  color:'#063C5C',
+  fontSize: 16,
   fontFamily: "Assistant-Bold",
-  borderBottomWidth: 1,
-  borderBottomColor: '#235CA3'
+  borderBottomWidth: 4,
+  borderBottomColor: '#235CA3',
 }
 
 })
