@@ -37,6 +37,8 @@ function FavContacts(){
 
   return(
       <View style={HomePageStyles.ContactBox}>
+        
+        <View style={[HomePageStyles.ContactList, {width:95}]}>
 
       {
         favContact.map((obj,i)=>{
@@ -56,7 +58,7 @@ function FavContacts(){
             }
           
           return (
-            <View style={[HomePageStyles.ContactList, {width:95}]}>
+            <View>
 
             {/* CONTACT CALL/MESSAGE POPUP */}
             <ContactPopup Popup={Popup} setPopup={setPopup} { ...obj } />
@@ -83,6 +85,8 @@ function FavContacts(){
               {/* CONTACT NAME */}
               <Text numberOfLines={1} style={[Fonts.ContactNameFonts, {textAlign:'center', fontSize:11, paddingHorizontal:15}]}>Add</Text>
           </TouchableOpacity>
+          
+          </View>
 
     </View>
 
