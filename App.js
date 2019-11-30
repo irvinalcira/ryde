@@ -22,9 +22,9 @@ function App(){
 
         <StatusBar barStyle="dark-content" />
 
-        {/* <StartPage/> */}
+        <StartPage/>
 
-          <View style={{flex:1}}>
+          {/* <View style={{flex:1}}>
             <Route />
           </View> 
           
@@ -32,7 +32,7 @@ function App(){
           <TabBar/>
           <SafeAreaView style={{backgroundColor:'#ffffff'}}>
           </SafeAreaView> 
-           </View>
+           </View> */}
           
       </View>
 
