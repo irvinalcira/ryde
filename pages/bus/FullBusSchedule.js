@@ -18,27 +18,14 @@ let Min;
     var datanew = await AsyncStorage.getItem("storage");
     if(!datanew){
       datanew = data;
-      datanew.FavBus.push({
-        favbusstopnumber:StopNumber,
-        favbusroutenumber:RouteNo,
-        favbusroutename: RouteName,
-        favbustime:Schedules[0].ExpectedCountdown
-      })
     } else {
-      datanew = JSON.parse(datanew)
-      for(i=0;i<datanew.FavBus.length;i++){
-
-        if(datanew.FavBus[i].favbusstopnumber !== StopNumber){
-          datanew.FavBus.push({
+      datanew = JSON.parse(datanew)}
+        datanew.FavBus.push({
             favbusstopnumber:StopNumber,
             favbusroutenumber:RouteNo,
             favbusroutename: RouteName,
             favbustime:Schedules[0].ExpectedCountdown,
           })
-        }
-        break;
-      }
-    }
       console.log("test",datanew.FavBus);
       AsyncStorage.setItem("storage",JSON.stringify(datanew));
     };

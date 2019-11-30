@@ -15,7 +15,6 @@ import Buttons from '../../styles/ButtonsStyles';
 
 export default function FavBus(){
   let Min;
-
   const [ favBus, setFavBus ] = useState([]);
 
 async function GetFavBus() {
@@ -39,14 +38,14 @@ useEffect(() => {
       </Text> */}
 
       {
-        favBus.map((obj, i) => {
+        favBus.map((obj,i) => {
           if (obj.ExpectedCountdown===0||obj.ExpectedCountdown===1){
             Min = ""
             obj.ExpectedCountdown="Now";
-           
           } else {
             Min = "Min"
           }
+
           return(
 
 
