@@ -28,7 +28,7 @@ function Contacts(props) {
 
   // USE EFFECT TO GET USER'S CURRENT LOCATION
   useEffect(()=>{
-    Geolocation.requestAuthorization();
+    // Geolocation.requestAuthorization();
     Geolocation.getCurrentPosition(
       pos => {
         setPosition({

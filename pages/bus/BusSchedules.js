@@ -40,7 +40,7 @@ async function fetchRouteData() {
       // console.log("fetch", newdata);
      }
      else {
-      console.log("fetch", newdata[0].Schedules);
+      // console.log("fetch", newdata[0].Schedules);
       Actions.BusLastRoute({
         newdata:newdata,
         StopNumberInput:StopNumberInput

@@ -31,6 +31,8 @@ function FavContacts(){
   },[]);
 
   var showIcon = null;
+
+  
   
 
   return(
@@ -73,6 +75,14 @@ function FavContacts(){
                 )
               })
             }
+          <TouchableOpacity onPress={() => {setPopup(true)} }>
+              
+              {/* CONTACT ICON */}
+              <Text style={Fonts.ContactIconFont}> + </Text>
+              
+              {/* CONTACT NAME */}
+              <Text numberOfLines={1} style={[Fonts.ContactNameFonts, {textAlign:'center', fontSize:11, paddingHorizontal:15}]}>Add</Text>
+          </TouchableOpacity>
 
     </View>
 
