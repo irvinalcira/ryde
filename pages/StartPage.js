@@ -13,7 +13,9 @@ import Fonts from '../styles/FontsStyles';
 import Buttons from '../styles/ButtonsStyles';
 
 
-export default function StartPage(){    
+export default function StartPage(props){  
+    
+    console.log(props)
 
     Animatable.initializeRegistryWithDefinitions({
         logo: {
@@ -59,8 +61,6 @@ export default function StartPage(){
             alert('You must enter a name')
           }  else {
             await UpdateUserName(); 
-            Actions.reset('HomePage'); 
-        
           }
     }
     // useEffect(() => {
@@ -74,17 +74,17 @@ export default function StartPage(){
 
                 {/* RYDE */}
                 
-                    <Animatable.View animation="logo" easing={'ease-in-out'} iterationCount={1}> 
+                    <Animatable.View animation="logo" duration={800} easing={'ease-in-out'} iterationCount={1}> 
                         {/*  LOGO */}
                         <View style={StartPageStyles.Logo}>
                             <Image style={{width: 150, height: 150}} source={require('../assets/icons/ryde-icon.png')}/>
                         </View>
                         {/* RYDE LOGO TEXT */}
-                        <Animatable.View style={StartPageStyles.Title} animation='zoomIn' duration={1000} delay={1000}>
+                        <View style={StartPageStyles.Title}>
                             <Text style={Fonts.Title}>Ryde</Text>
-                        </Animatable.View>
+                        </View>
                         {/* SLOGAN */}
-                        <Animatable.View animation='zoomIn' delay={1850}>
+                        <Animatable.View animation='zoomIn' delay={0}>
                             <View style={[StartPageStyles.Body, {alignItems:'center'}]}>
                                 <Text style ={[Fonts.Body, {marginBottom:15}]}>
                                 Your All in One Transportation App
@@ -97,7 +97,7 @@ export default function StartPage(){
 
                 {/* TEXT INPUT AND BUTTON */}
 
-                    <Animatable.View style={{alignItems:'center', marginTop:50}} animation='fadeInDown' delay={3000}>
+                    <Animatable.View style={{alignItems:'center', marginTop:50}} animation='fadeInDown' delay={1000}>
                         <TextInput style={[StartPageStyles.Inp]} 
                             placeholder="What's your name?" 
                             placeholderTextColor="grey"
@@ -105,9 +105,9 @@ export default function StartPage(){
                         />    
                         </Animatable.View>
 
-                    <Animatable.View style={{marginTop:50,marginBottom:50}}animation='flipInX' delay={3000}>
+                    <Animatable.View style={{marginTop:50,marginBottom:50}}animation='flipInX' delay={1000}>
 
-                        <TouchableOpacity style={StartPageStyles.Button} onPress={ async () => {  checkName()    } }>
+                        <TouchableOpacity style={StartPageStyles.Button} onPress={ async () => {  checkName()  } }>
                             <Text style={Buttons.MainText}>Get Started</Text>
                         </TouchableOpacity>
                     </Animatable.View>

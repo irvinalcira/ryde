@@ -10,14 +10,12 @@ import AddContact from './pages/contacts/AddContact';
 import EmptyContacts from './pages/contacts/EmptyContacts';
 
 import StartPage from './pages/StartPage';
-import Main from './Main';
 
 import Route from './pages/Route'
 import StartPageStyles from './styles/StartPageStyles';
 
-function App(){
+function Main(){
   console.disableYellowBox = true;
-  AppView = null;
 
   // USER NAME DISPLAY USE STATE
   const [ Name, SetUserName ] = useState(null);
@@ -33,36 +31,15 @@ function App(){
     useEffect(() => {
      GetUserName();
 
-
-
      // UN-COMMENT THE CODE BELOW TO RESET USER NAME TO NOTHING
     //  AsyncStorage.clear()
   
   },[]);
 
-
-
-    if (Name === null){
-      AppView =  <StartPage/>
-    }  else {    
-      AppView = 
-          <Main />
-    }
-
-
   return (
+      <View style={{flex:1}}>
 
-      <View style={[AppStyles.app, {backgroundColor:'#f4f4f4'}]}>
-
-        <StatusBar barStyle="dark-content" />
-
-        
-
-        { AppView }
-
-        {/* <StartPage/> */}
-
-          {/* <View style={{flex:1}}>
+          <View style={{flex:1}}>
             <Route />
           </View> 
           
@@ -70,12 +47,10 @@ function App(){
           <TabBar/>
           <SafeAreaView style={{backgroundColor:'#ffffff'}}>
           </SafeAreaView> 
-           </View> */}
-          
-      </View>
-
+           </View> 
+    </View>
   )
 
 };
- export default App;
+ export default Main;
 // export default from './storybook';
