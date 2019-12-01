@@ -25,6 +25,12 @@ export default function FavBus(){
     var parseFavBus = JSON.parse(datanew);
 
     setFavBus(parseFavBus.FavBus);
+    var favFilter = parseFavBus.FavBus.filter((o,i)=>{
+      return o.favbusstopno === 60980;
+    });
+    console.log("bro",favFilter)
+    // var response = await fetch('https://irvinalcira.com/rydedatabase/StopNumber.php?stopnum=' + StopNumberInput);
+    //  newdata = await response.json();
 
   }
 

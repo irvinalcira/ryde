@@ -35,7 +35,6 @@ let Min;
           favbusrouteno: RouteNo,
           favbusstopno: StopNumber,
           favbusroutename: RouteName,
-          favbustime: Schedules[0].ExpectedCountdown,
         })
         SetFavArr(datanew.FavBus);
         SetBusFaved(true);
@@ -43,21 +42,22 @@ let Min;
       } else {
         DeleteBusFav()
       }
-      console.log("test",datanew.FavBus);
+      console.log("test",datanew);
       AsyncStorage.setItem("storage",JSON.stringify(datanew));
   };
 
   async function DeleteBusFav(){
-    var data = await AsyncStorage.getItem("storage");
-    parsedelete = JSON.parse(data);
+    var newdata = await AsyncStorage.getItem("storage");
+    parsedelete = await JSON.parse(newdata);
+    console.log("hi",parsedelete);
     var favBusFilter = parsedelete.FavBus.filter((o,i)=>{
-      return o.favbusrouteno !== RouteNo||o.favbusstopno !== StopNumber;
+      return o.favbusrouteno !== RouteNo
     });
     parsedelete.FavBus = favBusFilter;
     await AsyncStorage.setItem("storage", JSON.stringify(parsedelete));
     SetBusFaved(false);
     setFavBusImg(notFavorited);
-    console.log(favBusFilter);
+
   }
   
   async function CheckBusColor(){
@@ -65,10 +65,10 @@ let Min;
     if (!datanew){
       setFavBusImg(notFavorited);
     } else {
-      datamew = JSON.parse(datanew)
+      datanew = await JSON.parse(datanew)
     }
     var favBusFilter = datanew.FavBus.filter((o,i)=>{
-      return o.favbusrouteno === RouteNo||o.favbusstopno === StopNumber;
+      return o.favbusrouteno === RouteNo
     });
     if(favBusFilter.length>0){
       setFavBusImg(busFavorited)
@@ -80,7 +80,6 @@ let Min;
   }
 
   useEffect(() => {
-
     CheckBusColor();
   }, []);
 
