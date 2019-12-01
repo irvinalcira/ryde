@@ -39,7 +39,7 @@ let Min;
           favbusrouteno: RouteNo,
           favbusstopno: StopNumber,
           favbusroutename: RouteName,
-          favbusschedule: Schedules.ExpectedCountdown,
+          favbusschedule: Schedules[0].ExpectedCountdown,
           favbusschedule2: Schedules[0].ExpectedLeaveTime,
         })
         SetFavArr(datanew.FavBus);
