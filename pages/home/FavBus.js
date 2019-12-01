@@ -15,6 +15,7 @@ import Buttons from '../../styles/ButtonsStyles';
 
 export default function FavBus( {RouteNo, RouteName, Schedules, StopNumber} ){
 
+  const [, forceUpdate] = useState();
   let Min;
 
   const [ favBus, setFavBus ] = useState([]);
@@ -56,6 +57,12 @@ export default function FavBus( {RouteNo, RouteName, Schedules, StopNumber} ){
     GetFavBus();
 
   },[]);
+    
+  let hour;
+  let extramin;
+  useEffect(() => {
+    setTimeout(forceUpdate, 2000);
+  }, []);
 
   var FavoriteBus = null;
 
@@ -95,12 +102,13 @@ export default function FavBus( {RouteNo, RouteName, Schedules, StopNumber} ){
         RightTimeFont = 'Assistant-Bold'
       }
 
-      if (obj.ExpectedCountdown <= 1){
+      if (obj.favbusschedule <= 1){
         Min = ""
-        obj.ExpectedCountdown="Now";
+        obj.favbusschedule="Now";
       } else {
         Min = "Min"
       }
+      var Space =  obj.favbusschedule2.split(" ", 1);
 
       return(
 
