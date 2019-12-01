@@ -68,7 +68,7 @@ let Min;
       datamew = JSON.parse(datanew)
     }
     var favBusFilter = datanew.FavBus.filter((o,i)=>{
-      return o.favbusrouteno !== RouteNo||o.favbusstopno !== StopNumber;
+      return o.favbusrouteno === RouteNo||o.favbusstopno === StopNumber;
     });
     if(favBusFilter.length>0){
       setFavBusImg(busFavorited)
@@ -108,7 +108,7 @@ let Min;
                <Text style={[Fonts.BusRoute, FullBusStyles.NavTitle]}>{StopNumber}</Text>
                <TouchableOpacity style={{justifyContent:'center', alignItems:'center', flex:1, flexDirection:'row-reverse'}}
               onPress={ async() => {
-                UpdateFavBus()
+                UpdateFavBus();
                 console.log(favBus);
               }}>
 

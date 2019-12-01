@@ -28,6 +28,28 @@ export default function FavBus(){
 
   }
 
+  async function fetchStopData(){
+    var data = {
+      "StopNumber": StopNumberInput
+    }
+   var response = await fetch('https://irvinalcira.com/rydedatabase/StopNumber.php?stopnum=' + StopNumberInput);
+     newdata = await response.json();
+     if (newdata.length===undefined){
+      Alert.alert(
+        'No Buses Found'
+      )
+      // console.log("fetch", newdata);
+     }
+     else {
+      // console.log("fetch", newdata[0].Schedules);
+      Actions.BusLastRoute({
+        newdata:newdata,
+        StopNumberInput:StopNumberInput
+      });
+     }
+   
+  }
+
   useEffect(() => {
     GetFavBus();
 
@@ -54,6 +76,22 @@ export default function FavBus(){
   { 
   
     favBus.map((obj, i) => {
+
+      var LeftTimeColor = '#363636';
+      var LeftTimeSize = 22;
+      var RightTimeSize = 16;
+      var RightTimeFont = 'Assistant-Regular'
+
+      if (i != 0) {
+        LeftTimeColor = 'gray'
+        LeftTimeSize = 19;
+        RightTimeSize = 15;
+      } else {
+        LeftTimeColor = '#3971B3'
+        LeftTimeSize = 23;
+        RightTimeSize = 16
+        RightTimeFont = 'Assistant-Bold'
+      }
 
       if (obj.ExpectedCountdown===0||obj.ExpectedCountdown===1){
         Min = ""
@@ -95,8 +133,8 @@ export default function FavBus(){
 
                       {/* Stop Number */}
                       <View style={FavStyles.TimeCont}>
-                        <Text style={Fonts.EstNum}>{obj.favbustime}</Text>     
-                        <Text style={[Fonts.EstTime, {marginTop: -5}]}>{Min}</Text>
+                        <Text style={[Fonts.Time, {color:LeftTimeColor, fontSize: LeftTimeSize}]}> {obj.ExpectedCountdown}</Text>
+                         <Text style={[Fonts.Min, {color:LeftTimeColor, fontSize: LeftTimeSize}]}> {Min} </Text>
                       </View>
 
                     </View>
