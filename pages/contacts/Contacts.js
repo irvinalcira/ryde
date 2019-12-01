@@ -68,8 +68,6 @@ function Contacts(props) {
       GetContacts();
       console.log(Contact);
     }
-
-  
   useEffect(() => {
     GetContacts();
   }, [props.navigation.state.params]);

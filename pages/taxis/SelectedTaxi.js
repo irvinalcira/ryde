@@ -19,31 +19,80 @@ import Buttons from '../../styles/ButtonsStyles';
 
     console.log(stringWebsite)
 
-    const [ favTaxi, setFavTaxi ] = useState([]);
-    const [ faved, setFaved ] = useState("false");
-    const [ favTaxiImg, setFavTaxiImg ] = useState(require('../../assets/icons/favorite2.png'));
+    var notFavorited = require('../../assets/icons/favorite2.png');
+    var taxiFavorited = require('../../assets/icons/favorite.png')
+
+    // const [ FavedNum, SetFavedNum ] = useState(1);
+    const [ Faved, SetFaved ] = useState(false);
+    const [FavArr,SetFavArr] = useState ([]);
+    const [ favTaxiImg, setFavTaxiImg ] = useState(notFavorited);
   
 
     async function UpdateFavTaxi(){
-
         var datanew = await AsyncStorage.getItem("storage");
         if(!datanew){
             datanew = data;
         } else {
             datanew = JSON.parse(datanew)
         }
-                datanew.FavTaxi.push({
-                    favtaxiname:taxiname,
-                    favtaxiphone:phone,
-                    state: faved
-                })
-    
-        
+                if (Faved === false){
+                    datanew.FavTaxi.push({
+                        favtaxiname:taxiname,
+                        favtaxiphone:phone,
+                        // favcheck: FavedNum
+                    })
+                    SetFavArr(datanew.FavTaxi);
+                    SetFaved(true);
+                    setFavTaxiImg(taxiFavorited);
+            }else {
+                DeleteFav()
+            }
         console.log("test",datanew.FavTaxi);
         AsyncStorage.setItem("storage",JSON.stringify(datanew));
- 
     };
 
+    async function DeleteFav(){
+        var data = await AsyncStorage.getItem("storage");
+        parsedelete = JSON.parse(data);
+        var favFilter = parsedelete.FavTaxi.filter((o,i)=>{
+            return o.favtaxiname !== taxiname;
+        });
+        parsedelete.FavTaxi = favFilter;
+        await AsyncStorage.setItem("storage", JSON.stringify(parsedelete));
+        SetFaved(false);
+        setFavTaxiImg(notFavorited);
+        console.log(favFilter);
+    }
+    async function CheckColor(){
+        var datanew = await AsyncStorage.getItem("storage");
+        if (!datanew){
+            setFavTaxiImg(notFavorited)
+            console.log("hi");
+        }
+        else {
+            datanew = JSON.parse(datanew)
+        }
+        var favFilter = datanew.FavTaxi.filter((o,i)=>{
+            return o.favtaxiname === taxiname;
+        });
+        if(favFilter.length>0){
+            setFavTaxiImg(taxiFavorited)
+            SetFaved(true);
+        } else {
+            //its not in favourites.
+            setFavTaxiImg(notFavorited)
+            SetFaved(false);
+        }
+        console.log("filter",favFilter)
+ 
+    }
+    
+    useEffect(()=>{
+
+        CheckColor();
+    },[]);
+
+    // console.log(faved);
 
     function Website(){
         if (website === 'No Website Available'){  
@@ -90,18 +139,19 @@ import Buttons from '../../styles/ButtonsStyles';
       <View style={SelectedTaxiStyles.TaxiName}>    
           <Text style={Fonts.TaxiTitle}>{taxiname}</Text>
       </View>
-  
+
       <TouchableOpacity style={SelectedTaxiStyles.TaxiFavorite}
                         onPress={ async () => {
-                            UpdateFavTaxi()
-                        console.log(favTaxi);
+
+               UpdateFavTaxi();
+                            // console.log(faved);
                         }
                     }
       >
           
           <Image
               style={SelectedTaxiStyles.FavoriteIcon}
-              source={require('../../assets/icons/favorite2.png')}
+              source={favTaxiImg}
           />
       </TouchableOpacity>
   

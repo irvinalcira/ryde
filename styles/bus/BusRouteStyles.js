@@ -61,7 +61,7 @@ var BusRouteStyles=StyleSheet.create({
         flexDirection:"row",
         justifyContent:"space-between",
     },
-
+    
 //test
     // Doesn't do anything when you change the value of flex
     ScrollView:{
