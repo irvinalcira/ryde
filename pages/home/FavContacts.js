@@ -79,12 +79,12 @@ function FavContacts(){
       <TouchableOpacity onPress={()=>{setPopup(true)}}>
           
           {/* CONTACT ICON */}
-          <View style={HomePageStyles.ContactIconBox}>
-             <Text style={Fonts.ContactIconFont}> + </Text>
+          <View style={HomePageStyles.ContactIconBox2}>
+             <Text style={Fonts.ContactIconFont2}> + </Text>
           </View>
           
           {/* CONTACT NAME */}
-          <Text numberOfLines={1} style={[Fonts.ContactNameFonts, {textAlign:'center', fontSize:11, paddingHorizontal:15}]}>Add</Text>
+          <Text numberOfLines={1} style={[Fonts.ContactNameFonts, {textAlign:'center', fontSize:11, paddingHorizontal:15}]}>Add Contact</Text>
       </TouchableOpacity>
 
     </View>

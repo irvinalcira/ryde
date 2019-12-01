@@ -2,9 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import {View,Text, Image,SafeAreaView, TouchableOpacity, AsyncStorage} from 'react-native';
 
-import React, { useState,useEffect } from 'react';
-import {View,Text, Image,SafeAreaView, TouchableOpacity} from 'react-native';
-
 import {Actions} from 'react-native-router-flux';
 import data from '../../storage.json';
 import Communications from 'react-native-communications';
@@ -42,6 +39,8 @@ let Min;
           favbusrouteno: RouteNo,
           favbusstopno: StopNumber,
           favbusroutename: RouteName,
+          favbusschedule: Schedules[0].ExpectedCountdown,
+          favbusschedule2: Schedules[0].ExpectedLeaveTime,
         })
         SetFavArr(datanew.FavBus);
         SetBusFaved(true);
@@ -169,16 +168,7 @@ useEffect(() => {
           Min = ""
 
           obj.ExpectedCountdown="Now";
-         
-        }else if (obj.ExpectedCountdown === 60){
-          obj.ExpectedCountdown = 1
-          hour = "Hour"
-        }
-        else if (obj.ExpectedCountdown > 60){
-          hour = "Hour"
-          extramin = obj.ExpectedCountdown - 60
-          obj.ExpectedCountdown = 1
-        }
+         }
         else {
           Min = "Min"
         }

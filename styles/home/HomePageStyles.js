@@ -63,6 +63,15 @@ var HomePageStyles = StyleSheet.create({
     justifyContent:'center',
     margin: 10,
   },
+  ContactIconBox2:{    
+    backgroundColor:"#dfdfdf", 
+    height:70,
+    width:70,
+    borderRadius:150,
+    alignItems:'center',
+    justifyContent:'center',
+    margin: 10,
+  },
 
   ProfPic: {
     width:'100%',

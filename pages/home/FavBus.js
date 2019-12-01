@@ -13,7 +13,7 @@ import FavStyles from '../../styles/home/FavStyles';
 import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
 
-export default function FavBus(){
+export default function FavBus( {RouteNo, RouteName, Schedules, StopNumber} ){
 
   let Min;
 
@@ -28,10 +28,6 @@ export default function FavBus(){
     var favFilter = parseFavBus.FavBus.filter((o,i)=>{
       return o.favbusstopno === 60980;
     });
-    console.log("bro",favFilter)
-    // var response = await fetch('https://irvinalcira.com/rydedatabase/StopNumber.php?stopnum=' + StopNumberInput);
-    //  newdata = await response.json();
-
   }
 
   async function fetchStopData(){
@@ -99,7 +95,7 @@ export default function FavBus(){
         RightTimeFont = 'Assistant-Bold'
       }
 
-      if (obj.ExpectedCountdown===0||obj.ExpectedCountdown===1){
+      if (obj.ExpectedCountdown <= 1){
         Min = ""
         obj.ExpectedCountdown="Now";
       } else {
@@ -139,8 +135,8 @@ export default function FavBus(){
 
                       {/* Stop Number */}
                       <View style={FavStyles.TimeCont}>
-                        <Text style={[Fonts.Time, {color:LeftTimeColor, fontSize: LeftTimeSize}]}> {obj.ExpectedCountdown}</Text>
-                         <Text style={[Fonts.Min, {color:LeftTimeColor, fontSize: LeftTimeSize}]}> {Min} </Text>
+                        <Text style={[Fonts.Time, {color:LeftTimeColor, fontSize: LeftTimeSize}]}> {obj.favbusschedule} {Min} </Text>
+                        <Text style={FavStyles.RouteName}> {obj.favbusschedule2} </Text>
                       </View>
 
                     </View>
