@@ -86,8 +86,8 @@ export default function StartPage(props){
                         {/* SLOGAN */}
                         <Animatable.View animation='zoomIn' delay={0}>
                             <View style={[StartPageStyles.Body, {alignItems:'center'}]}>
-                                <Text style ={[Fonts.Body, {marginBottom:15}]}>
-                                Your All in One Transportation App
+                                <Text style ={[Fonts.Body, {fontSize:18, marginBottom:15}]}>
+                                Your All-in-One Transportation App
                                 </Text>
                             </View> 
                         </Animatable.View>
@@ -108,7 +108,7 @@ export default function StartPage(props){
                     <Animatable.View style={{marginTop:50,marginBottom:50}}animation='flipInX' delay={1000}>
 
                         <TouchableOpacity style={StartPageStyles.Button} onPress={ async () => {  checkName()  } }>
-                            <Text style={Buttons.MainText}>Get Started</Text>
+                            <Text style={[Buttons.MainText, {fontSize:25}]}>Get Started</Text>
                         </TouchableOpacity>
                     </Animatable.View>
 

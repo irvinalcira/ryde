@@ -29,7 +29,7 @@ var StartPageStyles = StyleSheet.create({
     textAlign:'center',
     marginTop: 15,
     height:45,
-    width:'90%',
+    width:'80%',
     padding:10,
     color:'black',
     fontSize:18,
@@ -44,7 +44,7 @@ var StartPageStyles = StyleSheet.create({
     textAlign:'center',
     justifyContent:'center',
     backgroundColor:"#3971b3",
-    borderRadius: 40,
+    borderRadius: 25,
     alignItems: "center"
   },
 });
