@@ -9,8 +9,6 @@ import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
 
 function Taxis(props) {
-
-    
     const [users, setData] = useState([]);
     const [input,setInput]=useState('');
     inputTitle=null;
@@ -56,7 +54,7 @@ function Taxis(props) {
         const response = await fetch('https://www.irvinalcira.com/rydedatabase/ryde.php');
         j = await response.json();
         setData(j);
-        console.log(response.text());
+        // console.log(response.text());
     }
     useEffect(() => {
         fetchData();

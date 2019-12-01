@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import {View,Text, Image,SafeAreaView, TouchableOpacity} from 'react-native';
 import {Actions} from 'react-native-router-flux';
 
@@ -9,7 +9,13 @@ import Divider from '../../comps/Divider';
 
 function FullBusSchedule({RouteNo,RouteName,Schedules,StopNumber}) {
 // console.log(Schedules[0])
+const [, forceUpdate] = useState();
 let Min;
+let hour;
+let extramin;
+useEffect(() => {
+  setTimeout(forceUpdate, 2000);
+}, []);
   return (
     <SafeAreaView style={FullBusStyles.Container}>
       <View style={FullBusStyles.Container}> 
@@ -70,19 +76,29 @@ let Min;
 
         if (obj.ExpectedCountdown <= 1){
           Min = ""
-          obj.ExpectedCountdown="Now";         
-        } else {
+
+          obj.ExpectedCountdown="Now";
+         
+        }else if (obj.ExpectedCountdown === 60){
+          obj.ExpectedCountdown = 1
+          hour = "Hour"
+        }
+        else if (obj.ExpectedCountdown > 60){
+          hour = "Hour"
+          extramin = obj.ExpectedCountdown - 60
+          obj.ExpectedCountdown = 1
+        }
+        else {
           Min = "Min"
         }
-
-
-        
-        var Space = obj.ExpectedLeaveTime.split(" ", 1);
+       var Space =  obj.ExpectedLeaveTime.split(" ", 1);
                      return (
                         <View style={[FullBusStyles.TimeCont]}>
                           <View style={FullBusStyles.TimeOuterCont}>
+
+
                             <View style={[FullBusStyles.TimeInnerCont]}>
-                        <Text style={[Fonts.Time, {color:LeftTimeColor, fontSize: LeftTimeSize}]}> {obj.ExpectedCountdown}</Text>
+                        <Text style={[Fonts.Time, {color:LeftTimeColor, fontSize: LeftTimeSize}]}> {obj.ExpectedCountdown} {hour}  {extramin}</Text>
                          <Text style={[Fonts.Min, {color:LeftTimeColor, fontSize: LeftTimeSize}]}> {Min} </Text>
                          </View>
                          <Text style={[Fonts.LeaveTime, {color:LeftTimeColor, fontSize: RightTimeSize, fontFamily: RightTimeFont}]}> {Space}</Text>

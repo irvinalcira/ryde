@@ -75,6 +75,11 @@ var BusLastStyles=StyleSheet.create({
     ScrollView:{
         flex:1,
         backgroundColor:"#DCDCDC"
+    },
+    FavTaxi:{
+        height:5,
+        width:5, 
+        resizeMode:'contain'
     }
 
 

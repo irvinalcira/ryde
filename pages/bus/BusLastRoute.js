@@ -13,10 +13,9 @@ export default function BusLastRoute(props){
 
   //This is for displaying the user input bus stop number
   const [StopNumber, setStopNumber] = useState("");
-
    async function SetValue(){
      var getvalue =  props.navigation.state.params
-    // console.log("this is what i get", getvalue.StopNumberInput);
+    console.log("this is what i get", getvalue.newdata);
     setBusStopNum(getvalue.newdata);
     setStopNumber(getvalue.StopNumberInput);
     }
@@ -28,7 +27,6 @@ export default function BusLastRoute(props){
       <View style={BusLastStyles.Container}>
       <View style={BusRouteStyles.TopView}>
 <View style={BusRouteStyles.NavBar}>
-
   <View style={BusRouteStyles.ArrowCont}>
   <TouchableOpacity onPress={() => Actions.pop("BusSchedules")}>
   <Image
@@ -39,6 +37,15 @@ export default function BusLastRoute(props){
   </View>
 
   <Text style={[Fonts.BusRoute, BusRouteStyles.NavTitle]}>{StopNumber}</Text>
+
+  <View style={BusRouteStyles.ArrowCont}>
+  <TouchableOpacity onPress={() => {}}>
+  <Image
+  style={BusRouteStyles.BackArrow}
+  source={require('../../assets/icons/fav.png')}
+  />
+  </TouchableOpacity>
+  </View>
 
   </View>
   
@@ -54,11 +61,11 @@ export default function BusLastRoute(props){
       </View>
   </View>
   <ScrollView style={BusLastStyles.ScrollView}>
-
        {
                         BusStopNum.map((obj,i)=>{ 
                              return ( 
         <TouchableOpacity onPress={() => Actions.FullBusSchedule(
+          // window.location.reload(true),
           {
             ...obj,
             StopNumber:StopNumber

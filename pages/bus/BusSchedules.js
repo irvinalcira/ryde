@@ -20,10 +20,13 @@ async function fetchRouteData() {
 
   // console.log(RouteNumberInput);
   var response = await fetch('http://localhost:8888/ryde/BusNumber.php?busnum=' + RouteNumberInput);
-   newroutedata = await response.json();
+   NewRouteData = await response.json();
 
   // console.log('busnum', newroutedata);
-  Actions.BusRoute(newroutedata,RouteNumberInput);
+  Actions.BusRoute({
+    NewRouteData:NewRouteData,
+    RouteNumberInput:RouteNumberInput
+  });
 }
 
   //Bus Stop Data Eg: 60715 
@@ -33,14 +36,14 @@ async function fetchRouteData() {
     }
    var response = await fetch('https://irvinalcira.com/rydedatabase/StopNumber.php?stopnum=' + StopNumberInput);
      newdata = await response.json();
-     if (newdata.length===undefined){
+    //  console.log("fetch", newdata, StopNumberInput);
+     if (newdata.length===0|| newdata.length===undefined){
       Alert.alert(
-        'No Buses Found'
+        'No Buses Found' 
       )
-      // console.log("fetch", newdata);
      }
      else {
-      console.log("fetch", newdata[0].Schedules);
+       
       Actions.BusLastRoute({
         newdata:newdata,
         StopNumberInput:StopNumberInput
@@ -58,6 +61,7 @@ async function fetchRouteData() {
         <TextInput
           style={Fonts.Inp}
           placeholder="Example: 130, 125 or 555"
+
           keyboardType={'numeric'}
           maxLength={3}
           placeholderTextColor='gray'
@@ -76,8 +80,10 @@ async function fetchRouteData() {
           style={Fonts.Inp}
           placeholder="Example: 60212"
           placeholderTextColor='gray'
+
           keyboardType={'numeric'}
           maxLength={5}
+
           onChangeText={(Text) => setStopNumberInput(Text)}
         />
         <TouchableOpacity style={Buttons.Alt} onPress={() =>{
