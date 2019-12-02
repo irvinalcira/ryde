@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { View, Text,SafeAreaView,TouchableOpacity, TextInput, Image } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 
@@ -6,7 +6,41 @@ import SkyTrainScheduleStyles from '../../styles/skytrains/SkyTrainSchedulesStyl
 import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
 //test
+//import db
+import Stops from '../../skytraindb/Stops.json';
+import StopTime from '../../skytraindb/Schedule.json';
+
 export default function SkyTrainSchedules(){
+
+         const [ StopNameInput, setStopNameInput ] = useState("");
+         
+         async function fetchTrainData() {
+                 var traindata = {
+                         "StopName": StopNameInput
+                 }
+         }
+
+        var StopTimes = Stops.Stops;
+
+
+        function searchFull(term) {
+                return StopTimes.filter(({
+                  stop_name
+                }) => {
+                  return stop_name.toLowerCase() === term.toLowerCase()              
+                })
+              
+              }
+
+              console.log(searchFull('ABERDEEN'));
+
+        // result = StopTimes.filter(StopTimes => StopTimes.stop_id ==='11293');
+        // console.log(StopTimes);
+
+        // console.log(Stops.Stops[1].stop_id);
+        // console.log(StopTime[0].stop_id);
+
+
   return (
     <SafeAreaView style={SkyTrainScheduleStyles.Container}>
       <View style={SkyTrainScheduleStyles.Container}>
