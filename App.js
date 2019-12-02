@@ -17,9 +17,9 @@ import StartPageStyles from './styles/StartPageStyles';
 
 function App(){
   console.disableYellowBox = true;
-  AppView = null;
 
   // USER NAME DISPLAY USE STATE
+  const [ AppView, setAppView ] = useState(null);
   const [ Name, SetUserName ] = useState(null);
 
   // SET THE USERNAME
@@ -27,12 +27,14 @@ function App(){
       var getUsername = await AsyncStorage.getItem("user");
       var parseUsername = JSON.parse(getUsername);
       username = parseUsername.UserName;
-      SetUserName(username);
-      console.log('username: ', username)
+      var stringifyName = JSON.stringify(username);
+      SetUserName(stringifyName);
+      CheckState();
+      console.log(Name);
     }
+    
     useEffect(() => {
      GetUserName();
-
 
 
      // UN-COMMENT THE CODE BELOW TO RESET USER NAME TO NOTHING
@@ -41,13 +43,13 @@ function App(){
   },[]);
 
 
-
-    if (Name === null){
-      AppView =  <StartPage/>
-    }  else {    
-      AppView = 
-          <Main />
-    }
+ function CheckState(){
+  if (Name === null){
+    setAppView(<StartPage setAppView={setAppView} AppView={AppView}/>)
+  }  else {    
+    setAppView(<Main />)
+  }
+}
 
 
   return (

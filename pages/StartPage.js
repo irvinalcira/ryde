@@ -6,6 +6,7 @@ import * as Animatable from "react-native-animatable";
 import {Actions} from 'react-native-router-flux';
 
 import data from '../storage';
+import Main from '../Main'
 
 //style
 import StartPageStyles from '../styles/StartPageStyles';
@@ -61,6 +62,7 @@ export default function StartPage(props){
             alert('You must enter a name')
           }  else {
             await UpdateUserName(); 
+            props.setAppView(<Main/>)
           }
     }
     // useEffect(() => {
