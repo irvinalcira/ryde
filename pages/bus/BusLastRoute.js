@@ -52,7 +52,7 @@ export default function BusLastRoute(props){
         <Text style={Fonts.BlueCont}>Bus Number</Text>
       </View>
   </View>
-  <ScrollView style={BusLastStyles.ScrollView}>
+  <ScrollView style={[BusLastStyles.ScrollView]}>
        {
                         BusStopNum.map((obj,i)=>{ 
                              return ( 

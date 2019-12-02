@@ -4,6 +4,7 @@ import Communications from 'react-native-communications';
 import Geolocation from '@react-native-community/geolocation';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import { Actions } from 'react-native-router-flux';
+import * as Animatable from "react-native-animatable";
 
 
 
@@ -52,6 +53,7 @@ function Contacts(props) {
     data = JSON.parse(data);
     console.log('Data = ', data);
     setContact(data.Contacts);
+
   }  
 
 
@@ -72,6 +74,8 @@ function Contacts(props) {
     GetContacts();
   }, [props.navigation.state.params]);
   //console.log("refresh", props.navigation.state.params);
+
+  
 
   return (
     <SafeAreaView style={{flex:1, backgroundColor:'#f4f4f4' }}>
@@ -95,7 +99,9 @@ function Contacts(props) {
 
 
         <ScrollView>
+
           { Contact.length === 0 ? <EmptyContacts /> : null }
+
 
           {
             Contact.map((obj, i) => {
@@ -128,7 +134,7 @@ function Contacts(props) {
 
               return (
                 
-                <View>
+                <Animatable.View animation='fadeInDown' duration={400}>
 
                   <TouchableOpacity
                   onPress={() => Actions.EditContact(
@@ -140,7 +146,6 @@ function Contacts(props) {
                   >
                   
                   <Swipeable renderRightActions={RightActions} ref={sref}>
-                    
                     <View style={ContactsStyles.UserContainer}>
 
                            <Text numberOfLines={1} style={[Fonts.Name]}> {obj.firstname} {obj.lastname} </Text>
@@ -168,7 +173,7 @@ function Contacts(props) {
                     </Swipeable>
                     </TouchableOpacity>
                   <Divider />
-                </View>
+                  </Animatable.View>
               )
             })
           }

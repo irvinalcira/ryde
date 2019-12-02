@@ -237,9 +237,9 @@ ContactIconFont:{
   color:"white",
 },
 
-ContactIconFont2:{
-  fontSize:55,
-  fontFamily: "Assistant-Bold",
+AddContactText:{
+  fontSize:45,
+  fontFamily: "Assistant-SemiBold",
   color:"white",
 },
 

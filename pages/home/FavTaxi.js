@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Text, View, ScrollView, AsyncStorage, TouchableOpacity,Image, SafeAreaView } from 'react-native';
 import Communications from 'react-native-communications';
 import {Actions} from 'react-native-router-flux';
+import * as Animatable from "react-native-animatable";
+
 // styles
 import FavStyles from '../../styles/home/FavStyles';
+import Fonts from '../../styles/FontsStyles';
+import Buttons from '../../styles/ButtonsStyles';
 
-//import Empty
-import EmptyFav from './EmptyFav';
 
 export default function FavTaxi(){
 
@@ -20,6 +22,7 @@ export default function FavTaxi(){
       setFavTaxi(parseFavTaxi.FavTaxi);
     }
 
+
     useEffect(() => {
 
       GetFavTaxi();
@@ -28,11 +31,14 @@ export default function FavTaxi(){
 
     var FavoriteTaxi = null;
 
-    if(favTaxi === null){
+    if(favTaxi.length === 0){
 
       FavoriteTaxi = (
-          // <EmptyFav />
-          <View><Text>Testing</Text></View>
+        <View style={FavStyles.CompBox}>
+          <Text style={Fonts.Body}>
+          Start by adding your favourite taxis for quick access. You can add, or remove favorites anytime.
+          </Text>
+        </View>
       )
 
       
@@ -43,10 +49,11 @@ export default function FavTaxi(){
         {
 
           favTaxi.map((obj, i) => {
+
   
-            console.log(obj.favtaxiname);
+            console.log(obj.favetaxicity);
             return(
-              <View style={FavStyles.FavCont}>
+              <Animatable.View animation='fadeInDown' duration={400}  style={FavStyles.FavCont}>
               <TouchableOpacity onPress={()=>{Communications.phonecall( obj.favtaxiphone , true)}}>
               <View style={[FavStyles.FavPieceCont]}>
               <View style={FavStyles.StopName}>
@@ -68,7 +75,7 @@ export default function FavTaxi(){
                   <Text
                   numberOfLines={1}
                   style={FavStyles.RouteName}>
-                    {obj.favtaxiphone}
+                    {obj.favtaxicity}<Text>, BC</Text>
                   </Text> 
                 </View>
               </View>
@@ -86,7 +93,7 @@ export default function FavTaxi(){
       
               </View>
             </TouchableOpacity>
-            </View>
+            </Animatable.View>
             )
   
           })
