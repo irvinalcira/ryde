@@ -12,27 +12,44 @@ import StopTime from '../../skytraindb/Schedule.json';
 
 export default function SkyTrainSchedules(){
 
-         const [ StopNameInput, setStopNameInput ] = useState("");
-         
-         async function fetchTrainData() {
-                 var traindata = {
-                         "StopName": StopNameInput
-                 }
-         }
+        const [ userInput, setUserInput ] = useState('');
 
-        var StopTimes = Stops.Stops;
+        var TrainStop = Stops.Stops;
+        
+        // Dataset - All Train Stop ID Search
 
+        const TrainStopSearch = TrainStop.filter(x => x.stop_name === userInput);
+        const SearchedId = TrainStopSearch.filter(x => x.stop_id === TrainStopSearch.stop_id);
 
-        function searchFull(term) {
-                return StopTimes.filter(({
-                  stop_name
-                }) => {
-                  return stop_name.toLowerCase() === term.toLowerCase()              
-                })
-              
-              }
+        // Dataset - Canada Line
 
-              console.log(searchFull('ABERDEEN'));
+        const cad = TrainStop.filter(x => x.route_name === 'Canada Line');
+
+        const cadNorth = cad.filter(x => x.direction_name === 'Northbound');
+
+        const cadSouth = cad.filter(x => x.direction_name === 'Southbound'); 
+
+        // Dataset - Expo Line
+
+        const expo = TrainStop.filter(x => x.route_name === 'Expo Line');
+
+        const expoEast = expo.filter(x => x.direction_name === 'Eastbound');
+
+        const expoWest = expo.filter(x => x.direction_name === 'Westbound');
+
+        const TrainStopNames = expoEast.stop_name;
+
+        // console.log(expo);
+
+        // Dataset - Schedules
+
+        const StopT = StopTime;
+
+        // Dataset - Show all Stop Schedules
+
+        const AllStopT = StopT.arrival_time;
+
+        console.log(cad)
 
         // result = StopTimes.filter(StopTimes => StopTimes.stop_id ==='11293');
         // console.log(StopTimes);
