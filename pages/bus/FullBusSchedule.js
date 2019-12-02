@@ -142,7 +142,7 @@ useEffect(() => {
 
       <View style={FullBusStyles.Bottom}>
 
-      <View style={FullBusStyles.ScheduleCont}>
+      <View style={[FullBusStyles.ScheduleCont]}>
 {
       Schedules.map((obj,i)=>{
 
@@ -157,7 +157,7 @@ useEffect(() => {
           LeftTimeSize = 19;
           RightTimeSize = 15;
         } else {
-          LeftTimeColor = '#529e1c'
+          LeftTimeColor = '#3971B3'
           LeftTimeSize = 23;
           RightTimeSize = 16
           RightTimeFont = 'Assistant-Bold'
