@@ -6,7 +6,7 @@ import ContactsStyles from '../styles/contacts/ContactsStyles';
 
 function AddButton(props) {
     return (
-        <TouchableOpacity onPress={()=>{props.setPopup(true)}}>
+        <TouchableOpacity onPress={()=>{props.setAddCPopup(true)}}>
         <View style={ContactsStyles.AddContainer}> 
           <Image 
           style={ContactsStyles.Add}

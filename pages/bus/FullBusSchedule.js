@@ -1,9 +1,14 @@
-import React, { useState,useEffect } from 'react';
-import {View,Text, Image,SafeAreaView, TouchableOpacity} from 'react-native';
+
+import React, { useState, useEffect } from 'react';
+import {View,Text, Image,SafeAreaView, TouchableOpacity, AsyncStorage} from 'react-native';
+
 import {Actions} from 'react-native-router-flux';
+import data from '../../storage.json';
+import Communications from 'react-native-communications';
 
 import FullBusStyles from '../../styles/bus/FullBusScheduleStyles';
 import Fonts from '../../styles/FontsStyles';
+import Buttons from '../../styles/ButtonsStyles';
 
 import Divider from '../../comps/Divider';
 
@@ -11,11 +16,86 @@ function FullBusSchedule({RouteNo,RouteName,Schedules,StopNumber}) {
 // console.log(Schedules[0])
 const [, forceUpdate] = useState();
 let Min;
+
+
+  var notFavorited = require('../../assets/icons/favorite2.png');
+  var busFavorited = require('../../assets/icons/favorite.png');
+
+  const [ favBus, setFavBus ] = useState([]);
+  const [ BusFaved, SetBusFaved ] = useState(false);
+  const [ FavArr, SetFavArr ] = useState([]);
+  const [ favBusImg, setFavBusImg ] = useState(notFavorited);
+
+  async function UpdateFavBus(){
+
+    var datanew = await AsyncStorage.getItem("storage");
+    if(!datanew){
+      datanew = data;
+    } else {
+      datanew = JSON.parse(datanew)
+    }
+      if (BusFaved === false){
+        datanew.FavBus.push({
+          favbusrouteno: RouteNo,
+          favbusstopno: StopNumber,
+          favbusroutename: RouteName,
+          favbusschedule: Schedules[0].ExpectedCountdown,
+          favbusschedule2: Schedules[0].ExpectedLeaveTime,
+        })
+        SetFavArr(datanew.FavBus);
+        SetBusFaved(true);
+        setFavBusImg(busFavorited);
+      } else {
+        DeleteBusFav()
+      }
+      console.log("test",datanew);
+      AsyncStorage.setItem("storage",JSON.stringify(datanew));
+  };
+
+  async function DeleteBusFav(){
+    var newdata = await AsyncStorage.getItem("storage");
+    parsedelete = await JSON.parse(newdata);
+    console.log("hi",parsedelete);
+    var favBusFilter = parsedelete.FavBus.filter((o,i)=>{
+      return o.favbusrouteno !== RouteNo
+    });
+    parsedelete.FavBus = favBusFilter;
+    await AsyncStorage.setItem("storage", JSON.stringify(parsedelete));
+    SetBusFaved(false);
+    setFavBusImg(notFavorited);
+
+  }
+  
+  async function CheckBusColor(){
+    var datanew = await AsyncStorage.getItem("storage");
+    if (!datanew){
+      setFavBusImg(notFavorited);
+    } else {
+      datanew = await JSON.parse(datanew)
+    }
+    var favBusFilter = datanew.FavBus.filter((o,i)=>{
+      return o.favbusrouteno === RouteNo
+    });
+    if(favBusFilter.length>0){
+      setFavBusImg(busFavorited)
+      SetBusFaved(true);
+    } else {
+      setFavBusImg(notFavorited)
+      SetBusFaved(false);
+    }
+  }
+
+  useEffect(() => {
+    CheckBusColor();
+  }, []);
+
+
 let hour;
 let extramin;
 useEffect(() => {
   setTimeout(forceUpdate, 2000);
 }, []);
+
   return (
     <SafeAreaView style={FullBusStyles.Container}>
       <View style={FullBusStyles.Container}> 
@@ -37,7 +117,17 @@ useEffect(() => {
 
               {/* Stop Number */}
                <Text style={[Fonts.BusRoute, FullBusStyles.NavTitle]}>{StopNumber}</Text>
+               <TouchableOpacity style={{justifyContent:'center', alignItems:'center', flex:1, flexDirection:'row-reverse'}}
+              onPress={ async() => {
+                UpdateFavBus();
+                console.log(favBus);
+              }}>
+
+                <Image style={{height:30, width:30}} source={favBusImg} />
+
+            </TouchableOpacity>
             </View>
+
              
             <View style={FullBusStyles.MidStyles}>
               <View style={FullBusStyles.BusStopInfo}>
@@ -78,16 +168,7 @@ useEffect(() => {
           Min = ""
 
           obj.ExpectedCountdown="Now";
-         
-        }else if (obj.ExpectedCountdown === 60){
-          obj.ExpectedCountdown = 1
-          hour = "Hour"
-        }
-        else if (obj.ExpectedCountdown > 60){
-          hour = "Hour"
-          extramin = obj.ExpectedCountdown - 60
-          obj.ExpectedCountdown = 1
-        }
+         }
         else {
           Min = "Min"
         }
