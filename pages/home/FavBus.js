@@ -89,21 +89,11 @@ export default function FavBus( {RouteNo, RouteName, Schedules, StopNumber} ){
   
   favBus.map((obj, i) => {
     
-    var LeftTimeColor = '#363636';
+    var LeftTimeColor = '#3971B3';
       var LeftTimeSize = 22;
       var RightTimeSize = 16;
       var RightTimeFont = 'Assistant-Regular'
 
-      if (i != 0) {
-        LeftTimeColor = 'gray'
-        LeftTimeSize = 19;
-        RightTimeSize = 15;
-      } else {
-        LeftTimeColor = '#3971B3'
-        LeftTimeSize = 23;
-        RightTimeSize = 16
-        RightTimeFont = 'Assistant-Bold'
-      }
 
       if (obj.favbusschedule <= 1){
         Min = ""
@@ -147,7 +137,7 @@ export default function FavBus( {RouteNo, RouteName, Schedules, StopNumber} ){
                       {/* Stop Number */}
                       <View style={FavStyles.TimeCont}>
                         <Text style={[Fonts.Time, {color:LeftTimeColor, fontSize: LeftTimeSize}]}> {obj.favbusschedule} {Min} </Text>
-                        <Text style={FavStyles.RouteName}> {Space} </Text>
+                        <Text style={FavStyles.RightRouteTime}> {Space} </Text>
                       </View>
 
                     </Animatable.View>

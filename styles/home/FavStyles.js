@@ -47,7 +47,17 @@ var FavStyles = StyleSheet.create({
     fontFamily: "Assistant-Regular",
     width: "90%",
   },
+
+  RightRouteTime: {
+    color: "#3971B3",
+    fontSize: 14,
+    fontFamily: "Assistant-Regular",
+    width: "90%",
+    textAlign:'center'
+  },
+
   TimeCont: {
+    // backgroundColor:'green',
     flex: 1.5,
     alignItems: "center",
     justifyContent: "center",
