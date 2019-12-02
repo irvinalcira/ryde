@@ -157,7 +157,7 @@ useEffect(() => {
           LeftTimeSize = 19;
           RightTimeSize = 15;
         } else {
-          LeftTimeColor = '#3971B3'
+          LeftTimeColor = '#529e1c'
           LeftTimeSize = 23;
           RightTimeSize = 16
           RightTimeFont = 'Assistant-Bold'

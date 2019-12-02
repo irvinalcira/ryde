@@ -67,13 +67,7 @@ export default function InitialSetup(){
                             onChangeText = {(Text) => setUserName(Text)}
                            />             
 
-                <TouchableOpacity style={Buttons.Main}
-                                     onPress={ async () => {
-                                        checkName()
-                                        // forceUpdate();                                      
-                                       }
-                                    }
-                                    >
+                <TouchableOpacity style={Buttons.Main} onPress={ async () => {  checkName() } }  >
                     <Text style={Buttons.MainText}>Submit</Text>
                 </TouchableOpacity>
             </View>

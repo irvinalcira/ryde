@@ -1,9 +1,12 @@
 import React,{useState,useEffect} from 'react';
 import { View, Text, AsyncStorage, SafeAreaView, Image, TouchableOpacity, TextInput } from 'react-native';
+import * as Animatable from "react-native-animatable";
+
 
 import {Actions} from 'react-native-router-flux';
 
 import data from '../storage';
+import Main from '../Main'
 
 //style
 import StartPageStyles from '../styles/StartPageStyles';
@@ -11,7 +14,31 @@ import Fonts from '../styles/FontsStyles';
 import Buttons from '../styles/ButtonsStyles';
 
 
-export default function StartPage(){    
+export default function StartPage(props){  
+    
+    console.log(props)
+
+    Animatable.initializeRegistryWithDefinitions({
+        logo: {
+            from: {
+                opacity:0,
+                top:-150
+            },
+            to: {
+                opacity:1,
+                top:0,
+            }
+          },
+          fadeIn: {
+            from: {
+                    opacity:0,
+            },
+            to: {
+                opacity:1,
+            },
+          },
+
+      });
 
     const [Name, setUserName] = useState('');
 
@@ -35,8 +62,7 @@ export default function StartPage(){
             alert('You must enter a name')
           }  else {
             await UpdateUserName(); 
-            Actions.reset('HomePage'); 
-        
+            props.setAppView(<Main/>)
           }
     }
     // useEffect(() => {
@@ -48,41 +74,47 @@ export default function StartPage(){
             <SafeAreaView style={[StartPageStyles.Container]}>
             <View style={[StartPageStyles.Container]}>
 
-                <View style={StartPageStyles.Logo}>
-                <Image
-                style={{width: 150, height: 150}}
-                source={require('../assets/icons/ryde-icon.png')}
-                />
-                </View>
+                {/* RYDE */}
                 
-                <View style={StartPageStyles.Title}>
-                <Text style={Fonts.Title}>Ryde</Text>
-                </View>
-  
-                
-                <View style={StartPageStyles.Body}>
-                <Text style ={[Fonts.Body, {marginBottom:15}]}>
-                Ryde combines the main methods of transportation into one app. 
-                It displays data of all bus routes and SkyTrain stations, taxis, and your important contacts.
-                </Text>
-                
-                <Text style ={[Fonts.Body, {marginBottom:15}]}>Enter your first name below to get started</Text>
-                </View>
-                <TextInput style={Fonts.Inp} 
-                            placeholder="First Name" 
+                    <Animatable.View animation="logo" duration={800} easing={'ease-in-out'} iterationCount={1}> 
+                        {/*  LOGO */}
+                        <View style={StartPageStyles.Logo}>
+                            <Image style={{width: 150, height: 150}} source={require('../assets/icons/ryde-icon.png')}/>
+                        </View>
+                        {/* RYDE LOGO TEXT */}
+                        <View style={StartPageStyles.Title}>
+                            <Text style={Fonts.Title}>Ryde</Text>
+                        </View>
+                        {/* SLOGAN */}
+                        <Animatable.View animation='zoomIn' delay={0}>
+                            <View style={[StartPageStyles.Body, {alignItems:'center'}]}>
+                                <Text style ={[Fonts.Body, {fontSize:18, marginBottom:15}]}>
+                                Your All-in-One Transportation App
+                                </Text>
+                            </View> 
+                        </Animatable.View>
+                    </Animatable.View>
+
+                {/* END OF RYDE */}
+
+                {/* TEXT INPUT AND BUTTON */}
+
+                    <Animatable.View style={{alignItems:'center', marginTop:50}} animation='fadeInDown' delay={1000}>
+                        <TextInput style={[StartPageStyles.Inp]} 
+                            placeholder="What's your name?" 
                             placeholderTextColor="grey"
                             onChangeText = {(Text) => setUserName(Text)}
-                           />             
+                        />    
+                        </Animatable.View>
 
-                <TouchableOpacity style={Buttons.Main}
-                                     onPress={ async () => {
-                                        checkName()
-                                        // forceUpdate();                                      
-                                       }
-                                    }
-                                    >
-                    <Text style={Buttons.MainText}>Get Started</Text>
-                </TouchableOpacity>
+                    <Animatable.View style={{marginTop:50,marginBottom:50}}animation='flipInX' delay={1000}>
+
+                        <TouchableOpacity style={StartPageStyles.Button} onPress={ async () => {  checkName()  } }>
+                            <Text style={[Buttons.MainText, {fontSize:25}]}>Get Started</Text>
+                        </TouchableOpacity>
+                    </Animatable.View>
+
+                {/* END OF TEXT INPUT AND BUTTON */}
             </View>
             </SafeAreaView>
     )
