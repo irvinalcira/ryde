@@ -1,18 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import { View, SafeAreaView,Button,Image, StatusBar, AsyncStorage} from 'react-native';
-import {Actions} from 'react-native-router-flux';
-
-import AppStyles from './styles/AppStyles';
 
 import TabBar from './comps/TabBar';
-
-import AddContact from './pages/contacts/AddContact';
-import EmptyContacts from './pages/contacts/EmptyContacts';
-
-import StartPage from './pages/StartPage';
-
 import Route from './pages/Route'
-import StartPageStyles from './styles/StartPageStyles';
 
 function Main(){
   console.disableYellowBox = true;
@@ -30,10 +20,6 @@ function Main(){
     }
     useEffect(() => {
      GetUserName();
-
-     // UN-COMMENT THE CODE BELOW TO RESET USER NAME TO NOTHING
-    //  AsyncStorage.clear()
-  
   },[]);
 
   return (

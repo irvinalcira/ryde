@@ -6,9 +6,6 @@ import HomePageStyles from '../../styles/home/HomePageStyles';
 import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
 
-//COMP IMPORTS
-import InitialSetup from '../../comps/InitialSetup';
-
 // FAV BOX IMPORTS
 import FavBus from './FavBus';
 import FavTrain from './FavTrain';

@@ -2,9 +2,6 @@ import React,{useState,useEffect} from 'react';
 import { View, Text, AsyncStorage, SafeAreaView, Image, TouchableOpacity, TextInput } from 'react-native';
 import * as Animatable from "react-native-animatable";
 
-
-import {Actions} from 'react-native-router-flux';
-
 import data from '../storage';
 import Main from '../Main'
 
