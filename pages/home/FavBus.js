@@ -8,6 +8,8 @@ import {
   AsyncStorage
 } from 'react-native';
 import {Actions} from 'react-native-router-flux';
+import * as Animatable from "react-native-animatable";
+
 
 import FavStyles from '../../styles/home/FavStyles';
 import Fonts from '../../styles/FontsStyles';
@@ -69,17 +71,17 @@ export default function FavBus( {RouteNo, RouteName, Schedules, StopNumber} ){
   if(favBus === null){
 
     FavoriteBus = (
-      <View><Text>No Favorites</Text></View>
+      <View style={FavStyles.CompBox}>
+        <Text style={Fonts.Body}>
+        Start by adding your favorite route for quick access on the Home Page. You can edit, add, or remove favorites anytime.
+      </Text>
+      </View>
     )
 
   } else {
 
     FavoriteBus = (
 <View style={FavStyles.CompBox}>
-
-{/* <Text style={Fonts.Body}>
-  Start by adding your favorite route for quick access on the Home Page. You can edit, add, or remove favorites anytime.
-</Text> */}
 
 <View style={FavStyles.FavCont}>
   { 

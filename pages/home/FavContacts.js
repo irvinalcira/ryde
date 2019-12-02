@@ -77,15 +77,16 @@ function FavContacts(){
             }
 
       <AddPopup AddCPopup={AddCPopup} setAddCPopup={setAddCPopup} />
-      <TouchableOpacity onPress={()=>{setAddCPopup(true)}}>
+      <TouchableOpacity style={[HomePageStyles.ContactList, {width:100, flexDirection:'column', justifyContent:'center', alignItems:'center'}]} onPress={()=>{setAddCPopup(true)}}>
+
           
           {/* CONTACT ICON */}
-          <View style={HomePageStyles.ContactIconBox2}>
-             <Text style={Fonts.ContactIconFont2}> + </Text>
+          <View style={[HomePageStyles.AddContactBox]}>
+             <Text style={[Fonts.AddContactText]}> + </Text>
           </View>
           
           {/* CONTACT NAME */}
-          <Text numberOfLines={1} style={[Fonts.ContactNameFonts, {textAlign:'center', fontSize:11, paddingHorizontal:15}]}>Add Contact</Text>
+          <Text numberOfLines={1} style={[Fonts.ContactNameFonts, {fontFamily:'Assistant-Bold', textAlign:'center', fontSize:11, paddingHorizontal:15}]}>Add Contact</Text>
       </TouchableOpacity>
 
     </View>

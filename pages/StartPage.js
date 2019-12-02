@@ -13,7 +13,7 @@ import Buttons from '../styles/ButtonsStyles';
 
 export default function StartPage(props){  
     
-    console.log(props)
+    // console.log(props)
 
     Animatable.initializeRegistryWithDefinitions({
         logo: {
