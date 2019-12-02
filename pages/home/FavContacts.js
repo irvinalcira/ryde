@@ -18,6 +18,7 @@ function FavContacts(){
 
   // Set Popup 
   const [ Popup, setPopup ] = useState(false);
+  const [ AddCPopup, setAddCPopup ] = useState(false);
 
   // Favorite Contact List Async
   const [ favContact, setFavContact ] = useState([]);
@@ -75,8 +76,8 @@ function FavContacts(){
               })
             }
 
-      <AddPopup Popup={Popup} setPopup={setPopup} />
-      <TouchableOpacity onPress={()=>{setPopup(true)}}>
+      <AddPopup AddCPopup={AddCPopup} setAddCPopup={setAddCPopup} />
+      <TouchableOpacity onPress={()=>{setAddCPopup(true)}}>
           
           {/* CONTACT ICON */}
           <View style={HomePageStyles.ContactIconBox2}>

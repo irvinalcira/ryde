@@ -144,7 +144,7 @@ export default function FavBus( {RouteNo, RouteName, Schedules, StopNumber} ){
                       {/* Stop Number */}
                       <View style={FavStyles.TimeCont}>
                         <Text style={[Fonts.Time, {color:LeftTimeColor, fontSize: LeftTimeSize}]}> {obj.favbusschedule} {Min} </Text>
-                        <Text style={FavStyles.RouteName}> {obj.favbusschedule2} </Text>
+                        <Text style={FavStyles.RouteName}> {Space} </Text>
                       </View>
 
                     </View>
