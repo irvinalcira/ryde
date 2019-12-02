@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import { View, Text, AsyncStorage, SafeAreaView, Image, TouchableOpacity, TextInput } from 'react-native';
+import { View, Text, AsyncStorage, KeyboardAvoidingView, SafeAreaView, Image, TouchableOpacity, TextInput, Keyboard } from 'react-native';
 import * as Animatable from "react-native-animatable";
 
 import data from '../storage';
@@ -13,7 +13,7 @@ import Buttons from '../styles/ButtonsStyles';
 
 export default function StartPage(props){  
     
-    console.log(props)
+    // console.log(props)
 
     Animatable.initializeRegistryWithDefinitions({
         logo: {
@@ -70,6 +70,7 @@ export default function StartPage(props){
 
             <SafeAreaView style={[StartPageStyles.Container]}>
             <View style={[StartPageStyles.Container]}>
+            <KeyboardAvoidingView behavior="position">
 
                 {/* RYDE */}
                 
@@ -96,7 +97,9 @@ export default function StartPage(props){
 
                 {/* TEXT INPUT AND BUTTON */}
 
-                    <Animatable.View style={{alignItems:'center', marginTop:50}} animation='fadeInDown' delay={1000}>
+                
+
+                <Animatable.View style={{alignItems:'center', marginTop:50}} animation='fadeInDown' delay={1000}>
                         <TextInput style={[StartPageStyles.Inp]} 
                             placeholder="What's your name?" 
                             placeholderTextColor="grey"
@@ -112,6 +115,11 @@ export default function StartPage(props){
                     </Animatable.View>
 
                 {/* END OF TEXT INPUT AND BUTTON */}
+
+
+                </KeyboardAvoidingView>
+
+
             </View>
             </SafeAreaView>
     )

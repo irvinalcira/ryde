@@ -80,6 +80,7 @@ export default function HomePage(){
   return(
 
     <SafeAreaView style={HomePageStyles.Container}>
+      
       <View style={HomePageStyles.Container}>
 
             <Text style={Fonts.Title}>Hi {Name},</Text>
@@ -89,7 +90,7 @@ export default function HomePage(){
 
             <Text style={Fonts.Heading}> Your Favorites </Text>
 
-              <View style={HomePageStyles.FavContainer}>          
+              <View style={[HomePageStyles.FavContainer, {justifyContent:'space-between'}]}>          
 
                   <TouchableOpacity style={Buttons.HomePageButton}
                   

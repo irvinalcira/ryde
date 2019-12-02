@@ -59,13 +59,13 @@ var FullBusStyles =StyleSheet.create({
     // Content
     Bottom:{
       flex:2,
-      backgroundColor: "#eee",
+      backgroundColor: "#DCDCDC",
       alignItems:"center",
       paddingTop: 20
     },
 
     ScheduleCont:{
-        backgroundColor:"#DCDCDC",
+        backgroundColor:"#efefef",
         padding: 20,
         borderRadius:6,
         width:wp('90%'),

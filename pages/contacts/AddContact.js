@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import { View, Text, AsyncStorage, TouchableOpacity, SafeAreaView, Image, TextInput,Button } from 'react-native';
+import { View, Text,KeyboardAvoidingView, AsyncStorage, TouchableOpacity, SafeAreaView, Image, TextInput,Button } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import data from '../../storage';
 import ImagePicker from 'react-native-image-picker';
@@ -77,6 +77,7 @@ async function checkContact(){
 
     <SafeAreaView style={AContactStyles.Container}>
       <View style={AContactStyles.Container}>
+      <KeyboardAvoidingView behavior="position">
 
         {/* Nav Bar */}
 
@@ -134,6 +135,7 @@ async function checkContact(){
         onChangeText = {(Text)=> setPNumber(Text)} value={PNumber}
         />
 
+        </KeyboardAvoidingView>
       </View>
     </SafeAreaView>
   )

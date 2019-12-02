@@ -1,11 +1,12 @@
 import {StyleSheet} from 'react-native';
+import { widthPercentageToDP } from 'react-native-responsive-screen';
 
 var FavStyles = StyleSheet.create({
   CompBox:{
     paddingLeft: 25,
     paddingRight: 25,
-    alignItems: 'center',
-    justifyContent: "center"
+    alignItems:"flex-start", 
+    justifyContent:'flex-start'
   },
 
   FavCont: {
