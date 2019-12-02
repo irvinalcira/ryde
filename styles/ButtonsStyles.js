@@ -84,7 +84,7 @@ Img: {
 
   CallBut: {
     marginTop: 25,
-    height:53,
+    height:65,
     textAlign:'center',
     justifyContent:'center',
     backgroundColor:"#3971b3",

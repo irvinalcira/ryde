@@ -55,6 +55,7 @@ export default function FavBus( {RouteNo, RouteName, Schedules, StopNumber} ){
    
   }
 
+  console.log(favBus.length)
   useEffect(() => {
     GetFavBus();
 
@@ -68,12 +69,12 @@ export default function FavBus( {RouteNo, RouteName, Schedules, StopNumber} ){
 
   var FavoriteBus = null;
 
-  if(favBus === null){
+  if(favBus.length === 0){
 
     FavoriteBus = (
       <View style={FavStyles.CompBox}>
         <Text style={Fonts.Body}>
-        Start by adding your favorite route for quick access on the Home Page. You can edit, add, or remove favorites anytime.
+        Start by adding your favorite bus route for quick access on the Home Page. You can add, or remove favorites anytime.
       </Text>
       </View>
     )
@@ -86,9 +87,9 @@ export default function FavBus( {RouteNo, RouteName, Schedules, StopNumber} ){
 <View style={FavStyles.FavCont}>
   { 
   
-    favBus.map((obj, i) => {
-
-      var LeftTimeColor = '#363636';
+  favBus.map((obj, i) => {
+    
+    var LeftTimeColor = '#363636';
       var LeftTimeSize = 22;
       var RightTimeSize = 16;
       var RightTimeFont = 'Assistant-Regular'
@@ -118,7 +119,7 @@ export default function FavBus( {RouteNo, RouteName, Schedules, StopNumber} ){
 
             {/* Start */}
                   <TouchableOpacity>
-                    <View style={[FavStyles.FavPieceCont]}>
+                    <Animatable.View animation='fadeInDown' duration={400}  style={FavStyles.FavCont} style={[FavStyles.FavPieceCont]}>
                     <View style={FavStyles.StopName}>
                     {/* Image */}
                     <View>
@@ -149,7 +150,7 @@ export default function FavBus( {RouteNo, RouteName, Schedules, StopNumber} ){
                         <Text style={FavStyles.RouteName}> {Space} </Text>
                       </View>
 
-                    </View>
+                    </Animatable.View>
                   </TouchableOpacity>
                   {/* End */}
 

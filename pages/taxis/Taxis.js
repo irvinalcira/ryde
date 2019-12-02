@@ -2,11 +2,14 @@ import React,{useState,useEffect} from 'react';
 import { View, Text, Button, SafeAreaView, FlatList, ScrollView, TouchableOpacity, TextInput, Image } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { Dropdown } from 'react-native-material-dropdown';
+import * as Animatable from "react-native-animatable";
+
  
 
 import TaxisStyles from '../../styles/taxis/TaxisStyles';
 import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
+import Animated from 'react-native-reanimated';
 
 function Taxis(props) {
     const [users, setData] = useState([]);
@@ -92,6 +95,7 @@ function Taxis(props) {
                     {
                         Search.map((obj,i)=>{
                             return (
+                                <Animatable.View animation='fadeInDown' duration={400}>
                                 <TouchableOpacity style={Buttons.Taxi} onPress={() => Actions.SelectedTaxi(
                                     {
                                         ...obj,
@@ -115,7 +119,9 @@ function Taxis(props) {
                                 source={require('../../assets/icons/arrow.png')}
                             />
                         </View>
+                        
                     </TouchableOpacity>
+                    </Animatable.View>
                     
 
                             )

@@ -3,15 +3,16 @@ import { View, Alert, Text, Linking, SafeAreaView, StatusBar, TouchableOpacity, 
 import {Actions} from 'react-native-router-flux';
 import data from '../../storage.json';
 import Communications from 'react-native-communications';
+import * as Animatable from "react-native-animatable";
+
 
 
 import SelectedTaxiStyles from '../../styles/taxis/SelectedTaxiStyles';
 import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
 
- export default function SelectedTaxi({taxiname,address,phone,website,img}){
-
-    // console.log(phone);
+ export default function SelectedTaxi({taxiname,address,phone,website,img,city}){
+    // console.log(city);
 
     var stringPhone = JSON.stringify(phone);
     var goToWebsite = null;
@@ -19,8 +20,9 @@ import Buttons from '../../styles/ButtonsStyles';
 
     console.log(stringWebsite)
 
-    var notFavorited = require('../../assets/icons/favorite2.png');
-    var taxiFavorited = require('../../assets/icons/favorite.png')
+
+    var notFavorited =  <Animatable.Image style={SelectedTaxiStyles.FavoriteIcon} source={require('../../assets/icons/favorite2.png')} delay={250} animation='bounceIn'/>;
+    var taxiFavorited =  <Animatable.Image style={SelectedTaxiStyles.FavoriteIcon} source={require('../../assets/icons/favorite.png')} delay={250} animation='bounceIn' />;
 
     // const [ FavedNum, SetFavedNum ] = useState(1);
     const [ Faved, SetFaved ] = useState(false);
@@ -39,6 +41,8 @@ import Buttons from '../../styles/ButtonsStyles';
                     datanew.FavTaxi.push({
                         favtaxiname:taxiname,
                         favtaxiphone:phone,
+                        favetaxicity:city,
+                        
                         // favcheck: FavedNum
                     })
                     SetFavArr(datanew.FavTaxi);
@@ -144,15 +148,11 @@ import Buttons from '../../styles/ButtonsStyles';
                         onPress={ async () => {
 
                UpdateFavTaxi();
-                            // console.log(faved);
                         }
                     }
       >
           
-          <Image
-              style={SelectedTaxiStyles.FavoriteIcon}
-              source={favTaxiImg}
-          />
+         {favTaxiImg}
       </TouchableOpacity>
   
       </View>
@@ -172,10 +172,11 @@ import Buttons from '../../styles/ButtonsStyles';
   
       <View style={SelectedTaxiStyles.InfoContainer}>
       <Text style={Fonts.TaxiHeading}>Phone Number</Text>
+      <TouchableOpacity onPress = {() => Communications.phonecall( phone , true)}>
       <Text style={Fonts.Body}>{phone}</Text>
+      </TouchableOpacity>
       </View>
-  
-      <TouchableOpacity  style={Buttons.CallBut} onPress = {() => Communications.phonecall( stringPhone , true)}>
+      <TouchableOpacity  style={Buttons.CallBut} onPress = {() => Communications.phonecall( phone , true)}>
       <Text style={Buttons.CallButText}>Call Taxi</Text>
       </TouchableOpacity>
   </View>       

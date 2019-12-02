@@ -11,7 +11,7 @@ var HomePageStyles = StyleSheet.create({
 
   FavContainer:{
     flexDirection:"row",
-    marginLeft:-15,
+    marginLeft:-10,
   }, 
 
   FavBox:{
