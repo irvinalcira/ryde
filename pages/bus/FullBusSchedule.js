@@ -179,8 +179,8 @@ useEffect(() => {
 
 
                             <View style={[FullBusStyles.TimeInnerCont]}>
-                        <Text style={[Fonts.Time, {color:LeftTimeColor, fontSize: LeftTimeSize}]}> {obj.ExpectedCountdown} {hour}  {extramin}</Text>
-                         <Text style={[Fonts.Min, {color:LeftTimeColor, fontSize: LeftTimeSize}]}> {Min} </Text>
+                        <Text style={[Fonts.Time, {color:LeftTimeColor, fontSize: LeftTimeSize}]}> {obj.ExpectedCountdown} {hour}{extramin}</Text>
+                         <Text style={[Fonts.Min, {color:LeftTimeColor, fontSize: LeftTimeSize}]}>{Min}</Text>
                          </View>
                          <Text style={[Fonts.LeaveTime, {color:LeftTimeColor, fontSize: RightTimeSize, fontFamily: RightTimeFont}]}> {Space}</Text>
                         </View>

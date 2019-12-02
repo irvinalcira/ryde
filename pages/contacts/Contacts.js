@@ -53,6 +53,7 @@ function Contacts(props) {
     data = JSON.parse(data);
     console.log('Data = ', data);
     setContact(data.Contacts);
+
   }  
 
 
@@ -98,7 +99,9 @@ function Contacts(props) {
 
 
         <ScrollView>
-                  { Contact.length === 0 ? <EmptyContacts /> : null }
+
+          { Contact.length === 0 ? <EmptyContacts /> : null }
+
 
           {
             Contact.map((obj, i) => {

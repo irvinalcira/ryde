@@ -22,6 +22,7 @@ export default function FavTaxi(){
       setFavTaxi(parseFavTaxi.FavTaxi);
     }
 
+
     useEffect(() => {
 
       GetFavTaxi();
@@ -48,8 +49,9 @@ export default function FavTaxi(){
         {
 
           favTaxi.map((obj, i) => {
+
   
-            console.log(obj.favtaxiname);
+            console.log(obj.favetaxicity);
             return(
               <Animatable.View animation='fadeInDown' duration={400}  style={FavStyles.FavCont}>
               <TouchableOpacity onPress={()=>{Communications.phonecall( obj.favtaxiphone , true)}}>
@@ -73,7 +75,7 @@ export default function FavTaxi(){
                   <Text
                   numberOfLines={1}
                   style={FavStyles.RouteName}>
-                    {obj.favtaxiphone}
+                    {obj.favtaxicity}<Text>, BC</Text>
                   </Text> 
                 </View>
               </View>

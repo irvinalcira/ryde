@@ -9,9 +9,9 @@ import Communications from 'react-native-communications';
 //styles
 import AddPopupStyles from '../styles/comps/AddPopupStyles';
 
-export default function ContactPopup(props,{firstname,lastname,phone}){
+export default function ContactPopup(props){
 
-  console.log(props.firstname, props.phone);
+  console.log(props.firstname);
   const [position, setPosition] = useState({ latitude: 0, longitude: 0 });
 
 
@@ -36,7 +36,7 @@ export default function ContactPopup(props,{firstname,lastname,phone}){
   var location = 'https://www.google.com/maps/place/' + latitude + '+' + longitude + '/?entry=im'
 
   return(
-
+    
     <Modal isVisible={props.Popup} hideModalContentWhileAnimating={true}
     backdropTransitionOutTiming={0}
     onBackdropPress={() => props.setPopup(false)}

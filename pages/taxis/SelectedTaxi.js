@@ -41,7 +41,7 @@ import Buttons from '../../styles/ButtonsStyles';
                     datanew.FavTaxi.push({
                         favtaxiname:taxiname,
                         favtaxiphone:phone,
-                        favetaxicity:city,
+                        favtaxicity:city,
                         
                         // favcheck: FavedNum
                     })

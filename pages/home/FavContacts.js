@@ -22,6 +22,7 @@ function FavContacts(){
 
   // Favorite Contact List Async
   const [ favContact, setFavContact ] = useState([]);
+  const [ curObj, setCurObj] = useState({});
   
   async function GetFavContacts() {
     var data = await AsyncStorage.getItem("storage");
@@ -58,11 +59,10 @@ function FavContacts(){
           return (
             <View style={[HomePageStyles.ContactList, {width:95}]}>
 
-            {/* CONTACT CALL/MESSAGE POPUP */}
-            <ContactPopup Popup={Popup} setPopup={setPopup} { ...obj } />
-
             {/* CONTACT  */}
-            <TouchableOpacity onPress={() => {setPopup(true)} }>
+            <TouchableOpacity onPress={() => {
+              setCurObj(obj);
+              setPopup(true)} }>
               
                 {/* CONTACT ICON */}
                 { showIcon }
@@ -76,6 +76,8 @@ function FavContacts(){
               })
             }
 
+        {/* CONTACT CALL/MESSAGE POPUP */}
+      <ContactPopup Popup={Popup} setPopup={setPopup} {...curObj} />
       <AddPopup AddCPopup={AddCPopup} setAddCPopup={setAddCPopup} />
       <TouchableOpacity style={[HomePageStyles.ContactList, {width:100, flexDirection:'column', justifyContent:'center', alignItems:'center'}]} onPress={()=>{setAddCPopup(true)}}>
 
