@@ -25,12 +25,32 @@ function App(){
   // SET THE USERNAME
     async function GetUserName(){
       var getUsername = await AsyncStorage.getItem("user");
-      var parseUsername = JSON.parse(getUsername);
-      username = parseUsername.UserName;
-      var stringifyName = JSON.stringify(username);
-      SetUserName(stringifyName);
-      CheckState();
-      console.log(Name);
+
+      console.log(getUsername)
+
+      if (getUsername === null) {
+        setAppView( <StartPage setAppView={setAppView} AppView={AppView}/> )
+      } else {
+        setAppView( <Main />)
+      }
+      
+    //   var parseUsername = JSON.parse(getUsername);
+    //   username = parseUsername.UserName;
+    //   var stringifyName = JSON.stringify(username);
+    //   SetUserName(stringifyName);
+
+    //  console.log(parseUsername.UserName);
+
+  //    setTimeout(function(){
+  //     if (parseUsername.UserName === null){
+  //       setAppView( <StartPage setAppView={setAppView} AppView={AppView}/> )
+  //     }  else {    
+  //       setAppView( <Main /> )
+  //     }
+  // }, 500);
+
+
+
     }
     
     useEffect(() => {
@@ -43,13 +63,13 @@ function App(){
   },[]);
 
 
- function CheckState(){
-  if (Name === null){
-    setAppView(<StartPage setAppView={setAppView} AppView={AppView}/>)
-  }  else {    
-    setAppView(<Main />)
-  }
-}
+//  function CheckState(){
+//   if (Name === null){
+//     setAppView(<StartPage setAppView={setAppView} AppView={AppView}/>)
+//   }  else {    
+//     setAppView(<Main />)
+//   }
+// }
 
 
   return (
