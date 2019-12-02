@@ -13,12 +13,12 @@ import FavStyles from '../../styles/home/FavStyles';
 import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
 
-export default function FavBus( {RouteNo, RouteName, Schedules, StopNumber} ){
+export default function FavBus(){
 
-  const [, forceUpdate] = useState();
   let Min;
 
   const [ favBus, setFavBus ] = useState([]);
+  const [StopNumberInput, setStopNumberInput] = useState();
 
   async function GetFavBus() {
     
@@ -37,20 +37,8 @@ export default function FavBus( {RouteNo, RouteName, Schedules, StopNumber} ){
     }
    var response = await fetch('https://irvinalcira.com/rydedatabase/StopNumber.php?stopnum=' + StopNumberInput);
      newdata = await response.json();
-     if (newdata.length===undefined){
-      Alert.alert(
-        'No Buses Found'
-      )
-      // console.log("fetch", newdata);
-     }
-     else {
-      // console.log("fetch", newdata[0].Schedules);
-      Actions.BusLastRoute({
-        newdata:newdata,
-        StopNumberInput:StopNumberInput
-      });
-     }
-   
+    //  setStopNumberInput(newdata.)
+     
   }
 
   useEffect(() => {
@@ -61,7 +49,6 @@ export default function FavBus( {RouteNo, RouteName, Schedules, StopNumber} ){
   let hour;
   let extramin;
   useEffect(() => {
-    setTimeout(forceUpdate, 2000);
   }, []);
 
   var FavoriteBus = null;
@@ -108,14 +95,17 @@ export default function FavBus( {RouteNo, RouteName, Schedules, StopNumber} ){
       } else {
         Min = "Min"
       }
-      var Space =  obj.favbusschedule2.split(" ", 1);
-
+      // var Space =  obj.favbusschedule2.split(" ", 1);
       return(
 
         <View>
 
             {/* Start */}
-                  <TouchableOpacity>
+                  <TouchableOpacity
+                  onPress={()=>
+                    Actions.FullBusSchedule()
+                  }
+                  >
                     <View style={[FavStyles.FavPieceCont]}>
                     <View style={FavStyles.StopName}>
                     {/* Image */}
@@ -144,7 +134,7 @@ export default function FavBus( {RouteNo, RouteName, Schedules, StopNumber} ){
                       {/* Stop Number */}
                       <View style={FavStyles.TimeCont}>
                         <Text style={[Fonts.Time, {color:LeftTimeColor, fontSize: LeftTimeSize}]}> {obj.favbusschedule} {Min} </Text>
-                        <Text style={FavStyles.RouteName}> {Space} </Text>
+                        {/* <Text style={FavStyles.RouteName}> {Space} </Text> */}
                       </View>
 
                     </View>

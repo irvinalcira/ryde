@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import {View,Text, Image,SafeAreaView, TouchableOpacity} from 'react-native';
+import {View,Text, Image,SafeAreaView, TouchableOpacity, AsyncStorage} from 'react-native';
 import {Actions} from 'react-native-router-flux';
 
 import BusLastStyles from '../../styles/bus/BusLastRouteStyles';
@@ -21,6 +21,7 @@ export default function BusLastRoute(props){
     }
      useEffect(() => {
   SetValue()
+  // AsyncStorage.clear();
     },[]);
     return(
       <SafeAreaView style={BusLastStyles.Container}>
