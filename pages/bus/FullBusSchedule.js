@@ -9,13 +9,12 @@ import Divider from '../../comps/Divider';
 
 function FullBusSchedule({RouteNo,RouteName,Schedules,StopNumber}) {
 // console.log(Schedules[0])
-const [, forceUpdate] = useState();
 let Min;
 let hour;
 let extramin;
-useEffect(() => {
-  setTimeout(forceUpdate, 2000);
-}, []);
+// useEffect(() => {
+//   setTimeout(forceUpdate, 2000);
+// }, []);
   return (
     <SafeAreaView style={FullBusStyles.Container}>
       <View style={FullBusStyles.Container}> 
@@ -73,13 +72,7 @@ useEffect(() => {
           RightTimeFont = 'Assistant-Bold'
         }
 
-
-        if (obj.ExpectedCountdown <= 1){
-          Min = ""
-
-          obj.ExpectedCountdown="Now";
-         
-        }else if (obj.ExpectedCountdown === 60){
+        if (obj.ExpectedCountdown === 60){
           obj.ExpectedCountdown = 1
           hour = "Hour"
         }

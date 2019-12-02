@@ -28,7 +28,9 @@ async function fetchRouteData() {
     RouteNumberInput:RouteNumberInput
   });
 }
-
+// useEffect(() => {
+//   setTimeout(forceUpdate, 2000);
+// }, []);
   //Bus Stop Data Eg: 60715 
   async function fetchStopData(){
     var data = {
