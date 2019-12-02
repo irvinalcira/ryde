@@ -20,7 +20,7 @@ import Divider from '../../comps/Divider';
 function Contacts(props) {
 
   // USE STATES
-  const [Popup, setPopup] = useState(false);
+  const [AddCPopup, setAddCPopup] = useState(false);
   const [Contact, setContact] = useState([]);
   const [position, setPosition] = useState({ latitude: 0, longitude: 0 });
 
@@ -28,7 +28,7 @@ function Contacts(props) {
 
   // USE EFFECT TO GET USER'S CURRENT LOCATION
   useEffect(()=>{
-    Geolocation.requestAuthorization();
+    // Geolocation.requestAuthorization();
     Geolocation.getCurrentPosition(
       pos => {
         setPosition({
@@ -78,7 +78,7 @@ function Contacts(props) {
       <View style={ContactsStyles.Container}>
 
         {/* Add Popup Component */}
-        <AddPopup Popup={Popup} setPopup={setPopup} />
+        <AddPopup AddCPopup={AddCPopup} setAddCPopup={setAddCPopup} />
 
         {/* Title */}
         <View style={ContactsStyles.TitleCont}>
@@ -87,7 +87,7 @@ function Contacts(props) {
           <View style={ContactsStyles.TitleImg}>
 
             {/* Add Button Component */}
-            <AddButton setPopup={setPopup} />
+            <AddButton setAddCPopup={setAddCPopup} />
           </View>
         </View>
 

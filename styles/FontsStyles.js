@@ -237,6 +237,12 @@ ContactIconFont:{
   color:"white",
 },
 
+ContactIconFont2:{
+  fontSize:55,
+  fontFamily: "Assistant-Bold",
+  color:"white",
+},
+
 ContactNameFonts:{
   fontSize:15,
   fontFamily:"Assistant-SemiBold",

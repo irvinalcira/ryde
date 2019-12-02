@@ -38,15 +38,6 @@ export default function BusLastRoute(props){
 
   <Text style={[Fonts.BusRoute, BusRouteStyles.NavTitle]}>{StopNumber}</Text>
 
-  <View style={BusRouteStyles.ArrowCont}>
-  <TouchableOpacity onPress={() => {}}>
-  <Image
-  style={BusRouteStyles.BackArrow}
-  source={require('../../assets/icons/fav.png')}
-  />
-  </TouchableOpacity>
-  </View>
-
   </View>
   
   <View style={BusRouteStyles.MidStyles}>

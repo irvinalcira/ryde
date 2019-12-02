@@ -1,39 +1,48 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { View, SafeAreaView,Button,Image, StatusBar, AsyncStorage} from 'react-native';
-import {Actions} from 'react-native-router-flux';
 
 import AppStyles from './styles/AppStyles';
 
-import TabBar from './comps/TabBar';
-
-import AddContact from './pages/contacts/AddContact';
-import EmptyContacts from './pages/contacts/EmptyContacts';
-
 import StartPage from './pages/StartPage';
+import Main from './Main';
 
-import Route from './pages/Route'
 
 function App(){
   console.disableYellowBox = true;
 
+  // USER NAME DISPLAY USE STATE
+  const [ AppView, setAppView ] = useState(null);
+  const [ Name, SetUserName ] = useState(null);
+
+  // SET THE USERNAME
+    async function GetUserName(){
+        var getUsername = await AsyncStorage.getItem("user");
+        console.log(getUsername)
+
+        if (getUsername === null) {
+          setAppView( <StartPage setAppView={setAppView} AppView={AppView}/> )
+        } else {
+          setAppView( <Main />)
+        }
+    }
+    
+    useEffect(() => {
+     GetUserName();
+
+     // UN-COMMENT THE CODE BELOW TO RESET USER NAME TO NOTHING
+           //  AsyncStorage.clear()
+  
+  },[]);
+
+
   return (
 
-      <View style={[AppStyles.app, {backgroundColor:'blue'}]}>
+      <View style={[AppStyles.app, {backgroundColor:'#f4f4f4'}]}>
 
         <StatusBar barStyle="dark-content" />
 
-        {/* <StartPage/> */}
+        { AppView }
 
-          <View style={{flex:1}}>
-            <Route />
-          </View> 
-          
-           <View style={{display:'flex'}}>
-          <TabBar/>
-          <SafeAreaView style={{backgroundColor:'#ffffff'}}>
-          </SafeAreaView> 
-           </View>
-          
       </View>
 
   )

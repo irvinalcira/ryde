@@ -5,14 +5,15 @@ var StartPageStyles = StyleSheet.create({
   Container:{
     flex:1,
     padding:15,
-    paddingTop: 10,
     backgroundColor:'#f4f4f4',
+    justifyContent:'center'
 
   },
 
   Logo: {
     alignItems: "center",
-    marginTop: "5%"
+    marginTop: "5%",
+    marginBottom:20
   },
   Title: {
     alignItems: "center",
@@ -20,10 +21,32 @@ var StartPageStyles = StyleSheet.create({
   },
   Body: {
     textAlign: "left",
-    marginTop: 20
+    marginTop: 0
     // alignItems: "center"
-  }
+  },
 
+  Inp: {
+    textAlign:'center',
+    marginTop: 15,
+    height:45,
+    width:'80%',
+    padding:10,
+    color:'black',
+    fontSize:18,
+    borderBottomColor: "#D6D6D6",
+    borderBottomWidth:3
+  },
+
+  Button: {
+    marginTop: 20,
+    marginBottom: 20,
+    height:70,
+    textAlign:'center',
+    justifyContent:'center',
+    backgroundColor:"#3971b3",
+    borderRadius: 25,
+    alignItems: "center"
+  },
 });
 
 export default StartPageStyles;
