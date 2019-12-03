@@ -13,13 +13,12 @@ import StopTime from '../../skytraindb/Schedule.json';
 export default function SkyTrainSchedules(){
 
         const [ userInput, setUserInput ] = useState('');
-
         var TrainStop = Stops.Stops;
         
         // Dataset - All Train Stop ID Search
 
         const TrainStopSearch = TrainStop.filter(x => x.stop_name === userInput);
-        const SearchedId = TrainStopSearch.filter(x => x.stop_id === TrainStopSearch.stop_id);
+        // const SearchedId = TrainStopSearch.filter(x => x.stop_id === TrainStopSearch.stop_id);
 
         // Dataset - Canada Line
 
@@ -37,26 +36,45 @@ export default function SkyTrainSchedules(){
 
         const expoWest = expo.filter(x => x.direction_name === 'Westbound');
 
-        const TrainStopNames = expoEast.stop_name;
-
-        // console.log(expo);
-
         // Dataset - Schedules
+        
+                // Dataset - Train Stop Schedule Search by id
 
-        const StopT = StopTime;
 
-        // Dataset - Show all Stop Schedules
+        // Dataset - Show all Stops 
+        var stopidarr = [];
+        
+        for (var i=0;i<TrainStop.length;i++){
 
-        const AllStopT = StopT.arrival_time;
+                stopidarr.push(TrainStop[i]);
+           
+        }
 
-        console.log(cad)
+        // Dataset - Show all Stop Times
 
-        // result = StopTimes.filter(StopTimes => StopTimes.stop_id ==='11293');
-        // console.log(StopTimes);
+        var stoptimearr = [];
+        
+        for (var i=0;i<StopTime.length;i++){
 
-        // console.log(Stops.Stops[1].stop_id);
-        // console.log(StopTime[0].stop_id);
+                stoptimearr.push(StopTime[i]);
+           
+        }
 
+        // Dataset - Search for Stop id 11295
+
+        const TrainStops = stoptimearr.filter(stoptimearr => stoptimearr.stop_id === 11295);
+
+        // Dataset - Search for Arrival Times for Stop id 11295
+
+        var trainstoptimearr = [];
+
+        for (var i=0; i<TrainStops.length;i++){
+
+                trainstoptimearr.push(TrainStops[i].arrival_time);
+
+        }
+
+        console.log('test',trainstoptimearr);
 
   return (
     <SafeAreaView style={SkyTrainScheduleStyles.Container}>
