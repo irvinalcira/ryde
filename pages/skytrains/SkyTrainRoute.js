@@ -11,28 +11,37 @@ import StopTime from '../../skytraindb/Schedule.json';
 
 export default function SkyTrainRoute(){
 
-  const [ trainRoute, setTrainRoute ] = useState();
+  const [ trainRoute, setTrainRoute ] = useState([]);
 
-  function GetTrainRoute() {
+   function GetTrainRoute() {
+
+              // Dataset Import
+
+              var TrainStop = Stops.Stops;  
+
+              const expo = TrainStop.filter(x => x.route_name === 'Expo Line');
+              const expoEast = expo.filter(x => x.direction_name === 'Eastbound');
+              const expoWest = expo.filter(x => x.direction_name === 'Westbound');
+      
+              var expostopnamearr = [];        
+              for (var i=0;i<expoEast.length;i++){
+      
+                      expostopnamearr.push(expo[i].stop_name);
+
+              }
+                 
+              console.log(expostopnamearr);
+    
 
     setTrainRoute(expostopnamearr);
 
-  }
+   }
 
-        // Dataset Import
+  useEffect(() => {
 
-        var TrainStop = Stops.Stops;  
+    GetTrainRoute();
 
-        const expo = TrainStop.filter(x => x.route_name === 'Expo Line');
-        const expoEast = expo.filter(x => x.direction_name === 'Eastbound');
-        const expoWest = expo.filter(x => x.direction_name === 'Westbound');
-
-        var expostopnamearr = [];        
-        for (var i=0;i<expo.length;i++){
-
-                expostopnamearr.push(expo[i].stop_name);
-           
-        }
+  },[]);
 
         // console.log(expostopnamearr);
 
@@ -75,50 +84,51 @@ export default function SkyTrainRoute(){
           </View>
               <ScrollView style={SkyTrainRouteStyles.ScrollView}>
 {
-
   trainRoute.map((obj,i) => {
+    
+
+    console.log(trainRoute);
 
     return(
-               <View>
-                    {/* Train Station */}
-                    <TouchableOpacity onPress={() => Actions.SkyTrainStation()}>
 
-                    <View style={SkyTrainRouteStyles.TrainView}>
-      
-                      <View style={SkyTrainRouteStyles.StationName}>
-                      <View style={SkyTrainRouteStyles.TrainCont}>
-                        <Image
-                          style={SkyTrainRouteStyles.TrainIcon}
-                          source={require('../../assets/icons/skytrain-active.png')}
-                          />
-                      </View>
-      
-                      <View style={SkyTrainRouteStyles.Address}>
-                        <Text 
-                        numberOfLines={1}
-                        style={Fonts.AddressText}>
-                        {expostopnamearr} </Text>
-                      </View>
-                      </View>
-      
-                      <View style={SkyTrainRouteStyles.TimeCont}>
-                        <Text style={Fonts.EstNum}>3</Text>
-                        
-                        <Text style={Fonts.EstTime}>MIN AWAY</Text>
-      
-                      </View>
-      
-                    </View>
-                    </TouchableOpacity>
-                    {/* End of Train Station */}
+      <View>
+              {/* Train Station */}
+              <TouchableOpacity onPress={() => Actions.SkyTrainStation()}>
+
+              <View style={SkyTrainRouteStyles.TrainView}>
+
+                <View style={SkyTrainRouteStyles.StationName}>
+                <View style={SkyTrainRouteStyles.TrainCont}>
+                  <Image
+                    style={SkyTrainRouteStyles.TrainIcon}
+                    source={require('../../assets/icons/skytrain-active.png')}
+                    />
+                </View>
+
+                <View style={SkyTrainRouteStyles.Address}>
+                  <Text 
+                  numberOfLines={1}
+                  style={Fonts.AddressText}>
+                  {obj}</Text>
+                </View>
+                </View>
+
+                <View style={SkyTrainRouteStyles.TimeCont}>
+                  <Text style={Fonts.EstNum}>3</Text>
+                  
+                  <Text style={Fonts.EstTime}>MIN AWAY</Text>
+
+                </View>
+
               </View>
-
-    )
+              </TouchableOpacity>
+              {/* End of Train Station */}
+            </View>
+           )   
 
   })
-  
-}
 
+}                  
               </ScrollView>
 
 
