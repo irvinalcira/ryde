@@ -1,11 +1,41 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { View, Text, Image,ScrollView, SafeAreaView, TouchableOpacity} from 'react-native';
 import {Actions} from 'react-native-router-flux';
 
 import SkyTrainRouteStyles from '../../styles/skytrains/SkyTrainRouteStyles';
 import Fonts from '../../styles/FontsStyles';
-//test
+
+//import db
+import Stops from '../../skytraindb/Stops.json';
+import StopTime from '../../skytraindb/Schedule.json';
+
 export default function SkyTrainRoute(){
+
+  const [ trainRoute, setTrainRoute ] = useState();
+
+  function GetTrainRoute() {
+
+    setTrainRoute(expostopnamearr);
+
+  }
+
+        // Dataset Import
+
+        var TrainStop = Stops.Stops;  
+
+        const expo = TrainStop.filter(x => x.route_name === 'Expo Line');
+        const expoEast = expo.filter(x => x.direction_name === 'Eastbound');
+        const expoWest = expo.filter(x => x.direction_name === 'Westbound');
+
+        var expostopnamearr = [];        
+        for (var i=0;i<expo.length;i++){
+
+                expostopnamearr.push(expo[i].stop_name);
+           
+        }
+
+        // console.log(expostopnamearr);
+
   return(
     <SafeAreaView style={SkyTrainRouteStyles.Container}>
     <View style={SkyTrainRouteStyles.Container}>
@@ -43,296 +73,55 @@ export default function SkyTrainRoute(){
             
  
           </View>
-          <ScrollView style={SkyTrainRouteStyles.ScrollView}>
+              <ScrollView style={SkyTrainRouteStyles.ScrollView}>
+{
 
-              {/* Train Station */}
-              <TouchableOpacity onPress={() => Actions.SkyTrainStation()}>
+  trainRoute.map((obj,i) => {
 
-              <View style={SkyTrainRouteStyles.TrainView}>
+    return(
+               <View>
+                    {/* Train Station */}
+                    <TouchableOpacity onPress={() => Actions.SkyTrainStation()}>
 
-                <View style={SkyTrainRouteStyles.StationName}>
-                <View style={SkyTrainRouteStyles.TrainCont}>
-                  <Image
-                    style={SkyTrainRouteStyles.TrainIcon}
-                    source={require('../../assets/icons/skytrain-active.png')}
-                    />
-                </View>
-
-                <View style={SkyTrainRouteStyles.Address}>
-                  <Text 
-                  numberOfLines={1}
-                  style={Fonts.AddressText}>
-                  Waterfront </Text>
-                </View>
-                </View>
-
-                <View style={SkyTrainRouteStyles.TimeCont}>
-                   <Text style={Fonts.EstNum}>3</Text>
-                  
-                  <Text style={Fonts.EstTime}>MIN AWAY</Text>
-
-                </View>
-
+                    <View style={SkyTrainRouteStyles.TrainView}>
+      
+                      <View style={SkyTrainRouteStyles.StationName}>
+                      <View style={SkyTrainRouteStyles.TrainCont}>
+                        <Image
+                          style={SkyTrainRouteStyles.TrainIcon}
+                          source={require('../../assets/icons/skytrain-active.png')}
+                          />
+                      </View>
+      
+                      <View style={SkyTrainRouteStyles.Address}>
+                        <Text 
+                        numberOfLines={1}
+                        style={Fonts.AddressText}>
+                        {expostopnamearr} </Text>
+                      </View>
+                      </View>
+      
+                      <View style={SkyTrainRouteStyles.TimeCont}>
+                        <Text style={Fonts.EstNum}>3</Text>
+                        
+                        <Text style={Fonts.EstTime}>MIN AWAY</Text>
+      
+                      </View>
+      
+                    </View>
+                    </TouchableOpacity>
+                    {/* End of Train Station */}
               </View>
-              </TouchableOpacity>
-            {/* End of Train Station */}
 
-              {/* Train Station */}
-              <TouchableOpacity onPress={() => Actions.SkyTrainStation()}>
+    )
 
-              <View style={[SkyTrainRouteStyles.TrainView]}>
+  })
+  
+}
 
-                <View style={SkyTrainRouteStyles.StationName}>
-                <View style={SkyTrainRouteStyles.TrainCont}>
-                  <Image
-                    style={SkyTrainRouteStyles.TrainIcon}
-                    source={require('../../assets/icons/skytrain-active.png')}
-                    />
-                </View>
-
-                <View style={SkyTrainRouteStyles.Address}>
-                  <Text 
-                  numberOfLines={1}
-                  style={Fonts.AddressText}>
-                  Burrard </Text>
-                </View>
-                </View>
-
-                <View style={SkyTrainRouteStyles.TimeCont}>
-                   <Text style={Fonts.EstNum}>5</Text>
-                  
-                  <Text style={Fonts.EstTime}>MIN AWAY</Text>
-
-                </View>
-
-              </View>
-              </TouchableOpacity>
-            {/* End of Train Station */}
-
-              {/* Train Station */}
-              <TouchableOpacity onPress={() => Actions.SkyTrainStation()}>
-
-              <View style={SkyTrainRouteStyles.TrainView}>
-
-                <View style={SkyTrainRouteStyles.StationName}>
-                <View style={SkyTrainRouteStyles.TrainCont}>
-                  <Image
-                    style={SkyTrainRouteStyles.TrainIcon}
-                    source={require('../../assets/icons/skytrain-active.png')}
-                    />
-                </View>
-
-                <View style={SkyTrainRouteStyles.Address}>
-                  <Text 
-                  numberOfLines={1}
-                  style={Fonts.AddressText}>
-                  Granville </Text>
-                </View>
-                </View>
-
-                <View style={SkyTrainRouteStyles.TimeCont}>
-                   <Text style={Fonts.EstNum}>6</Text>
-                  
-                  <Text style={Fonts.EstTime}>MIN AWAY</Text>
-
-                </View>
-
-              </View>
-              </TouchableOpacity>
-            {/* End of Train Station */}
-
-              {/* Train Station */}
-              <TouchableOpacity onPress={() => Actions.SkyTrainStation()}>
-
-              <View style={[SkyTrainRouteStyles.TrainView]}>
-
-                <View style={SkyTrainRouteStyles.StationName}>
-                <View style={SkyTrainRouteStyles.TrainCont}>
-                  <Image
-                    style={SkyTrainRouteStyles.TrainIcon}
-                    source={require('../../assets/icons/skytrain-active.png')}
-                    />
-                </View>
-
-                <View style={SkyTrainRouteStyles.Address}>
-                  <Text 
-                  numberOfLines={1}
-                  style={Fonts.AddressText}>
-                  Stadium - Chinatown </Text>
-                </View>
-                </View>
-
-                <View style={SkyTrainRouteStyles.TimeCont}>
-                   <Text style={Fonts.EstNum}>7</Text>
-                  
-                  <Text style={Fonts.EstTime}>MIN AWAY</Text>
-
-                </View>
-
-              </View>
-              </TouchableOpacity>
-            {/* End of Train Station */}
-
-              {/* Train Station */}
-              <TouchableOpacity onPress={() => Actions.SkyTrainStation()}>
-
-              <View style={SkyTrainRouteStyles.TrainView}>
-                <View style={SkyTrainRouteStyles.StationName}>
-                <View style={SkyTrainRouteStyles.TrainCont}>
-                  <Image
-                    style={SkyTrainRouteStyles.TrainIcon}
-                    source={require('../../assets/icons/skytrain-active.png')}
-                    />
-                </View>
-
-                <View style={SkyTrainRouteStyles.Address}>
-                  <Text 
-                  numberOfLines={1}
-                  style={Fonts.AddressText}>
-                  Main Street - Science World </Text>
-                </View>
-                </View>
-
-                <View style={SkyTrainRouteStyles.TimeCont}>
-                   <Text style={Fonts.EstNum}>10</Text>
-                  
-                  <Text style={Fonts.EstTime}>MIN AWAY</Text>
-
-                </View>
-
-              </View>
-              </TouchableOpacity>
-            {/* End of Train Station */}
-
-              {/* Train Station */}
-              <TouchableOpacity onPress={() => Actions.SkyTrainStation()}>
-
-              <View style={[SkyTrainRouteStyles.TrainView]}>
-
-                <View style={SkyTrainRouteStyles.StationName}>
-                <View style={SkyTrainRouteStyles.TrainCont}>
-                  <Image
-                    style={SkyTrainRouteStyles.TrainIcon}
-                    source={require('../../assets/icons/skytrain-active.png')}
-                    />
-                </View>
-
-                <View style={SkyTrainRouteStyles.Address}>
-                  <Text 
-                  numberOfLines={1}
-                  style={Fonts.AddressText}>
-                  Commercial Broadway </Text>
-                </View>
-                </View>
-
-                <View style={SkyTrainRouteStyles.TimeCont}>
-                   <Text style={Fonts.EstNum}>13</Text>
-                  
-                  <Text style={Fonts.EstTime}>MIN AWAY</Text>
-
-                </View>
-
-              </View>
-              </TouchableOpacity>
-            {/* End of Train Station */}
-
-              {/* Train Station */}
-              <TouchableOpacity onPress={() => Actions.SkyTrainStation()}>
-
-              <View style={SkyTrainRouteStyles.TrainView}>
-
-                <View style={SkyTrainRouteStyles.StationName}>
-                <View style={SkyTrainRouteStyles.TrainCont}>
-                  <Image
-                    style={SkyTrainRouteStyles.TrainIcon}
-                    source={require('../../assets/icons/skytrain-active.png')}
-                    />
-                </View>
-
-                <View style={SkyTrainRouteStyles.Address}>
-                  <Text 
-                  numberOfLines={1}
-                  style={Fonts.AddressText}>
-                  Nanaimo </Text>
-                </View>
-                </View>
-
-                <View style={SkyTrainRouteStyles.TimeCont}>
-                   <Text style={Fonts.EstNum}>14</Text>
-                  
-                  <Text style={Fonts.EstTime}>MIN AWAY</Text>
-
-                </View>
-
-              </View>
-              </TouchableOpacity>
-            {/* End of Train Station */}
-
-              {/* Train Station */}
-              <TouchableOpacity onPress={() => Actions.SkyTrainStation()}>
-
-              <View style={[SkyTrainRouteStyles.TrainView]}>
-
-                <View style={SkyTrainRouteStyles.StationName}>
-                <View style={SkyTrainRouteStyles.TrainCont}>
-                  <Image
-                    style={SkyTrainRouteStyles.TrainIcon}
-                    source={require('../../assets/icons/skytrain-active.png')}
-                    />
-                </View>
-
-                <View style={SkyTrainRouteStyles.Address}>
-                  <Text 
-                  numberOfLines={1}
-                  style={Fonts.AddressText}>
-                  29th Avenue </Text>
-                </View>
-                </View>
-
-                <View style={SkyTrainRouteStyles.TimeCont}>
-                   <Text style={Fonts.EstNum}>16</Text>
-                  
-                  <Text style={Fonts.EstTime}>MIN AWAY</Text>
-
-                </View>
-
-              </View>
-              </TouchableOpacity>
-            {/* End of Train Station */}
-
-              {/* Train Station */}
-              <TouchableOpacity onPress={() => Actions.SkyTrainStation()}>
-
-              <View style={SkyTrainRouteStyles.TrainView}>
-                <View style={SkyTrainRouteStyles.StationName}>
-                <View style={SkyTrainRouteStyles.TrainCont}>
-                  <Image
-                    style={SkyTrainRouteStyles.TrainIcon}
-                    source={require('../../assets/icons/skytrain-active.png')}
-                    />
-                </View>
-
-                <View style={SkyTrainRouteStyles.Address}>
-                  <Text 
-                  numberOfLines={1}
-                  style={Fonts.AddressText}>
-                  Joyce - Collingwood </Text>
-                </View>
-                </View>
-
-                <View style={SkyTrainRouteStyles.TimeCont}>
-                   <Text style={Fonts.EstNum}>18</Text>
-                  
-                  <Text style={Fonts.EstTime}>MIN AWAY</Text>
-
-                </View>
-
-              </View>
-              </TouchableOpacity>
-            {/* End of Train Station */}
+              </ScrollView>
 
 
-          </ScrollView>
       </View>
       </SafeAreaView>
   )
