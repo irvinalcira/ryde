@@ -12,6 +12,7 @@ import StopTime from '../../skytraindb/Schedule.json';
 export default function SkyTrainRoute(){
 
   const [ trainRoute, setTrainRoute ] = useState([]);
+  // const [trainStopId,setTrainStopId] = useState([]);
 
    function GetTrainRoute() {
 
@@ -19,21 +20,26 @@ export default function SkyTrainRoute(){
 
               var TrainStop = Stops.Stops;  
 
+              // This is just another way of doing filter. x=> is the same as doing obj
               const expo = TrainStop.filter(x => x.route_name === 'Expo Line');
               const expoEast = expo.filter(x => x.direction_name === 'Eastbound');
               const expoWest = expo.filter(x => x.direction_name === 'Westbound');
-      
-              var expostopnamearr = [];        
-              for (var i=0;i<expoEast.length;i++){
-      
-                      expostopnamearr.push(expo[i].stop_name);
-
-              }
-                 
-              console.log(expostopnamearr);
     
-
-    setTrainRoute(expostopnamearr);
+              var expostopnamearr = [];
+              // let expostopid = []  
+              for (var i=0;i<expoEast.length;i++){
+                      expostopnamearr.push(expo[i].stop_name);
+                      // expostopid.push(expo[i].stop_id);
+              }
+              setTrainRoute(expostopnamearr);
+              // setTrainStopId(expostopid);
+              // Tried some stuff to match the id to time
+          //  var time= StopTime.filter((obj,i)=>{
+          //     if (obj.stop_id===trainStopId[0]){
+          //       return (obj.arrival_time)
+          //     }
+          //   });
+    // console.log(time);
 
    }
 
@@ -43,7 +49,7 @@ export default function SkyTrainRoute(){
 
   },[]);
 
-        // console.log(expostopnamearr);
+      
 
   return(
     <SafeAreaView style={SkyTrainRouteStyles.Container}>
@@ -87,7 +93,7 @@ export default function SkyTrainRoute(){
   trainRoute.map((obj,i) => {
     
 
-    console.log(trainRoute);
+    // console.log(trainRoute);
 
     return(
 
@@ -116,7 +122,7 @@ export default function SkyTrainRoute(){
                 <View style={SkyTrainRouteStyles.TimeCont}>
                   <Text style={Fonts.EstNum}>3</Text>
                   
-                  <Text style={Fonts.EstTime}>MIN AWAY</Text>
+                  {/* <Text style={Fonts.EstTime}>MIN AWAY</Text> */}
 
                 </View>
 
