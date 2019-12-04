@@ -35,9 +35,28 @@ export default function HomePage(){
 
   // FAVORITES TAB BUTTONS PRESSED
 
-  var favBus = ( <Text style={Fonts.FavButtonText}>Bus Stations</Text> );
-  var favTrain = ( <Text style={Fonts.FavButtonText}>SkyTrain Stations</Text> );
-  var favTaxi = ( <Text style={Fonts.FavButtonText}>Taxis</Text> );
+  active = '#063C5C';
+  notActive = 'rgba(0,0,0,0.2)';
+  const [lineColor, setLineColor] = useState(notActive)
+
+  var favBus = ( 
+    <View>
+      <Text style={Fonts.FavButtonText}>Bus Stops</Text>
+      <View style={{backgroundColor: notActive, width:"100%", height:3}}></View>
+    </View>
+    );
+  var favTrain = ( 
+    <View>
+      <Text style={Fonts.FavButtonText}>SkyTrain Stations</Text>
+      <View style={{backgroundColor: notActive, width:"100%", height:3}}></View>
+  </View>
+  );
+  var favTaxi = ( 
+    <View>
+      <Text style={Fonts.FavButtonText}>Taxis</Text>
+      <View style={{backgroundColor: notActive, width:"100%", height:3}}></View>
+  </View>
+  );
 
   if(favPage === "FavBus"){
     comp = (
@@ -48,7 +67,10 @@ export default function HomePage(){
       </View>
     ),
     favBus = (
-      <Text style={Fonts.FavButtonTextPressed}>Bus Stations</Text>
+      <View>
+      <Text style={Fonts.FavButtonTextPressed}>Bus Stops</Text>
+      <View style={{backgroundColor: active, width:"100%", height:3}}></View>
+      </View>
     )
   }
 
@@ -60,7 +82,10 @@ export default function HomePage(){
       </View>
     ),
     favTrain = (
-      <Text style={Fonts.FavButtonTextPressed}>SkyTrain Stations</Text>      
+      <View>
+      <Text style={Fonts.FavButtonTextPressed}>SkyTrain Stations</Text>  
+      <View style={{backgroundColor: active, width:"100%", height:3}}></View> 
+      </View>   
     )
   }
 
@@ -73,7 +98,10 @@ export default function HomePage(){
       </View>
     ),
     favTaxi = (
+      <View>
       <Text style={Fonts.FavButtonTextPressed}>Taxis</Text>
+      <View style={{backgroundColor: active, width:"100%", height:3}}></View>
+      </View>
     )
   }
 
@@ -90,12 +118,13 @@ export default function HomePage(){
 
             <Text style={Fonts.Heading}> Your Favorites </Text>
 
-              <View style={[HomePageStyles.FavContainer, {justifyContent:'space-between'}]}>          
+              <View style={[HomePageStyles.FavContainer,]}>          
 
                   <TouchableOpacity style={Buttons.HomePageButton}
                   
                     onPress={()=>{ setFavPage("FavBus"); }} >
                   {favBus}
+                  
                   </TouchableOpacity>
 
                   <TouchableOpacity style={Buttons.HomePageButton}
