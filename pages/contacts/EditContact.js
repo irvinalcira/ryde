@@ -12,8 +12,9 @@ import Divider from '../../comps/Divider';
 import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
 import EditContactStyles from '../../styles/contacts/EditContactStyles';
+import { object } from 'prop-types';
 
-function EditContact(props) {
+function EditContact(obj) {
 
   const [showPic, SetShowPic] = useState(false);
   const [Photo,SetPhoto] = useState("");
@@ -100,7 +101,7 @@ function EditContact(props) {
 
         {/*First Name Input */}
         <TextInput style={[Fonts.Inp, EditContactStyles.EditInp]} placeholder="First Name" placeholderTextColor='gray'
-        onChangeText = {(Text)=> setFName(Text)} value={FName}
+        onChangeText = {(Text)=> setFName(Text)} value={obj.firstname}
         />
 
         {/*Last Name Input */}
