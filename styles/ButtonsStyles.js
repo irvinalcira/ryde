@@ -87,7 +87,7 @@ Img: {
     height:65,
     textAlign:'center',
     justifyContent:'center',
-    backgroundColor:"#3971b3",
+    backgroundColor:"#2c6fb2",
     borderRadius: 20
   },
 
