@@ -28,13 +28,12 @@ function Taxis(props) {
             )
         }
     }
-    
 
     var Search=users;
     if(input !== "" && input !== "All Taxis"){
         Search = users.filter((obj,i)=>{
-            return (obj.city===input);
-        });
+         return (obj.city===input);
+   });
     }
 
     

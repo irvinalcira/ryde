@@ -5,7 +5,8 @@ import {
   TouchableOpacity,
   Image,
   ScrollView,
-  AsyncStorage
+  AsyncStorage,
+  Alert
 } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import * as Animatable from "react-native-animatable";
@@ -15,44 +16,19 @@ import FavStyles from '../../styles/home/FavStyles';
 import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
 
-export default function FavBus( {RouteNo, RouteName, Schedules, StopNumber} ){
+export default function FavBus(){
+  
+  
 
-  const [, forceUpdate] = useState();
   let Min;
-
+  const [StopNumberInput, setStopNumberInput]=useState();
   const [ favBus, setFavBus ] = useState([]);
 
   async function GetFavBus() {
     
     var datanew = await AsyncStorage.getItem("storage")
     var parseFavBus = JSON.parse(datanew);
-
     setFavBus(parseFavBus.FavBus);
-    var favFilter = parseFavBus.FavBus.filter((o,i)=>{
-      return o.favbusstopno === 60980;
-    });
-  }
-
-  async function fetchStopData(){
-    var data = {
-      "StopNumber": StopNumberInput
-    }
-   var response = await fetch('https://irvinalcira.com/rydedatabase/StopNumber.php?stopnum=' + StopNumberInput);
-     newdata = await response.json();
-     if (newdata.length===undefined){
-      Alert.alert(
-        'No Buses Found'
-      )
-      // console.log("fetch", newdata);
-     }
-     else {
-      // console.log("fetch", newdata[0].Schedules);
-      Actions.BusLastRoute({
-        newdata:newdata,
-        StopNumberInput:StopNumberInput
-      });
-     }
-   
   }
 
   console.log(favBus.length)
@@ -60,12 +36,6 @@ export default function FavBus( {RouteNo, RouteName, Schedules, StopNumber} ){
     GetFavBus();
 
   },[]);
-    
-  let hour;
-  let extramin;
-  useEffect(() => {
-    setTimeout(forceUpdate, 2000);
-  }, []);
 
   var FavoriteBus = null;
 
@@ -88,7 +58,33 @@ export default function FavBus( {RouteNo, RouteName, Schedules, StopNumber} ){
   { 
   
   favBus.map((obj, i) => {
-    
+    async function fetchStopData(){
+      var datanew = await AsyncStorage.getItem("storage")
+      var parseFavBus = await JSON.parse(datanew);
+      setStopNumberInput(parseFavBus.FavBus[i].favbusstopno);
+      // console.log(parseFavBus.FavBus[i].favbusstopno);
+      console.log("fetch",StopNumberInput);
+     var response = await fetch('https://irvinalcira.com/rydedatabase/StopNumber.php?stopnum=' + StopNumberInput);
+       newdata = await response.json();
+       console.log("fetch",newdata);
+       if (newdata.length===0||newdata.length===undefined){
+        Alert.alert(
+          'No Buses Found' 
+        )
+       }
+       else {
+        Actions.FullBusSchedule(
+          {
+            RouteNo:obj.favbusrouteno,
+            StopNumber:obj.favbusstopno,
+            RouteName:obj.favbusroutename,
+            StreetName:obj.favbusstreetname,
+            // Schedules:newdata.Schedules[i]
+            
+          }
+        )
+       }
+    }
     var LeftTimeColor = '#3971B3';
       var LeftTimeSize = 22;
       var RightTimeSize = 16;
@@ -101,14 +97,15 @@ export default function FavBus( {RouteNo, RouteName, Schedules, StopNumber} ){
       } else {
         Min = "Min"
       }
-      var Space =  obj.favbusschedule2.split(" ", 1);
+      // var Space =  obj.favbusschedule2.split(" ", 1);
 
       return(
-
         <View>
 
             {/* Start */}
-                  <TouchableOpacity>
+                  <TouchableOpacity
+                  onPress={()=>fetchStopData()
+                  }>
                     <Animatable.View animation='fadeInDown' duration={400}  style={FavStyles.FavCont} style={[FavStyles.FavPieceCont]}>
                     <View style={FavStyles.StopName}>
                     {/* Image */}
@@ -129,7 +126,7 @@ export default function FavBus( {RouteNo, RouteName, Schedules, StopNumber} ){
                         <Text
                         numberOfLines={1}
                         style={FavStyles.RouteName}>
-                          {obj.favbusstopno}
+                          {obj.favbusstopno} - {obj.favbusstreetname}
                         </Text> 
                       </View>
                     </View>
@@ -137,7 +134,7 @@ export default function FavBus( {RouteNo, RouteName, Schedules, StopNumber} ){
                       {/* Stop Number */}
                       <View style={FavStyles.TimeCont}>
                         <Text style={[Fonts.Time, {color:LeftTimeColor, fontSize: LeftTimeSize}]}> {obj.favbusschedule} {Min} </Text>
-                        <Text style={FavStyles.RightRouteTime}> {Space} </Text>
+                        {/* <Text style={FavStyles.RightRouteTime}> {Space} </Text> */}
                       </View>
 
                     </Animatable.View>

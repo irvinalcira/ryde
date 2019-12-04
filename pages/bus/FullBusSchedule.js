@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
-import {View,Text, Image,SafeAreaView, TouchableOpacity, AsyncStorage} from 'react-native';
+import { View, Text, Image, SafeAreaView, TouchableOpacity, AsyncStorage } from 'react-native';
 
-import {Actions} from 'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
 import data from '../../storage.json';
 import Communications from 'react-native-communications';
 
@@ -12,51 +12,55 @@ import Buttons from '../../styles/ButtonsStyles';
 
 import Divider from '../../comps/Divider';
 
-function FullBusSchedule({RouteNo,RouteName,Schedules,StopNumber}) {
-// console.log(Schedules[0])
-const [, forceUpdate] = useState();
-let Min;
+var timer = null;
+
+function FullBusSchedule({ RouteNo, RouteName, Schedules, StopNumber, StreetName }) {
+  // console.log(Schedules[0])
+  let Min="Min"
+  let Hour;
+  let ExtraMin;
 
 
   var notFavorited = require('../../assets/icons/favorite2.png');
   var busFavorited = require('../../assets/icons/favorite.png');
 
-  const [ favBus, setFavBus ] = useState([]);
-  const [ BusFaved, SetBusFaved ] = useState(false);
-  const [ FavArr, SetFavArr ] = useState([]);
-  const [ favBusImg, setFavBusImg ] = useState(notFavorited);
+  const [favBus, setFavBus] = useState([]);
+  const [BusFaved, SetBusFaved] = useState(false);
+  const [FavArr, SetFavArr] = useState([]);
+  const [favBusImg, setFavBusImg] = useState(notFavorited);
 
-  async function UpdateFavBus(){
+  async function UpdateFavBus() {
 
     var datanew = await AsyncStorage.getItem("storage");
-    if(!datanew){
+    if (!datanew) {
       datanew = data;
     } else {
       datanew = JSON.parse(datanew)
     }
-      if (BusFaved === false){
-        datanew.FavBus.push({
-          favbusrouteno: RouteNo,
-          favbusstopno: StopNumber,
-          favbusroutename: RouteName,
-          // favbusschedule: Schedules[0].ExpectedCountdown,
-          // favbusschedule2: Schedules[0].ExpectedLeaveTime,
-        })
-        SetFavArr(datanew.FavBus);
-        SetBusFaved(true);
-        setFavBusImg(busFavorited);
-      } else {
-        DeleteBusFav()
-      }
-      console.log("test",datanew);
-      AsyncStorage.setItem("storage",JSON.stringify(datanew));
+    if (BusFaved === false) {
+      datanew.FavBus.push({
+        favbusrouteno: RouteNo,
+        favbusstopno: StopNumber,
+        favbusroutename: RouteName,
+        favbusstreetname: StreetName
+        // favbusschedule: Schedules[0].ExpectedCountdown,
+        // favbusschedule2: Schedules[0].ExpectedLeaveTime,
+      })
+      SetFavArr(datanew.FavBus);
+      SetBusFaved(true);
+      setFavBusImg(busFavorited);
+    } else {
+      DeleteBusFav()
+    }
+    console.log("test", datanew);
+    AsyncStorage.setItem("storage", JSON.stringify(datanew));
   };
 
-  async function DeleteBusFav(){
+  async function DeleteBusFav() {
     var newdata = await AsyncStorage.getItem("storage");
     parsedelete = await JSON.parse(newdata);
-    console.log("hi",parsedelete);
-    var favBusFilter = parsedelete.FavBus.filter((o,i)=>{
+    console.log("hi", parsedelete);
+    var favBusFilter = parsedelete.FavBus.filter((o, i) => {
       return o.favbusrouteno !== RouteNo
     });
     parsedelete.FavBus = favBusFilter;
@@ -65,18 +69,18 @@ let Min;
     setFavBusImg(notFavorited);
 
   }
-  
-  async function CheckBusColor(){
+
+  async function CheckBusColor() {
     var datanew = await AsyncStorage.getItem("storage");
-    if (!datanew){
+    if (!datanew) {
       setFavBusImg(notFavorited);
     } else {
       datanew = await JSON.parse(datanew)
     }
-    var favBusFilter = datanew.FavBus.filter((o,i)=>{
+    var favBusFilter = datanew.FavBus.filter((o, i) => {
       return o.favbusrouteno === RouteNo
     });
-    if(favBusFilter.length>0){
+    if (favBusFilter.length > 0) {
       setFavBusImg(busFavorited)
       SetBusFaved(true);
     } else {
@@ -85,114 +89,126 @@ let Min;
     }
   }
 
+  async function fetchStopData() {
+    var response = await fetch('https://irvinalcira.com/rydedatabase/StopNumber.php?stopnum=' + StopNumber);
+    newdata = await response.json();
+  }
   useEffect(() => {
     CheckBusColor();
-  }, []);
-
-
-let hour;
-let extramin;
-useEffect(() => {
-  setTimeout(forceUpdate, 2000);
-}, []);
+    timer = setInterval(async () => {
+      await fetchStopData();
+    }, 30000);
+    return () => {
+      if (timer !== null) {
+        clearInterval(timer);
+      }
+    }
+  },[])
 
   return (
     <SafeAreaView style={FullBusStyles.Container}>
-      <View style={FullBusStyles.Container}> 
+      <View style={FullBusStyles.Container}>
 
-      <View style={FullBusStyles.TopView}>
+        <View style={FullBusStyles.TopView}>
 
           {/* Nav Bar (Blue Section) */}
           <View style={FullBusStyles.NavBar}>
 
             {/* Arrow */}
             <View style={FullBusStyles.ArrowCont}>
-            <TouchableOpacity onPress={() => Actions.pop('Bus Last Route')}>
-              <Image
-              style={FullBusStyles.BackArrow}
-              source={require('../../assets/icons/backarrow.png')}
-              />
+              <TouchableOpacity onPress={() => Actions.pop('Bus Last Route')}>
+                <Image
+                  style={FullBusStyles.BackArrow}
+                  source={require('../../assets/icons/backarrow.png')}
+                />
               </TouchableOpacity>
-              </View>
+            </View>
 
-              {/* Stop Number */}
-               <Text style={[Fonts.BusRoute, FullBusStyles.NavTitle]}>{StopNumber}</Text>
-               <TouchableOpacity style={{justifyContent:'center', alignItems:'center', flex:1, flexDirection:'row-reverse'}}
-              onPress={ async() => {
+            {/* Stop Number */}
+            <Text style={[Fonts.BusRoute, FullBusStyles.NavTitle]}>{StopNumber}</Text>
+            <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', flex: 1, flexDirection: 'row-reverse' }}
+              onPress={async () => {
                 UpdateFavBus();
                 console.log(favBus);
               }}>
 
-                <Image style={{height:30, width:30}} source={favBusImg} />
+              <Image style={{ height: 30, width: 30 }} source={favBusImg} />
 
             </TouchableOpacity>
-            </View>
+          </View>
 
-             
-            <View style={FullBusStyles.MidStyles}>
-              <View style={FullBusStyles.BusStopInfo}>
+
+          <View style={FullBusStyles.MidStyles}>
+            <View style={FullBusStyles.BusStopInfo}>
               <Text style={Fonts.BusNum}>{RouteNo}</Text>
 
-              </View>
-              <Text style={Fonts.BusName}>{RouteName}</Text>
-              <Text style={Fonts.StreetName}>Northbound Willingdon Ave / Kingsborough St</Text>
             </View>
+            <Text style={Fonts.BusName}>{RouteName}</Text>
+            <Text style={Fonts.StreetName}>{StreetName}</Text>
+          </View>
 
-       </View>
+        </View>
 
-      <View style={FullBusStyles.Bottom}>
+        <View style={FullBusStyles.Bottom}>
 
-      <View style={[FullBusStyles.ScheduleCont]}>
-{
-      Schedules.map((obj,i)=>{
+          <View style={[FullBusStyles.ScheduleCont]}>
+            {
+              Schedules.map((obj, i) => {
+                // if (obj.ExpectedCountdown <= 1) {
+                //   Min = ""
+                //   obj.ExpectedCountdown = "Now";
+                // }
+                // else if (obj.ExpectedCountdown >= 60) {
+                //   if (obj.ExpectedCountdown > 60) {
+                //     ExtraMin = obj.ExpectedCountdown - 60
+                //     Hour = ""
+                //   }
+                //   var newish = obj.ExpectedCountdown = 1
+                //   // obj.ExpectedCountdown = 1;
+                //   Hour = "blsh" + newish + "Hour";
+                // }
+                // else if (obj.ExpectedCountdown !== "Now") {
+                //   Min = "Min"
+                // }
+                var LeftTimeColor = '#363636';
+                var LeftTimeSize = 22;
+                var RightTimeSize = 16;
+                var RightTimeFont = 'Assistant-Regular'
+
+                if (i != 0) {
+                  LeftTimeColor = 'gray'
+                  LeftTimeSize = 19;
+                  RightTimeSize = 15;
+                } else {
+                  LeftTimeColor = '#3971B3'
+                  LeftTimeSize = 23;
+                  RightTimeSize = 16
+                  RightTimeFont = 'Assistant-Bold'
+                }
 
 
-        var LeftTimeColor = '#363636';
-        var LeftTimeSize = 22;
-        var RightTimeSize = 16;
-        var RightTimeFont = 'Assistant-Regular'
 
-        if (i != 0) {
-          LeftTimeColor = 'gray'
-          LeftTimeSize = 19;
-          RightTimeSize = 15;
-        } else {
-          LeftTimeColor = '#3971B3'
-          LeftTimeSize = 23;
-          RightTimeSize = 16
-          RightTimeFont = 'Assistant-Bold'
-        }
+                var Space = obj.ExpectedLeaveTime.split(" ", 1);
+                return (
+                  <View style={[FullBusStyles.TimeCont]}>
+                    <View style={FullBusStyles.TimeOuterCont}>
 
 
-        if (obj.ExpectedCountdown <= 1){
-          Min = ""
-
-          obj.ExpectedCountdown="Now";
-         }
-        else {
-          Min = "Min"
-        }
-       var Space =  obj.ExpectedLeaveTime.split(" ", 1);
-                     return (
-                        <View style={[FullBusStyles.TimeCont]}>
-                          <View style={FullBusStyles.TimeOuterCont}>
-
-
-                            <View style={[FullBusStyles.TimeInnerCont]}>
-                        <Text style={[Fonts.Time, {color:LeftTimeColor, fontSize: LeftTimeSize}]}> {obj.ExpectedCountdown} {hour}{extramin}</Text>
-                         <Text style={[Fonts.Min, {color:LeftTimeColor, fontSize: LeftTimeSize}]}>{Min}</Text>
-                         </View>
-                         <Text style={[Fonts.LeaveTime, {color:LeftTimeColor, fontSize: RightTimeSize, fontFamily: RightTimeFont}]}> {Space}</Text>
-                        </View>
-                        <Divider />
+                      <View style={[FullBusStyles.TimeInnerCont]}>
+                        <Text style={[Fonts.Time, { color: LeftTimeColor, fontSize: LeftTimeSize }]}>{obj.ExpectedCountdown} {Hour}{ExtraMin}</Text>
+                        <Text style={[Fonts.Min, { color: LeftTimeColor, fontSize: LeftTimeSize }]}>{Min}</Text>
                       </View>
-                      )
-                      })
-                  }
-      
-      </View>
+                      <Text style={[Fonts.LeaveTime, { color: LeftTimeColor, fontSize: RightTimeSize, fontFamily: RightTimeFont }]}> {Space}</Text>
+                    </View>
+                    <Divider />
+                  </View>
+                )
+              })
+            }
 
-      </View>
+          </View>
+
+        </View>
       </View>
     </SafeAreaView>
   )

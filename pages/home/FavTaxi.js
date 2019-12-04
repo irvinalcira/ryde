@@ -28,7 +28,6 @@ export default function FavTaxi(){
       GetFavTaxi();
 
     },[]);
-
     var FavoriteTaxi = null;
 
     if(favTaxi.length === 0){
@@ -40,8 +39,6 @@ export default function FavTaxi(){
           </Text>
         </View>
       )
-
-      
     } else {
 
       FavoriteTaxi = (
@@ -49,12 +46,16 @@ export default function FavTaxi(){
         {
 
           favTaxi.map((obj, i) => {
-
-  
-            console.log(obj.favetaxicity);
             return(
               <Animatable.View animation='fadeInDown' duration={400}  style={FavStyles.FavCont}>
-              <TouchableOpacity onPress={()=>{Communications.phonecall( obj.favtaxiphone , true)}}>
+              <TouchableOpacity onPress={()=>{
+                Communications.phonecall( obj.favtaxiphone , true),
+                Actions.SelectedTaxi({
+                taxiname:obj.favtaxiname,
+                phone:obj.favtaxiphone,
+                })
+              }
+                }>
               <View style={[FavStyles.FavPieceCont]}>
               <View style={FavStyles.StopName}>
                {/* Image */}

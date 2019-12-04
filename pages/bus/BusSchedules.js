@@ -8,56 +8,36 @@ import BusSchedulesStyles from '../../styles/bus/BusSchedulesStyles';
 import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
 
+
 function BusSchedules(props) {
  
   const [StopNumberInput, setStopNumberInput] = useState("");
   const [RouteNumberInput, setRouteNumberInput] = useState("");
+  const [StreetName,setStreetName] = useState("");
+
   // Bus Number : 130
-async function fetchRouteData() {
-  var routedata = {
-    "RouteNumber": RouteNumberInput
-  }
-
-  // console.log(RouteNumberInput);
-  var response = await fetch('http://localhost:8888/ryde/BusNumber.php?busnum=' + RouteNumberInput);
-   NewRouteData = await response.json();
-
-  // console.log('busnum', newroutedata);
-  Actions.BusRoute({
-    NewRouteData:NewRouteData,
-    RouteNumberInput:RouteNumberInput
-  });
-}
-// useEffect(() => {
-//   setTimeout(forceUpdate, 2000);
-// }, []);
-  //Bus Stop Data Eg: 60715 
   async function fetchStopData(){
     var data = {
       "StopNumber": StopNumberInput
     }
    var response = await fetch('https://irvinalcira.com/rydedatabase/StopNumber.php?stopnum=' + StopNumberInput);
      newdata = await response.json();
-    //  console.log("fetch", newdata, StopNumberInput);
+     var streetname =  await fetch('http://localhost:8888/ryde/StreetName.php?streetname=' + StopNumberInput);
+     streetname = await streetname.json();
+    //  console.log("fetch",streetname);
      if (newdata.length===0|| newdata.length===undefined){
       Alert.alert(
         'No Buses Found' 
       )
      }
      else {
-
-      // console.log("fetch", newdata[0].Schedules);
-
-       
-
       Actions.BusLastRoute({
         newdata:newdata,
-        StopNumberInput:StopNumberInput
+        StopNumberInput:StopNumberInput,
+        streetname:streetname
       });
      }
-   
   }
-
   return (
     <SafeAreaView style={BusSchedulesStyles.Container}>
       <View style={[BusSchedulesStyles.Container]}>

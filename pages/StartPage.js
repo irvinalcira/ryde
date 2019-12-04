@@ -107,7 +107,7 @@ export default function StartPage(props){
                         />    
                         </Animatable.View>
 
-                    <Animatable.View style={{marginTop:50,marginBottom:50}}animation='flipInX' delay={1000}>
+                    <Animatable.View style={{marginTop:50,marginBottom:50}}animation='fadeInUp' delay={1000}>
 
                         <TouchableOpacity style={StartPageStyles.Button} onPress={ async () => {  checkName()  } }>
                             <Text style={[Buttons.MainText, {fontSize:25}]}>Get Started</Text>

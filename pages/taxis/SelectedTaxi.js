@@ -28,8 +28,6 @@ import Buttons from '../../styles/ButtonsStyles';
     const [ Faved, SetFaved ] = useState(false);
     const [FavArr,SetFavArr] = useState ([]);
     const [ favTaxiImg, setFavTaxiImg ] = useState(notFavorited);
-  
-
     async function UpdateFavTaxi(){
         var datanew = await AsyncStorage.getItem("storage");
         if(!datanew){
@@ -107,10 +105,6 @@ import Buttons from '../../styles/ButtonsStyles';
         }
     }
 
-    
-
-
-
     return (
         
   
@@ -151,7 +145,6 @@ import Buttons from '../../styles/ButtonsStyles';
                         }
                     }
       >
-          
          {favTaxiImg}
       </TouchableOpacity>
   

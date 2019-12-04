@@ -10,14 +10,15 @@ export default function BusLastRoute(props){
 
   //This is for Looping info
   const [BusStopNum,setBusStopNum] = useState([]);
-
+  const [ StreetName,setStreetName] = useState ([]);
   //This is for displaying the user input bus stop number
   const [StopNumber, setStopNumber] = useState("");
    async function SetValue(){
      var getvalue =  props.navigation.state.params
-    console.log("this is what i get", getvalue.newdata);
+    console.log("this is what i get", getvalue.newdata[0].Schedules);
     setBusStopNum(getvalue.newdata);
     setStopNumber(getvalue.StopNumberInput);
+    setStreetName(getvalue.streetname.Name);
     }
      useEffect(() => {
   SetValue()
@@ -46,6 +47,7 @@ export default function BusLastRoute(props){
       style={BusRouteStyles.WhiteBus}
       source={require('../../assets/icons/whitebus.png')}
     />
+    <Text style={Fonts.BlueCont}>{StreetName}</Text>
   </View>
       <View style={BusRouteStyles.BotStyles}>
         <Text style={Fonts.BlueCont}>Bus Name</Text>
@@ -60,7 +62,8 @@ export default function BusLastRoute(props){
           // window.location.reload(true),
           {
             ...obj,
-            StopNumber:StopNumber
+            StopNumber:StopNumber,
+            StreetName:StreetName
           }
                                 )}>
                                 <View style={BusRouteStyles.BusView}>
