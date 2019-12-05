@@ -60,7 +60,7 @@ async function fetchRouteData() {
     <SafeAreaView style={BusSchedulesStyles.Container}>
       <View style={[BusSchedulesStyles.Container]}>
         <Text style={Fonts.Title}>Bus Schedules</Text>
-        <Text style={Fonts.Heading}>View Bus Route</Text>
+        {/* <Text style={Fonts.Heading}>View Bus Route</Text>
         <Text style={Fonts.Body}>Search for a bus to see its full route</Text>
         <TextInput
           style={Fonts.Inp}
@@ -77,7 +77,8 @@ async function fetchRouteData() {
           fetchRouteData()
         }}>
           <Text style={Buttons.MainText}>View Bus Route</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
+        
         <Text style={Fonts.Heading}>Check Next Bus</Text>
         <Text style={Fonts.Body}>Enter a Bus Stop # to see when the next bus comes</Text>
         <TextInput
