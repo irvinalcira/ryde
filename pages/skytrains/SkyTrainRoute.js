@@ -41,14 +41,9 @@ export default function SkyTrainRoute(){
               setTrainRoute(expoEaststopnamearr);
               setTrainStopId(expoEaststopid);
               setTrainStopDo(expoEaststopdo);
+              
 
-              const trainroutetime = TrainStop.map(item => ({
-                stop_id: item,
-                stop_time: TrainStopTime.filter(x => x.stop_id === item.stop_id)
-
-              }));
-
-              console.log('test', trainroutetime);
+              // console.log('test', st);
 
 
    }
@@ -102,8 +97,19 @@ export default function SkyTrainRoute(){
 {
   trainRoute.map((obj,i) => {
     
-
-    // console.log(trainRoute);
+    st = []
+    var time= StopTime.map((obj,i)=>{
+      for (var i=0;i<trainStopId.length;i++){
+        if (obj.stop_id===trainStopId[i]){
+          if(!undefined){
+            st.push(obj.arrival_time)
+          }
+      }
+        return (obj.arrival_time)
+      
+      }
+    });
+    console.log(trainRoute);
 
     return(
 
@@ -130,7 +136,7 @@ export default function SkyTrainRoute(){
                 </View>
 
                 <View style={SkyTrainRouteStyles.TimeCont}>
-                  <Text style={Fonts.EstNum}>3</Text>
+                  <Text style={Fonts.EstNum}>{st}</Text>
                   
                   {/* <Text style={Fonts.EstTime}>MIN AWAY</Text> */}
 
