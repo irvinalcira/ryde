@@ -42,7 +42,13 @@ export default function SkyTrainRoute(){
               setTrainStopId(expoEaststopid);
               setTrainStopDo(expoEaststopdo);
 
-              console.log('test', trainStopDo, trainStopId, trainRoute);
+              const trainroutetime = TrainStop.map(item => ({
+                stop_id: item,
+                stop_time: TrainStopTime.filter(x => x.stop_id === item.stop_id)
+
+              }));
+
+              console.log('test', trainroutetime);
 
 
    }
