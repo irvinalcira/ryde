@@ -13,19 +13,21 @@ export default function SkyTrainRoute(){
 
   const [ trainRoute, setTrainRoute ] = useState([]);
   const [ trainStopId,setTrainStopId ] = useState([]);
+  const [ trainStopDo, setTrainStopDo ] = useState([]);
 
    function GetTrainRoute() {
 
               // Dataset Import
 
               var TrainStop = Stops.Stops;  
+              var TrainStopTime = StopTime;
 
               // This is just another way of doing filter. x=> is the same as doing obj
              
 
               const expo = TrainStop.filter(x => x.route_name === 'Expo Line');
               const expoEast = expo.filter(x => x.direction_name === 'Eastbound' );
-              const expoWest = expo.filter(x => x.direction_name === 'Westbound');
+              // const expoWest = expo.filter(x => x.direction_name === 'Westbound');
     
               var expoEaststopnamearr = [];
               var expoEaststopid = [];
@@ -38,18 +40,9 @@ export default function SkyTrainRoute(){
               }
               setTrainRoute(expoEaststopnamearr);
               setTrainStopId(expoEaststopid);
-              
+              setTrainStopDo(expoEaststopdo);
 
-              var stoptimearr = [];        
-              for (var i=0;i<StopTime.length;i++){
-      
-                      stoptimearr.push(StopTime[i].arrival_time);
-                 
-              }
-              const TrainStopsnew = stoptimearr.filter(x => x.stop_id === expoEaststopid);      
-      
-              console.log('test',expoEaststopdo);
-              console.log('test',TrainStopsnew);
+              console.log('test', trainStopDo, trainStopId, trainRoute);
 
 
    }
