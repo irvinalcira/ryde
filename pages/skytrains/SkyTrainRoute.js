@@ -17,7 +17,7 @@ export default function SkyTrainRoute() {
   var TrainStop = Stops.Stops;
   var TrainStopTime = StopTime;
   function GetTrainRoute() {
-    const expo = TrainStop.filter(x => x.route_name === 'Canada Line' && x.direction_name === 'Southbound');
+    const expo = TrainStop.filter(x => x.route_name === 'Expo Line' && x.direction_name === 'Eastbound' && x.expo_direction !== 'Production Way');
     setTrainRoute(expo);
   }
   useEffect(() => {

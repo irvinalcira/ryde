@@ -387,6 +387,7 @@
 		},
 		{
 			"route_name":"Expo Line",
+			"expo_direction":"King George",
 			"direction_name":"Eastbound",
 			"direction_do":0,
 			"stop_id":8055,
@@ -395,6 +396,7 @@
 		},
 		{
 			"route_name":"Expo Line",
+			"expo_direction":"King George",
 			"direction_name":"Eastbound",
 			"direction_do":0,
 			"stop_id":8056,
@@ -403,6 +405,7 @@
 		},
 		{
 			"route_name":"Expo Line",
+			"expo_direction":"King George",
 			"direction_name":"Eastbound",
 			"direction_do":0,
 			"stop_id":8057,
@@ -411,6 +414,7 @@
 		},
 		{
 			"route_name":"Expo Line",
+			"expo_direction":"King Geroge",
 			"direction_name":"Eastbound",
 			"direction_do":0,
 			"stop_id":8058,
@@ -419,6 +423,7 @@
 		},
 		{
 			"route_name":"Expo Line",
+			"expo_direction":"Production Way",
 			"direction_name":"Eastbound",
 			"direction_do":0,
 			"stop_id":8580,
@@ -427,6 +432,7 @@
 		},
 		{
 			"route_name":"Expo Line",
+			"expo_direction":"Production Way",
 			"direction_name":"Eastbound",
 			"direction_do":0,
 			"stop_id":8578,
@@ -435,6 +441,7 @@
 		},
 		{
 			"route_name":"Expo Line",
+			"expo_direction":"Production Way",
 			"direction_name":"Eastbound",
 			"direction_do":0,
 			"stop_id":8746,
@@ -443,6 +450,7 @@
 		},
 		{
 			"route_name":"Expo Line",
+			"expo_direction":"Production Way",
 			"direction_name":"Eastbound",
 			"direction_do":0,
 			"stop_id":8747,
