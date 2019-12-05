@@ -101,7 +101,7 @@ export default function FavBus( {RouteNo, RouteName, Schedules, StopNumber} ){
       } else {
         Min = "Min"
       }
-      // var Space =  obj.favbusschedule2.split(" ", 1);
+      var Space =  obj.favbusschedule2.split(" ", 1);
 
       return(
 
