@@ -53,6 +53,9 @@ export default function FavTaxi(){
                 Actions.SelectedTaxi({
                 taxiname:obj.favtaxiname,
                 phone:obj.favtaxiphone,
+                img: obj.favtaxiimg,
+                address:obj.favtaxiaddress,
+                website:obj.favtaxiwebsite
                 })
               }
                 }>
