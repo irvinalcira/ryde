@@ -139,7 +139,9 @@ function Contacts(props) {
                   <TouchableOpacity
                   onPress={() => Actions.EditContact(
                     {
-                      ...obj,
+                      FName:obj.firstname,
+                      LName:obj.lastname,
+                      PNumber:obj.phone
   
                   }
                   )}

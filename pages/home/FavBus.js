@@ -18,7 +18,6 @@ import Buttons from '../../styles/ButtonsStyles';
 
 export default function FavBus(){
   
-  
 
   let Min;
   const [StopNumberInput, setStopNumberInput]=useState();
@@ -34,7 +33,6 @@ export default function FavBus(){
   console.log(favBus.length)
   useEffect(() => {
     GetFavBus();
-
   },[]);
 
   var FavoriteBus = null;

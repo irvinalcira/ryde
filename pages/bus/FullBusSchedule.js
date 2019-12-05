@@ -19,18 +19,14 @@ function FullBusSchedule({ RouteNo, RouteName, Schedules, StopNumber, StreetName
   let Min="Min"
   let Hour;
   let ExtraMin;
-
-
   var notFavorited = require('../../assets/icons/favorite2.png');
   var busFavorited = require('../../assets/icons/favorite.png');
-
   const [favBus, setFavBus] = useState([]);
   const [BusFaved, SetBusFaved] = useState(false);
   const [FavArr, SetFavArr] = useState([]);
   const [favBusImg, setFavBusImg] = useState(notFavorited);
 
   async function UpdateFavBus() {
-
     var datanew = await AsyncStorage.getItem("storage");
     if (!datanew) {
       datanew = data;

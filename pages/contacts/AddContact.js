@@ -45,7 +45,7 @@ function AddContact(props) {
     if(!datanew){
       datanew = data;
     }else {
-      datanew =  JSON.parse(datanew)
+      datanew = JSON.parse(datanew)
     }
       datanew.Contacts.push({
         firstname:FName,

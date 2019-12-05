@@ -12,16 +12,16 @@ import Divider from '../../comps/Divider';
 import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
 import EditContactStyles from '../../styles/contacts/EditContactStyles';
-import { object } from 'prop-types';
 
-function EditContact(obj) {
+function EditContact({FName,LName,PNumber}) {
 
   const [showPic, SetShowPic] = useState(false);
   const [Photo,SetPhoto] = useState("");
+  const [Contact, setContact] = useState([]);
   const [picText, SetPickText] = useState("Edit Profile Picture");
-  const [FName,setFName] = useState('');
-  const [LName,setLName] = useState('');
-  const [PNumber,setPNumber] = useState('');
+  const [FNameType,setFName] = useState('');
+  const [LNameType,setLName] = useState('');
+  const [PNumberType,setPNumber] = useState('');
 
  handleChoosePhoto = () => {
    const options = {
@@ -42,6 +42,27 @@ function EditContact(obj) {
      }
    });
  };
+ useEffect(() => {
+  GetContacts();
+}, []);
+ async function GetContacts() {
+    var data = await AsyncStorage.getItem("storage")
+    data = JSON.parse(data);
+    console.log('Data = ', data);
+    setContact(data.Contacts);
+
+  } 
+ async function DeleteContact(index){
+  var c = Contact;
+  console.log("this ", c);
+  c.splice(index, 1);
+  var data = await AsyncStorage.getItem("storage");
+  parsedelete = JSON.parse(data);
+  parsedelete.Contacts = c;
+  await AsyncStorage.setItem("storage", JSON.stringify(parsedelete));
+  GetContacts();
+  console.log(Contact);
+}
 
   return (
 
@@ -100,19 +121,19 @@ function EditContact(obj) {
         <View style={EditContactStyles.NameCont}>
 
         {/*First Name Input */}
-        <TextInput style={[Fonts.Inp, EditContactStyles.EditInp]} placeholder="First Name" placeholderTextColor='gray'
-        onChangeText = {(Text)=> setFName(Text)} value={obj.firstname}
+        <TextInput style={[Fonts.Inp, EditContactStyles.EditInp]} placeholder={FName} placeholderTextColor='black'
+        onChangeText = {(Text)=> setFName(Text)} value={FNameType}
         />
 
         {/*Last Name Input */}
-        <TextInput style={[Fonts.Inp, EditContactStyles.EditInp]} placeholder="Last Name" placeholderTextColor='gray'
-        onChangeText = {(Text)=> setLName(Text)} value={LName}
+        <TextInput style={[Fonts.Inp, EditContactStyles.EditInp]} placeholder={LName} placeholderTextColor='black'
+        onChangeText = {(Text)=> setLName(Text)} value={LNameType}
         />
 
         
         {/* Phone Number Input */}
-        <TextInput style={[Fonts.Inp, EditContactStyles.EditInp]} keyboardType={'number-pad'} placeholder="Phone" placeholderTextColor='gray' maxLength={10}
-        onChangeText = {(Text)=> setPNumber(Text)} value={PNumber}
+        <TextInput style={[Fonts.Inp, EditContactStyles.EditInp]} keyboardType={'number-pad'} placeholder={PNumber} placeholderTextColor='black' maxLength={10}
+        onChangeText = {(Text)=> setPNumber(Text)} value={PNumberType}
         />
 
       </View>
@@ -136,7 +157,7 @@ function EditContact(obj) {
               'Are you sure you want to delete this contact?',
               [
                 {text: 'No', onPress: () => console.warn('NO Pressed'), style: 'cancel'},
-                {text: 'Yes', onPress: () => {console.warn('YES Pressed'), Alert.alert('Contact Deleted', "Taking you back to Contacts page") } },
+                {text: 'Yes', onPress: () => {console.warn('YES Pressed'),DeleteContact(), Alert.alert('Contact Deleted', "Taking you back to Contacts page"),Actions.replace("Contacts") } },
               ]
             )
       }}>

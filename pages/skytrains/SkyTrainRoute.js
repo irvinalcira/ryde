@@ -22,9 +22,7 @@ export default function SkyTrainRoute(){
           />
           </TouchableOpacity>
           </View>
-
           <Text style={[Fonts.BusRoute, SkyTrainRouteStyles.NavTitle]}>Expo Line Station</Text>
-
           </View>
         
           
@@ -59,7 +57,7 @@ export default function SkyTrainRoute(){
                 </View>
 
                 <View style={SkyTrainRouteStyles.Address}>
-                  <Text 
+                  <Text
                   numberOfLines={1}
                   style={Fonts.AddressText}>
                   Waterfront </Text>
@@ -311,7 +309,6 @@ export default function SkyTrainRoute(){
                     source={require('../../assets/icons/skytrain-active.png')}
                     />
                 </View>
-
                 <View style={SkyTrainRouteStyles.Address}>
                   <Text 
                   numberOfLines={1}
@@ -319,7 +316,6 @@ export default function SkyTrainRoute(){
                   Joyce - Collingwood </Text>
                 </View>
                 </View>
-
                 <View style={SkyTrainRouteStyles.TimeCont}>
                    <Text style={Fonts.EstNum}>18</Text>
                   
