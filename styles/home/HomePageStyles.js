@@ -11,7 +11,7 @@ var HomePageStyles = StyleSheet.create({
 
   FavContainer:{
     flexDirection:"row",
-    marginLeft:-15,
+    marginLeft:-10,
   }, 
 
   FavBox:{
@@ -63,8 +63,8 @@ var HomePageStyles = StyleSheet.create({
     justifyContent:'center',
     margin: 10,
   },
-  ContactIconBox2:{    
-    backgroundColor:"#a5a5a5", 
+  AddContactBox:{    
+    backgroundColor:"#a5a5a5",
     height:70,
     width:70,
     borderRadius:150,

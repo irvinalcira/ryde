@@ -237,9 +237,9 @@ ContactIconFont:{
   color:"white",
 },
 
-ContactIconFont2:{
-  fontSize:55,
-  fontFamily: "Assistant-Bold",
+AddContactText:{
+  fontSize:45,
+  fontFamily: "Assistant-SemiBold",
   color:"white",
 },
 
@@ -252,15 +252,15 @@ ContactNameFonts:{
 FavButtonText:{
   color:"#999999",
   fontSize: 16,
-  fontFamily: "Assistant-Bold"
+  fontFamily: "Assistant-Bold",
+  marginBottom:3,
 },
 
 FavButtonTextPressed:{
   color:'#063C5C',
   fontSize: 16,
   fontFamily: "Assistant-Bold",
-  borderBottomWidth: 4,
-  borderBottomColor: '#235CA3',
+  marginBottom:3,
 }
 
 })

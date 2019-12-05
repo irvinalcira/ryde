@@ -30,7 +30,7 @@ function App(){
      GetUserName();
 
      // UN-COMMENT THE CODE BELOW TO RESET USER NAME TO NOTHING
-           //  AsyncStorage.clear()
+            // AsyncStorage.clear()
   
   },[]);
 

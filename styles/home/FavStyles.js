@@ -1,11 +1,12 @@
 import {StyleSheet} from 'react-native';
+import { widthPercentageToDP } from 'react-native-responsive-screen';
 
 var FavStyles = StyleSheet.create({
   CompBox:{
     paddingLeft: 25,
     paddingRight: 25,
-    alignItems: 'center',
-    justifyContent: "center"
+    alignItems:"flex-start", 
+    justifyContent:'flex-start'
   },
 
   FavCont: {
@@ -46,7 +47,17 @@ var FavStyles = StyleSheet.create({
     fontFamily: "Assistant-Regular",
     width: "90%",
   },
+
+  RightRouteTime: {
+    color: "#3971B3",
+    fontSize: 14,
+    fontFamily: "Assistant-Regular",
+    width: "90%",
+    textAlign:'center'
+  },
+
   TimeCont: {
+    // backgroundColor:'green',
     flex: 1.5,
     alignItems: "center",
     justifyContent: "center",

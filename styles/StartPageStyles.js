@@ -40,11 +40,12 @@ var StartPageStyles = StyleSheet.create({
   Button: {
     marginTop: 20,
     marginBottom: 20,
-    height:70,
+    width:'90%',
+    height:55,
     textAlign:'center',
     justifyContent:'center',
     backgroundColor:"#3971b3",
-    borderRadius: 25,
+    borderRadius: 15,
     alignItems: "center"
   },
 });

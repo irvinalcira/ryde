@@ -45,6 +45,7 @@ export default function FavTaxi(){
         {
 
           favTaxi.map((obj, i) => {
+
             return(
               <Animatable.View animation='fadeInDown' duration={400}  style={FavStyles.FavCont}>
               <TouchableOpacity onPress={()=>{
