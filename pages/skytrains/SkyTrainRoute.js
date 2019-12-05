@@ -12,7 +12,7 @@ import StopTime from '../../skytraindb/Schedule.json';
 export default function SkyTrainRoute(){
 
   const [ trainRoute, setTrainRoute ] = useState([]);
-  // const [trainStopId,setTrainStopId] = useState([]);
+  const [ trainStopId,setTrainStopId ] = useState([]);
 
    function GetTrainRoute() {
 
@@ -21,25 +21,36 @@ export default function SkyTrainRoute(){
               var TrainStop = Stops.Stops;  
 
               // This is just another way of doing filter. x=> is the same as doing obj
+             
+
               const expo = TrainStop.filter(x => x.route_name === 'Expo Line');
-              const expoEast = expo.filter(x => x.direction_name === 'Eastbound');
+              const expoEast = expo.filter(x => x.direction_name === 'Eastbound' );
               const expoWest = expo.filter(x => x.direction_name === 'Westbound');
     
-              var expostopnamearr = [];
-              // let expostopid = []  
+              var expoEaststopnamearr = [];
+              var expoEaststopid = [];
+              var expoEaststopdo = [];
+
               for (var i=0;i<expoEast.length;i++){
-                      expostopnamearr.push(expo[i].stop_name);
-                      // expostopid.push(expo[i].stop_id);
+                      expoEaststopnamearr.push(expoEast[i].stop_name);
+                      expoEaststopid.push(expoEast[i].stop_id);
+                      expoEaststopdo.push(expoEast[i].stop_do);
               }
-              setTrainRoute(expostopnamearr);
-              // setTrainStopId(expostopid);
-              // Tried some stuff to match the id to time
-          //  var time= StopTime.filter((obj,i)=>{
-          //     if (obj.stop_id===trainStopId[0]){
-          //       return (obj.arrival_time)
-          //     }
-          //   });
-    // console.log(time);
+              setTrainRoute(expoEaststopnamearr);
+              setTrainStopId(expoEaststopid);
+              
+
+              var stoptimearr = [];        
+              for (var i=0;i<StopTime.length;i++){
+      
+                      stoptimearr.push(StopTime[i].arrival_time);
+                 
+              }
+              const TrainStopsnew = stoptimearr.filter(x => x.stop_id === expoEaststopid);      
+      
+              console.log('test',expoEaststopdo);
+              console.log('test',TrainStopsnew);
+
 
    }
 
