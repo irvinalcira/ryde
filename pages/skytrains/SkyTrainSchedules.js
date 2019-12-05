@@ -1,12 +1,79 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { View, Text,SafeAreaView,TouchableOpacity, TextInput, Image } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 
 import SkyTrainScheduleStyles from '../../styles/skytrains/SkyTrainSchedulesStyles';
 import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
-//test
+
+//import db
+import Stops from '../../skytraindb/Stops.json';
+import StopTime from '../../skytraindb/Schedule.json';
+
 export default function SkyTrainSchedules(){
+
+        // User Interface
+
+        const [ userInput, setUserInput ] = useState('');
+
+        // Dataset Import
+
+        var TrainStop = Stops.Stops;
+        
+        // Dataset - All Train Stop ID Search
+
+        const TrainStopSearch = TrainStop.filter(x => x.stop_name === userInput);
+        // const SearchedId = TrainStopSearch.filter(x => x.stop_id === TrainStopSearch.stop_id);
+
+        // Dataset - Canada Line
+
+        const cad = TrainStop.filter(x => x.route_name === 'Canada Line');
+        const cadNorth = cad.filter(x => x.direction_name === 'Northbound');
+        const cadSouth = cad.filter(x => x.direction_name === 'Southbound'); 
+
+        // Dataset - Expo Line
+
+        const expo = TrainStop.filter(x => x.route_name === 'Expo Line');
+        const expoEast = expo.filter(x => x.direction_name === 'Eastbound');
+        const expoWest = expo.filter(x => x.direction_name === 'Westbound');
+
+        // Dataset - Schedules
+        
+                // Dataset - Train Stop Schedule Search by id
+
+
+        // Dataset - Show all Stops 
+        var stopidarr = [];        
+        for (var i=0;i<TrainStop.length;i++){
+
+                stopidarr.push(TrainStop[i]);
+           
+        }
+
+        // Dataset - Show all Stop Times
+
+        var stoptimearr = [];        
+        for (var i=0;i<StopTime.length;i++){
+
+                stoptimearr.push(StopTime[i]);
+           
+        }
+
+        // Dataset - Search for Stop id 11295
+
+        const TrainStops = stoptimearr.filter(stoptimearr => stoptimearr.stop_id === 11295);
+
+        // Dataset - Search for Arrival Times for Stop id 11295
+
+        var trainstoptimearr = [];
+        for (var i=0; i<TrainStops.length;i++){
+
+                trainstoptimearr.push(TrainStops[i].arrival_time);
+
+        }
+
+        // console.log('test',trainstoptimearr);
+
   return (
     <SafeAreaView style={SkyTrainScheduleStyles.Container}>
       <View style={SkyTrainScheduleStyles.Container}>

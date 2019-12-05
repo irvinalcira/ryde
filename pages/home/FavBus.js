@@ -101,7 +101,7 @@ export default function FavBus( {RouteNo, RouteName, Schedules, StopNumber} ){
       } else {
         Min = "Min"
       }
-      var Space =  obj.favbusschedule2.split(" ", 1);
+      // var Space =  obj.favbusschedule2.split(" ", 1);
 
       return(
 
@@ -137,6 +137,7 @@ export default function FavBus( {RouteNo, RouteName, Schedules, StopNumber} ){
                       {/* Stop Number */}
                       <View style={FavStyles.TimeCont}>
                         <Text style={[Fonts.Time, {color:LeftTimeColor, fontSize: LeftTimeSize}]}> {obj.favbusschedule} {Min} </Text>
+
                         <Text style={FavStyles.RightRouteTime}> {Space} </Text>
                       </View>
 

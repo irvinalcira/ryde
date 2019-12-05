@@ -28,8 +28,6 @@ import Buttons from '../../styles/ButtonsStyles';
     const [ Faved, SetFaved ] = useState(false);
     const [FavArr,SetFavArr] = useState ([]);
     const [ favTaxiImg, setFavTaxiImg ] = useState(notFavorited);
-  
-
     async function UpdateFavTaxi(){
         var datanew = await AsyncStorage.getItem("storage");
         if(!datanew){
@@ -42,8 +40,11 @@ import Buttons from '../../styles/ButtonsStyles';
                         favtaxiname:taxiname,
                         favtaxiphone:phone,
                         favtaxicity:city,
-                        
-                        // favcheck: FavedNum
+
+                        favtaxiaddress:address,
+                        favtaxiphone:phone,
+                        favtaxiimg:img,
+                        favtaxiwebsite:website
                     })
                     SetFavArr(datanew.FavTaxi);
                     SetFaved(true);
@@ -107,10 +108,6 @@ import Buttons from '../../styles/ButtonsStyles';
         }
     }
 
-    
-
-
-
     return (
         
   
@@ -151,7 +148,7 @@ import Buttons from '../../styles/ButtonsStyles';
                         }
                     }
       >
-          
+
          {favTaxiImg}
       </TouchableOpacity>
   

@@ -31,6 +31,7 @@ export default function HomePage(){
     }
     useEffect(() => {
      GetUserName();
+    //  AsyncStorage.clear();
   },[]);
 
   // FAVORITES TAB BUTTONS PRESSED

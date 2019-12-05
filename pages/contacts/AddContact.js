@@ -8,7 +8,7 @@ import ImagePicker from 'react-native-image-picker';
 import AContactStyles from '../../styles/contacts/AddContactStyles';
 import Fonts from '../../styles/FontsStyles';
 
-function AddContact(props) {
+function AddContact() {
   const [showPic, SetShowPic] = useState(false);
   const [Photo,SetPhoto] = useState("");
   const [picText, SetPickText] = useState("Add Profile Picture")
@@ -45,7 +45,7 @@ function AddContact(props) {
     if(!datanew){
       datanew = data;
     }else {
-      datanew =  JSON.parse(datanew)
+      datanew = JSON.parse(datanew)
     }
       datanew.Contacts.push({
         firstname:FName,

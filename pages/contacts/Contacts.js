@@ -70,6 +70,7 @@ function Contacts(props) {
       GetContacts();
       console.log(Contact);
     }
+    
   useEffect(() => {
     GetContacts();
   }, [props.navigation.state.params]);
@@ -139,7 +140,9 @@ function Contacts(props) {
                   <TouchableOpacity
                   onPress={() => Actions.EditContact(
                     {
-                      ...obj,
+                      FName:obj.firstname,
+                      LName:obj.lastname,
+                      PNumber:obj.phone
   
                   }
                   )}
