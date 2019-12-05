@@ -12,47 +12,27 @@ import StopTime from '../../skytraindb/Schedule.json';
 export default function SkyTrainRoute(){
 
   const [ trainRoute, setTrainRoute ] = useState([]);
-  const [ trainStopId,setTrainStopId ] = useState([]);
-  const [ trainStopDo, setTrainStopDo ] = useState([]);
-
+  // const [ trainStopId,setTrainStopId ] = useState([]);
+  // const [ trainStopDo, setTrainStopDo ] = useState([]);
+  var TrainStop = Stops.Stops;  
+  // var TrainStopTime = StopTime;
    function GetTrainRoute() {
-
-              // Dataset Import
-
-              var TrainStop = Stops.Stops;  
-              var TrainStopTime = StopTime;
-
-              // This is just another way of doing filter. x=> is the same as doing obj
-             
-
-              const expo = TrainStop.filter(x => x.route_name === 'Expo Line');
-              const expoEast = expo.filter(x => x.direction_name === 'Eastbound' );
-              // const expoWest = expo.filter(x => x.direction_name === 'Westbound');
-    
-              var expoEaststopnamearr = [];
-              var expoEaststopid = [];
-              var expoEaststopdo = [];
-
-              for (var i=0;i<expoEast.length;i++){
-                      expoEaststopnamearr.push(expoEast[i].stop_name);
-                      expoEaststopid.push(expoEast[i].stop_id);
-                      expoEaststopdo.push(expoEast[i].stop_do);
-              }
-              setTrainRoute(expoEaststopnamearr);
-              setTrainStopId(expoEaststopid);
-              setTrainStopDo(expoEaststopdo);
-              
-
-              // console.log('test', st);
-
-
+              const expo = TrainStop.filter(x => x.route_name === 'Expo Line'&& x.direction_name === 'Eastbound');
+              setTrainRoute(expo);
    }
 
   useEffect(() => {
-
     GetTrainRoute();
-
   },[]);
+  // var time= StopTime.map((obj,i)=>{
+  //     if (obj.stop_id===trainStopId){
+  //         return (obj.arrival_time)
+  //      }
+
+  // });
+  console.log("hiya",TrainStop.stop_id)
+
+
 
       
 
@@ -96,20 +76,6 @@ export default function SkyTrainRoute(){
               <ScrollView style={SkyTrainRouteStyles.ScrollView}>
 {
   trainRoute.map((obj,i) => {
-    
-    st = []
-    var time= StopTime.map((obj,i)=>{
-      for (var i=0;i<trainStopId.length;i++){
-        if (obj.stop_id===trainStopId[i]){
-          if(!undefined){
-            st.push(obj.arrival_time)
-          }
-      }
-        return (obj.arrival_time)
-      
-      }
-    });
-    console.log(trainRoute);
 
     return(
 
@@ -131,12 +97,12 @@ export default function SkyTrainRoute(){
                   <Text 
                   numberOfLines={1}
                   style={Fonts.AddressText}>
-                  {obj}</Text>
+                  {obj.stop_name}</Text>
                 </View>
                 </View>
 
                 <View style={SkyTrainRouteStyles.TimeCont}>
-                  <Text style={Fonts.EstNum}>{st}</Text>
+                  <Text style={Fonts.EstNum}>hi</Text>
                   
                   {/* <Text style={Fonts.EstTime}>MIN AWAY</Text> */}
 
