@@ -116,16 +116,14 @@ useEffect(() => {
               </View>
 
               {/* Stop Number */}
-               <Text style={[Fonts.BusRoute, FullBusStyles.NavTitle]}>{StopNumber}</Text>
-               <TouchableOpacity style={{justifyContent:'center', alignItems:'center', flex:1, flexDirection:'row-reverse'}}
-              onPress={ async() => {
+               <Text style={[FullBusStyles.BusRoute, FullBusStyles.NavTitle]}>{StopNumber}</Text>
+               <TouchableOpacity style={{justifyContent:'flex-end', flexDirection:'row', alignItems:'center', flex:1}}
+               onPress={ async() => {
                 UpdateFavBus();
                 console.log(favBus);
-              }}>
-
+                }}>
                 <Image style={{height:30, width:30}} source={favBusImg} />
-
-            </TouchableOpacity>
+              </TouchableOpacity>
             </View>
 
              
