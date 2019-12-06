@@ -157,7 +157,7 @@ function Contacts(props) {
                       {/* Message/Call Container */}
                       <View style={ContactsStyles.ImageCont}>
                         {/* Message */}
-                        <TouchableOpacity onPress={()  => Communications.text(obj.phone, 'Hey ' + obj.firstname + ', im in need of a Ryde. Are you able to pick me up? This is my current location: ' + location)}
+                        <TouchableOpacity onPress={()  => Communications.text(obj.phone, "Hey " + obj.firstname + ", I'm in need of a Ryde. Are you able to pick me up? This is my current location: " + location)}
                               >
                           <View style={ContactsStyles.ImageBox}>
                             <Image style={ContactsStyles.Image} source={require('../../assets/icons/message.png')} />

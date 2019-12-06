@@ -1,6 +1,8 @@
 import React,{useState,useEffect} from 'react';
 import {View,Text, Image,SafeAreaView, TouchableOpacity} from 'react-native';
 import {Actions} from 'react-native-router-flux';
+import { StatusBar } from 'react-native'
+
 
 import BusLastStyles from '../../styles/bus/BusLastRouteStyles';
 import BusRouteStyles from '../../styles/bus/BusRouteStyles';
@@ -22,6 +24,8 @@ export default function BusLastRoute(props){
      useEffect(() => {
   SetValue()
     },[]);
+    StatusBar.setBarStyle('light-content', true)
+
     return(
       <SafeAreaView style={BusLastStyles.Container}>
       <View style={BusLastStyles.Container}>
