@@ -49,14 +49,13 @@ export default function SkyTrainRoute() {
           <View style={SkyTrainRouteStyles.MidStyles}>
             <Image
               style={SkyTrainRouteStyles.WhiteTrain}
-              source={require('../../assets/icons/whitebus.png')}
+              source={require('../../assets/icons/whitetrain.png')}
             />
-            <Text style={Fonts.Destination}>To King George Station</Text>
-            <Text style={Fonts.BlueCont}>WATERFRONT</Text>
+            <Text style={Fonts.Destination}>TO PRODUCTION WAY</Text>
+            {/* <Text style={Fonts.BlueCont}>WATERFRONT</Text> */}
           </View>
           <View style={SkyTrainRouteStyles.BotStyles}>
             <Text style={Fonts.BlueCont}>Station Name</Text>
-            <Text style={Fonts.BlueCont}>Est Time</Text>
           </View>
         </View>
         <ScrollView style={SkyTrainRouteStyles.ScrollView}>
@@ -78,7 +77,6 @@ export default function SkyTrainRoute() {
                     {
                       time:time
                     }
-        
                   )}>
 
                     <View style={SkyTrainRouteStyles.TrainView}>
@@ -100,7 +98,7 @@ export default function SkyTrainRoute() {
                       </View>
 
                       <View style={SkyTrainRouteStyles.TimeCont}>
-                        <Text style={Fonts.EstNum}>{time}</Text>
+                        {/* <Text style={Fonts.EstNum}>{time}</Text> */}
 
                         {/* <Text style={Fonts.EstTime}>MIN AWAY</Text> */}
 
