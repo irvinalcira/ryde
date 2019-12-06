@@ -24,7 +24,6 @@ export default function SkyTrainRoute() {
     GetTrainRoute();
   }, []);
   console.log(TrainStop.stop_id);
-
   return (
     <SafeAreaView style={SkyTrainRouteStyles.Container}>
       <View style={SkyTrainRouteStyles.Container}>
@@ -59,8 +58,6 @@ export default function SkyTrainRoute() {
             <Text style={Fonts.BlueCont}>Station Name</Text>
             <Text style={Fonts.BlueCont}>Est Time</Text>
           </View>
-
-
         </View>
         <ScrollView style={SkyTrainRouteStyles.ScrollView}>
           {
@@ -77,7 +74,12 @@ export default function SkyTrainRoute() {
 
                 <View>
                   {/* Train Station */}
-                  <TouchableOpacity onPress={() => Actions.SkyTrainStation()}>
+                  <TouchableOpacity onPress={() => Actions.FullSkyTrainSchedule(
+                    {
+                      time:time
+                    }
+        
+                  )}>
 
                     <View style={SkyTrainRouteStyles.TrainView}>
 

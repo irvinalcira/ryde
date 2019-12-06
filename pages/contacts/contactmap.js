@@ -1,7 +1,6 @@
-{
-    Contact.Contacts.map((obj,i)=>{
-                        return (
-    <View></View>
-                        )
-                        })
-                    }
+// {
+//     time.map((obj,i)=>{
+//                         return (
+//                         )
+//                         })
+//                     }

@@ -10,9 +10,18 @@ import Divider from '../../comps/Divider';
 //import db
 import Stops from '../../skytraindb/Stops.json';
 import StopTime from '../../skytraindb/Schedule.json';
+import { ScrollView } from 'react-native-gesture-handler';
 
 // test
-function FullSkyTrainSchedule() {
+function FullSkyTrainSchedule({time}) {
+  var today = new Date();
+  var timenew = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  // if (time>timenew){
+  //  time = time-timenew
+  // } else {
+  //   time = timenew-time
+  // }
+  console.log(time);
   return (
     <SafeAreaView style={FullSkyTrainStyles.Container}>
       <View style={FullSkyTrainStyles.Container}> 
@@ -40,48 +49,33 @@ function FullSkyTrainSchedule() {
               <Text style={Fonts.LineName}>Expo Line</Text>
               <Text style={Fonts.BlueCont}>TO KING GEORGE STATION</Text>
             </View>
+
        </View>
 
       <View style={FullSkyTrainStyles.Bottom}>
 
       <View style={FullSkyTrainStyles.ScheduleCont}>
-
-        <View style={FullSkyTrainStyles.TimeCont}>
-          <Text style={[Fonts.Time]}> 3:24 PM</Text>
-          <Text style={[Fonts.LineDetail]}> King George</Text>
+      <ScrollView>
+      {
+    time.map((obj,i)=>{
+                        return (
+                   <View>
+           <View style={FullSkyTrainStyles.TimeCont}>
+          <Text style={[Fonts.Time]}>{obj}</Text>
+          {/* <Text style={[Fonts.LineDetail]}> King George</Text> */}
           </View>
-          
           <Divider />
-
-        <View style={FullSkyTrainStyles.TimeCont}>
-          <Text style={[Fonts.Time]}> 3:29 PM</Text>
-          <Text style={[Fonts.LineDetail]}> Production-Way University</Text>
           </View>
-
-          <Divider />
-
-        <View style={FullSkyTrainStyles.TimeCont}>
-          <Text style={[Fonts.Time]}> 3:37 PM</Text>
-          <Text style={[Fonts.LineDetail]}> Production-Way University</Text>
-          </View>
-
-          <Divider />
-
-        <View style={FullSkyTrainStyles.TimeCont}>
-          <Text style={[Fonts.Time]}> 3:45 PM</Text>
-          <Text style={[Fonts.LineDetail]}> King George</Text>
-          </View>
-
-          {/* <Divider /> */}
-
-
-      
-
+         
+                        )
+                        })
+                    }
+ </ScrollView>
       </View>
 
       </View>
       </View>
-    </SafeAreaView>
+  </SafeAreaView>
   )
 }
 
