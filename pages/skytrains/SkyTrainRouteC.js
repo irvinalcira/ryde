@@ -78,11 +78,6 @@ export default function SkyTrainRoute() {
               />
             </TouchableOpacity>
           </View>   
-          <View style={SkyTrainRouteStyles.BotStyles}>
-            {/* <Text style={Fonts.BlueCont}>Station Name</Text> */}
-
-            {/* <Text style={Fonts.BlueCont}>Est Time</Text> */}
-          </View>
         </View>
         <ScrollView style={SkyTrainRouteStyles.ScrollView}>
           {
