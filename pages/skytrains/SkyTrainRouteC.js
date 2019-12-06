@@ -13,6 +13,8 @@ export default function SkyTrainRoute() {
 
   const [ direction, setDirection ] = useState("Southbound");
   const [ destination, setDestination ] = useState("Richmond BrigHouse");
+  const [ opDirection, setOpDirection ] = useState("Northbound");
+  const [ opDestination, setOpDestination ] = useState("WaterFront");
 
   const [trainRoute, setTrainRoute] = useState([]);
 
@@ -22,18 +24,19 @@ export default function SkyTrainRoute() {
     const expo = TrainStop.filter(x => x.route_name === 'Canada Line' && x.direction_name === direction);
     setTrainRoute(expo);
   }
-  useEffect(() => {
-    GetTrainRoute();
-  }, []);
   // console.log(TrainStop.stop_id);
 
   function ChangeDirection() {
-    if(direction === "Southbound" && destination === "Richmond BrigHouse"){
-      setDirection("Northbound"), setDestination("WaterFront");
-    } else ( setDirection("Southbound"), setDestination("Richmond BrigHouse"));
+    if(direction === "Southbound"){
+      setDirection("Northbound"), setDestination("Richmond BrigHouse"), setOpDirection("Southbound"), setOpDestination("WaterFront");
+    } else ( setDirection("Southbound"), setDestination("WaterFront"), setOpDirection("Northbound"), setOpDestination("Richmond BrigHouse"));
     // console.log(direction)
     GetTrainRoute();
   }
+  useEffect(() => {
+    GetTrainRoute();
+    ChangeDirection();
+  }, []);
 
   return (
     <SafeAreaView style={SkyTrainRouteStyles.Container}>
@@ -70,8 +73,8 @@ export default function SkyTrainRoute() {
                 source={require('../../assets/icons/switch.png')}
               />
             </TouchableOpacity>
-            <Text style={Fonts.Destination}>To {destination} Station</Text>
-            <Text style={Fonts.BlueCont}>{direction}</Text>
+            <Text style={Fonts.Destination}>{opDestination} - {destination}</Text>
+            <Text style={Fonts.BlueCont}>{opDirection}</Text>
           </View>   
           <View style={SkyTrainRouteStyles.BotStyles}>
             {/* <Text style={Fonts.BlueCont}>Station Name</Text> */}

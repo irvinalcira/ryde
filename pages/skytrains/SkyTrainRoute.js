@@ -14,6 +14,8 @@ export default function SkyTrainRoute() {
   const [trainRoute, setTrainRoute] = useState([]);
   const [ direction, setDirection] = useState("Eastbound");
   const [ destination, setDestination ] = useState("King George");
+  const [ opDirection, setOpDirection ] = useState("Westbound");
+  const [ opDestination, setOpDestination ] = useState("WaterFront");
 
   var TrainStop = Stops.Stops;
   var TrainStopTime = StopTime;
@@ -21,25 +23,26 @@ export default function SkyTrainRoute() {
     const expo = TrainStop.filter(x => x.route_name === 'Expo Line' && x.direction_name === direction && x.expo_direction !== 'Production Way');
    await setTrainRoute(expo);
   }
-  async function ChangeDirection() {
-    if(direction === "Eastbound" && destination === "King George"){
-      setDirection("Westbound"), setDestination("WaterFront");
-GetTrainRoute();
-    } else ( setDirection("Eastbound"), setDestination("King George"));
-GetTrainRoute();
-  }
-  useEffect(() => {
-    GetTrainRoute();
-  }, []);
+//   async function ChangeDirection() {
+//     if(direction === "Eastbound"){
+//       setDirection("Westbound"), setDestination("WaterFront");
+// GetTrainRoute();
+//     } else ( setDirection("Eastbound"), setDestination("King George"));
+// GetTrainRoute();
+//   }
   // console.log(TrainStop.stop_id);
 
   function ChangeDirection() {
-    if(direction === "Eastbound" && destination === "King George"){
-      setDirection("Westbound"), setDestination("WaterFront");
-    } else ( setDirection("Eastbound"), setDestination("King George"));
+    if(direction === "Eastbound"){
+      setDirection("Westbound"), setDestination("King George"), setOpDirection("Eastbound"), setOpDestination("WaterFront");
+    } else ( setDirection("Eastbound"), setDestination("WaterFront"), setOpDirection("Westbound"), setOpDestination("King George"));
     // console.log(direction)
     GetTrainRoute();
   }
+  useEffect(() => {
+    GetTrainRoute();
+    ChangeDirection();
+  }, []);
 
   return (
     <SafeAreaView style={SkyTrainRouteStyles.Container}>
@@ -77,8 +80,8 @@ GetTrainRoute();
               />
             </TouchableOpacity>
 
-            <Text style={Fonts.Destination}>TO PRODUCTION WAY</Text>
-            <Text style={Fonts.BlueCont}>{destination}</Text>
+            <Text style={Fonts.Destination}>{opDestination} - {destination}</Text>
+            <Text style={Fonts.BlueCont}>{opDirection}</Text>
           </View>
           <View style={SkyTrainRouteStyles.BotStyles}>
             <Text style={Fonts.BlueCont}>Station Name</Text>
