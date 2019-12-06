@@ -11,9 +11,6 @@ import StopTime from '../../skytraindb/Schedule.json';
 
 export default function SkyTrainRoute() {
 
-  const [ direction, setDirection ] = useState("Eastbound");
-  const [ destination, setDestination ] = useState("King George");
-
   const [trainRoute, setTrainRoute] = useState([]);
   const [ direction, setDirection] = useState("Eastbound");
   const [ destination, setDestination ] = useState("King George");
@@ -127,14 +124,7 @@ GetTrainRoute();
                         </View>
                       </View>
 
-                      <View style={SkyTrainRouteStyles.TimeCont}>
-                        {/* <Text style={Fonts.EstNum}>{time}</Text> */}
-
-                        {/* <Text style={Fonts.EstTime}>MIN AWAY</Text> */}
-
-                      {/* </View> */}
-
-                    </View>
+                        </View>
                   </TouchableOpacity>
                   {/* End of Train Station */}
                 </View>
