@@ -14,6 +14,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 
 // test
 function FullSkyTrainSchedule({time}) {
+
   const [SortedTime,SetSortedTime] =useState([]);
   const [Switchtime,SetSwitchTime] = useState("");
   function SortTime(){
@@ -52,8 +53,6 @@ function FullSkyTrainSchedule({time}) {
 useEffect(() => {
   SortTime();
 }, []);
-
-
 
   return (
     <SafeAreaView style={FullSkyTrainStyles.Container}>

@@ -11,22 +11,16 @@ import StopTime from '../../skytraindb/Schedule.json';
 
 export default function SkyTrainRoute() {
 
+  const [ direction, setDirection ] = useState("Southbound");
+  const [ destination, setDestination ] = useState("Richmond BrigHouse");
+
   const [trainRoute, setTrainRoute] = useState([]);
-  const [ direction, setDirection] = useState("Eastbound");
-  const [ destination, setDestination ] = useState("King George");
 
   var TrainStop = Stops.Stops;
   var TrainStopTime = StopTime;
- async function GetTrainRoute() {
-    const expo = TrainStop.filter(x => x.route_name === 'Expo Line' && x.direction_name === direction && x.expo_direction !== 'Production Way');
-   await setTrainRoute(expo);
-  }
-  async function ChangeDirection() {
-    if(direction === "Eastbound" && destination === "King George"){
-      setDirection("Westbound"), setDestination("WaterFront");
-GetTrainRoute();
-    } else ( setDirection("Eastbound"), setDestination("King George"));
-GetTrainRoute();
+  function GetTrainRoute() {
+    const expo = TrainStop.filter(x => x.route_name === 'Canada Line' && x.direction_name === direction);
+    setTrainRoute(expo);
   }
   useEffect(() => {
     GetTrainRoute();
@@ -34,9 +28,9 @@ GetTrainRoute();
   // console.log(TrainStop.stop_id);
 
   function ChangeDirection() {
-    if(direction === "Eastbound" && destination === "King George"){
-      setDirection("Westbound"), setDestination("WaterFront");
-    } else ( setDirection("Eastbound"), setDestination("King George"));
+    if(direction === "Southbound" && destination === "Richmond BrigHouse"){
+      setDirection("Northbound"), setDestination("WaterFront");
+    } else ( setDirection("Southbound"), setDestination("Richmond BrigHouse"));
     // console.log(direction)
     GetTrainRoute();
   }
@@ -58,7 +52,7 @@ GetTrainRoute();
               </TouchableOpacity>
             </View>
 
-            <Text style={[Fonts.BusRoute, SkyTrainRouteStyles.NavTitle]}>Expo Line Station</Text>
+            <Text style={[Fonts.BusRoute, SkyTrainRouteStyles.NavTitle]}>Canada Line Station</Text>
 
           </View>
 
@@ -66,7 +60,7 @@ GetTrainRoute();
           <View style={SkyTrainRouteStyles.MidStyles}>
             <Image
               style={SkyTrainRouteStyles.WhiteTrain}
-              source={require('../../assets/icons/whitetrain.png')}
+              source={require('../../assets/icons/whitebus.png')}
             />
             <TouchableOpacity
               onPress={() => ChangeDirection()}
@@ -76,13 +70,13 @@ GetTrainRoute();
                 source={require('../../assets/icons/switch.png')}
               />
             </TouchableOpacity>
-
-            <Text style={Fonts.Destination}>TO PRODUCTION WAY</Text>
-            <Text style={Fonts.BlueCont}>{destination}</Text>
-          </View>
+            <Text style={Fonts.Destination}>To {destination} Station</Text>
+            <Text style={Fonts.BlueCont}>{direction}</Text>
+          </View>   
           <View style={SkyTrainRouteStyles.BotStyles}>
-            <Text style={Fonts.BlueCont}>Station Name</Text>
+            {/* <Text style={Fonts.BlueCont}>Station Name</Text> */}
 
+            {/* <Text style={Fonts.BlueCont}>Est Time</Text> */}
           </View>
         </View>
         <ScrollView style={SkyTrainRouteStyles.ScrollView}>
@@ -104,6 +98,7 @@ GetTrainRoute();
                     {
                       time:time
                     }
+        
                   )}>
 
                     <View style={SkyTrainRouteStyles.TrainView}>
@@ -124,7 +119,14 @@ GetTrainRoute();
                         </View>
                       </View>
 
-                        </View>
+                      {/* <View style={SkyTrainRouteStyles.TimeCont}> */}
+                        {/* <Text style={Fonts.EstNum}>{time}</Text> */}
+
+                        {/* <Text style={Fonts.EstTime}>MIN AWAY</Text> */}
+
+                      {/* </View> */}
+
+                    </View>
                   </TouchableOpacity>
                   {/* End of Train Station */}
                 </View>
