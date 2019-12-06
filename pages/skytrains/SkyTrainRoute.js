@@ -12,8 +12,9 @@ import StopTime from '../../skytraindb/Schedule.json';
 export default function SkyTrainRoute() {
 
   const [trainRoute, setTrainRoute] = useState([]);
-  // const [ trainStopId,setTrainStopId ] = useState([]);
-  // const [ trainStopDo, setTrainStopDo ] = useState([]);
+  const [ changeDirection, setChangeDirection ] = useState(false);
+  const [ trainDirection, setTrainDirection ] = useState('east');
+
   var TrainStop = Stops.Stops;
   var TrainStopTime = StopTime;
   function GetTrainRoute() {
@@ -23,7 +24,19 @@ export default function SkyTrainRoute() {
   useEffect(() => {
     GetTrainRoute();
   }, []);
-  console.log(TrainStop.stop_id);
+
+
+  // console.log(TrainStop.stop_id);
+
+
+  function TrainDirection() {
+    
+  var Station = ('');
+  var StartSt = ('');
+
+  setChangeDirection(true);
+  setTrainDirection('west')
+  }
 
   return (
     <SafeAreaView style={SkyTrainRouteStyles.Container}>
@@ -57,6 +70,11 @@ export default function SkyTrainRoute() {
           </View>
           <View style={SkyTrainRouteStyles.BotStyles}>
             <Text style={Fonts.BlueCont}>Station Name</Text>
+            <TouchableOpacity
+              
+            >
+              <Text style={Fonts.BusRoute}>Switch</Text>
+            </TouchableOpacity>
             <Text style={Fonts.BlueCont}>Est Time</Text>
           </View>
 
