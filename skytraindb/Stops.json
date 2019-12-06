@@ -400,7 +400,7 @@
 		{
 			"route_name":"Expo Line",
 			"direction_name":"Eastbound",
-			"canada_direction":"King George",
+			"expo_direction":"King George",
 			"direction_do":0,
 			"stop_id":8055,
 			"stop_name":"Scott Road Station",
@@ -409,7 +409,7 @@
 		{
 			"route_name":"Expo Line",
 			"direction_name":"Eastbound",
-			"canada_direction":"King George",
+			"expo_direction":"King George",
 			"direction_do":0,
 			"stop_id":8056,
 			"stop_name":"Gateway Station",
@@ -418,7 +418,7 @@
 		{
 			"route_name":"Expo Line",
 			"direction_name":"Eastbound",
-			"canada_direction":"King George",
+			"expo_direction":"King George",
 			"direction_do":0,
 			"stop_id":8057,
 			"stop_name":"Surrey Central Station",
@@ -427,7 +427,7 @@
 		{
 			"route_name":"Expo Line",
 			"direction_name":"Eastbound",
-			"canada_direction":"King George",
+			"expo_direction":"King George",
 			"direction_do":0,
 			"stop_id":8058,
 			"stop_name":"King George Station",
@@ -436,7 +436,7 @@
 		{
 			"route_name":"Expo Line",
 			"direction_name":"Eastbound",
-			"canada_direction":"Production Way",
+			"expo_direction":"Production Way",
 			"direction_do":0,
 			"stop_id":8580,
 			"stop_name":"Sapperton Station",
@@ -444,7 +444,7 @@
 		},
 		{
 			"route_name":"Expo Line",
-			"canada_direction":"Production Way",
+			"expo_direction":"Production Way",
 			"direction_name":"Eastbound",
 			"direction_do":0,
 			"stop_id":8578,
@@ -453,7 +453,7 @@
 		},
 		{
 			"route_name":"Expo Line",
-			"canada_direction":"Production Way",
+			"expo_direction":"Production Way",
 			"direction_name":"Eastbound",
 			"direction_do":0,
 			"stop_id":8746,
@@ -462,7 +462,7 @@
 		},
 		{
 			"route_name":"Expo Line",
-			"canada_direction":"Production Way",
+			"expo_direction":"Production Way",
 			"direction_name":"Eastbound",
 			"direction_do":0,
 			"stop_id":8747,
@@ -471,7 +471,7 @@
 		},
 		{
 			"route_name":"Expo Line",
-			"canada_direction":"Production Way",
+			"expo_direction":"Production Way",
 			"direction_name":"Westbound",
 			"direction_do":1,
 			"stop_id":8756,
@@ -480,7 +480,7 @@
 		},
 		{
 			"route_name":"Expo Line",
-			"canada_direction":"Production Way",
+			"expo_direction":"Production Way",
 			"direction_name":"Westbound",
 			"direction_do":1,
 			"stop_id":8755,
@@ -489,7 +489,7 @@
 		},
 		{
 			"route_name":"Expo Line",
-			"canada_direction":"Production Way",
+			"expo_direction":"Production Way",
 			"direction_name":"Westbound",
 			"direction_do":1,
 			"stop_id":8577,
@@ -498,7 +498,7 @@
 		},
 		{
 			"route_name":"Expo Line",
-			"canada_direction":"Production Way",
+			"expo_direction":"Production Way",
 			"direction_name":"Westbound",
 			"direction_do":1,
 			"stop_id":8579,
@@ -507,7 +507,7 @@
 		},
 		{
 			"route_name":"Expo Line",
-			"canada_direction":"King George",
+			"expo_direction":"King George",
 			"direction_name":"Westbound",
 			"direction_do":1,
 			"stop_id":8059,
@@ -516,7 +516,7 @@
 		},
 		{
 			"route_name":"Expo Line",
-			"canada_direction":"King George",
+			"expo_direction":"King George",
 			"direction_name":"Westbound",
 			"direction_do":1,
 			"stop_id":8060,
@@ -525,7 +525,7 @@
 		},
 		{
 			"route_name":"Expo Line",
-			"canada_direction":"King George",
+			"expo_direction":"King George",
 			"direction_name":"Westbound",
 			"direction_do":1,
 			"stop_id":8061,
@@ -534,7 +534,7 @@
 		},
 		{
 			"route_name":"Expo Line",
-			"canada_direction":"King George",
+			"expo_direction":"King George",
 			"direction_name":"Westbound",
 			"direction_do":1,
 			"stop_id":8062,
