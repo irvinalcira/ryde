@@ -48,55 +48,38 @@ export default function FavTaxi(){
 
             return(
               <Animatable.View animation='fadeInDown' duration={400}  style={FavStyles.FavCont}>
-              <TouchableOpacity onPress={()=>{
-                Communications.phonecall( obj.favtaxiphone , true),
-                Actions.SelectedTaxi({
-                taxiname:obj.favtaxiname,
-                phone:obj.favtaxiphone,
-                img: obj.favtaxiimg,
-                address:obj.favtaxiaddress,
-                website:obj.favtaxiwebsite
-                })
-              }
-                }>
-              <View style={[FavStyles.FavPieceCont]}>
-              <View style={FavStyles.StopName}>
-               {/* Image */}
-               <View>
-                 <Image
-                    style={FavStyles.TaxiIcon}
-                    source={require('../../assets/icons/taxi-active.png')}
-                  />
-               </View>
-      
-                {/* Address */}
-                <View style={FavStyles.Address}>
-                  <Text
-                  numberOfLines={1}
-                  style={FavStyles.BusName}>
-                    {obj.favtaxiname}
-                  </Text> 
-                  <Text
-                  numberOfLines={1}
-                  style={FavStyles.RouteName}>
-                    {obj.favtaxicity}<Text>, BC</Text>
-                  </Text> 
-                </View>
-              </View>
+
+
+              <View style={[FavStyles.FavPieceCont,]}>
+                <TouchableOpacity style={{flex:5.5}} onPress={()=>{ Actions.SelectedTaxi({ taxiname:obj.favtaxiname, phone:obj.favtaxiphone, img: obj.favtaxiimg, address:obj.favtaxiaddress,website:obj.favtaxiwebsite })} }>
+                        <View style={FavStyles.StopName}>
+
+                            {/* Image */}
+                            <View>
+                              <Image style={FavStyles.TaxiIcon} source={require('../../assets/icons/taxi-active.png')} />
+                            </View>
+              
+                            {/* Address */}
+                            <View style={FavStyles.Address}>
+                              <Text numberOfLines={1} style={FavStyles.BusName}>{obj.favtaxiname}</Text> 
+                              <Text numberOfLines={1} style={FavStyles.RouteName}>{obj.favtaxicity}, BC</Text> 
+                            </View>
+                        </View>
+
+                </TouchableOpacity>
+              
       
                 {/* Call Now */}
-            
-                <View style={FavStyles.CallCont}>
-                
-                <Image
-                    style={FavStyles.PhoneIcon}
-                    source={require('../../assets/icons/phone.png')}
-                  />   
-                  <Text style={FavStyles.TaxiCall}>CALL NOW</Text>
-                </View>
+
+
+                <TouchableOpacity style={[FavStyles.CallCont]} onPress={()=>{ Communications.phonecall( obj.favtaxiphone , true)} }  >
+                     <Image style={FavStyles.PhoneIcon} source={require('../../assets/icons/phone.png')} />   
+                     <Text style={FavStyles.TaxiCall}>CALL NOW</Text>
+                 </TouchableOpacity>
+
       
               </View>
-            </TouchableOpacity>
+
             </Animatable.View>
             )
   
