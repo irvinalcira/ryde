@@ -10,9 +10,51 @@ import Divider from '../../comps/Divider';
 //import db
 import Stops from '../../skytraindb/Stops.json';
 import StopTime from '../../skytraindb/Schedule.json';
+import { ScrollView } from 'react-native-gesture-handler';
 
 // test
-function FullSkyTrainSchedule() {
+function FullSkyTrainSchedule({time}) {
+  const [SortedTime,SetSortedTime] =useState([]);
+  const [Switchtime,SetSwitchTime] = useState("");
+  function SortTime(){
+    var out = new Array(time.length)
+  for (let i = 0; i < time.length; ++i) {
+      out[i] = time[i].slice(0, -3)
+  }
+  // console.log("How", out);
+    out.sort(function(a, b){
+      if (parseInt(a.split(":")[0]) - parseInt(b.split(":")[0]) === 0) {
+     return parseInt(a.split(":")[1]) - parseInt(b.split(":")[1]);
+   } else {
+     return parseInt(a.split(":")[0]) - parseInt(b.split(":")[0]
+     );
+   }
+   })
+   SetSortedTime(out);
+    // Check correct time format and split into components
+    filtime = out.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [out];
+    if (out.length > 1) { // If time format correct
+      out = out.slice (1);  // Remove full string match value
+      out[5] = +out[0] < 12 ? 'AM' : 'PM'; // Set AM/PM
+      out[0] = +out[0] % 12 || 12; // Adjust hours
+       return out.join ('');
+    }
+   // return adjusted time or original string
+   console.log("YO", filtime);
+  }
+//   function timing(){
+//     let ct = out.slice(11,13);
+//     let cuH = new Date().getHours();
+//     let cuMi = new Date().getMinutes();
+
+// }
+ 
+useEffect(() => {
+  SortTime();
+}, []);
+
+
+
   return (
     <SafeAreaView style={FullSkyTrainStyles.Container}>
       <View style={FullSkyTrainStyles.Container}> 
@@ -38,50 +80,35 @@ function FullSkyTrainSchedule() {
              
             <View style={FullSkyTrainStyles.MidStyles}>
               <Text style={Fonts.LineName}>Expo Line</Text>
-              <Text style={Fonts.BlueCont}>TO KING GEORGE STATION</Text>
+              <Text style={Fonts.BlueCont}>TO PRODUCTION WAY</Text>
             </View>
+
        </View>
 
       <View style={FullSkyTrainStyles.Bottom}>
 
       <View style={FullSkyTrainStyles.ScheduleCont}>
-
-        <View style={FullSkyTrainStyles.TimeCont}>
-          <Text style={[Fonts.Time]}> 3:24 PM</Text>
-          <Text style={[Fonts.LineDetail]}> King George</Text>
+      <ScrollView>
+      {
+    SortedTime.map((obj,i)=>{
+                        return (
+                   <View>
+           <View style={FullSkyTrainStyles.TimeCont}>
+          <Text style={[Fonts.Time]}>{obj}</Text>
+          {/* <Text style={[Fonts.LineDetail]}> King George</Text> */}
           </View>
-          
           <Divider />
-
-        <View style={FullSkyTrainStyles.TimeCont}>
-          <Text style={[Fonts.Time]}> 3:29 PM</Text>
-          <Text style={[Fonts.LineDetail]}> Production-Way University</Text>
           </View>
-
-          <Divider />
-
-        <View style={FullSkyTrainStyles.TimeCont}>
-          <Text style={[Fonts.Time]}> 3:37 PM</Text>
-          <Text style={[Fonts.LineDetail]}> Production-Way University</Text>
-          </View>
-
-          <Divider />
-
-        <View style={FullSkyTrainStyles.TimeCont}>
-          <Text style={[Fonts.Time]}> 3:45 PM</Text>
-          <Text style={[Fonts.LineDetail]}> King George</Text>
-          </View>
-
-          {/* <Divider /> */}
-
-
-      
-
+         
+                        )
+                        })
+                    }
+ </ScrollView>
       </View>
 
       </View>
       </View>
-    </SafeAreaView>
+  </SafeAreaView>
   )
 }
 
