@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button, SafeAreaView, TouchableOpacity } from 'react-native';
+import { View, Text, Alert, Button, SafeAreaView, TouchableOpacity } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import Fonts from '../../styles/FontsStyles';
 import Buttons from '../../styles/ButtonsStyles';
@@ -19,7 +19,7 @@ function EmptyContacts(){
         <Text style={Buttons.MainText}>Manually Add Contact</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity  style={Buttons.Alt} onPress={() => Actions.AddContact()}>
+        <TouchableOpacity  style={Buttons.Alt} onPress={() => alert('This feature will be available in a future update')}>
         <Text style={Buttons.MainText}>Import Contact from Phone</Text>
         </TouchableOpacity>
     </View>

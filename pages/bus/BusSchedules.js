@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import { View, SafeAreaView, Text, TextInput, TouchableOpacity,Alert} from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import { StatusBar } from 'react-native'
+
 
 
 import BusSchedulesStyles from '../../styles/bus/BusSchedulesStyles';
@@ -54,7 +56,9 @@ async function fetchRouteData() {
       });
      }
    
-  }
+  }   
+   StatusBar.setBarStyle('dark-content', true)
+
 
   return (
     <SafeAreaView style={BusSchedulesStyles.Container}>
@@ -74,7 +78,7 @@ async function fetchRouteData() {
 
 
         <TouchableOpacity style={Buttons.Main} onPress={() => {
-          fetchRouteData()
+          alert('This feature will be available in a future update')
         }}>
           <Text style={Buttons.MainText}>View Bus Route</Text>
         </TouchableOpacity>

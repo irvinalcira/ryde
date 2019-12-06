@@ -29,7 +29,7 @@ function AddPopup(props) {
             <Text style={AddPopupStyles.Text}>Manually Add Contact</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={AddPopupStyles.TextCont} onPress={() => props.setAddCPopup(false)}>
+          <TouchableOpacity style={AddPopupStyles.TextCont} onPress={() => alert('This feature will be available in a future update')}>
             <Text style={AddPopupStyles.Text}>Import Contact From Phone</Text>
           </TouchableOpacity>
 

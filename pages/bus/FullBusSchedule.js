@@ -5,6 +5,7 @@ import {View,Text, Image,SafeAreaView, TouchableOpacity, AsyncStorage} from 'rea
 import {Actions} from 'react-native-router-flux';
 import data from '../../storage.json';
 import Communications from 'react-native-communications';
+import { StatusBar } from 'react-native'
 
 import FullBusStyles from '../../styles/bus/FullBusScheduleStyles';
 import Fonts from '../../styles/FontsStyles';
@@ -96,6 +97,7 @@ useEffect(() => {
   setTimeout(forceUpdate, 2000);
 }, []);
 
+StatusBar.setBarStyle('light-content', true)
   return (
     <SafeAreaView style={FullBusStyles.Container}>
       <View style={FullBusStyles.Container}> 
