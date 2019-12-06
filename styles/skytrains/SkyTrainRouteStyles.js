@@ -10,11 +10,11 @@ import {
 var SkyTrainRouteStyles=StyleSheet.create({
     Container:{
         flex:1,
-        backgroundColor: "#3971B3"
+        backgroundColor: "#235CA3"
     },
     TopView:{
         flex:0.5,
-        backgroundColor:"#3971B3",
+        backgroundColor:"#235CA3",
         padding:15
     },
 
