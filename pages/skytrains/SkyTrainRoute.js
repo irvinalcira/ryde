@@ -11,19 +11,31 @@ import StopTime from '../../skytraindb/Schedule.json';
 
 export default function SkyTrainRoute() {
 
+  const [ direction, setDriection ] = useState('Eastbound');
+
+  active = '#063C5C';
+  notActive = 'rgba(0,0,0,0.2)';
+  const [ switchColor, setSwitchColor ] = useState(notActive);
+
   const [trainRoute, setTrainRoute] = useState([]);
-  // const [ trainStopId,setTrainStopId ] = useState([]);
-  // const [ trainStopDo, setTrainStopDo ] = useState([]);
+
   var TrainStop = Stops.Stops;
   var TrainStopTime = StopTime;
   function GetTrainRoute() {
-    const expo = TrainStop.filter(x => x.route_name === 'Expo Line' && x.direction_name === 'Eastbound');
+    const expo = TrainStop.filter(x => x.route_name === 'Expo Line' && x.direction_name === direction);
     setTrainRoute(expo);
   }
   useEffect(() => {
     GetTrainRoute();
   }, []);
-  console.log(TrainStop.stop_id);
+  // console.log(TrainStop.stop_id);
+
+  function ChangeDirection() {
+    if(direction === 'Eastbound'){
+      setDriection('Westbound');
+    } else ( setDriection('Eastbound'));
+  }
+
   return (
     <SafeAreaView style={SkyTrainRouteStyles.Container}>
       <View style={SkyTrainRouteStyles.Container}>
@@ -56,6 +68,13 @@ export default function SkyTrainRoute() {
           </View>
           <View style={SkyTrainRouteStyles.BotStyles}>
             <Text style={Fonts.BlueCont}>Station Name</Text>
+            <TouchableOpacity
+              onPress={() => ChangeDirection(),
+              
+                console.log(direction)}
+            >
+              <Text style={Fonts.Destination}>Switch   </Text>
+            </TouchableOpacity>
             <Text style={Fonts.BlueCont}>Est Time</Text>
           </View>
         </View>
@@ -69,7 +88,7 @@ export default function SkyTrainRoute() {
                   time.push(StopTime[j].arrival_time);
                 }
               }
-              console.log(time);
+              // console.log(time);
               return (
 
                 <View>
