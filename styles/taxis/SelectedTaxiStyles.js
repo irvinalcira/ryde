@@ -60,8 +60,8 @@ var SelectedTaxiStyles = StyleSheet.create({
     },
 
     FavoriteIcon:{
-        height:30,
-        width:30
+        height:32,
+        width:32
     },
 
     TaxiName:{

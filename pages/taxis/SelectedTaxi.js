@@ -40,11 +40,11 @@ import Buttons from '../../styles/ButtonsStyles';
                         favtaxiname:taxiname,
                         favtaxiphone:phone,
                         favtaxicity:city,
+
                         favtaxiaddress:address,
                         favtaxiphone:phone,
                         favtaxiimg:img,
                         favtaxiwebsite:website
-                        // favcheck: FavedNum
                     })
                     SetFavArr(datanew.FavTaxi);
                     SetFaved(true);
@@ -148,6 +148,7 @@ import Buttons from '../../styles/ButtonsStyles';
                         }
                     }
       >
+
          {favTaxiImg}
       </TouchableOpacity>
   

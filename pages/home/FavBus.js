@@ -8,6 +8,8 @@ import {
   AsyncStorage
 } from 'react-native';
 import {Actions} from 'react-native-router-flux';
+import * as Animatable from "react-native-animatable";
+
 
 import FavStyles from '../../styles/home/FavStyles';
 import Fonts from '../../styles/FontsStyles';
@@ -53,6 +55,7 @@ export default function FavBus( {RouteNo, RouteName, Schedules, StopNumber} ){
    
   }
 
+  console.log(favBus.length)
   useEffect(() => {
     GetFavBus();
 
@@ -66,10 +69,14 @@ export default function FavBus( {RouteNo, RouteName, Schedules, StopNumber} ){
 
   var FavoriteBus = null;
 
-  if(favBus === null){
+  if(favBus.length === 0){
 
     FavoriteBus = (
-      <View><Text>No Favorites</Text></View>
+      <View style={FavStyles.CompBox}>
+        <Text style={Fonts.Body}>
+        Start by adding your favorite bus route for quick access on the Home Page. You can add, or remove favorites anytime.
+      </Text>
+      </View>
     )
 
   } else {
@@ -77,30 +84,16 @@ export default function FavBus( {RouteNo, RouteName, Schedules, StopNumber} ){
     FavoriteBus = (
 <View style={FavStyles.CompBox}>
 
-{/* <Text style={Fonts.Body}>
-  Start by adding your favorite route for quick access on the Home Page. You can edit, add, or remove favorites anytime.
-</Text> */}
-
 <View style={FavStyles.FavCont}>
   { 
   
-    favBus.map((obj, i) => {
-
-      var LeftTimeColor = '#363636';
+  favBus.map((obj, i) => {
+    
+    var LeftTimeColor = '#3971B3';
       var LeftTimeSize = 22;
       var RightTimeSize = 16;
       var RightTimeFont = 'Assistant-Regular'
 
-      if (i != 0) {
-        LeftTimeColor = 'gray'
-        LeftTimeSize = 19;
-        RightTimeSize = 15;
-      } else {
-        LeftTimeColor = '#3971B3'
-        LeftTimeSize = 23;
-        RightTimeSize = 16
-        RightTimeFont = 'Assistant-Bold'
-      }
 
       if (obj.favbusschedule <= 1){
         Min = ""
@@ -116,7 +109,7 @@ export default function FavBus( {RouteNo, RouteName, Schedules, StopNumber} ){
 
             {/* Start */}
                   <TouchableOpacity>
-                    <View style={[FavStyles.FavPieceCont]}>
+                    <Animatable.View animation='fadeInDown' duration={400}  style={FavStyles.FavCont} style={[FavStyles.FavPieceCont]}>
                     <View style={FavStyles.StopName}>
                     {/* Image */}
                     <View>
@@ -144,10 +137,11 @@ export default function FavBus( {RouteNo, RouteName, Schedules, StopNumber} ){
                       {/* Stop Number */}
                       <View style={FavStyles.TimeCont}>
                         <Text style={[Fonts.Time, {color:LeftTimeColor, fontSize: LeftTimeSize}]}> {obj.favbusschedule} {Min} </Text>
-                        {/* <Text style={FavStyles.RouteName}> {Space} </Text> */}
+
+                        <Text style={FavStyles.RightRouteTime}> {Space} </Text>
                       </View>
 
-                    </View>
+                    </Animatable.View>
                   </TouchableOpacity>
                   {/* End */}
 
