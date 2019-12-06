@@ -15,7 +15,7 @@ export default function SkyTrainRoute() {
   const [ direction, setDirection] = useState("Eastbound");
   const [ destination, setDestination ] = useState("King George");
   const [ opDirection, setOpDirection ] = useState("Westbound");
-  const [ opDestination, setOpDestination ] = useState("WaterFront");
+  const [ opDestination, setOpDestination ] = useState("Waterfront");
 
   var TrainStop = Stops.Stops;
   var TrainStopTime = StopTime;
@@ -25,7 +25,7 @@ export default function SkyTrainRoute() {
   }
 //   async function ChangeDirection() {
 //     if(direction === "Eastbound"){
-//       setDirection("Westbound"), setDestination("WaterFront");
+//       setDirection("Westbound"), setDestination("Waterfront");
 // GetTrainRoute();
 //     } else ( setDirection("Eastbound"), setDestination("King George"));
 // GetTrainRoute();
@@ -34,8 +34,8 @@ export default function SkyTrainRoute() {
 
   function ChangeDirection() {
     if(direction === "Eastbound"){
-      setDirection("Westbound"), setDestination("King George"), setOpDirection("Eastbound"), setOpDestination("WaterFront");
-    } else ( setDirection("Eastbound"), setDestination("WaterFront"), setOpDirection("Westbound"), setOpDestination("King George"));
+      setDirection("Westbound"), setDestination("King George"), setOpDirection("Eastbound"), setOpDestination("Waterfront");
+    } else ( setDirection("Eastbound"), setDestination("Waterfront"), setOpDirection("Westbound"), setOpDestination("King George"));
     // console.log(direction)
     GetTrainRoute();
   }
@@ -61,7 +61,7 @@ export default function SkyTrainRoute() {
               </TouchableOpacity>
             </View>
 
-            <Text style={[Fonts.BusRoute, SkyTrainRouteStyles.NavTitle]}>Expo Line Station</Text>
+            <Text style={[Fonts.BusRoute, SkyTrainRouteStyles.NavTitle]}>Expo Line</Text>
 
           </View>
 
@@ -71,6 +71,10 @@ export default function SkyTrainRoute() {
               style={SkyTrainRouteStyles.WhiteTrain}
               source={require('../../assets/icons/whitetrain.png')}
             />
+
+            <Text style={Fonts.Destination}>{opDestination} to {destination} Station</Text>
+            <Text style={Fonts.BlueCont}>{opDirection}</Text>
+
             <TouchableOpacity
               onPress={() => ChangeDirection()}
             >
@@ -79,9 +83,6 @@ export default function SkyTrainRoute() {
                 source={require('../../assets/icons/switch.png')}
               />
             </TouchableOpacity>
-
-            <Text style={Fonts.Destination}>{opDestination} - {destination}</Text>
-            <Text style={Fonts.BlueCont}>{opDirection}</Text>
           </View>
           <View style={SkyTrainRouteStyles.BotStyles}>
             <Text style={Fonts.BlueCont}>Station Name</Text>

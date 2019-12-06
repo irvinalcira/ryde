@@ -7,6 +7,7 @@
 			"direction_do":0,
 			"stop_id":11295,
 			"stop_name":"Richmond-Brighouse Station",
+			"canada_direction":"Brighouse",
 			"stop_do":1
 		},
 		{
@@ -15,6 +16,7 @@
 			"direction_do":0,
 			"stop_id":11293,
 			"stop_name":"Lansdowne Station",
+			"canada_direction":"Brighouse",
 			"stop_do":2
 		},
 		{
@@ -23,6 +25,7 @@
 			"direction_do":0,
 			"stop_id":11291,
 			"stop_name":"Aberdeen Station",
+			"canada_direction":"Brighouse",
 			"stop_do":3
 		},
 		{
@@ -30,6 +33,7 @@
 			"direction_name":"Northbound",
 			"direction_do":0,
 			"stop_id":11301,
+			"canada_direction":"YVR",
 			"stop_name":"YVR-Airport Station",
 			"stop_do":4
 		},
@@ -38,6 +42,7 @@
 			"direction_name":"Northbound",
 			"direction_do":0,
 			"stop_id":11299,
+			"canada_direction":"YVR",
 			"stop_name":"Sea Island Centre Station",
 			"stop_do":5
 		},
@@ -47,6 +52,7 @@
 			"direction_do":0,
 			"stop_id":11297,
 			"stop_name":"Templeton Station",
+			"canada_direction":"YVR",
 			"stop_do":6
 		},
 		{
@@ -215,6 +221,7 @@
 			"direction_do":1,
 			"stop_id":11290,
 			"stop_name":"Aberdeen Station",
+			"canada_direction":"Brighouse",
 			"stop_do":11
 		},
 		{
@@ -222,6 +229,7 @@
 			"direction_name":"Southbound",
 			"direction_do":1,
 			"stop_id":11292,
+			"canada_direction":"Brighouse",
 			"stop_name":"Lansdowne Station",
 			"stop_do":12
 		},
@@ -230,6 +238,7 @@
 			"direction_name":"Southbound",
 			"direction_do":1,
 			"stop_id":11294,
+			"canada_direction":"Brighouse",
 			"stop_name":"Richmond-Brighouse Station",
 			"stop_do":13
 		},
@@ -239,6 +248,7 @@
 			"direction_do":1,
 			"stop_id":11296,
 			"stop_name":"Templeton Station",
+			"canada_direction":"YVR",
 			"stop_do":14
 		},
 		{
@@ -246,6 +256,7 @@
 			"direction_name":"Southbound",
 			"direction_do":1,
 			"stop_id":11298,
+			"canada_direction":"YVR",
 			"stop_name":"Sea Island Centre Station",
 			"stop_do":15
 		},
@@ -254,6 +265,7 @@
 			"direction_name":"Southbound",
 			"direction_do":1,
 			"stop_id":11300,
+			"canada_direction":"YVR",
 			"stop_name":"YVR-Airport Station",
 			"stop_do":16
 		},
@@ -388,7 +400,7 @@
 		{
 			"route_name":"Expo Line",
 			"direction_name":"Eastbound",
-			"expo_direction":"King George",
+			"canada_direction":"King George",
 			"direction_do":0,
 			"stop_id":8055,
 			"stop_name":"Scott Road Station",
@@ -397,7 +409,7 @@
 		{
 			"route_name":"Expo Line",
 			"direction_name":"Eastbound",
-			"expo_direction":"King George",
+			"canada_direction":"King George",
 			"direction_do":0,
 			"stop_id":8056,
 			"stop_name":"Gateway Station",
@@ -406,7 +418,7 @@
 		{
 			"route_name":"Expo Line",
 			"direction_name":"Eastbound",
-			"expo_direction":"King George",
+			"canada_direction":"King George",
 			"direction_do":0,
 			"stop_id":8057,
 			"stop_name":"Surrey Central Station",
@@ -415,7 +427,7 @@
 		{
 			"route_name":"Expo Line",
 			"direction_name":"Eastbound",
-			"expo_direction":"King George",
+			"canada_direction":"King George",
 			"direction_do":0,
 			"stop_id":8058,
 			"stop_name":"King George Station",
@@ -424,7 +436,7 @@
 		{
 			"route_name":"Expo Line",
 			"direction_name":"Eastbound",
-			"expo_direction":"Production Way",
+			"canada_direction":"Production Way",
 			"direction_do":0,
 			"stop_id":8580,
 			"stop_name":"Sapperton Station",
@@ -432,7 +444,7 @@
 		},
 		{
 			"route_name":"Expo Line",
-			"expo_direction":"Production Way",
+			"canada_direction":"Production Way",
 			"direction_name":"Eastbound",
 			"direction_do":0,
 			"stop_id":8578,
@@ -441,7 +453,7 @@
 		},
 		{
 			"route_name":"Expo Line",
-			"expo_direction":"Production Way",
+			"canada_direction":"Production Way",
 			"direction_name":"Eastbound",
 			"direction_do":0,
 			"stop_id":8746,
@@ -450,7 +462,7 @@
 		},
 		{
 			"route_name":"Expo Line",
-			"expo_direction":"Production Way",
+			"canada_direction":"Production Way",
 			"direction_name":"Eastbound",
 			"direction_do":0,
 			"stop_id":8747,
@@ -459,7 +471,7 @@
 		},
 		{
 			"route_name":"Expo Line",
-			"expo_direction":"Production Way",
+			"canada_direction":"Production Way",
 			"direction_name":"Westbound",
 			"direction_do":1,
 			"stop_id":8756,
@@ -468,7 +480,7 @@
 		},
 		{
 			"route_name":"Expo Line",
-			"expo_direction":"Production Way",
+			"canada_direction":"Production Way",
 			"direction_name":"Westbound",
 			"direction_do":1,
 			"stop_id":8755,
@@ -477,7 +489,7 @@
 		},
 		{
 			"route_name":"Expo Line",
-			"expo_direction":"Production Way",
+			"canada_direction":"Production Way",
 			"direction_name":"Westbound",
 			"direction_do":1,
 			"stop_id":8577,
@@ -486,7 +498,7 @@
 		},
 		{
 			"route_name":"Expo Line",
-			"expo_direction":"Production Way",
+			"canada_direction":"Production Way",
 			"direction_name":"Westbound",
 			"direction_do":1,
 			"stop_id":8579,
@@ -495,7 +507,7 @@
 		},
 		{
 			"route_name":"Expo Line",
-			"expo_direction":"King George",
+			"canada_direction":"King George",
 			"direction_name":"Westbound",
 			"direction_do":1,
 			"stop_id":8059,
@@ -504,7 +516,7 @@
 		},
 		{
 			"route_name":"Expo Line",
-			"expo_direction":"King George",
+			"canada_direction":"King George",
 			"direction_name":"Westbound",
 			"direction_do":1,
 			"stop_id":8060,
@@ -513,7 +525,7 @@
 		},
 		{
 			"route_name":"Expo Line",
-			"expo_direction":"King George",
+			"canada_direction":"King George",
 			"direction_name":"Westbound",
 			"direction_do":1,
 			"stop_id":8061,
@@ -522,7 +534,7 @@
 		},
 		{
 			"route_name":"Expo Line",
-			"expo_direction":"King George",
+			"canada_direction":"King George",
 			"direction_name":"Westbound",
 			"direction_do":1,
 			"stop_id":8062,
