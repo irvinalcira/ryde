@@ -14,10 +14,6 @@ export default function SkyTrainRoute() {
   const [ direction, setDirection ] = useState("Eastbound");
   const [ destination, setDestination ] = useState("King George");
 
-  active = '#063C5C';
-  notActive = 'rgba(0,0,0,0.2)';
-  const [ switchColor, setSwitchColor ] = useState(notActive);
-
   const [trainRoute, setTrainRoute] = useState([]);
 
   var TrainStop = Stops.Stops;
