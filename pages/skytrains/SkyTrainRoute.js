@@ -12,13 +12,21 @@ import StopTime from '../../skytraindb/Schedule.json';
 export default function SkyTrainRoute() {
 
   const [trainRoute, setTrainRoute] = useState([]);
-  // const [ trainStopId,setTrainStopId ] = useState([]);
-  // const [ trainStopDo, setTrainStopDo ] = useState([]);
+  const [ direction, setDirection] = useState("Eastbound");
+  const [ destination, SetDestination ] = useState("King George");
+
   var TrainStop = Stops.Stops;
   var TrainStopTime = StopTime;
   function GetTrainRoute() {
     const expo = TrainStop.filter(x => x.route_name === 'Expo Line' && x.direction_name === 'Eastbound' && x.expo_direction !== 'Production Way');
     setTrainRoute(expo);
+  }
+  function ChangeDirection() {
+    if(direction === "Eastbound" && destination === "King George"){
+      setDirection("Westbound"), setDestination("WaterFront");
+    } else ( setDirection("Eastbound"), setDestination("King George"));
+    // console.log(direction)
+    GetTrainRoute();
   }
   useEffect(() => {
     GetTrainRoute();
@@ -52,7 +60,7 @@ export default function SkyTrainRoute() {
               source={require('../../assets/icons/whitetrain.png')}
             />
             <Text style={Fonts.Destination}>TO PRODUCTION WAY</Text>
-            {/* <Text style={Fonts.BlueCont}>WATERFRONT</Text> */}
+            <Text style={Fonts.BlueCont}>{destination}</Text>
           </View>
           <View style={SkyTrainRouteStyles.BotStyles}>
             <Text style={Fonts.BlueCont}>Station Name</Text>
