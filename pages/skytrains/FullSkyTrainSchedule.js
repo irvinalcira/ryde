@@ -21,7 +21,7 @@ function FullSkyTrainSchedule({time}) {
   // } else {
   //   time = timenew-time
   // }
-  console.log(time);
+  // console.log(time);
   return (
     <SafeAreaView style={FullSkyTrainStyles.Container}>
       <View style={FullSkyTrainStyles.Container}> 

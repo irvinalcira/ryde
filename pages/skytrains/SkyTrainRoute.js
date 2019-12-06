@@ -35,7 +35,7 @@ export default function SkyTrainRoute() {
     if(direction === "Eastbound" && destination === "King George"){
       setDirection("Westbound"), setDestination("WaterFront");
     } else ( setDirection("Eastbound"), setDestination("King George"));
-    console.log(direction)
+    // console.log(direction)
     GetTrainRoute();
   }
 
@@ -66,17 +66,20 @@ export default function SkyTrainRoute() {
               style={SkyTrainRouteStyles.WhiteTrain}
               source={require('../../assets/icons/whitebus.png')}
             />
+            <TouchableOpacity
+              onPress={() => ChangeDirection()}
+            >
+              <Image 
+                style={{width:20, height:20}}
+                source={require('../../assets/icons/switch.png')}
+              />
+            </TouchableOpacity>
             <Text style={Fonts.Destination}>To {destination} Station</Text>
             <Text style={Fonts.BlueCont}>{direction}</Text>
           </View>
           <View style={SkyTrainRouteStyles.BotStyles}>
-            <Text style={Fonts.BlueCont}>Station Name</Text>
-            <TouchableOpacity
-              onPress={() => ChangeDirection()}
-            >
-              <Text style={Fonts.Destination}>Switch   </Text>
-            </TouchableOpacity>
-            <Text style={Fonts.BlueCont}>Est Time</Text>
+            {/* <Text style={Fonts.BlueCont}>Station Name</Text> */}
+            {/* <Text style={Fonts.BlueCont}>Est Time</Text> */}
           </View>
         </View>
         <ScrollView style={SkyTrainRouteStyles.ScrollView}>
@@ -119,12 +122,12 @@ export default function SkyTrainRoute() {
                         </View>
                       </View>
 
-                      <View style={SkyTrainRouteStyles.TimeCont}>
-                        <Text style={Fonts.EstNum}>{time}</Text>
+                      {/* <View style={SkyTrainRouteStyles.TimeCont}> */}
+                        {/* <Text style={Fonts.EstNum}>{time}</Text> */}
 
                         {/* <Text style={Fonts.EstTime}>MIN AWAY</Text> */}
 
-                      </View>
+                      {/* </View> */}
 
                     </View>
                   </TouchableOpacity>
