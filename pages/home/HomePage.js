@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from 'react';
 import { View, Text, SafeAreaView, TouchableOpacity, ScrollView, AsyncStorage } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 //STYLE IMPORTS
 import HomePageStyles from '../../styles/home/HomePageStyles';
@@ -111,8 +112,12 @@ export default function HomePage(){
     <SafeAreaView style={HomePageStyles.Container}>
       
       <View style={HomePageStyles.Container}>
-
+            <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center'}}>
             <Text style={Fonts.Title}>Hi {Name},</Text>
+            <TouchableOpacity   onPress={()=>{ AsyncStorage.clear() }}>
+            <Text style={[Fonts.Title, {fontSize:18, color:"#f4f4f4"}]}>Log Out</Text>
+            </TouchableOpacity>
+            </View>
 
 
             {/* FAVORITES SECTION */}

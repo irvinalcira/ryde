@@ -3,6 +3,8 @@ import { View, Text, Button, SafeAreaView, FlatList, ScrollView, TouchableOpacit
 import { Actions } from 'react-native-router-flux';
 import { Dropdown } from 'react-native-material-dropdown';
 import * as Animatable from "react-native-animatable";
+import { StatusBar } from 'react-native'
+
 
  
 
@@ -63,6 +65,10 @@ function Taxis(props) {
         fetchData();
     },[]);
     runTitle();
+
+    StatusBar.setBarStyle('dark-content', true)
+
+    
     return (
         <SafeAreaView style={TaxisStyles.Container}>
             <View style={TaxisStyles.Container}>

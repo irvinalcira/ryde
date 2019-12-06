@@ -3,6 +3,7 @@ import { View, Text, TextInput, Button, TouchableOpacity, Image,ScrollView, Safe
 import {Actions} from 'react-native-router-flux';
 import BusRouteStyles from '../../styles/bus/BusRouteStyles';
 import Fonts from '../../styles/FontsStyles';
+import { StatusBar } from 'react-native'
 
 export default function BusRoute(props){
   const [BusRouteNum,setBusRouteNum] = useState([]);
@@ -24,6 +25,7 @@ async function setvalue(){
    useEffect(() => {
 setvalue()
   },[]);
+  
   return(
     <SafeAreaView style={BusRouteStyles.Container}>
       <View style={BusRouteStyles.Container}>

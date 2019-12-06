@@ -21,18 +21,26 @@ var FullBusStyles =StyleSheet.create({
     // Blue part
     NavBar:{
         display: "flex",
+        flex:1,
         flexDirection: "row",
         justifyContent:"center",
+        // backgroundColor:'green'
     },
 
     NavTitle: {
-        flex: 4,
         textAlign: "center",
     },
 
+    BusRoute:{
+      color:"white",
+      fontFamily:"Assistant-Bold",
+      fontSize:22,
+    },
+
     ArrowCont: {
-        flex: 0.5,
-        justifyContent: "center"
+        flex: 1,
+        justifyContent: "center",
+        // backgroundColor:'yellow'
     },
     
     BackArrow:{

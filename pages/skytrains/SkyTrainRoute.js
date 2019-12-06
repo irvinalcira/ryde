@@ -15,12 +15,21 @@ export default function SkyTrainRoute() {
   const [ destination, setDestination ] = useState("King George");
 
   const [trainRoute, setTrainRoute] = useState([]);
+  const [ direction, setDirection] = useState("Eastbound");
+  const [ destination, setDestination ] = useState("King George");
 
   var TrainStop = Stops.Stops;
   var TrainStopTime = StopTime;
-  function GetTrainRoute() {
-    const expo = TrainStop.filter(x => x.route_name === 'Expo Line' && x.direction_name === direction);
-    setTrainRoute(expo);
+ async function GetTrainRoute() {
+    const expo = TrainStop.filter(x => x.route_name === 'Expo Line' && x.direction_name === direction && x.expo_direction !== 'Production Way');
+   await setTrainRoute(expo);
+  }
+  async function ChangeDirection() {
+    if(direction === "Eastbound" && destination === "King George"){
+      setDirection("Westbound"), setDestination("WaterFront");
+GetTrainRoute();
+    } else ( setDirection("Eastbound"), setDestination("King George"));
+GetTrainRoute();
   }
   useEffect(() => {
     GetTrainRoute();
@@ -60,7 +69,7 @@ export default function SkyTrainRoute() {
           <View style={SkyTrainRouteStyles.MidStyles}>
             <Image
               style={SkyTrainRouteStyles.WhiteTrain}
-              source={require('../../assets/icons/whitebus.png')}
+              source={require('../../assets/icons/whitetrain.png')}
             />
             <TouchableOpacity
               onPress={() => ChangeDirection()}
@@ -70,12 +79,13 @@ export default function SkyTrainRoute() {
                 source={require('../../assets/icons/switch.png')}
               />
             </TouchableOpacity>
-            <Text style={Fonts.Destination}>To {destination} Station</Text>
-            <Text style={Fonts.BlueCont}>{direction}</Text>
+
+            <Text style={Fonts.Destination}>TO PRODUCTION WAY</Text>
+            <Text style={Fonts.BlueCont}>{destination}</Text>
           </View>
           <View style={SkyTrainRouteStyles.BotStyles}>
-            {/* <Text style={Fonts.BlueCont}>Station Name</Text> */}
-            {/* <Text style={Fonts.BlueCont}>Est Time</Text> */}
+            <Text style={Fonts.BlueCont}>Station Name</Text>
+
           </View>
         </View>
         <ScrollView style={SkyTrainRouteStyles.ScrollView}>
@@ -97,7 +107,6 @@ export default function SkyTrainRoute() {
                     {
                       time:time
                     }
-        
                   )}>
 
                     <View style={SkyTrainRouteStyles.TrainView}>
@@ -118,7 +127,7 @@ export default function SkyTrainRoute() {
                         </View>
                       </View>
 
-                      {/* <View style={SkyTrainRouteStyles.TimeCont}> */}
+                      <View style={SkyTrainRouteStyles.TimeCont}>
                         {/* <Text style={Fonts.EstNum}>{time}</Text> */}
 
                         {/* <Text style={Fonts.EstTime}>MIN AWAY</Text> */}

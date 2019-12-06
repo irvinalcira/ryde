@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { View, Text,SafeAreaView,TouchableOpacity, TextInput, Image } from 'react-native';
+import { View, Alert, Text,SafeAreaView,TouchableOpacity, TextInput, Image } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 
 import SkyTrainScheduleStyles from '../../styles/skytrains/SkyTrainSchedulesStyles';
@@ -88,7 +88,7 @@ export default function SkyTrainSchedules(){
         placeholderTextColor='gray' 
         />
 
-        <TouchableOpacity style={Buttons.Main}>
+        <TouchableOpacity style={Buttons.Main} onPress={() => alert('This feature will be available in a future update')}>
               <Text style={Buttons.MainText}>View Station</Text>
           </TouchableOpacity>
 
