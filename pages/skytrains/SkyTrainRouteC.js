@@ -11,8 +11,8 @@ import StopTime from '../../skytraindb/Schedule.json';
 
 export default function SkyTrainRoute() {
 
-  const [ direction, setDirection ] = useState("Eastbound");
-  const [ destination, setDestination ] = useState("King George");
+  const [ direction, setDirection ] = useState("Northbound");
+  const [ destination, setDestination ] = useState("Richmond BrigHouse");
 
   active = '#063C5C';
   notActive = 'rgba(0,0,0,0.2)';
@@ -23,7 +23,7 @@ export default function SkyTrainRoute() {
   var TrainStop = Stops.Stops;
   var TrainStopTime = StopTime;
   function GetTrainRoute() {
-    const expo = TrainStop.filter(x => x.route_name === 'Expo Line' && x.direction_name === direction);
+    const expo = TrainStop.filter(x => x.route_name === 'Canada Line' && x.direction_name === direction);
     setTrainRoute(expo);
   }
   useEffect(() => {
@@ -32,9 +32,9 @@ export default function SkyTrainRoute() {
   // console.log(TrainStop.stop_id);
 
   function ChangeDirection() {
-    if(direction === "Eastbound" && destination === "King George"){
-      setDirection("Westbound"), setDestination("WaterFront");
-    } else ( setDirection("Eastbound"), setDestination("King George"));
+    if(direction === "Northbound" && destination === "Richmond BrigHouse"){
+      setDirection("Southbound"), setDestination("WaterFront");
+    } else ( setDirection("Northbound"), setDestination("Richmond BrigHouse"));
     console.log(direction)
     GetTrainRoute();
   }
@@ -56,7 +56,7 @@ export default function SkyTrainRoute() {
               </TouchableOpacity>
             </View>
 
-            <Text style={[Fonts.BusRoute, SkyTrainRouteStyles.NavTitle]}>Expo Line Station</Text>
+            <Text style={[Fonts.BusRoute, SkyTrainRouteStyles.NavTitle]}>Canada Line Station</Text>
 
           </View>
 

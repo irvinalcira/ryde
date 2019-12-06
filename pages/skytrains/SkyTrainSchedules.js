@@ -151,7 +151,7 @@ export default function SkyTrainSchedules(){
         </TouchableOpacity>
 
         {/* Third Train */}
-        <TouchableOpacity  style={[Buttons.SkyTrain, {backgroundColor: "#4298C2"}]}>
+        <TouchableOpacity  style={[Buttons.SkyTrain, {backgroundColor: "#4298C2"}]} onPress={() => Actions.SkyTrainRouteC()}>
                 {/* Left Icon */}
                 <View style={Buttons.IconCont}>
                         <Image
