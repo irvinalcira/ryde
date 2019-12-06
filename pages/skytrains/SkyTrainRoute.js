@@ -13,20 +13,20 @@ export default function SkyTrainRoute() {
 
   const [trainRoute, setTrainRoute] = useState([]);
   const [ direction, setDirection] = useState("Eastbound");
-  const [ destination, SetDestination ] = useState("King George");
+  const [ destination, setDestination ] = useState("King George");
 
   var TrainStop = Stops.Stops;
   var TrainStopTime = StopTime;
-  function GetTrainRoute() {
-    const expo = TrainStop.filter(x => x.route_name === 'Expo Line' && x.direction_name === 'Eastbound' && x.expo_direction !== 'Production Way');
-    setTrainRoute(expo);
+ async function GetTrainRoute() {
+    const expo = TrainStop.filter(x => x.route_name === 'Expo Line' && x.direction_name === direction && x.expo_direction !== 'Production Way');
+   await setTrainRoute(expo);
   }
-  function ChangeDirection() {
+  async function ChangeDirection() {
     if(direction === "Eastbound" && destination === "King George"){
       setDirection("Westbound"), setDestination("WaterFront");
+GetTrainRoute();
     } else ( setDirection("Eastbound"), setDestination("King George"));
-    // console.log(direction)
-    GetTrainRoute();
+GetTrainRoute();
   }
   useEffect(() => {
     GetTrainRoute();
@@ -59,6 +59,14 @@ export default function SkyTrainRoute() {
               style={SkyTrainRouteStyles.WhiteTrain}
               source={require('../../assets/icons/whitetrain.png')}
             />
+            <TouchableOpacity
+              onPress={() => ChangeDirection()}
+            >
+              <Image 
+                style={{width:20, height:20}}
+                source={require('../../assets/icons/switch.png')}
+              />
+            </TouchableOpacity>
             <Text style={Fonts.Destination}>TO PRODUCTION WAY</Text>
             <Text style={Fonts.BlueCont}>{destination}</Text>
           </View>
