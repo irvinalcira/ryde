@@ -11,7 +11,6 @@ import Stops from '../../skytraindb/Stops.json';
 import StopTime from '../../skytraindb/Schedule.json';
 
 export default function SkyTrainSchedules(){
-
         // User Interface
 
         const [ userInput, setUserInput ] = useState('');
@@ -125,7 +124,9 @@ export default function SkyTrainSchedules(){
         </TouchableOpacity>
 
         {/* Millenium Line */}
-        <TouchableOpacity  style={[Buttons.SkyTrain, {backgroundColor: "#F7D148"}]}>
+        <TouchableOpacity  style={[Buttons.SkyTrain, {backgroundColor: "#F7D148"}]} onPress={() => {
+          alert('This feature will be available in a future update')
+        }}>
                 {/* Left Icon */}
                 <View style={Buttons.IconCont}>
                         <Image

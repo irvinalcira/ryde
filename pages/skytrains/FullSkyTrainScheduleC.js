@@ -13,8 +13,8 @@ import StopTime from '../../skytraindb/Schedule.json';
 import { ScrollView } from 'react-native-gesture-handler';
 
 // test
-function FullSkyTrainSchedule({time, trainstopname, trainroutename,traindirection}) {
-  
+function FullSkyTrainScheduleC({time, trainstopname, trainroutename,traindirection}) {
+
   var lastIndex = trainstopname.lastIndexOf(" ");
   trainstopname = trainstopname.substring(0, lastIndex);
 
@@ -58,10 +58,10 @@ useEffect(() => {
 }, []);
 
   return (
-    <SafeAreaView style={[FullSkyTrainStyles.Container, {backgroundColor:'#235CA3'}]}>
+    <SafeAreaView style={[FullSkyTrainStyles.Container, {backgroundColor: "#4298C2"}]}>
       <View style={FullSkyTrainStyles.Container}> 
 
-      <View style={[FullSkyTrainStyles.TopView, {backgroundColor:'#235CA3'}]}>
+      <View style={[FullSkyTrainStyles.TopView, {backgroundColor: "#4298C2"}]}>
 
           {/* Nav Bar (Blue Section) */}
           <View style={FullSkyTrainStyles.NavBar}>
@@ -114,4 +114,4 @@ useEffect(() => {
   )
 }
 
-export default FullSkyTrainSchedule;
+export default FullSkyTrainScheduleC;

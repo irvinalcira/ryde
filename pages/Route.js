@@ -17,6 +17,7 @@ import SkyTrainStation from './skytrains/SkyTrainStation'
 import SkyTrainRoute from './skytrains/SkyTrainRoute'
 import SkyTrainRouteC from './skytrains/SkyTrainRouteC'
 import FullSkyTrainSchedule from './skytrains/FullSkyTrainSchedule'
+import FullSkyTrainScheduleC from './skytrains/FullSkyTrainScheduleC'
 
 import EmptyContacts from './contacts/EmptyContacts';
 import EditContact from './contacts/EditContact'
@@ -51,6 +52,7 @@ function Route(){
               <Scene key="SkyTrainRoute" component={SkyTrainRoute} />
               <Scene key="SkyTrainRouteC" component={SkyTrainRouteC} />
               <Scene key="FullSkyTrainSchedule" component={FullSkyTrainSchedule} />
+              <Scene key="FullSkyTrainScheduleC" component={FullSkyTrainScheduleC} />
           
               <Scene key="Taxis" component={Taxis} />
               <Scene key="SelectedTaxi" component={SelectedTaxi}/>

@@ -39,10 +39,10 @@ export default function SkyTrainRoute() {
   }, []);
 
   return (
-    <SafeAreaView style={SkyTrainRouteStyles.Container}>
+    <SafeAreaView style={[SkyTrainRouteStyles.Container, {backgroundColor: "#4298C2"}]}>
       <View style={SkyTrainRouteStyles.Container}>
 
-        <View style={SkyTrainRouteStyles.TopView}>
+        <View style={[SkyTrainRouteStyles.TopView, {backgroundColor: "#4298C2"}]}>
 
           <View style={SkyTrainRouteStyles.NavBar}>
 
@@ -63,7 +63,7 @@ export default function SkyTrainRoute() {
           <View style={SkyTrainRouteStyles.MidStyles}>
             <Image
               style={SkyTrainRouteStyles.WhiteTrain}
-              source={require('../../assets/icons/whitebus.png')}
+              source={require('../../assets/icons/whitetrain.png')}
             />
             
             <Text style={Fonts.Destination}>{opDestination} to {destination} Station</Text>
@@ -94,11 +94,14 @@ export default function SkyTrainRoute() {
 
                 <View>
                   {/* Train Station */}
-                  <TouchableOpacity onPress={() => Actions.FullSkyTrainSchedule(
+                  <TouchableOpacity onPress={() => Actions.FullSkyTrainScheduleC(
                     {
+                      ...obj,
+                      trainstopname:obj.stop_name,
+                      trainroutename:obj.route_name,
+                      traindirection:destination,
                       time:time
                     }
-        
                   )}>
 
                     <View style={SkyTrainRouteStyles.TrainView}>
@@ -107,14 +110,14 @@ export default function SkyTrainRoute() {
                         <View style={SkyTrainRouteStyles.TrainCont}>
                           <Image
                             style={SkyTrainRouteStyles.TrainIcon}
-                            source={require('../../assets/icons/skytrain-active.png')}
+                            source={require('../../assets/icons/canadatrain.png')}
                           />
                         </View>
 
                         <View style={SkyTrainRouteStyles.Address}>
                           <Text
                             numberOfLines={1}
-                            style={Fonts.AddressText}>
+                            style={[Fonts.AddressText, {color:'#4298C2'}]}>
                             {obj.stop_name}</Text>
                         </View>
                       </View>

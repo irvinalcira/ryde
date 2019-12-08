@@ -45,12 +45,12 @@ export default function SkyTrainRoute() {
   }, []);
 
   return (
-    <SafeAreaView style={SkyTrainRouteStyles.Container}>
+    <SafeAreaView style={[SkyTrainRouteStyles.Container, {backgroundColor:'#235CA3'}]}>
       <View style={SkyTrainRouteStyles.Container}>
 
-        <View style={SkyTrainRouteStyles.TopView}>
+        <View style={[SkyTrainRouteStyles.TopView, {backgroundColor:'#235CA3'}]}>
 
-          <View style={SkyTrainRouteStyles.NavBar}>
+          <View style={[SkyTrainRouteStyles.NavBar]}>
 
             <View style={SkyTrainRouteStyles.ArrowCont}>
               <TouchableOpacity onPress={() => Actions.pop('SkyTrain Schedules')}>
@@ -95,6 +95,7 @@ export default function SkyTrainRoute() {
                   time.push(StopTime[j].arrival_time);
                 }
               }
+              console.log(obj)
               // console.log(time);
               return (
 
@@ -102,6 +103,10 @@ export default function SkyTrainRoute() {
                   {/* Train Station */}
                   <TouchableOpacity onPress={() => Actions.FullSkyTrainSchedule(
                     {
+                      ...obj,
+                      trainstopname:obj.stop_name,
+                      trainroutename:obj.route_name,
+                      traindirection:destination,
                       time:time
                     }
                   )}>
@@ -112,7 +117,7 @@ export default function SkyTrainRoute() {
                         <View style={SkyTrainRouteStyles.TrainCont}>
                           <Image
                             style={SkyTrainRouteStyles.TrainIcon}
-                            source={require('../../assets/icons/skytrain-active.png')}
+                            source={require('../../assets/icons/expotrain.png')}
                           />
                         </View>
 

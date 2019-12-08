@@ -13,7 +13,7 @@ var SkyTrainRouteStyles=StyleSheet.create({
         backgroundColor: "#3971B3"
     },
     TopView:{
-        flex:0.5,
+        flex:0.4,
         backgroundColor:"#3971B3",
         padding:15
     },
@@ -50,7 +50,7 @@ var SkyTrainRouteStyles=StyleSheet.create({
         width:"100%",
         justifyContent:"center",
         alignItems:"center",
-        height:"80%"
+        height:"85%"
     },
     WhiteTrain:{
         height:60,
