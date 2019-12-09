@@ -114,9 +114,9 @@ export default function HomePage(){
       <View style={HomePageStyles.Container}>
             <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center'}}>
             <Text style={Fonts.Title}>Hi {Name},</Text>
-            <TouchableOpacity   onPress={()=>{ AsyncStorage.clear() }}>
+            {/* <TouchableOpacity   onPress={()=>{ AsyncStorage.clear() }}>
             <Text style={[Fonts.Title, {fontSize:18, color:"#f4f4f4"}]}>Log Out</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
             </View>
 
 
