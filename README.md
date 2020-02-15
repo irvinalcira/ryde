@@ -1,20 +1,7 @@
 # ryde
 
-Run this code in your terminal</br>
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+Ryde is a mobile app that is designed to make accessing public transit easier and more efficient.
 
-To install Yarn run the code below in terminal</br>
-brew install yarn
+By combining main methods of transportation into one interface, it ultimately solves user’s frustrations of having to retrieve different information on numerous platforms.
 
-To install responsive screen componet run this in your terminal</br>
-npm install react-native-responsive-screen --save
-
-To link your fonts in the assests folder run this in your terminal</br>
-yarn react-native link
-
-To install geolocation</br>
-npm install react-native-community/geolocation --save
-
-If Android Studio failed to build Gradle</br>
-npm i @react-native-community/cli-platform-android
-
+Visit our project's website at https://ryde.irvinalcira.com
